@@ -23,9 +23,11 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->unsignedInteger('created_by');
-            $table->unsignedInteger('updated_by');
+            $table->foreignId('created_by')->references('id')->on('users');
+            $table->foreignId('updated_by')->references('id')->on('users');
+            $table->foreignId('deleted_by')->nullable()->references('id')->on('users');
             $table->timestamps();
+            $table->softDeletes('deleted_at', 0);
         });
     }
 

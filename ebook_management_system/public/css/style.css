@@ -1,0 +1,107 @@
+/**
+* Authentication
+*/
+* {
+  box-sizing: border-box;
+}
+
+.auth-success {
+  color: #1a8b1a;
+}
+
+.auth-error {
+  color: #ce2424;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.auth {
+  background: url('/img/bg.webp') no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 10px;
+}
+
+.auth-container {
+  width: 500px;
+  background-color: #33364559;
+  border-radius: 15px;
+  padding: 20px;
+  color: #333645;
+}
+
+.login-container {
+  margin: 159px auto;
+}
+
+.register-container {
+  margin: 57px auto;
+}
+
+.card-header {
+  text-align: center;
+  font-size: 30px;
+  color: #333645;
+}
+
+.auth-row {
+  margin : 20px;
+  position: relative;
+}
+
+.auth-row i{
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  color: #333645;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 10px 35px;
+  border:none;
+  border-bottom: 1px solid #FFFFFF90;
+  outline: none;
+  background-color: transparent !important;
+  color: #333645;
+}
+
+.auth-btnrow {
+  margin : 20px;
+  text-align: center;
+}
+
+.reset-pass {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-auth,
+.btn-forgotpass {
+  padding: 13px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  color: #333645;
+  background-color: #FFFFFF90;
+}
+
+.btn-auth {
+  width: 40%;
+}
+
+.btn-forgotpass {
+  width: 60%;
+}
+
+.rt-content-link {
+  color: #FFFFFF90;
+}
+
+.forgetpass-container {
+  margin: 197px auto;
+}
+

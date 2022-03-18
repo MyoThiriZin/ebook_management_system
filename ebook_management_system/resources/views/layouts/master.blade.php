@@ -14,9 +14,18 @@
   <div id="wrapper">
     <section class="sec-header">
         <div class="cmn-container clearfix">
-         <a href=""><h1>EBOOK MANAGEMENT
+          <a href=""><h1>EBOOK MANAGEMENT 
             SYSTEM</h1></a>
-          <a href=""><button>Admin</button></a>
+          
+          <div class="dropdown ft-right">
+            <div class="dropbtn">
+              <span> {{ Auth::user()->name }} <span>
+              <i class="fa-solid fa-circle-user"></i>
+            </div>
+            <div class="dropdown-content">
+              <a href="{{ route('logout') }}">Logout</a>
+            </div>
+          </div>
         </div>
     </section>
     <div class="clearfix">
