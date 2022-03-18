@@ -31,5 +31,14 @@ class storeBookRequest extends FormRequest
             "author_id" => ["required"],
             "category_id" => ["required"],
         ];
+
+    }
+    
+    public function validated()
+    {
+        return array_merge(parent::validated(), [
+            'created_by' => 1,
+            'updated_by' => 1,
+        ]);
     }
 }

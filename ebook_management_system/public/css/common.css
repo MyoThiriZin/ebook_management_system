@@ -1,86 +1,247 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ft-left {
+    float: left;
+}
+
+.ft-right {
+    float: right;
+}
+
+@font-face {
+    font-family: PoppinsBold;
+    src: url('../font/poppins-bold.ttf');
+}
+
+@font-face {
+    font-family: RalewayRegular;
+    src: url('../font/Raleway-Regular.ttf');
 }
 
 #wrapper {
-  max-width: 1920px;
-  margin: 0 auto;
+    width: 1280px;
+    margin: 0 auto;
 }
 
 a {
-  text-decoration: none;
-  color: #000;
-  cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .cmn-container {
-  width: 100%;
-  padding: 0px 56px 0px 22px;
+    width: 1280px;
 }
 
 .clearfix::after {
-  display: block;
-  clear: both;
-  line-height: 0;
-  visibility: hidden;
-  font-size: 0;
-  content: "";
+    display: block;
+    clear: both;
+    line-height: 0;
+    visibility: hidden;
+    font-size: 0;
+    content: "";
 }
 
 .cmn-container h1 {
-  float: left;
-  padding: 10px 0 10px 5px;
-  font-size: 22px;
-  white-space: pre-line;
-  text-align: center;
+    float: left;
+    padding: 10px 0 10px 5px;
+    font-size: 22px;
+    text-align: center;
+    white-space: pre-line;
 }
 
 .cmn-container button {
-  float: right;
-  margin: 10px 15px 10px 0;
-  background-color: #1cc2b3;
-  font-size: 20px;
-  padding: 8px 20px;
-  border-radius: 15px;
-  border: transparent;
-  cursor: pointer;
+    float: right;
+    margin: 10px 15px 10px 0;
+    padding: 8px 20px;
+    border: transparent;
+    background-color: #1cc2b3;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 15px;
 }
 
 .sec-header {
-  border-bottom: 2px solid #000000;
-  background-color: rgb(235, 228, 228);
+    background-color: rgb(235, 228, 228);
+    border-bottom: 2px solid #000000;
 }
 
 .side-content {
-  width: 20%;
-  float: left;
+    float: left;
+    width: 20%;
 }
 
 .sidenav {
-  height: 100%;
-  width: 19%;
-  position: fixed;
-  z-index: 1;
-  background-color: #1cc2b3;
-  overflow-x: hidden;
-  padding-top: 20px;
+    position: fixed;
+    z-index: 1;
+    width: 19%;
+    height: 100%;
+    padding-top: 20px;
+    background-color: #1cc2b3;
+    overflow-x: hidden;
 }
 
 .main-content {
-  float: right;
-  width: 78%;
+    float: right;
+    width: 78%;
 }
 
 .sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 22px;
-  color: #000000;
-  display: inline-block;
+    display: inline-block;
+    padding: 6px 8px 6px 16px;
+    color: #000000;
+    font-family: "RalewayRegular";
+    font-size: 17px;
+    text-decoration: none;
 }
 
 .sidenav a:hover,
 .sidenav .fas:hover {
+    color: #f1f1f1;
+}
+
+.sidenav li {
+    margin-left: 15px;
+    padding: 15px;
+    list-style-type: none;
+}
+
+.fas {
+    font-family: "Font Awesome 6 Free";
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.sec-footer {
+    float: right;
+    width: 100%;
+    padding: 10px;
+    background-color: #cdfcf9;
+    font-size: 20px;
+}
+
+.form-title {
+    margin: 20px 0;
+    font-family: PoppinsBold;
+    font-size: 22px;
+}
+
+.form-sec {
+    width: 800px;
+    margin: 0 auto;
+}
+.first-column{
+    width: 48%;
+}
+.first-column label{
+    margin-bottom: 10px;
+}
+.second-column{
+    width: 48%;
+}
+.second-column label, .second-column span{
+    margin-bottom: 11px;
+}
+small{
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.form-sec input[type=text],
+.form-sec input[type=file],
+.form-sec select,
+.form-sec textarea {
+    font-family: "RalewayRegular";
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px 0 10px 10px;
+    border: none;
+    color: #000000;
+    outline: none;
+    background-color:#d1cdcd;
+    resize: none;
+    box-shadow: rgba(20, 20, 20, 0.3) 0px 5px 5px;
+}
+option{
+    font-size: 16px;
+    color: #494848;
+}
+::placeholder {
+    padding-left: 10px;
+}
+
+.form-sec select {
+    padding-left: 10px;
+    color: #494848;
+}
+
+.form-sec .create-btn {
+    cursor: pointer;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #1cc2b3;
+    border-radius: 4px;
+}
+/* Add Button */
+.add-btn{
+    margin: 10px 10px 10px 0;
+}
+.add-btn-link{
+    cursor: pointer;
+    font-family: "RalewayRegular";
+    font-size: 14px;
+    color: #f1f1f1;
+    padding: 10px 20px;
+    background-color: rgb(19, 177, 103);
+    border: transparent;
+    border-radius: 10px;
+}
+/* Table */
+table{
+    font-family: "RalewayRegular";
+    font-size: 14px;
+    margin-top: 20px;
+    width: 100%;
+}
+.heading{
+    background-color:#adabab;
+  }
+  .heading th{
+    padding: 15px 10px;
+    text-align: center;
+  }
+  td{
+        padding: 8px 0px;
+     text-align: center;
+  }
+
+  tr:hover{
+  background-color: rgb(238, 232, 232);
+  }
+  tr:nth-child(2n){
+    background-color:#d1cdcd;
+  }
+  .edit-btn,.seemore-btn,.delete-btn{
+      font-size: 14px;
+      border: none;
+      border-radius: 10px;
+      margin-right: 10px;
+  }
+.edit-btn{
+    padding: 8px 8px;
+    background-color: rgb(22, 204, 236);
+}
+.seemore-btn{
+    padding: 8px 8px;
+    background-color: rgb(8, 226, 143);
+}
+.delete-btn{
+    padding: 8px 10px;
+    background-color: rgb(231, 14, 14);
+}
   color: #f1f1f1;
 }
 
@@ -102,14 +263,6 @@ a {
   background-color: #cdfcf9;
   font-size: 20px;
   padding: 10px;
-}
-
-.ft-left {
-  float: left;
-}
-
-.ft-right {
-  float: right;
 }
 
 .dropbtn {
