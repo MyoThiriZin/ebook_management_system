@@ -1,9 +1,21 @@
 /**
 * Authentication
 */
+@font-face {
+  font-family: PoppinsBold;
+  src: url('../font/poppins-bold.ttf');
+}
+
+@font-face {
+  font-family: RalewayRegular;
+  src: url('../font/Raleway-Regular.ttf');
+}
+
 * {
   box-sizing: border-box;
+  font-family: RalewayRegular;
 }
+
 
 .auth-success {
   color: #1a8b1a;
@@ -34,25 +46,30 @@ input::-webkit-inner-spin-button {
 }
 
 .login-container {
-  margin: 159px auto;
+  margin: 150px auto;
 }
 
 .register-container {
-  margin: 57px auto;
+  margin: 56px auto;
 }
 
 .card-header {
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
   color: #333645;
+  font-family: PoppinsBold;
+}
+
+.card-body {
+  margin-top: 21px;
 }
 
 .auth-row {
-  margin : 20px;
+  margin: 20px;
   position: relative;
 }
 
-.auth-row i{
+.auth-row i {
   position: absolute;
   left: 6px;
   top: 10px;
@@ -62,7 +79,7 @@ input::-webkit-inner-spin-button {
 .auth-input {
   width: 100%;
   padding: 10px 35px;
-  border:none;
+  border: none;
   border-bottom: 1px solid #FFFFFF90;
   outline: none;
   background-color: transparent !important;
@@ -70,7 +87,7 @@ input::-webkit-inner-spin-button {
 }
 
 .auth-btnrow {
-  margin : 20px;
+  margin: 20px;
   text-align: center;
 }
 
@@ -93,6 +110,12 @@ input::-webkit-inner-spin-button {
   width: 40%;
 }
 
+.btn-auth:hover {
+  background-color: #33364590;
+  transition: 1s;
+  color: #FFFFFF;
+}
+
 .btn-forgotpass {
   width: 60%;
 }
@@ -101,7 +124,15 @@ input::-webkit-inner-spin-button {
   color: #FFFFFF90;
 }
 
-.forgetpass-container {
-  margin: 197px auto;
+.rt-content-link:hover {
+  color: #333645;
+  transition: 1s;
 }
 
+.forgetpass-container {
+  margin: 198px auto;
+}
+
+.resetpass-container {
+  margin: 159px auto;
+}

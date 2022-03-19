@@ -3,43 +3,43 @@
 @section('content')
 
 <div class="add-btn clearfix">
-    <a href="{{route("books.create")}}"><button class="add-btn-link ft-right"><i class="fa-fw fas fa-plus"></i> Add Book</button></a>
+  <a href="{{route('books.create')}}" class="ft-right"><button class="add-btn-link"><i class="fa-fw fas fa-plus"></i> Add Book</button></a>
 </div>
 @if (session('success_msg'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{ session('success_msg') }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  {{ session('success_msg') }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
 <table cellspacing="0" cellpadding="0">
-     <thead class="heading">
-       <tr>
-         <th><span>ID</span></th>
-         {{--<th><span>Image</span></th>--}}
-         <th><span>Name</span></th>
-         <th><span>Author Name</span></th>
-         <th><span>Category Name</span></th>
-         <th><span>Borrow Duration</span></th>
-         <th><span>Action</span></th>
+    <thead class="heading">
+      <tr>
+          <th><span>ID</span></th>
+          {{--<th><span>Image</span></th>--}}
+          <th><span>Name</span></th>
+          <th><span>Author Name</span></th>
+          <th><span>Category Name</span></th>
+          <th><span>Borrow Duration</span></th>
+          <th><span>Action</span></th>
 
-       </tr>
-     </thead>
-     <tbody>
-     @forelse ($items as $item)
-         <tr>
-         <td>{{$item->id}}</td>
-         {{--<td><img src="/uploads/{{ $item->image }}" width="100px" height="50px"></td>--}}
-         <td>{{$item->name}}</td>
-         <td>{{$item->author->name}}</td>
-         <td>{{$item->category->name}}</td>
-         <td>{{$item->duration}} days</td>
-         <td class="action">
-            <a href="{{url('/books/' . $item->id . '/edit') }}"><button class="edit-btn">Edit</button></a>
-            <a href=""><button class="seemore-btn">Seemore</button></a>
+      </tr>
+    </thead>
+    <tbody>
+    @forelse ($items as $item)
+        <tr>
+        <td>{{$item->id}}</td>
+        {{--<td><img src="/uploads/{{ $item->image }}" width="100px" height="50px"></td>--}}
+        <td>{{$item->name}}</td>
+        <td>{{$item->author->name}}</td>
+        <td>{{$item->category->name}}</td>
+        <td>{{$item->duration}} days</td>
+        <td class="action">
+            <a href="{{url('/books/' . $item->id . '/edit') }}"><button class="edit-btn"><i class="fas fa-edit"></i></button></a>
+            <a href=""><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
             <button class="delete-btn" data-bs-toggle="modal"
-            data-bs-target="#modal{{ $item->id }}">Delete</button>
-         </td>
-         <div class="modal fade" id="modal{{ $item->id }}" tabindex="-1"
+            data-bs-target="#modal{{ $item->id }}"><i class="fa-solid fa-trash-can"></i></button>
+        </td>
+        <div class="modal fade" id="modal{{ $item->id }}" tabindex="-1"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content ">
@@ -62,17 +62,17 @@
                 </div>
             </div>
         </div>
-         {{--<td>
-             <embed type="application/pdf" src="/pdf_files/{{ $item->file }}" width="200" height="200">
+        {{--<td>
+            <embed type="application/pdf" src="/pdf_files/{{ $item->file }}" width="200" height="200">
             </td>--}}
-       </tr>
-     @empty
-     <tr>
+      </tr>
+    @empty
+    <tr>
         <td colspan="6" style="text-align: center">There is no book data.</td>
       </tr>
-     @endforelse
+    @endforelse
 
-       </tbody>
-       </table>
+  </tbody>
+</table>
 
 @endsection

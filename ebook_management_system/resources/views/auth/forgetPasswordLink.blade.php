@@ -1,8 +1,8 @@
 @extends('layouts.auth')
   
 @section('content')
-  <div class="login-container auth-container">
-    <div class="card-header">Reset Password</div>
+  <div class="resetpass-container auth-container">
+    <div class="card-header">Re-enter your new password</div>
     <div class="card-body">
 
       <form action="{{ route('submit.reset.password') }}" method="POST">
