@@ -39,6 +39,9 @@
                     <small class="text-danger">*{{ $errors->first('author_id') }}</small>
                     @endif
                 </div>
+                <div class=" clearfix">
+                    <a href="{{route("books.index")}}"><button class="back-btn ft-left"><i class="fa-fw fas fa-backward"></i>Back</button></a>
+                </div>
             </div>
             <div class="second-column ft-right">
                 <div class="input-group">

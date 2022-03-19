@@ -19,3 +19,8 @@ Route::get('/', function () {
 
 //Book
 Route::resource('books','Admin\BookController');
+//
+//Route::get('export', 'Admin\BookController@export');
+//Route::get('importFile', 'Admin\BookController@importFile');
+//Route::post('import', 'Admin\BookController@import');
+

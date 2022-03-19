@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Book;
 use App\Author;
 use App\Category;
+use App\Export\BookExport;
+use App\Import\BookImport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 
 class BookController extends Controller
@@ -20,7 +23,20 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::with("category", "author")->latest()->get();
+        $books = Book::when($search = request('searchData'), function ($query) use ($search) {
+            $query->where('name', 'LIKE', '%' . $search . '%')
+            ->orWhere('duration', 'LIKE', '%' . $search . '%')
+            ->orWhere(function ($query) use ($search) {
+                $query->whereHas('author', function ($qry) use ($search) {
+                    $qry->where('name', 'LIKE', '%' . $search . '%');
+                });
+            })
+            ->orWhere(function ($query) use ($search) {
+                $query->whereHas('category', function ($qry) use ($search) {
+                    $qry->where('name', 'LIKE', '%' . $search . '%');
+                });
+            });
+        })->get();
 
         return view('books.index', ['items' => $books]);
     }
@@ -104,9 +120,13 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Book $book)
     {
-        //
+        $authors = Author::orderBy("name")->get()->pluck("name", "id");
+
+        $categories = Category::orderBy("name")->get()->pluck("name", "id");
+
+        return view('books.show')->with(['item' => $book, 'authors' => $authors, 'categories' => $categories]);
     }
 
     /**
@@ -209,9 +229,9 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        $data = Book::select('image')->where('id', $book->id)->first();
+        $data = Book::select('image','file')->where('id', $book->id)->first();
         $fileName = $data['image'];
-        //$pdf_fileName = $data['file'];
+        $pdf_fileName = $data['file'];
 
         Book::where('id', $book->id)->delete();
 
@@ -219,10 +239,28 @@ class BookController extends Controller
             File::delete(public_path() . '/uploads/' . $fileName);
         }
 
-        //if (File::exists(public_path() . '/pdf_files/' . $pdf_fileName)) {
-        //    File::delete(public_path() . '/pdf_files/' . $pdf_fileName);
-        //}
+        if (File::exists(public_path() . '/pdf_files/' . $pdf_fileName)) {
+            File::delete(public_path() . '/pdf_files/' . $pdf_fileName);
+        }
 
         return redirect()->back()->with("success_msg", deletedMessage("Book"));
     }
+
+//    public function export()
+//    {
+//       return Excel::download(new BookExport, 'book_data.csv');
+//
+//        //return redirect()->back()->with("success_msg", exportMessage("CSV"));
+//    }
+//
+//    public function importFile()
+//    {
+//       return view('books.import');
+//    }
+//
+//    public function import()
+//    {
+//        return Excel::import(new BookImport, request()->file('file'));
+//    }
+
 }

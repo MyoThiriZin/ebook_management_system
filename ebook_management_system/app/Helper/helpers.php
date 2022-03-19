@@ -15,3 +15,7 @@ function deletedMessage($title){
 function importMessage($title){
     return "{$title} has been imported.";
 }
+
+function exportMessage($title){
+    return "{$title} has been exported.";
+}

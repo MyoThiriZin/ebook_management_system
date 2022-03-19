@@ -186,6 +186,16 @@ option{
     border-radius: 4px;
 }
 /* Add Button */
+.search-form{
+    margin-top: 8px;
+}
+.search-btn{
+    margin-right: 20px;
+    padding: 7px 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: #10cf10;
+}
 .add-btn{
     margin: 10px 10px 10px 0;
 }
@@ -241,4 +251,61 @@ table{
 .delete-btn{
     padding: 8px 10px;
     background-color: rgb(231, 14, 14);
+}
+
+/* See More */
+.seemore{
+    width: 600px;
+    margin: 20px auto;
+}
+.seemore i{
+    font-size: 14px;
+}
+.back-btn{
+    background-color: rgb(19, 18, 18);
+    padding: 8px 10px;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.seemore-container{
+    background-color:#d1cdcd;
+    text-align: center;
+
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+.seemore-ttl{
+    padding-top: 15px;
+    text-align: center;
+    font-size:20px ;
+    font-weight: bold;
+    font-family: 'RalewayRegular';
+}
+.img-container{
+    width: 125px;
+    height: 125px;
+    margin: 20px auto;
+
+}
+.img-container img{
+    width: 100%;
+}
+
+.seemore-container label{
+    width: 180px;
+    margin-right: 20px;
+    font-size: 17px;
+    text-align: center;
+}
+.seemore-container span{
+    width: 300px;
+    margin-left: 0px;
+}
+.seemore-container .seemore-item{
+    margin: 0 auto;
+    width: 500px;
+    text-align: left;
+    margin-bottom: 10px;
 }
