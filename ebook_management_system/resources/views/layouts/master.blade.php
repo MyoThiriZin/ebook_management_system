@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ebook Management System</title>
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
   <link href="{{ asset('css/common.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
-  <script src="js/library/jquery-3.6.0.js"></script>
   <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-  <script src="js/common.js"></script>
 </head>
 <body>
   <div id="wrapper">
@@ -42,10 +41,10 @@
             <i class="fa-fw fas fa-user"></i><a href="#">Admin Profile</a>
           </li>
           <li>
-            <i class="fa-fw fas fa-book-open"></i><a href="{{route('books.index')}}">Books</a>
+            <i class="fa-fw fas fa-book-open"></i><a href="#">Books</a>
           </li>
           <li>
-            <i class="fa-fw fas fa-user"></i><a href="#">Authors</a>
+            <i class="fa-fw fas fa-user"></i><a href="{{route('authors.index')}}">Authors</a>
           </li>
           <li>
             <i class="fa-fw fas fa-book"></i><a href="#">Categories</a>

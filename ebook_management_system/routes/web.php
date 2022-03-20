@@ -34,16 +34,6 @@ Route::post('forget-password', 'Admin\Auth\ForgotPasswordController@submitForget
 Route::get('reset-password/{token}', 'Admin\Auth\ForgotPasswordController@showResetPasswordForm')->name('reset.password');
 Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPasswordForm')->name('submit.reset.password');
 
-//Book
-/*
-Route::resource('books','Admin\BookController');
-*/
-
-
-Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
-Route::get('/search', [CategoryController::class, 'search'])->name('category.search');
-Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
-Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
-Route::post('/category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
-Route::post('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
-Route::post('/category/create', [CategoryController::class, 'store'])->name('category.store');
+//Authors
+Route::resource('authors','Admin\Ajax\AuthorController');
+Route::get('/search', 'Admin\Ajax\AuthorController@search');
