@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: PoppinsBold;
   src: url('../font/poppins-bold.ttf');
@@ -93,8 +92,9 @@ a {
 }
 
 .sidenav li i {
-  color : #f1f1f1;
+  color: #f1f1f1;
 }
+
 .sidenav a {
   display: inline-block;
   padding: 6px 8px 6px 16px;
@@ -152,6 +152,7 @@ a {
 .form-label {
   margin-bottom: 10px;
   font-weight: bold;
+  font-size: 16px;
 }
 
 .second-column {
@@ -199,14 +200,14 @@ option {
   color: #494848;
 }
 
-.form-sec .create-btn, 
-.update-btn {
+.form-sec .create-btn {
   cursor: pointer;
   margin-bottom: 30px;
   padding: 10px 20px;
   border: none;
   background-color: #1cc2b3;
   border-radius: 4px;
+  font-size: 16px;
 }
 
 /* Add Button */
@@ -271,12 +272,12 @@ tr:nth-child(2n) {
   background-color: #16ccec;
 }
 
-.edit-btn i{
+.edit-btn i {
   font-size: 18px;
 }
 
 .seemore-btn i,
-.delete-btn i{
+.delete-btn i {
   font-size: 17px;
 }
 
@@ -358,19 +359,415 @@ tr:nth-child(2n) {
   color: #00000090;
 }
 
-.search-form input[type=search] {
-  border: none;
-  width: 200px;
-  padding: 8px 0;
-  border-radius: 10px;
-  background-color: #ebe4e4;
-  display: inline-block;
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+
+  .cmn-container {
+    padding: 0 1.953vw;
+  }
+
+  .cmn-container h1 {
+    padding: 0.781vw 0 0.781vw 0.391vw;
+    font-size: 1.719vw;
+  }
+
+  .cmn-container button {
+    margin: 0.781vw 15px 0.781vw 0;
+    padding: 0.625vw 1.563vw;
+    font-size: 1.563vw;
+    border-radius: 1.172vw;
+  }
+
+  .sec-header {
+    border-bottom: 0.156vw solid #000000;
+  }
+
+  .sidenav {
+    padding: 1.563vw;
+    top: 6.094vw;
+  }
+
+  .main-content {
+    padding: 1.953vw;
+    margin-top: 6.094vw;
+  }
+
+  .sidenav a {
+    padding: 0.469vw 0.625vw 0.469vw 1.250vw;
+    font-size: 1.328vw;
+  }
+
+  .sidenav li {
+    margin-left: 1.172vw;
+    padding: 1.172vw;
+  }
+
+  .fas {
+    font-size: 1.328vw;
+  }
+
+  .sec-footer {
+    padding: 0.781vw;
+    font-size: 1.563vw;
+  }
+
+  .form {
+    padding: 1.563vw 0;
+  }
+
+  .form-title {
+    margin: 0.781vw 0;
+    font-size: 1.719vw;
+  }
+
+  .col {
+    padding-right: 1.563vw;
+  }
+
+  .form-label {
+    margin-bottom: 0.781vw;
+    font-size: 1.250vw;
+  }
+
+  .second-column label,
+  .second-column span {
+    margin-bottom: 0.859vw;
+  }
+
+  small {
+    font-size: 0.938vw;
+    margin-bottom: 0.391vw;
+  }
+
+  .form-sec input[type=text],
+  .form-sec input[type=file],
+  .form-sec select,
+  .form-sec textarea {
+    font-size: 1.094vw;
+    margin-bottom: 1.563vw;
+    padding: 1.094vw 0.781vw;
+    border-bottom: 0.078vw solid #33364590;
+    border-radius: 0.391vw;
+    box-shadow: rgba(20, 20, 20, 0.15) 0vw 0.391vw 0.391vw;
+  }
+
+  option {
+    font-size: 1.250vw;
+  }
+
+  ::placeholder {
+    padding-left: 0.781vw;
+  }
+
+  .form-sec select {
+    padding-left: 0.781vw;
+  }
+
+  .form-sec .create-btn {
+    margin-bottom: 2.344vw;
+    padding: 0.781vw 1.563vw;
+    border-radius: 0.313vw;
+    font-size: 1.250vw;
+  }
+
+  /* Add Button */
+  .add-btn {
+    margin: 0.781vw 0;
+  }
+
+  .add-btn-link {
+    font-size: 1.328vw;
+    padding: 1.172vw;
+    border-radius: 0.781vw;
+  }
+
+  .add-btn-link i {
+    font-size: 1.328vw;
+  }
+
+  /* Table */
+  table {
+    font-size: 1.094vw;
+    margin-top: 1.563vw;
+  }
+
+  .heading th {
+    padding: 1.172vw 0.781vw;
+  }
+
+  td {
+    padding: 0.625vw 0;
+  }
+
+  .edit-btn,
+  .seemore-btn,
+  .delete-btn {
+    font-size: 1.094vw;
+    border-radius: 0.391vw;
+    margin-right: 0.781vw;
+  }
+
+  .edit-btn {
+    padding: 0.391vw;
+  }
+
+  .edit-btn i {
+    font-size: 1.406vw;
+  }
+
+  .seemore-btn i,
+  .delete-btn i {
+    font-size: 1.328vw;
+  }
+
+  .seemore-btn {
+    padding: 0.391vw;
+  }
+
+  .delete-btn {
+    padding: 0.391vw;
+  }
+
+  .sidenav li {
+    padding: 1.172vw;
+    margin-left: 0.781vw;
+  }
+
+  .fas {
+    font-size: 1.563vw;
+  }
+
+  .sec-footer {
+    font-size: 1.563vw;
+    padding: 0.781vw;
+  }
+
+  .dropbtn {
+    font-size: 1.250vw;
+    margin: 1.719vw 0;
+  }
+
+  .dropbtn span {
+    font-size: 1.563vw;
+  }
+
+  .dropbtn .fa-circle-user {
+    font-size: 2.500vw;
+  }
+
+  .dropdown-content {
+    min-width: 8.281vw;
+    box-shadow: 0 0.625vw 1.250vw 0 rgba(0, 0, 0, 0.2);
+    top: 4.375vw;
+  }
+
+  .dropdown-content a {
+    padding: 0.938vw 1.250vw;
+  }
 }
 
-.search-form button {
-  background-color: #08e28f;
-  font-size: 17px;
-  padding: 8px 10px;
-  border: none;
-  border-radius: 10px;
+@media screen and (max-width: 767.9px) {
+  .pc {
+    display: none;
+  }
+
+  .cmn-container {
+    padding: 0 3.259vw;
+  }
+
+  .cmn-container h1 {
+    padding: 1.304vw 0 1.304vw 0.652vw;
+    font-size: 2.868vw;
+  }
+
+  .cmn-container button {
+    margin: 1.304vw 1.956vw 1.304vw 0;
+    padding: 1.043vw 2.608vw;
+    font-size: 2.608vw;
+    border-radius: 1.956vw;
+  }
+
+  .sec-header {
+    border-bottom: 0.261vw solid #000000;
+  }
+
+  .sidenav {
+    padding: 2.608vw;
+    top: 10.169vw;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 3.259vw;
+    margin-top: 10.169vw;
+  }
+
+  .sidenav a {
+    padding: 0.782vw 1.043vw 0.782vw 2.086vw;
+    font-size: 2.216vw;
+  }
+
+  .sidenav li {
+    margin-left: 1.956vw;
+    padding: 1.956vw;
+  }
+
+  .fas {
+    font-size: 2.216vw;
+  }
+
+  .sec-footer {
+    padding: 1.304vw;
+    font-size: 2.608vw;
+  }
+
+  .form {
+    padding: 2.608vw 0;
+  }
+
+  .form-title {
+    margin: 1.304vw 0;
+    font-size: 2.868vw;
+  }
+
+  .col {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .form-label {
+    margin-bottom: 1.304vw;
+    font-size: 2.086vw;
+  }
+
+  small {
+    font-size: 1.565vw;
+    margin-bottom: 0.652vw;
+  }
+
+  .form-sec input[type=text],
+  .form-sec input[type=file],
+  .form-sec select,
+  .form-sec textarea {
+    font-size: 1.825vw;
+    margin-bottom: 2.608vw;
+    padding: 1.825vw 1.304vw;
+    border-bottom: 0.130vw solid #33364590;
+    border-radius: 0.652vw;
+    box-shadow: rgba(20, 20, 20, 0.15) 0vw 0.652vw 0.652vw;
+  }
+
+  option {
+    font-size: 2.086vw;
+  }
+
+  ::placeholder {
+    padding-left: 1.304vw;
+  }
+
+  .form-sec select {
+    padding-left: 1.304vw;
+  }
+
+  .form-sec .create-btn {
+    margin-bottom: 3.911vw;
+    padding: 1.304vw 2.608vw;
+    border-radius: 0.522vw;
+    font-size: 2.086vw;
+  }
+
+  /* Add Button */
+  .add-btn {
+    margin: 1.304vw 0;
+  }
+
+  .add-btn-link {
+    font-size: 2.216vw;
+    padding: 1.956vw;
+    border-radius: 1.304vw;
+  }
+
+  .add-btn-link i {
+    font-size: 2.216vw;
+  }
+
+  /* Table */
+  table {
+    font-size: 1.825vw;
+    margin-top: 2.608vw;
+  }
+
+  .heading th {
+    padding: 1.956vw 1.304vw;
+  }
+
+  td {
+    padding: 1.043vw 0vw;
+  }
+
+  .edit-btn,
+  .seemore-btn,
+  .delete-btn {
+    font-size: 1.825vw;
+    border-radius: 0.652vw;
+    margin-right: 1.304vw;
+  }
+
+  .edit-btn {
+    padding: 0.652vw;
+  }
+
+  .edit-btn i {
+    font-size: 2.347vw;
+  }
+
+  .seemore-btn i,
+  .delete-btn i {
+    font-size: 2.216vw;
+  }
+
+  .seemore-btn {
+    padding: 0.652vw;
+  }
+
+  .delete-btn {
+    padding: 0.652vw;
+  }
+
+  .sidenav li {
+    padding: 1.956vw;
+    margin-left: 1.304vw;
+  }
+
+  .fas {
+    font-size: 2.608vw;
+  }
+
+  .sec-footer {
+    font-size: 2.608vw;
+    padding: 1.304vw;
+  }
+
+  .dropbtn {
+    font-size: 2.086vw;
+    margin: 2.868vw 0vw;
+  }
+
+  .dropbtn span {
+    font-size: 2.608vw;
+  }
+
+  .dropbtn .fa-circle-user {
+    font-size: 4.172vw;
+  }
+
+  .dropdown-content {
+    min-width: 13.820vw;
+    box-shadow: 0vw 1.043vw 2.086vw 0vw rgba(0, 0, 0, 0.2);
+    top: 7.301vw;
+  }
+
+  .dropdown-content a {
+    padding: 1.565vw 2.086vw;
+  }
+
 }

@@ -17,8 +17,8 @@
           <th><span>ID</span></th>
           {{--<th><span>Image</span></th>--}}
           <th><span>Name</span></th>
-          <th><span>Author Name</span></th>
-          <th><span>Category Name</span></th>
+          <th class="pc"><span>Author Name</span></th>
+          <th class="pc"><span>Category Name</span></th>
           <th><span>Borrow Duration</span></th>
           <th><span>Action</span></th>
 
@@ -30,8 +30,8 @@
         <td>{{$item->id}}</td>
         {{--<td><img src="/uploads/{{ $item->image }}" width="100px" height="50px"></td>--}}
         <td>{{$item->name}}</td>
-        <td>{{$item->author->name}}</td>
-        <td>{{$item->category->name}}</td>
+        <td class="pc">{{$item->author->name}}</td>
+        <td class="pc">{{$item->category->name}}</td>
         <td>{{$item->duration}} days</td>
         <td class="action">
             <a href="{{url('/books/' . $item->id . '/edit') }}"><button class="edit-btn"><i class="fas fa-edit"></i></button></a>
@@ -63,13 +63,13 @@
             </div>
         </div>
         {{--<td>
-            <embed type="application/pdf" src="/pdf_files/{{ $item->file }}" width="200" height="200">
-            </td>--}}
+          <embed type="application/pdf" src="/pdf_files/{{ $item->file }}" width="200" height="200">
+          </td>--}}
       </tr>
     @empty
     <tr>
-        <td colspan="6" style="text-align: center">There is no book data.</td>
-      </tr>
+      <td colspan="6" style="text-align: center">There is no book data.</td>
+    </tr>
     @endforelse
 
   </tbody>
