@@ -40,28 +40,28 @@
 
       <div class="auth-row reset-pass">
         <div class="lt-content">
-          <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-          <label for="remember">
+          <input type="checkbox" name="remember" id="remember" class="auth-checkbox" {{ old('remember') ? 'checked' : '' }}>
+          <label for="remember" class="auth-txt">
             {{ __('Remember Me') }}
           </label>
         </div>
 
         <div class="rt-content">
-          <a class="rt-content-link" href="{{ route('forget.password') }}">
+          <a class="rt-content-link auth-txt" href="{{ route('forget.password') }}">
             {{ __('Forgot Your Password?') }}
           </a>
         </div>
       </div>
 
       <div class="auth-btnrow">
-        <button type="submit" class="btn-auth">
+        <button type="submit" class="btn-auth auth-txt">
             {{ __('Sign in') }}
         </button>
       </div>
 
       <div class="auth-btnrow">
-        <span>Don't have an account?</span>
-        <a class="rt-content-link" href="{{ route('register') }}">
+        <span class="auth-txt">Don't have an account?</span>
+        <a class="rt-content-link auth-txt" href="{{ route('register') }}">
             {{ __('Register') }}
         </a>
       </div>

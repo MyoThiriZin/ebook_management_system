@@ -27,7 +27,7 @@
         </div>
 
         <div class="auth-btnrow">
-          <a class="rt-content-link" href="{{ route('login') }}">
+          <a class="rt-content-link auth-txt" href="{{ route('login') }}">
               {{ __('Log in') }}
           </a>
         </div>
