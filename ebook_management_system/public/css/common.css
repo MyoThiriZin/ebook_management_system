@@ -199,7 +199,8 @@ option {
   color: #494848;
 }
 
-.form-sec .create-btn {
+.form-sec .create-btn, 
+.update-btn {
   cursor: pointer;
   margin-bottom: 30px;
   padding: 10px 20px;
@@ -355,4 +356,21 @@ tr:nth-child(2n) {
 
 .dropdown:hover .dropbtn .fa-circle-user {
   color: #00000090;
+}
+
+.search-form input[type=search] {
+  border: none;
+  width: 200px;
+  padding: 8px 0;
+  border-radius: 10px;
+  background-color: #ebe4e4;
+  display: inline-block;
+}
+
+.search-form button {
+  background-color: #08e28f;
+  font-size: 17px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 10px;
 }

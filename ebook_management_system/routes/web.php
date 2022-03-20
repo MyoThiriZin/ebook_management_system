@@ -34,5 +34,9 @@ Route::get('reset-password/{token}', 'Admin\Auth\ForgotPasswordController@showRe
 Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPasswordForm')->name('submit.reset.password');
 
 //Book
-//Route::resource('books','Admin\BookController');
+Route::resource('books','Admin\BookController');
+
+//Authors
+Route::resource('authors','Admin\Ajax\AuthorController');
+Route::get('/search', 'Admin\Ajax\AuthorController@search');
 
