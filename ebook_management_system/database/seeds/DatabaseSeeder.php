@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(AdminUserSeeder::class);
         $categories = [
             "Education",
             "Poem",
@@ -20,7 +21,7 @@ class DatabaseSeeder extends Seeder
             "Novel",
             "Politic",
         ];
-        
+
         foreach ($categories as $category) {
             DB::table('categories')->insert([
                 'name' => $category,

@@ -5,26 +5,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ebook Management System</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
   <link href="{{ asset('css/common.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+  <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
 </head>
 <body>
   <div id="wrapper">
     <section class="sec-header">
         <div class="cmn-container clearfix">
-         <a href=""><h1>EBOOK MANAGEMENT
+          <a href=""><h1>EBOOK MANAGEMENT
             SYSTEM</h1></a>
-          <a href=""><button>Admin</button></a>
+
+          <div class="dropdown ft-right">
+            <div class="dropbtn">
+            <i class="fa-solid fa-circle-user"></i>
+              <span> {{ Auth::user()->name }} </span>
+
+            </div>
+            <div class="dropdown-content">
+              <a href="{{ route('logout') }}">Logout</a>
+            </div>
+          </div>
         </div>
     </section>
     <div class="clearfix">
-    <section class="side-content clearfix">
-      <div class="sidenav">
+    <section class="ft-left sidenav">
         <ul>
           <li>
             <i class="fa-fw fas fa-chart-line"></i><a href="#">Dashboard</a>
@@ -36,7 +44,7 @@
             <i class="fa-fw fas fa-book-open"></i><a href="{{route('books.index')}}">Books</a>
           </li>
           <li>
-            <i class="fa-fw fas fa-user"></i><a href="#">Authors</a>
+            <i class="fas fa-user-edit"></i></i><a href="#">Authors</a>
           </li>
           <li>
             <i class="fa-fw fas fa-book"></i><a href="#">Categories</a>
@@ -45,17 +53,18 @@
             <i class="fa-fw fas fa-users"></i><a href="#">User Lists</a>
           </li>
           <li>
-            <i class="fa-fw fas fa-users"></i><a href="#">Borrow Lists</a>
+            <i class="fas fa-list"></i></i><a href="#">Borrow Lists</a>
           </li>
           <li>
-            <i class="fa-fw fas fa-book"></i><a href="#">ContactUs Lists</a>
+            <i class="fas fa-address-book"></i></i><a href="#">ContactUs Lists</a>
           </li>
         </ul>
-      </div>
     </section>
-<div class="main-content">
+
+<div class="ft-right main-content">
     @yield('content')
 </div>
+
 </div>
     {{--<section class="sec-footer">
       <div class="clearfix">

@@ -3,15 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Book;
-use App\Author;
-use App\Category;
-use App\Export\BookExport;
-use App\Import\BookImport;
-use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
+use App\Contracts\Services\BookServiceInterface;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\File;
-use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class BookController extends Controller
@@ -21,22 +15,15 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $bookService;
+    public function __construct(BookServiceInterface $bookService)
+    {
+        $this->bookService = $bookService;
+    }
+
     public function index()
     {
-        $books = Book::when($search = request('searchData'), function ($query) use ($search) {
-            $query->where('name', 'LIKE', '%' . $search . '%')
-            ->orWhere('duration', 'LIKE', '%' . $search . '%')
-            ->orWhere(function ($query) use ($search) {
-                $query->whereHas('author', function ($qry) use ($search) {
-                    $qry->where('name', 'LIKE', '%' . $search . '%');
-                });
-            })
-            ->orWhere(function ($query) use ($search) {
-                $query->whereHas('category', function ($qry) use ($search) {
-                    $qry->where('name', 'LIKE', '%' . $search . '%');
-                });
-            });
-        })->get();
+        $books = $this->bookService->index();
 
         return view('books.index', ['items' => $books]);
     }
@@ -48,9 +35,9 @@ class BookController extends Controller
      */
     public function create()
     {
-        $authors = Author::orderBy("name")->get()->pluck("name", "id");
+        $authors = $this->bookService->getAuthor();
 
-        $categories = Category::orderBy("name")->get()->pluck("name", "id");
+        $categories = $this->bookService->getCategory();
 
         return view('books.create')->with(['authors' => $authors, 'categories' => $categories]);
     }
@@ -71,7 +58,6 @@ class BookController extends Controller
             'description' => 'required',
             'author_id' => 'required',
             'category_id' => 'required',
-
         ]);
 
         if ($validator->fails()) {
@@ -79,39 +65,9 @@ class BookController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        //Image
-        $file = $request->file('image');
-        $fileName = $file->getClientOriginalName();
-        $file->move(public_path() . '/uploads/', $fileName);
-
-        //pdf file
-        $pdf_file = $request->file('file');
-        $pdf_fileName = $pdf_file->getClientOriginalName();
-        $pdf_file->move(public_path() . '/pdf_files/', $pdf_fileName);
-
-        $data = $this->requestBook($request, $fileName, $pdf_fileName);
-
-        Book::create($data); //create book
+        $this->bookService->store($request);
 
         return redirect()->route('books.index')->with("success_msg", createdMessage("Book"));
-    }
-
-    private function requestBook($request, $fileName ,$pdf_fileName)
-    {
-        return [
-            'name' => $request->name,
-            'image' => $fileName,
-            // 'image'=>$request->image,
-            'file' => $pdf_fileName,
-            'author_id' => $request->author_id,
-            'category_id' => $request->category_id,
-            'duration' => $request->duration,
-            'description' => $request->description,
-            'created_by' => 1,
-            'updated_by' => 1,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ];
     }
 
     /**
@@ -122,9 +78,9 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        $authors = Author::orderBy("name")->get()->pluck("name", "id");
+        $authors = $this->bookService->getAuthor();
 
-        $categories = Category::orderBy("name")->get()->pluck("name", "id");
+        $categories = $this->bookService->getCategory();
 
         return view('books.show')->with(['item' => $book, 'authors' => $authors, 'categories' => $categories]);
     }
@@ -137,9 +93,9 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        $authors = Author::orderBy("name")->get()->pluck("name", "id");
+        $authors = $this->bookService->getAuthor();
 
-        $categories = Category::orderBy("name")->get()->pluck("name", "id");
+        $categories = $this->bookService->getCategory();
 
         return view('books.edit')->with(['item' => $book, 'authors' => $authors, 'categories' => $categories]);
     }
@@ -167,58 +123,9 @@ class BookController extends Controller
                 ->withInput();
         }
 
-        $updateData = $this->requestUpdate($request);
-        //dd($updateData['file']);
-        if (isset($updateData['image']) && isset($updateData['file'])) {
-            $data = Book::select('image')->where('id', $book->id)->first();
-            $fileName = $data['image'];
-
-            if (File::exists(public_path() . '/uploads/' . $fileName)) {
-                File::delete(public_path() . '/uploads/' . $fileName);
-            }
-
-            $file = $request->file('image');
-            $fileName = $file->getClientOriginalName();
-            $file->move(public_path() . '/uploads/', $fileName); //move path to $fileName
-            $updateData['image'] = $fileName;
-
-            $file_data = Book::select('file')->where('id', $book->id)->first();
-            $pdf_fileName = $file_data['file'];
-
-            if (File::exists(public_path() . '/pdf_files/' . $pdf_fileName)) {
-                File::delete(public_path() . '/pdf_files/' . $pdf_fileName);
-            }
-
-            $file = $request->file('file');
-            $pdf_fileName = $file->getClientOriginalName();
-            $file->move(public_path() . '/pdf_files/', $pdf_fileName); //move path to $pdf_fileName
-
-            $updateData['file'] = $pdf_fileName;
-        }
-        $book->update($updateData);
+        $this->bookService->update($request, $book);
 
         return redirect()->route('books.index')->with("success_msg", updatedMessage("Book"));
-    }
-
-    private function requestUpdate($request)
-    {
-        $arr = [
-            'name' => $request->name,
-            'author_id' => $request->author_id,
-            'category_id' => $request->category_id,
-            'duration' => $request->duration,
-            'description' => $request->description,
-            'created_by' => 1,
-            'updated_by' => 1,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ];
-
-        if (isset($request->image) && isset($request->file)) {
-            $arr['image'] = $request->image;
-            $arr['file'] = $request->file;
-        }
-        return $arr;
     }
 
     /**
@@ -229,38 +136,26 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        $data = Book::select('image','file')->where('id', $book->id)->first();
-        $fileName = $data['image'];
-        $pdf_fileName = $data['file'];
-
-        Book::where('id', $book->id)->delete();
-
-        if (File::exists(public_path() . '/uploads/' . $fileName)) {
-            File::delete(public_path() . '/uploads/' . $fileName);
-        }
-
-        if (File::exists(public_path() . '/pdf_files/' . $pdf_fileName)) {
-            File::delete(public_path() . '/pdf_files/' . $pdf_fileName);
-        }
+        $this->bookService->delete($book);
 
         return redirect()->back()->with("success_msg", deletedMessage("Book"));
     }
 
 //    public function export()
-//    {
-//       return Excel::download(new BookExport, 'book_data.csv');
-//
-//        //return redirect()->back()->with("success_msg", exportMessage("CSV"));
-//    }
-//
-//    public function importFile()
-//    {
-//       return view('books.import');
-//    }
-//
-//    public function import()
-//    {
-//        return Excel::import(new BookImport, request()->file('file'));
-//    }
+    //    {
+    //       return Excel::download(new BookExport, 'book_data.csv');
+    //
+    //        //return redirect()->back()->with("success_msg", exportMessage("CSV"));
+    //    }
+    //
+    //    public function importFile()
+    //    {
+    //       return view('books.import');
+    //    }
+    //
+    //    public function import()
+    //    {
+    //        return Excel::import(new BookImport, request()->file('file'));
+    //    }
 
 }
