@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             "Novel",
             "Politic",
         ];
-        
+
         foreach ($categories as $category) {
             DB::table('categories')->insert([
                 'name' => $category,

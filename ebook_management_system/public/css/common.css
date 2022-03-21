@@ -132,6 +132,10 @@ a {
   padding: 20px 0px;
 }
 
+.form {
+    padding: 20px 0px;
+}
+
 .form-title {
   margin: 10px 0;
   font-family: PoppinsBold;
@@ -212,41 +216,39 @@ option {
 }
 
 /* Add Button */
+.search-form {
+    margin: 2px 15px 0 0;
+}
+
+.search-form .search-input {
+    padding: 5px;
+    outline: none;
+    margin-right: 8px;
+}
+
+.search-btn {
+    padding: 9px 8px;
+    background-color: #34e411;
+    border: none;
+    border-radius: 10px;
+}
+
 .add-btn {
-  margin: 10px 0;
+    margin: 10px 0;
 }
 
 .add-btn-link {
-  font-size: 17px;
-  color: #333645;
-  padding: 15px;
-  background-color: #08e28f;
-  border: transparent;
-  border-radius: 10px;
+    font-size: 17px;
+    color: #333645;
+    padding: 10px 13px;
+    background-color: #08e28f;
+    border: transparent;
+    border-radius: 10px;
 }
 
 .add-btn-link i {
-  font-size: 17px;
-  color: #333645;
-}
-
-/*search form*/
-.search-form input[type=search] {
-  border: none;
-  width: 200px;
-  padding: 10px 0;
-  margin-right: 5px;
-  border-radius: 10px;
-  background-color: #ebe4e4;
-  display: inline-block;
-}
-
-.search-form button {
-  background-color: #08e28f;
-  font-size: 17px;
-  padding: 8px 20px;
-  border: none;
-  border-radius: 10px;
+    font-size: 17px;
+    color: #333645;
 }
 
 /* Table */

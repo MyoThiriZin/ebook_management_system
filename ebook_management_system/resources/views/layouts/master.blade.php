@@ -23,7 +23,7 @@
             <div class="dropbtn">
             <i class="fa-solid fa-circle-user"></i>
               <span> {{ Auth::user()->name }} </span>
-              
+
             </div>
             <div class="dropdown-content">
               <a href="{{ route('logout') }}">Logout</a>
@@ -53,16 +53,18 @@
             <i class="fa-fw fas fa-users"></i><a href="#">User Lists</a>
           </li>
           <li>
+            <i class="fas fa-list"></i></i><a href="#">Borrow Lists</a>
             <i class="fa-fw fas fa-users"></i><a href="#">Borrow Lists</a>
           </li>
           <li>
-            <i class="fa-fw fas fa-book"></i><a href="#">ContactUs Lists</a>
+            <i class="fas fa-address-book"></i></i><a href="#">ContactUs Lists</a>
           </li>
         </ul>
     </section>
 <div class="ft-right main-content">
     @yield('content')
 </div>
+
 </div>
     {{--<section class="sec-footer">
       <div class="clearfix">
