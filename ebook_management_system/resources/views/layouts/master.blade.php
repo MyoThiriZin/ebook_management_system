@@ -32,7 +32,7 @@
         </div>
     </section>
     <div class="clearfix">
-    <section class="ft-left sidenav">
+    <section class="ft-left sidenav pc">
         <ul>
           <li>
             <i class="fa-fw fas fa-chart-line"></i><a href="#">Dashboard</a>

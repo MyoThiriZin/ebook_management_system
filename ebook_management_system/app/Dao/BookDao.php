@@ -143,7 +143,7 @@ class BookDao implements BookDaoInterface
         $fileName = $data['image'];
         $pdf_fileName = $data['file'];
 
-        return $this->model->where('id', $book->id)->delete();
+        $this->model->where('id', $book->id)->delete();
 
         if (File::exists(public_path() . '/uploads/' . $fileName)) {
             File::delete(public_path() . '/uploads/' . $fileName);
@@ -152,6 +152,8 @@ class BookDao implements BookDaoInterface
         if (File::exists(public_path() . '/pdf_files/' . $pdf_fileName)) {
             File::delete(public_path() . '/pdf_files/' . $pdf_fileName);
         }
+        
+        return true;
     }
 
 }

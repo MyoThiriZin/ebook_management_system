@@ -130,6 +130,11 @@ a {
 
 .form {
   padding: 20px 0px;
+    float: right;
+    width: 100%;
+    padding: 10px;
+    background-color: #cdfcf9;
+    font-size: 20px;
 }
 
 .form {
@@ -177,22 +182,23 @@ small {
 .form-sec input[type=file],
 .form-sec select,
 .form-sec textarea {
-  font-size: 14px;
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 14px 10px;
-  border: none;
-  border-bottom: 1px solid #33364590;
-  border-radius: 5px;
-  color: #333645;
-  outline: none;
-  resize: none;
-  box-shadow: rgba(20, 20, 20, 0.15) 0px 5px 5px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 14px 10px;
+    border: none;
+    box-shadow: rgba(20, 20, 20, 0.15) 0px 5px 5px;
+    background-color: #ffffff;
+    color: #333645;
+    font-size: 14px;
+    outline: none;
+    border-bottom: 1px solid #33364590;
+    border-radius: 5px;
+    resize: none;
 }
 
 option {
-  font-size: 16px;
-  color: #494848;
+    color: #494848;
+    font-size: 16px;
 }
 
 ::placeholder {
@@ -221,15 +227,15 @@ option {
 }
 
 .search-form .search-input {
+    margin-right: 8px;
     padding: 5px;
     outline: none;
-    margin-right: 8px;
 }
 
 .search-btn {
     padding: 9px 8px;
-    background-color: #34e411;
     border: none;
+    background-color: #34e411;
     border-radius: 10px;
 }
 
@@ -238,17 +244,17 @@ option {
 }
 
 .add-btn-link {
-    font-size: 17px;
-    color: #333645;
     padding: 10px 13px;
-    background-color: #08e28f;
     border: transparent;
+    background-color: #08e28f;
+    color: #333645;
+    font-size: 17px;
     border-radius: 10px;
 }
 
 .add-btn-link i {
-    font-size: 17px;
     color: #333645;
+    font-size: 17px;
 }
 
 /* Table */
@@ -309,14 +315,90 @@ tr:nth-child(2n) {
 }
 
 .delete-btn {
-  padding: 5px;
-  background-color: #e70e0e;
+    padding: 5px;
+    background-color: #e70e0e;
 }
 
+.paginate {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+/* See More */
+.seemore {
+    width: 600px;
+    margin: 0px auto;
+}
+
+.seemore i {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.back-btn {
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    border: none;
+    background-color: rgb(19, 18, 18);
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.seemore-container {
+
+    padding-bottom: 20px;
+    background-color: #d1cdcd;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.seemore-ttl {
+    padding-top: 15px;
+    font-family: 'RalewayRegular';
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.img-container {
+    width: 125px;
+    height: 125px;
+    margin: 20px auto;
+
+}
+
+.img-container img {
+    width: 100%;
+}
+
+.seemore-container label {
+    width: 180px;
+    margin-right: 20px;
+    font-size: 17px;
+    text-align: center;
+}
+
+.seemore-container span {
+    width: 300px;
+    margin-left: 0px;
+}
+
+.seemore-container .seemore-item {
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.sp {
+    display: none;
+}
+
+/* Side Bar */
 .sidenav li {
-  padding: 15px;
-  margin-left: 10px;
-  list-style-type: none;
+    margin-left: 10px;
+    padding: 15px;
+    list-style-type: none;
 }
 
 .fas {
@@ -326,17 +408,17 @@ tr:nth-child(2n) {
 }
 
 .sec-footer {
-  width: 100%;
-  float: right;
-  background-color: #cdfcf9;
-  font-size: 20px;
-  padding: 10px;
+    float: right;
+    width: 100%;
+    padding: 10px;
+    background-color: #cdfcf9;
+    font-size: 20px;
 }
 
 .dropbtn {
-  font-size: 16px;
-  margin: 22px 0px;
-  cursor: pointer;
+    margin: 22px 0px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .dropbtn span {
@@ -792,5 +874,85 @@ tr:nth-child(2n) {
     padding: 1.565vw 2.086vw;
   }
   
+
+}
+
+/* Mobile Seemore */
+@media screen and (max-width:767.9px) {
+    .sp {
+        display: block;
+    }
+
+    .pc {
+        display: none;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .seemore {
+        width: 100%;
+        margin: 0vw auto;
+    }
+
+    .seemore i {
+        color: #ffffff;
+        font-size: 2.188vw;
+    }
+
+    .back-btn {
+        margin-bottom: 1.563vw;
+        padding: 1.25vw 1.563vw;
+        border: none;
+        background-color: rgb(19, 18, 18);
+        color: #ffffff;
+        border-radius: 1.563vw;
+    }
+
+    .seemore-container {
+        padding-bottom: 3.125vw;
+        background-color: #d1cdcd;
+        text-align: center;
+        border-radius: 1.563vw;
+    }
+
+    .seemore-ttl {
+        padding-top: 2.344vw;
+        font-family: 'RalewayRegular';
+        font-size: 3.125vw;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .img-container {
+        width: 19.531vw;
+        height: 19.531vw;
+        margin: 3.125vw auto;
+    }
+
+    .img-container img {
+        width: 100%;
+    }
+
+    .seemore-container label {
+        width: 37%;
+        margin-right: 0vw;
+        font-size: 2.656vw;
+        text-align: center;
+    }
+
+    .seemore-container span {
+        width: 60%;
+        margin-left: 0vw;
+        font-size: 2.656vw;
+    }
+
+    .seemore-container .seemore-item {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 1.563vw;
+        text-align: left;
+    }
 
 }
