@@ -4,13 +4,12 @@
 
 <div class="add-btn clearfix">
   <a href="{{route('authors.create')}}" class="ft-right"><button class="add-btn-link"><i class="fa-fw fas fa-plus"></i> Add Author</button></a>
-</div>
-
-<div class="clearfix">
-  <form action="/search" method="get" class="search-form ft-right">
-    <input type="search" name="search" class="form-control">
-    <button type="submit" class="btn">Search</button>
-  </form>
+  <div class="ft-right search-form">
+    <form action="/search" method="get">
+      <input type="search" name="search" placeholder="Search" class="search-input">
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+  </div>
 </div>
 
 @if (session('success_msg'))

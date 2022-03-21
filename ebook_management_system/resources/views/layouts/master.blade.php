@@ -41,7 +41,7 @@
             <i class="fa-fw fas fa-user"></i><a href="#">Admin Profile</a>
           </li>
           <li>
-            <i class="fa-fw fas fa-book-open"></i><a href="#">Books</a>
+            <i class="fa-fw fas fa-book-open"></i><a href="{{route('books.index')}}">Books</a>
           </li>
           <li>
             <i class="fa-fw fas fa-user"></i><a href="{{route('authors.index')}}">Authors</a>
@@ -54,7 +54,6 @@
           </li>
           <li>
             <i class="fas fa-list"></i></i><a href="#">Borrow Lists</a>
-            <i class="fa-fw fas fa-users"></i><a href="#">Borrow Lists</a>
           </li>
           <li>
             <i class="fas fa-address-book"></i></i><a href="#">ContactUs Lists</a>
