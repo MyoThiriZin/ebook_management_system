@@ -136,6 +136,7 @@ a {
     margin: 0px 0;
     font-family: PoppinsBold;
     font-size: 22px;
+    text-align: center;
 }
 
 .form-sec {
@@ -170,6 +171,7 @@ small {
 
 .form-sec input[type=text],
 .form-sec input[type=file],
+.form-sec input[type=number],
 .form-sec select,
 .form-sec textarea {
     width: 100%;

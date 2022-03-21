@@ -12,7 +12,7 @@
       <div class="clearfix">
         <div class="col">
           <label for="" class="form-label">Name</label>
-          <input type="text" name="name" class="name" placeholder="Name" value="{{ $item->name }}">
+          <input type="text" name="name" class="name" placeholder="Name" value="{{old('name', $item->name) }}">
           @if ($errors->has('name'))
               <small class="text-danger">*{{ $errors->first('name') }}</small>
           @endif
@@ -20,8 +20,8 @@
 
         <div class="col">
           <label for="" class="form-label">Duration</label>
-          <input type="text" name="duration" class="duration" placeholder="Duration"
-              value="{{ $item->duration }}">
+          <input type="number" name="duration" class="duration" placeholder="Duration"
+          value="{{old('description', $item->description) }}">
           @if ($errors->has('duration'))
               <small class="text-danger">*{{ $errors->first('duration') }}</small>
           @endif
@@ -37,6 +37,7 @@
 
         <div class="col">
           <label for="" class="form-label">PDF file</label>
+
           <input type="file" name="file" class="myfile" value="{{ $item->file }}">
         </div>
       </div>
@@ -89,7 +90,7 @@
         <div class="col">
           <label class="form-label">Book Description</label>
           <textarea name="description" class="description" placeholder="Description" cols="30"
-              rows="5">{{ $item->description }}</textarea>
+              rows="5">{{old('description', $item->description) }}</textarea>
           @if ($errors->has('description'))
               <small class="text-danger">*{{ $errors->first('description') }}</small>
           @endif

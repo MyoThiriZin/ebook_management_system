@@ -2,12 +2,13 @@
 
 namespace App;
 
-use App\Author;
-use App\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Book extends Model
 {
+    use SoftDeletes;
+
     protected $fillable =[
         'name',
         'image',
@@ -21,6 +22,8 @@ class Book extends Model
         'created_at',
         'updated_at'
     ];
+
+    protected $dates = ['deleted_at'];
 
     public function author(){
 
