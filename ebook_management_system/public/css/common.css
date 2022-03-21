@@ -107,6 +107,10 @@ a {
 .sidenav .fas:hover {
   color: #f1f1f1;
 }
+.active{
+  background-color:#16ccec;
+  color:#fff;
+}
 
 .sidenav li {
   margin-left: 15px;

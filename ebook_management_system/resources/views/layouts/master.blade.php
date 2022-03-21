@@ -10,7 +10,9 @@
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
   <link href="{{ asset('css/common.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
+  <script src="{{ asset('js/library/jquery-3.6.0.js')}}"></script>
   <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('js/common.js')}}"></script>
 </head>
 <body>
   <div id="wrapper">
@@ -32,8 +34,14 @@
         </div>
     </section>
     <div class="clearfix">
-    <section class="ft-left sidenav pc">
-        <ul>
+          <p class="btn-gnavi">
+            <span></span>
+            <span></span>
+            <span></span>
+          </p>
+    <section class="ft-left sidenav">
+
+        <ul class="menu">
           <li>
             <i class="fa-fw fas fa-chart-line"></i><a href="{{route('dashboard.index')}}">Dashboard</a>
           </li>
