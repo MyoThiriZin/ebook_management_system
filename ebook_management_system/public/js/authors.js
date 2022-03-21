@@ -3,7 +3,9 @@ $("#create-btn").on("click", function (e) {
 
   var data = {
     'name': $("#name").val(),
-    'description': $("#description").val()
+    'description': $("#description").val(),
+    'created_by': $("#created_by").val(),
+    'updated_by': $("#updated_by").val()
   };
 
   $.ajaxSetup({
@@ -39,7 +41,9 @@ $("#update-btn").on("click", function (e) {
   var authorID = $("#id").val();
   var data = {
     'name': $("#name").val(),
-    'description': $("#description").val()
+    'description': $("#description").val(),
+    'created_by': $("#created_by").val(),
+    'updated_by': $("#updated_by").val()
   };
 
   $.ajaxSetup({

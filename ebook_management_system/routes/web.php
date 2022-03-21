@@ -18,9 +18,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::group(['middleware' => ['admin']], function () {
-    Route::resource('books','Admin\BookController');
-});
+//Route::group(['middleware' => ['admin']], function () {
+//    Route::resource('books','Admin\BookController');
+//});
 
 Route::get('/register', 'Admin\Auth\AuthController@showRegistrationView')->name('register');
 Route::post('/register', 'Admin\Auth\AuthController@storeUser');
@@ -37,3 +37,6 @@ Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPa
 //Authors
 Route::resource('authors','Admin\Ajax\AuthorController');
 Route::get('/search', 'Admin\Ajax\AuthorController@search');
+
+//Dashboard
+Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard.index');

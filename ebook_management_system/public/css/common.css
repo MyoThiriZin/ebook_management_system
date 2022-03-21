@@ -379,6 +379,46 @@ tr:nth-child(2n) {
   color: #00000090;
 }
 
+/*Dashboard*/
+.dashboard-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: PoppinsBold;
+  font-size: 20px;
+}
+
+.count-sec {
+  margin-bottom: 20px;
+}
+
+.book-count {
+  background-color: #46c3db;
+}
+
+.author-count{
+  background-color: #21e6c1;
+}
+
+.category-count{
+  background-color: #ea7dc7;
+}
+
+.count-title {
+  text-align: center;
+  font-family: PoppinsBold;
+  font-size: 16px;
+}
+
+.count-number {
+  text-align: center;
+  font-family: RalewayRegular;
+  font-size: 16px;
+}
+
+.chart-sec {
+  height: 290px;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1280px) {
 
   .cmn-container {
@@ -482,7 +522,8 @@ tr:nth-child(2n) {
     padding-left: 0.781vw;
   }
 
-  .form-sec .create-btn {
+  .form-sec .create-btn,
+  .update-btn {
     margin-bottom: 2.344vw;
     padding: 0.781vw 1.563vw;
     border-radius: 0.313vw;
@@ -688,7 +729,8 @@ tr:nth-child(2n) {
     padding-left: 1.304vw;
   }
 
-  .form-sec .create-btn {
+  .form-sec .create-btn,
+  .update-btn {
     margin-bottom: 3.911vw;
     padding: 1.304vw 2.608vw;
     border-radius: 0.522vw;
