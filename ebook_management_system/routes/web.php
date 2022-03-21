@@ -18,9 +18,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-//Route::group(['middleware' => ['admin']], function () {
-//    Route::resource('books','Admin\BookController');
-//});
+Route::group(['middleware' => ['admin']], function () {
+    Route::resource('books','Admin\BookController');
+});
 
 Route::get('/register', 'Admin\Auth\AuthController@showRegistrationView')->name('register');
 Route::post('/register', 'Admin\Auth\AuthController@storeUser');
