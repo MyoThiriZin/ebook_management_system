@@ -37,3 +37,6 @@ Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPa
 //Authors
 Route::resource('authors','Admin\Ajax\AuthorController');
 Route::get('/search', 'Admin\Ajax\AuthorController@search');
+
+//Dashboard
+Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard.index');
