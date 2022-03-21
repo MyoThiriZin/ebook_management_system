@@ -19,7 +19,15 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['admin']], function () {
+    //Books
     Route::resource('books','Admin\BookController');
+
+    //Authors
+    Route::resource('authors','Admin\Ajax\AuthorController');
+    Route::get('/search', 'Admin\Ajax\AuthorController@search');
+
+    //Dashboard
+    Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard.index');
 });
 
 Route::get('/register', 'Admin\Auth\AuthController@showRegistrationView')->name('register');
