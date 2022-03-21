@@ -3,20 +3,22 @@
 
 <div class="add-btn clearfix">
     <a href="{{ route('category.create') }}" class="ft-right"><button class="add-btn-link"><i class="fa-fw fas fa-plus"></i> Add Category</button></a>
+    <div class="ft-right search-form">
+        <form action="{{ route('category.search') }}" method="GET" enctype="multipart/form-data">
+            @csrf
+            <input type="text" name="search" placeholder="Search" class="search-input" required/>
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+    </div>
 </div>
+
 @if (session('success_msg'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     {{ session('success_msg') }}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
-<div class="ft-right search-form">
-    <form action="{{ route('category.search') }}" method="GET" enctype="multipart/form-data">
-        @csrf
-        <input type="text" name="search" required/>
-        <button type="submit" class="search-btn">Search</button>
-    </form>
-</div>
+
 <table cellspacing="0" cellpadding="0">
      <thead class="heading">
        <tr>
@@ -63,8 +65,12 @@
     @empty
     <tr>
         <td colspan="6" style="text-align: center">There is no category.</td>
-      </tr>
+    </tr>
      @endforelse
-     </tbody>
-       </table>
-       @endsection
+    </tbody>
+</table>
+
+<div class="paginate">
+    {{$categories->links()}}
+</div>
+@endsection

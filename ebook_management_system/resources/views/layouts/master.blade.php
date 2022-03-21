@@ -55,7 +55,7 @@
             <i class="fa-fw fas fa-user"></i><a href="{{route('authors.index')}}">Authors</a>
           </li>
           <li>
-            <i class="fa-fw fas fa-book"></i><a href="#">Categories</a>
+            <i class="fa-fw fas fa-book"></i><a href="{{route('categories')}}">Categories</a>
           </li>
           <li>
             <i class="fa-fw fas fa-users"></i><a href="#">User Lists</a>
