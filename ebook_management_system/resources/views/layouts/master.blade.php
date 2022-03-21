@@ -9,9 +9,9 @@
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
   <link href="{{ asset('css/common.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
-  <script src="js/library/jquery-3.6.0.js"></script>
+  <script src="{{ asset('js/library/jquery-3.6.0.js')}}"></script>
   <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-  <script src="js/common.js"></script>
+  <script src="{{ asset('js/common.js')}}"></script>
 </head>
 <body>
   <div id="wrapper">
@@ -39,6 +39,7 @@
             <span></span>
           </p>
     <section class="ft-left sidenav">
+
         <ul class="menu">
           <li>
             <i class="fa-fw fas fa-chart-line"></i><a href="#">Dashboard</a>

@@ -85,10 +85,10 @@ class CategoryController extends Controller
     }
     public function search(Request $request){
         $search = $request->input('search');
-        $category = category::query()
+        $categories = category::query()
             ->Where('id', 'LIKE', "%{$search}%")
             ->orWhere('name', 'LIKE', "%{$search}%")
             ->get();
-            return view('category.index', compact('category'));
+            return view('category.index', compact('categories'));
     }
 }

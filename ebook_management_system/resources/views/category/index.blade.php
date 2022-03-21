@@ -26,7 +26,7 @@
        </tr>
      </thead>
      <tbody>
-     @forelse ($category as $category)
+     @forelse ($categories as $category)
         <tr>
             <td>{{ $category->id }}</td>
             <td>{{ $category->name }}</td>
