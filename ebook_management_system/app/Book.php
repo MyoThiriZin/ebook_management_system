@@ -31,4 +31,9 @@ class Book extends Model
 
         return $this->belongsTo('App\Category');
     }
+
+    public function borrow()
+    {
+        return $this->hasMany('App\Borrow');
+    }
 }

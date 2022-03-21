@@ -14,6 +14,9 @@
           <label for="description" class="form-label">Description</label>
           <textarea name="description" class="description" id="description" placeholder="Description" cols="30" rows="6">{{ $authors->description }}</textarea>
           <small class="text-danger error-text description_err"></small>
+
+          <input type="hidden" name="created_by" class="created_by" id="created_by" value="{{ Auth::user()->id }}">
+          <input type="hidden" name="updated_by" class="updated_by" id="updated_by" value="{{ Auth::user()->id }}">
       </div>
 
       <input type="submit" value="Update" class="update-btn" id="update-btn">

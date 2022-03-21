@@ -35,7 +35,7 @@
     <section class="ft-left sidenav pc">
         <ul>
           <li>
-            <i class="fa-fw fas fa-chart-line"></i><a href="#">Dashboard</a>
+            <i class="fa-fw fas fa-chart-line"></i><a href="{{route('dashboard.index')}}">Dashboard</a>
           </li>
           <li>
             <i class="fa-fw fas fa-user"></i><a href="#">Admin Profile</a>
@@ -72,5 +72,6 @@
       </div>
     </section>--}}
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 </body>
 </html>

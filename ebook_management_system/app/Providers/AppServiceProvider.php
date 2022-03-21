@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
+use ConsoleTVs\Charts\Registrar as Charts;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,11 +20,15 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Dao\Auth\ForgotPasswordDaoInterface', 'App\Dao\Auth\ForgotPasswordDao');
         $this->app->bind('App\Contracts\Dao\AuthorDaoInterface', 'App\Dao\AuthorDao');
         $this->app->bind('App\Contracts\Dao\BookDaoInterface', 'App\Dao\BookDao');
+        $this->app->bind('App\Contracts\Dao\DashboardDaoInterface', 'App\Dao\DashboardDao');
+
 
         // Business logic registration
         $this->app->bind('App\Contracts\Services\Auth\AuthServiceInterface', 'App\Services\Auth\AuthService');
         $this->app->bind('App\Contracts\Services\Auth\ForgotPasswordServiceInterface', 'App\Services\Auth\ForgotPasswordService');
         $this->app->bind('App\Contracts\Services\AuthorServiceInterface', 'App\Services\AuthorService');
+        $this->app->bind('App\Contracts\Services\DashboardServiceInterface', 'App\Services\DashboardService');
+
 
         $this->app->bind('App\Contracts\Services\BookServiceInterface', 'App\Services\BookService');
     }
