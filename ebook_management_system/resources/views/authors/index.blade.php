@@ -3,8 +3,16 @@
 @section('content')
 
 <div class="add-btn clearfix">
-  <a href="{{route('books.create')}}" class="ft-right"><button class="add-btn-link"><i class="fa-fw fas fa-plus"></i> Add Book</button></a>
+  <a href="{{route('authors.create')}}" class="ft-right"><button class="add-btn-link"><i class="fa-fw fas fa-plus"></i> Add Author</button></a>
 </div>
+
+<div class="clearfix">
+  <form action="/search" method="get" class="search-form ft-right">
+    <input type="search" name="search" class="form-control">
+    <button type="submit" class="btn">Search</button>
+  </form>
+</div>
+
 @if (session('success_msg'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
   {{ session('success_msg') }}
@@ -15,31 +23,25 @@
     <thead class="heading">
       <tr>
           <th><span>ID</span></th>
-          {{--<th><span>Image</span></th>--}}
           <th><span>Name</span></th>
-          <th class="pc"><span>Author Name</span></th>
-          <th class="pc"><span>Category Name</span></th>
-          <th><span>Borrow Duration</span></th>
+          <th><span>Description</span></th>
           <th><span>Action</span></th>
 
       </tr>
     </thead>
     <tbody>
-    @forelse ($items as $item)
+    @forelse ($authors as $author)
         <tr>
-        <td>{{$item->id}}</td>
-        {{--<td><img src="/uploads/{{ $item->image }}" width="100px" height="50px"></td>--}}
-        <td>{{$item->name}}</td>
-        <td class="pc">{{$item->author->name}}</td>
-        <td class="pc">{{$item->category->name}}</td>
-        <td>{{$item->duration}} days</td>
+        <td>{{$author->id}}</td>
+        <td>{{$author->name}}</td>
+        <td>{{$author->description}}</td>
         <td class="action">
-            <a href="{{url('/books/' . $item->id . '/edit') }}"><button class="edit-btn"><i class="fas fa-edit"></i></button></a>
-            <a href=""><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
+            <a href="/authors/{{ $author->id }}/edit"><button class="edit-btn"><i class="fas fa-edit"></i></button></a>
+            <a href="/authors/{{ $author->id }}"><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
             <button class="delete-btn" data-bs-toggle="modal"
-            data-bs-target="#modal{{ $item->id }}"><i class="fa-solid fa-trash-can"></i></button>
+            data-bs-target="#modal{{ $author->id }}"><i class="fa-solid fa-trash-can"></i></button>
         </td>
-        <div class="modal fade" id="modal{{ $item->id }}" tabindex="-1"
+        <div class="modal fade" id="modal{{ $author->id }}" tabindex="-1"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content ">
@@ -53,26 +55,20 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-sm me-3" data-bs-dismiss="modal">No</button>
-                        <form action="{{ url('/books/' . $item->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Yes</button>
-                        </form>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="deleteAuthor({{ $author->id }})">Yes</button>
                     </div>
                 </div>
             </div>
         </div>
-        {{--<td>
-          <embed type="application/pdf" src="/pdf_files/{{ $item->file }}" width="200" height="200">
-          </td>--}}
       </tr>
     @empty
     <tr>
-      <td colspan="6" style="text-align: center">There is no book data.</td>
+      <td colspan="6" style="text-align: center">There is no author data.</td>
     </tr>
     @endforelse
 
   </tbody>
 </table>
-
+<script src="/js//library/jquery-3.6.0.min.js"></script>
+<script src="/js/authors.js"></script>
 @endsection

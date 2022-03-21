@@ -200,7 +200,8 @@ option {
   color: #494848;
 }
 
-.form-sec .create-btn {
+.form-sec .create-btn,
+.update-btn {
   cursor: pointer;
   margin-bottom: 30px;
   padding: 10px 20px;
@@ -227,6 +228,25 @@ option {
 .add-btn-link i {
   font-size: 17px;
   color: #333645;
+}
+
+/*search form*/
+.search-form input[type=search] {
+  border: none;
+  width: 200px;
+  padding: 10px 0;
+  margin-right: 5px;
+  border-radius: 10px;
+  background-color: #ebe4e4;
+  display: inline-block;
+}
+
+.search-form button {
+  background-color: #08e28f;
+  font-size: 17px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 10px;
 }
 
 /* Table */
@@ -769,5 +789,6 @@ tr:nth-child(2n) {
   .dropdown-content a {
     padding: 1.565vw 2.086vw;
   }
+  
 
 }
