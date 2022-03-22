@@ -5,7 +5,7 @@
 <h2 class="form-title">User List</h2>
 
 <div class="form-sec">
-  <form action="" method="POST" class="form-control">
+  <form action="{route{'userlist'}}" method="POST" class="form-control">
   <input type="text" placeholder="Search the author name" name="usernamesearch">
       <button type="submit"><i class="fa fa-search"></i></button>
       <table class="tbl-authlist-suan">
@@ -27,8 +27,11 @@
 <td>{{ $usershow->phone_no }}</td>
 <td>{{ $usershow->address }}</td>
 <td>{{ $usershow->description }}</td>
-<td><a href = 'delete/{{ $usershow->id }}'>Delete</a></td>
-<td><a href = 'details/{{ $usershow->id }}'>Delete</a></td>
+<td >
+            <a href=""><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
+            <button class="delete-btn" data-bs-toggle="modal"
+            data-bs-target=""><i class="fa-solid fa-trash-can"></i></button>
+</td>
 </tr>
 @endforeach
       </table>
