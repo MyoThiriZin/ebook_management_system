@@ -5,7 +5,7 @@
 <h2 class="form-title">Contact List</h2>
 
 <div class="form-sec">
-  <form action="" method="GET" enctype="multipart/form-data">
+  <form action="{route{'contactlist'}}" method="GET" enctype="multipart/form-data">
         @csrf
         <input type="text" name="searchData" placeholder="Search" class="search-input"
             value="">
