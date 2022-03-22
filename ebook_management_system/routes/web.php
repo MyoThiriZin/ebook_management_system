@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
-
+//use App\Http\Controllers\authorlistController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,3 +61,9 @@ Route::get('forget-password', 'Admin\Auth\ForgotPasswordController@showForgetPas
 Route::post('forget-password', 'Admin\Auth\ForgotPasswordController@submitForgetPasswordForm')->name('submit.forget.password');
 Route::get('reset-password/{token}', 'Admin\Auth\ForgotPasswordController@showResetPasswordForm')->name('reset.password');
 Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPasswordForm')->name('submit.reset.password');
+
+Route::get('/adminprofile','adminprofileController@show')->name("userlist");
+Route::post('/userlist','userlistController@index')->name("userlist");
+Route::post('/contactlist','contactlistController@index')->name("contactlist");
+Route::post('/borrowlist','borrowlistController@index')->name("borrowlist");
+

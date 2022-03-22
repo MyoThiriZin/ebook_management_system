@@ -9,6 +9,7 @@
   <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
   <link href="{{ asset('css/common.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
   <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
   <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
