@@ -5,7 +5,7 @@
 <h2 class="form-title">Admin Profile</h2>
 
 <div class="form-sec">
-  <form action="{route{''}}" method="POST" class="form-control">
+  <form action="{route{'adminprofile'}}" method="POST" class="form-control">
 <div class="container-profile-suan">
 <label for="">Name:{{ $admininfo()->name }} </label><br>
 <label for="">Email:{{ $admininfo()->email }} </label><br>
