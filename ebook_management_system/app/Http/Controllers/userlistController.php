@@ -21,4 +21,5 @@ class userlistController extends Controller
             echo "You deleted the user info successfully.
             ";
             }
+
 }

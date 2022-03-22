@@ -18,4 +18,4 @@ Route::get('/adminprofile','adminprofileController@show')->name("userlist");
 Route::post('/userlist','userlistController@index')->name("userlist");
 Route::post('/contactlist','contactlistController@index')->name("contactlist");
 Route::post('/borrowlist','borrowlistController@index')->name("borrowlist");
-
+Route::get('delete/{id}','userlistController@destroy');

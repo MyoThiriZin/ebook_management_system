@@ -29,8 +29,9 @@
 <td>{{ $usershow->description }}</td>
 <td >
             <a href=""><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
+            <a href="delete/{{ $usershow->id }}">
             <button class="delete-btn" data-bs-toggle="modal"
-            data-bs-target=""><i class="fa-solid fa-trash-can"></i></button>
+            data-bs-target=""><i class="fa-solid fa-trash-can"></i></button></a>
 </td>
 </tr>
 @endforeach
