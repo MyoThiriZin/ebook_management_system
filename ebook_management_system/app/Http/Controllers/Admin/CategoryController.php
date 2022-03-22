@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Export\CategoriesExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\storeCategoryRequest;
 use App\Http\Requests\updateCategoryRequest;
+use App\Import\CategoriesImport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CategoryController extends Controller
 {
@@ -18,7 +21,7 @@ class CategoryController extends Controller
     public function index()
     {
         return view('category.index', [
-            'categories' => category::latest()->paginate(10)
+            'categories' => category::latest()->orderBy('created_at', 'desc')->paginate(10),
         ]);
     }
 
@@ -53,7 +56,7 @@ class CategoryController extends Controller
     public function edit(category $category)
     {
         return view('category.edit', [
-            'category' => $category
+            'category' => $category,
         ]);
     }
 
@@ -84,12 +87,30 @@ class CategoryController extends Controller
         return redirect()->route('categories');
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $search = $request->input('search');
         $categories = category::query()
             ->Where('id', 'LIKE', "%{$search}%")
             ->orWhere('name', 'LIKE', "%{$search}%")
             ->latest()->paginate(10);
-            return view('category.index', compact('categories'));
+        return view('category.index', compact('categories'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new CategoriesExport, 'category_data.csv');
+    }
+
+    public function importFile()
+    {
+        return view('category.import');
+    }
+
+    public function import()
+    {
+        Excel::import(new CategoriesImport, request()->file('file'));
+
+        return redirect()->route('categories')->with("success_msg", importMessage("CSV"));
     }
 }

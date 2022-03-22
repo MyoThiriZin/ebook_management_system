@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Ajax;
 
-use App\Author;
-use App\User;
-use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
+use App\Export\AuthorsExport;
+use App\Import\AuthorsImport;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 use App\Contracts\Services\AuthorServiceInterface;
 
@@ -136,7 +138,7 @@ class AuthorController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        
+
         $authors =  $this->authorServiceInterface->authorsSearch($search);
 
         return view('authors.index', compact('authors'));
@@ -155,4 +157,21 @@ class AuthorController extends Controller
 
         return back()->with('success','Author Restore Successfully');
     }
+    public function export()
+        {
+           return Excel::download(new AuthorsExport, 'author_data.csv');
+
+        }
+
+        public function importFile()
+        {
+           return view('authors.import');
+        }
+
+        public function import()
+        {
+             Excel::import(new AuthorsImport, request()->file('file'));
+
+             return redirect()->route('authors.index')->with("success_msg", importMessage("CSV"));
+        }
 }
