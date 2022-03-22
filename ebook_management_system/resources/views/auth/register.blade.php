@@ -74,8 +74,8 @@
       </div>
 
       <div class="auth-btnrow">
-        <span>Already have an account?</span>
-        <a class="rt-content-link" href="{{ route('login') }}">
+        <span class="auth-txt">Already have an account?</span>
+        <a class="rt-content-link auth-txt" href="{{ route('login') }}">
             {{ __('Log in') }}
         </a>
       </div>

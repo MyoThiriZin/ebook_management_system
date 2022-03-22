@@ -21,7 +21,7 @@
         <div class="col">
           <label for="" class="form-label">Duration</label>
           <input type="number" name="duration" class="duration" placeholder="Duration"
-          value="{{old('description', $item->description) }}">
+          value="{{old('duration', $item->duration) }}">
           @if ($errors->has('duration'))
               <small class="text-danger">*{{ $errors->first('duration') }}</small>
           @endif
@@ -98,6 +98,7 @@
       </div>
 
       <input type="submit" value="Update" class="create-btn">
+      <input type="button" value="Cancel" class="back-btn" onclick="window.location='{{ URL::to('books') }}'"/>
     </form>
   </div>
 @endsection

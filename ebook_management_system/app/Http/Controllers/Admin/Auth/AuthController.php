@@ -76,7 +76,7 @@ class AuthController extends Controller
         $validated = $request->only('email', 'password');
 
         if (Auth::attempt($validated)) {
-            return redirect()->intended('books');
+            return redirect()->intended('/dashboard');
         }
 
         return redirect('login')->with('error', 'Email or password is incorrect.');
