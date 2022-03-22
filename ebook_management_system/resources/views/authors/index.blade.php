@@ -12,18 +12,6 @@
   </div>
 </div>
 
-<div>
-  @if(request()->has('view_deleted'))
-
-    <a href="{{ route('authors.index') }}" class="btn btn-info btn-sm">View All Author</a>
-
-  @else
-
-    <a href="{{ route('authors.index', ['view_deleted' => 'DeletedRecords']) }}" class="btn btn-primary">View Deleted Post</a>
-
-  @endif
-</div>
-
 @if (session('success_msg'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
   {{ session('success_msg') }}

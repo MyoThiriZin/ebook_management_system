@@ -757,6 +757,10 @@ tr:nth-child(2n) {
   .dropdown-content a {
     padding: 0.938vw 1.250vw;
   }
+
+  .description-sec {
+    width: 46.875vw;
+  }
 }
 
 /*----------sp----------*/
@@ -1112,6 +1116,11 @@ tr:nth-child(2n) {
     -moz-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+
+  .description-sec {
+    width: 78.227vw;
+  }
+  
 
 
 
