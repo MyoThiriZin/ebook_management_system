@@ -12,12 +12,12 @@ class contactlistcontroller extends Controller
         }
         public function pagecount()
         {
-            $users = ebook_management_system::contacts('users_data')->paginate(5);
+            $users = ebook_management_system::contacts('contacts')->paginate(5);
             return view('contactlist', ['users' => $contactinfo]);
         }
         public function destroy($id) {
-            ebook_management_system::delete('delete from users where id = ?',[$id]);
-            echo "You deleted the user info successfully.
+            ebook_management_system::delete('delete from contacts where id = ?',[$id]);
+            echo "You deleted the contact info successfully.
             ";
             }
 }
