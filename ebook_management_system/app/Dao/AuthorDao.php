@@ -9,8 +9,12 @@ use Illuminate\Http\Request;
 
 class AuthorDao implements AuthorDaoInterface {
 
-    public function getauthors(){
-        return Author::with('user')->get();
+    public function getauthors(Request $request){
+      if($request->has('view_deleted')) {
+        return Author::onlyTrashed()->paginate(10);
+      } else {
+        return Author::with('user')->paginate(10);
+      }
     }
     
     public function store(Request $request){

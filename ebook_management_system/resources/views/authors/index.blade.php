@@ -12,6 +12,18 @@
   </div>
 </div>
 
+<div>
+  @if(request()->has('view_deleted'))
+
+    <a href="{{ route('authors.index') }}" class="btn btn-info btn-sm">View All Author</a>
+
+  @else
+
+    <a href="{{ route('authors.index', ['view_deleted' => 'DeletedRecords']) }}" class="btn btn-primary">View Deleted Post</a>
+
+  @endif
+</div>
+
 @if (session('success_msg'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
   {{ session('success_msg') }}
@@ -23,7 +35,7 @@
       <tr>
           <th><span>ID</span></th>
           <th><span>Name</span></th>
-          <th><span>Description</span></th>
+          <th class="description-sec"><span>Description</span></th>
           <th><span>Action</span></th>
 
       </tr>
@@ -35,10 +47,18 @@
         <td>{{$author->name}}</td>
         <td>{{$author->description}}</td>
         <td class="action">
+          @if(request()->has('view_deleted'))
+
+            <a href="{{ route('authors.restore', $author->id) }}" class="btn btn-primary btn-sm">Restore</a>
+
+          @else
+
             <a href="/authors/{{ $author->id }}/edit"><button class="edit-btn"><i class="fas fa-edit"></i></button></a>
             <a href="/authors/{{ $author->id }}"><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
             <button class="delete-btn" data-bs-toggle="modal"
             data-bs-target="#modal{{ $author->id }}"><i class="fa-solid fa-trash-can"></i></button>
+
+          @endif
         </td>
         <div class="modal fade" id="modal{{ $author->id }}" tabindex="-1"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -68,6 +88,9 @@
 
   </tbody>
 </table>
+
+{{ $authors->links() }}
+
 <script src="/js//library/jquery-3.6.0.min.js"></script>
 <script src="/js/authors.js"></script>
 @endsection
