@@ -10,7 +10,7 @@
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
   <link href="{{ asset('css/common.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
-  <script src="{{ asset('js/library/jquery-3.6.0.js')}}"></script>
+  <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
   <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('js/common.js')}}"></script>
 </head>
@@ -39,35 +39,41 @@
             <span></span>
             <span></span>
           </p>
-    <section class="ft-left sidenav">
+        <section class="ft-left sidenav">
+            <ul class="menu">
+              <li class="{{ request()->is('dashboard') ? 'active' : null }}">
+                <i class="fa-fw fas fa-chart-line"></i><a href="{{route('dashboard.index')}}">Dashboard</a>
+              </li>
+              <li>
+                <i class="fa-fw fas fa-user"></i><a href="#">Admin Profile</a>
+              </li>
+              <li class="{{ request()->is('books') || request()->is('books/create') ||
+                request()->is('books/*/edit') || request()->is('books/*') ? 'active' : null }}">
+                <i class="fa-fw fas fa-book-open"></i><a href="{{route('books.index')}}">Books</a>
+              </li>
+              <li class="{{ request()->is('authors') || request()->is('authors/create') ||
+                request()->is('authors/*/edit') || request()->is('authors/*') ||
+                request()->routeIs('author.search') ? 'active' : null }}">
+                <i class="fa-fw fas fa-user"></i><a href="{{route('authors.index')}}">Authors</a>
+              </li>
+              <li class="{{ request()->is('categories') || request()->routeIs('category.search') ||
+                request()->is('category/create') || request()->is('category/update/*') ||
+                request()->is('category/edit/*') || request()->is('category/delete/*') ||
+                request()->is('category/create') ? 'active' : null }}">
 
-        <ul class="menu">
-          <li>
-            <i class="fa-fw fas fa-chart-line"></i><a href="{{route('dashboard.index')}}">Dashboard</a>
-          </li>
-          <li>
-            <i class="fa-fw fas fa-user"></i><a href="#">Admin Profile</a>
-          </li>
-          <li>
-            <i class="fa-fw fas fa-book-open"></i><a href="{{route('books.index')}}">Books</a>
-          </li>
-          <li>
-            <i class="fa-fw fas fa-user"></i><a href="{{route('authors.index')}}">Authors</a>
-          </li>
-          <li>
-            <i class="fa-fw fas fa-book"></i><a href="{{route('categories')}}">Categories</a>
-          </li>
-          <li>
-            <i class="fa-fw fas fa-users"></i><a href="#">User Lists</a>
-          </li>
-          <li>
-            <i class="fas fa-list"></i></i><a href="#">Borrow Lists</a>
-          </li>
-          <li>
-            <i class="fas fa-address-book"></i></i><a href="#">ContactUs Lists</a>
-          </li>
-        </ul>
-    </section>
+                <i class="fa-fw fas fa-book"></i><a href="{{route('categories')}}">Categories</a>
+              </li>
+              <li>
+                <i class="fa-fw fas fa-users"></i><a href="#">User Lists</a>
+              </li>
+              <li>
+                <i class="fas fa-list"></i></i><a href="#">Borrow Lists</a>
+              </li>
+              <li>
+                <i class="fas fa-address-book"></i></i><a href="#">ContactUs Lists</a>
+              </li>
+            </ul>
+        </section>
 <div class="ft-right main-content">
     @yield('content')
 </div>

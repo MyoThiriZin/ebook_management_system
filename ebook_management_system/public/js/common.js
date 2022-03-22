@@ -14,11 +14,16 @@ $(document).ready(function () {
             }, 200);
         });
     });
+
+    $(window).resize(checkWidth);
+
+    function checkWidth() {
+        if ($(window).width() > 767) {
+            $(".sidenav").css("left", "0");
+        } else if ($(window).width() <= 767) {
+            $(".sidenav").css("left", "");
+        };
+    }
 });
 
-$(document).ready(function(){
-    $('ul li').click(function(){
-      $('li').removeClass("active");
-      $(this).addClass("active");
-  });
-  });
+

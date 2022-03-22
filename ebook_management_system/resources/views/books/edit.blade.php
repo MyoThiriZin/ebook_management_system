@@ -97,6 +97,7 @@
       </div>
 
       <input type="submit" value="Update" class="create-btn">
+      <input type="button" value="Cancel" class="back-btn" onclick="window.location='{{ URL::to('books') }}'"/>
     </form>
   </div>
 @endsection

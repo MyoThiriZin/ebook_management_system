@@ -24,7 +24,7 @@ Route::group(['middleware' => ['admin']], function () {
 
     //Authors
     Route::resource('authors','Admin\Ajax\AuthorController');
-    Route::get('/search', 'Admin\Ajax\AuthorController@search');
+    Route::get('/author/search', 'Admin\Ajax\AuthorController@search')->name('author.search');
 
     //Dashboard
     Route::get('/dashboard', 'Admin\DashboardController@index')->name('dashboard.index');

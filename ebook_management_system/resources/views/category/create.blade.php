@@ -11,7 +11,10 @@
             <small class="text-danger">*{{ $errors->first('name') }}</small>
             @endif
         </div>
+        
         <input type="submit" value="Create" class="create-btn">
+        <input type="button" value="Cancel" class="back-btn" onclick="window.location='{{ URL::to('categories') }}'"/>
+        
     </form>
 </div>
 @endsection

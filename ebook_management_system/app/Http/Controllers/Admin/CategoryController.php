@@ -18,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
         return view('category.index', [
-            'categories' => category::Paginate(10)
+            'categories' => category::latest()->paginate(10)
         ]);
     }
 
@@ -83,12 +83,13 @@ class CategoryController extends Controller
         category::find($id)->delete();
         return redirect()->route('categories');
     }
+
     public function search(Request $request){
         $search = $request->input('search');
         $categories = category::query()
             ->Where('id', 'LIKE', "%{$search}%")
             ->orWhere('name', 'LIKE', "%{$search}%")
-            ->get();
+            ->latest()->paginate(10);
             return view('category.index', compact('categories'));
     }
 }

@@ -107,13 +107,12 @@ a {
 .sidenav .fas:hover {
   color: #f1f1f1;
 }
-.active{
-  background-color:#16ccec;
-  color:#fff;
+
+.sidenav li.active {
+  background-color: #464c6c;
 }
 
 .sidenav li {
-  margin-left: 15px;
   padding: 15px;
   list-style-type: none;
 }
@@ -211,12 +210,12 @@ option {
 .form-sec .create-btn,
 .update-btn {
   cursor: pointer;
-  margin-bottom: 30px;
   padding: 10px 20px;
   border: none;
   background-color: #1cc2b3;
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 16px;
+  margin-bottom: 15px;
 }
 
 /* Add Button */
@@ -334,16 +333,16 @@ tr:nth-child(2n) {
 }
 
 .back-btn {
-  margin-bottom: 10px;
-  padding: 8px 10px;
+  padding: 10px 20px;
   border: none;
-  background-color: rgb(19, 18, 18);
+  background-color: #333645;
   color: #ffffff;
   border-radius: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
 }
 
 .seemore-container {
-
   padding-bottom: 20px;
   background-color: #d1cdcd;
   text-align: center;
@@ -390,13 +389,6 @@ tr:nth-child(2n) {
 
 .sp {
   display: none;
-}
-
-/* Side Bar */
-.sidenav li {
-  margin-left: 10px;
-  padding: 15px;
-  list-style-type: none;
 }
 
 .fas {
@@ -477,11 +469,11 @@ tr:nth-child(2n) {
   background-color: #46c3db;
 }
 
-.author-count{
+.author-count {
   background-color: #21e6c1;
 }
 
-.category-count{
+.category-count {
   background-color: #ea7dc7;
 }
 
@@ -540,7 +532,6 @@ tr:nth-child(2n) {
   }
 
   .sidenav li {
-    margin-left: 1.172vw;
     padding: 1.172vw;
   }
 
@@ -607,9 +598,9 @@ tr:nth-child(2n) {
 
   .form-sec .create-btn,
   .update-btn {
-    margin-bottom: 2.344vw;
+    margin-bottom: 1.172vw;
     padding: 0.781vw 1.563vw;
-    border-radius: 0.313vw;
+    border-radius: 0.781vw;
     font-size: 1.250vw;
   }
 
@@ -678,10 +669,10 @@ tr:nth-child(2n) {
   }
 
   .back-btn {
-    margin-bottom: 0.781vw;
-    padding: 0.625vw 0.781vw;
+    margin-bottom: 1.250vw;
+    padding: 0.781vw 1.563vw;
     border-radius: 0.781vw;
-    font-size: 1.328vw;
+    font-size: 1.250vw;
   }
 
   .search-form .search-input {
@@ -729,11 +720,6 @@ tr:nth-child(2n) {
   .img-container {
     width: 9.766vw;
     margin: 1.563vw auto;
-  }
-
-  .sidenav li {
-    padding: 1.172vw;
-    margin-left: 0.781vw;
   }
 
   .fas {
@@ -784,7 +770,7 @@ tr:nth-child(2n) {
   }
 
   .cmn-container h1 {
-    padding: 1.304vw 0 1.304vw 5.652vw;
+    padding: 1.304vw 0 1.304vw 8.652vw;
     font-size: 2.868vw;
   }
 
@@ -816,7 +802,6 @@ tr:nth-child(2n) {
   }
 
   .sidenav li {
-    margin-left: 1.956vw;
     padding: 1.956vw;
   }
 
@@ -879,9 +864,9 @@ tr:nth-child(2n) {
 
   .form-sec .create-btn,
   .update-btn {
-    margin-bottom: 3.911vw;
+    margin-bottom: 1.956vw;
     padding: 1.304vw 2.608vw;
-    border-radius: 0.522vw;
+    border-radius: 1.304vw;
     font-size: 2.086vw;
   }
 
@@ -955,11 +940,6 @@ tr:nth-child(2n) {
     font-size: 2.5vw;
   }
 
-  .sidenav li {
-    padding: 1.956vw;
-    margin-left: 1.304vw;
-  }
-
   .fas {
     font-size: 2.608vw;
   }
@@ -1006,10 +986,10 @@ tr:nth-child(2n) {
   }
 
   .back-btn {
-    margin-bottom: 1.563vw;
-    padding: 1.25vw 1.563vw;
-    border-radius: 1.563vw;
-    font-size: 2.216vw;
+    margin-bottom: 1.956vw;
+    padding: 1.304vw 2.608vw;
+    border-radius: 1.304vw;
+    font-size: 2.086vw;
   }
 
   .seemore-container {
@@ -1052,7 +1032,7 @@ tr:nth-child(2n) {
   /* humberger menu */
   .sidenav {
     position: fixed;
-    top: 78px;
+    top: 10.169vw;
     left: -120vw;
     width: 40%;
     padding-top: 1.563vw;
@@ -1071,8 +1051,8 @@ tr:nth-child(2n) {
 
   .btn-gnavi {
     position: fixed;
-    top: 28px;
-    left: 26px;
+    top: 3.651vw;
+    left: 5.737vw;
     float: left;
     z-index: 3;
     width: 4.688vw;
@@ -1084,8 +1064,8 @@ tr:nth-child(2n) {
 
   .btn-gnavi span {
     position: absolute;
-    width: 25px;
-    height: 2px;
+    width: 3.259vw;
+    height: 0.3vw;
     background: #333645;
     -webkit-transition: all 400ms;
     transition: all 400ms;
@@ -1096,11 +1076,11 @@ tr:nth-child(2n) {
   }
 
   .btn-gnavi span:nth-child(2) {
-    top: 6px;
+    top: 0.782vw;
   }
 
   .btn-gnavi span:nth-child(3) {
-    top: 12px;
+    top: 1.565vw;
   }
 
   .btn-gnavi.hb-open {
