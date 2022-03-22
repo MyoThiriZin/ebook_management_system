@@ -15,9 +15,9 @@ class AuthorService implements AuthorServiceInterface
         $this->authorDaoInterface = $authorDaoInterface;
     }
 
-    public function getauthors()
+    public function getauthors(Request $request)
     {
-        return $this->authorDaoInterface->getauthors();
+        return $this->authorDaoInterface->getauthors($request);
     }
 
     public function store(Request $request)

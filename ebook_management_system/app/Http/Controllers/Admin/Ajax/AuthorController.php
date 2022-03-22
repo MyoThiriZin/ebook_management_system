@@ -20,11 +20,13 @@ class AuthorController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $authors = $this->authorServiceInterface->getauthors();
+        $authors = $this->authorServiceInterface->getauthors($request);
+
         return view('authors.index', compact('authors'));
     }
 
@@ -89,7 +91,7 @@ class AuthorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request, int  $id
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -138,5 +140,19 @@ class AuthorController extends Controller
         $authors =  $this->authorServiceInterface->authorsSearch($search);
 
         return view('authors.index', compact('authors'));
+    }
+
+    /**
+     * Restore the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function restore($id)
+    {
+        Author::withTrashed()->find($id)->restore();
+
+        return back()->with('success','Author Restore Successfully');
     }
 }
