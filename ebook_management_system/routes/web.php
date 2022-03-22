@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+//use App\Http\Controllers\authorlistController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-//Book
-Route::resource('books','Admin\BookController');
+Route::get('/adminprofile','adminprofileController@show')->name("userlist");
+Route::post('/userlist','userlistController@index')->name("userlist");
+Route::post('/contactlist','contactlistController@index')->name("contactlist");
+Route::post('/borrowlist','borrowlistController@index')->name("borrowlist");
+
