@@ -32,7 +32,7 @@
             <tr>
                 <th><span>ID</span></th>
                 <th><span>Name</span></th>
-                <th><span>Description</span></th>
+                <th class="description-sec"><span>Description</span></th>
                 <th><span>Action</span></th>
 
             </tr>
