@@ -141,21 +141,4 @@ class BookController extends Controller
         return redirect()->back()->with("success_msg", deletedMessage("Book"));
     }
 
-//    public function export()
-    //    {
-    //       return Excel::download(new BookExport, 'book_data.csv');
-    //
-    //        //return redirect()->back()->with("success_msg", exportMessage("CSV"));
-    //    }
-    //
-    //    public function importFile()
-    //    {
-    //       return view('books.import');
-    //    }
-    //
-    //    public function import()
-    //    {
-    //        return Excel::import(new BookImport, request()->file('file'));
-    //    }
-
 }

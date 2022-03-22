@@ -2,6 +2,12 @@
 @section('content')
 
 <div class="add-btn clearfix">
+    <div class="csv-btn ">
+        <a href="{{ url('category/export') }}" class="ft-left"><button class="csv-btn-link"> Export CSV</button></a>
+    </div>
+    <div class="csv-btn ">
+        <a href="{{ url('category/importFile') }}" class="ft-left"><button class="csv-btn-link"> Import CSV</button></a>
+    </div>
     <a href="{{ route('category.create') }}" class="ft-right"><button class="add-btn-link"><i class="fa-fw fas fa-plus"></i> Add Category</button></a>
     <div class="ft-right search-form">
         <form action="{{ route('category.search') }}" method="GET" enctype="multipart/form-data">
@@ -33,8 +39,8 @@
             <td>{{ $category->id }}</td>
             <td>{{ $category->name }}</td>
             <td class="action">
-            <a href="{{ route('category.edit', $category) }}"><button class="edit-btn"><i class="fas fa-edit"></i></button></a>   
-            <a href=""><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>         
+            <a href="{{ route('category.edit', $category) }}"><button class="edit-btn"><i class="fas fa-edit"></i></button></a>
+            <a href=""><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
             <button class="delete-btn" data-bs-toggle="modal" data-bs-target="#modal{{ $category->id }}"><i class="fa-solid fa-trash-can"></i></button>
                 @csrf
             </td>

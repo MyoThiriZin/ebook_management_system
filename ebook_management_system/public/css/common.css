@@ -217,6 +217,7 @@ option {
   border-radius: 10px;
   font-size: 16px;
   margin-bottom: 15px;
+  margin-right: 10px;
 }
 
 /* Add Button */
@@ -249,7 +250,15 @@ option {
   font-size: 17px;
   border-radius: 10px;
 }
-
+.csv-btn-link{
+    padding: 10px 13px;
+  border: transparent;
+  background-color: #048a56;
+  color: #ffffff;
+  font-size: 17px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
 .add-btn-link i {
   color: #333645;
   font-size: 17px;
