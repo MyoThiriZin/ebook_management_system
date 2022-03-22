@@ -50,7 +50,7 @@ class AuthorController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'description' => 'required',
+            'description' => 'required|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -59,6 +59,8 @@ class AuthorController extends Controller
                 'error'=>$validator->messages(),
             ]);
         } else {
+            \Session::flash('success_msg', ('Author has been created.'));
+            \Session::reflash();
             $authors = $this->authorServiceInterface->store($request);
             return response()->json($authors);
         }
@@ -99,7 +101,7 @@ class AuthorController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'description' => 'required',
+            'description' => 'required|max:255',
         ]);
 
         $authors = $this->authorServiceInterface->updateInfo($request, $id);
@@ -110,6 +112,8 @@ class AuthorController extends Controller
                 'error'=>$validator->messages(),
             ]);
         } else {
+            \Session::flash('success_msg', ('Author has been updated.'));
+            \Session::reflash();
             return response()->json($authors);
         }
     }
@@ -122,6 +126,8 @@ class AuthorController extends Controller
      */
     public function destroy($id)
     {
+        \Session::flash('success_msg', ('Author has been deleted.'));
+        \Session::reflash();
         $authors = $this->authorServiceInterface->deleteById($id);
         return response()->json($authors);
     }
@@ -153,6 +159,6 @@ class AuthorController extends Controller
     {
         Author::withTrashed()->find($id)->restore();
 
-        return back()->with('success','Author Restore Successfully');
+        return back()->with('success_msg','Author has been restored');
     }
 }
