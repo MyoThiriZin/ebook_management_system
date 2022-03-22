@@ -27,7 +27,7 @@ $("#create-btn").on("click", function (e) {
           $('small.'+prefix+'_err').text(val[0]);
         })
       } else {
-        window.location.href = "http://127.0.0.1:8000/authors";
+        window.location.href = "/authors";
       }
       
    },
@@ -65,7 +65,7 @@ $("#update-btn").on("click", function (e) {
           $('small.'+prefix+'_err').text(val[0]);
         })
       } else {
-        window.location.href = "http://127.0.0.1:8000/authors";
+        window.location.href = "/authors";
       }    
    },
     dataType: "json"
