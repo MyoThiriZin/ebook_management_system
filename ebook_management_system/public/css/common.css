@@ -177,6 +177,7 @@ small {
 
 .form-sec input[type=text],
 .form-sec input[type=file],
+.form-sec input[type=number],
 .form-sec select,
 .form-sec textarea {
   width: 100%;

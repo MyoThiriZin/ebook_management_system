@@ -24,6 +24,7 @@ class CreateBooksTable extends Migration
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('updated_by');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
