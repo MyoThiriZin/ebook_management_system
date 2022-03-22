@@ -21,7 +21,7 @@
         <div class="col">
           <label for="" class="form-label">Duration</label>
           <input type="number" name="duration" class="duration" placeholder="Duration"
-          value="{{old('description', $item->description) }}">
+          value="{{old('duration', $item->duration) }}">
           @if ($errors->has('duration'))
               <small class="text-danger">*{{ $errors->first('duration') }}</small>
           @endif
