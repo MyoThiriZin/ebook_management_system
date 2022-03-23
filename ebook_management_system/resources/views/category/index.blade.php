@@ -2,26 +2,29 @@
 @section('content')
 
 <div class="add-btn clearfix">
-    <div class="csv-btn ">
-        <a href="{{ url('category/export') }}" class="ft-left"><button class="csv-btn-link"> Export CSV</button></a>
+  <a href="{{ route('category.create') }}" class="ft-right"><button class="add-btn-link"><i class="fa-fw fas fa-plus"></i> Add Category</button></a>
+  
+  <div class="ft-left clearfix csv-search">
+    <div class="csv-btn ft-left">
+        <a href="{{ url('category/export') }}"><button class="csv-btn-link"> Export CSV</button></a>
     </div>
-    <div class="csv-btn ">
-        <a href="{{ url('category/importFile') }}" class="ft-left"><button class="csv-btn-link"> Import CSV</button></a>
+    <div class="csv-btn ft-left">
+        <a href="{{ url('category/importFile') }}"><button class="csv-btn-link"> Import CSV</button></a>
     </div>
-    <a href="{{ route('category.create') }}" class="ft-right"><button class="add-btn-link"><i class="fa-fw fas fa-plus"></i> Add Category</button></a>
     <div class="ft-right search-form">
-        <form action="{{ route('category.search') }}" method="GET" enctype="multipart/form-data">
-            @csrf
-            <input type="text" name="search" placeholder="Search" class="search-input" required/>
-            <button type="submit" class="search-btn">Search</button>
-        </form>
+      <form action="{{ route('category.search') }}" method="GET" enctype="multipart/form-data">
+        @csrf
+        <input type="text" name="search" placeholder="Search" class="search-input" required/>
+        <button type="submit" class="search-btn">Search</button>
+      </form>
     </div>
+  </div>
 </div>
 
 @if (session('success_msg'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{ session('success_msg') }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  {{ session('success_msg') }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
 

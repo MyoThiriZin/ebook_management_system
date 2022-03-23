@@ -38,13 +38,13 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorecategoryRequest  $request
+     * @param  \App\Http\Requests\storeCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(storeCategoryRequest $request)
     {
         category::create($request->validated());
-        return redirect()->route('categories');
+        return redirect()->route('categories')->with("success_msg", "Category Created");
     }
 
     /**
@@ -73,7 +73,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->save();
 
-        return redirect()->route('categories');
+        return redirect()->route('categories')->with("success_msg", "Category Updated");
     }
 
     /**
@@ -84,7 +84,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         category::find($id)->delete();
-        return redirect()->route('categories');
+        return redirect()->route('categories')->with("success_msg", "Category Deleted");
     }
 
     public function search(Request $request)

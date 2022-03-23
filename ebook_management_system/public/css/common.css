@@ -72,6 +72,7 @@ a {
   border-bottom: 2px solid #000000;
   position: fixed;
   width: 100%;
+  left: 0;
 }
 
 .sidenav {
@@ -83,6 +84,7 @@ a {
   background-color: #333645;
   overflow-x: hidden;
   top: 78px;
+  left: 0;
 }
 
 .main-content {
@@ -227,8 +229,10 @@ option {
 
 .search-form .search-input {
   margin-right: 8px;
-  padding: 5px;
+  padding: 7px;
   outline: none;
+  border-radius: 10px;
+  border: 1px solid #333645;
 }
 
 .search-btn {
@@ -251,10 +255,10 @@ option {
   border-radius: 10px;
 }
 
-.csv-btn-link{
+.csv-btn-link {
   padding: 10px 13px;
   border: transparent;
-  background-color:#333645; 
+  background-color: #333645;
   color: #ffffff;
   font-size: 17px;
   border-radius: 10px;
@@ -331,6 +335,10 @@ tr:nth-child(2n) {
 .paginate {
   margin-top: 15px;
   margin-left: 20px;
+}
+
+.csv-search {
+  width: 83.5%;
 }
 
 /* See More */
@@ -628,15 +636,15 @@ tr:nth-child(2n) {
     margin: 0.781vw 0;
   }
 
-  .add-btn-link ,
-  .csv-btn-link ,
+  .add-btn-link,
+  .csv-btn-link,
   .search-btn {
     padding: 0.781vw 1.016vw;
     font-size: 1.328vw;
     border-radius: 0.781vw;
   }
 
-  .csv-btn-link{
+  .csv-btn-link {
     margin-right: 0.781vw;
   }
 
@@ -696,8 +704,10 @@ tr:nth-child(2n) {
 
   .search-form .search-input {
     margin-right: 0.625vw;
-    padding: 0.391vw;
+    padding: 0.547vw;
     font-size: 1.4vw;
+    border-radius: 0.781vw;
+    border: 0.078vw solid #333645;
   }
 
   /*Seemore*/
@@ -781,7 +791,7 @@ tr:nth-child(2n) {
 /*----------sp----------*/
 @media screen and (max-width: 767.9px) {
   .sp {
-    display: block;
+    display: inline-block;
   }
 
   .pc {
@@ -848,7 +858,7 @@ tr:nth-child(2n) {
 
   .col {
     width: 100%;
-    padding-right: 0;
+    padding-right: calc(var(--bs-gutter-x) * .5);
   }
 
   .form-label {
@@ -894,11 +904,20 @@ tr:nth-child(2n) {
   }
 
   .search-form {
+    margin: 0.1vw 0 1.304vw 0;
+  }
+
+  .csv-search .search-form {
+    margin: 0;
+  }
+
+  .csv-search {
+    width: 100%;
     margin: 2.608vw 0 1.304vw 0;
   }
 
   .book-form .search-form {
-    margin: 0.608vw 2vw 1.304vw 0;
+    margin: 0.2vw 2vw 1.304vw 0;
   }
 
   /* Add Button */
@@ -906,15 +925,15 @@ tr:nth-child(2n) {
     margin: 1.304vw 0;
   }
 
-  .add-btn-link ,
-  .csv-btn-link ,
+  .add-btn-link,
+  .csv-btn-link,
   .search-btn {
     padding: 1.304vw 1.695vw;
     font-size: 2.216vw;
     border-radius: 1.304vw;
   }
 
-  .csv-btn-link{
+  .csv-btn-link {
     margin-right: 1.304vw;
   }
 
@@ -967,8 +986,10 @@ tr:nth-child(2n) {
 
   .search-form .search-input {
     margin-right: 1.043vw;
-    padding: 0.652vw;
+    padding: 0.913vw;
     font-size: 2.5vw;
+    border-radius: 1.304vw;
+    border: 0.130vw solid #333645;
   }
 
   .fas {
@@ -1143,7 +1164,6 @@ tr:nth-child(2n) {
   .description-sec {
     width: 78.227vw;
   }
-  
 
 
 

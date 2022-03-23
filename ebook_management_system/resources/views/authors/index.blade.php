@@ -2,22 +2,25 @@
 
 @section('content')
     <div class="add-btn clearfix">
-        <div class="csv-btn ">
-            <a href="{{ url('author/export') }}" class="ft-left"><button class="csv-btn-link"> Export
-                    CSV</button></a>
-        </div>
-        <div class="csv-btn ">
-            <a href="{{ url('author/importFile') }}" class="ft-left"><button class="csv-btn-link"> Import
-                    CSV</button></a>
-        </div>
-
         <a href="{{ route('authors.create') }}" class="ft-right"><button class="add-btn-link"><i
-                    class="fa-fw fas fa-plus"></i> Add Author</button></a>
-        <div class="ft-right search-form">
+                    class="fa-fw fas fa-plus"></i> Add Author</button></a><br class="sp">
+
+        <div class="ft-left clearfix csv-search">
+          <div class="csv-btn ft-left">
+            <a href="{{ url('author/export') }}"><button class="csv-btn-link"> Export
+              CSV</button></a>
+          </div>
+          <div class="csv-btn ft-left">
+            <a href="{{ url('author/importFile') }}"><button class="csv-btn-link"> Import
+              CSV</button></a>
+          </div>
+
+          <div class="ft-right search-form">
             <form action="/author/search" method="get">
-                <input type="search" name="search" placeholder="Search" class="search-input">
-                <button type="submit" class="search-btn">Search</button>
+              <input type="search" name="search" placeholder="Search" class="search-input">
+              <button type="submit" class="search-btn">Search</button>
             </form>
+          </div>
         </div>
     </div>
 
@@ -32,7 +35,7 @@
             <tr>
                 <th><span>ID</span></th>
                 <th><span>Name</span></th>
-                <th class="description-sec"><span>Description</span></th>
+                <th class="description-sec pc"><span>Description</span></th>
                 <th><span>Action</span></th>
 
             </tr>
@@ -42,7 +45,7 @@
                 <tr>
                     <td>{{ $author->id }}</td>
                     <td>{{ $author->name }}</td>
-                    <td>{{ $author->description }}</td>
+                    <td class="pc">{{ $author->description }}</td>
                     <td class="action">
                         <a href="/authors/{{ $author->id }}/edit"><button class="edit-btn"><i
                                     class="fas fa-edit"></i></button></a>

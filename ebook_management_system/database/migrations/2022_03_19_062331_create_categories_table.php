@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->unsignedInteger('created_by')->default('1');
             $table->unsignedInteger('updated_by')->default('1');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
