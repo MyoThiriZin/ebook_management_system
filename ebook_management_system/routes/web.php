@@ -21,6 +21,9 @@ Route::get('/', function () {
 Route::group(['middleware' => ['admin']], function () {
     //Books
     Route::resource('books', 'Admin\BookController');
+    
+    //Borrow
+    Route::resource('borrows', 'Admin\BorrowController');
 
     //Authors
     Route::resource('authors', 'Admin\Ajax\AuthorController');

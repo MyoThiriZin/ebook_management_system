@@ -20,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Dao\Auth\ForgotPasswordDaoInterface', 'App\Dao\Auth\ForgotPasswordDao');
         $this->app->bind('App\Contracts\Dao\AuthorDaoInterface', 'App\Dao\AuthorDao');
         $this->app->bind('App\Contracts\Dao\BookDaoInterface', 'App\Dao\BookDao');
+        $this->app->bind('App\Contracts\Dao\BorrowDaoInterface', 'App\Dao\BorrowDao');
         $this->app->bind('App\Contracts\Dao\DashboardDaoInterface', 'App\Dao\DashboardDao');
         $this->app->bind('App\Contracts\Dao\UserDaoInterface', 'App\Dao\UserDao');
         $this->app->bind('App\Contracts\Dao\ContactUsDaoInterface', 'App\Dao\ContactUsDao');
@@ -34,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Contracts\Services\UserServiceInterface', 'App\Services\UserService');
         $this->app->bind('App\Contracts\Services\ContactUsServiceInterface', 'App\Services\ContactUsService');
 
+        $this->app->bind('App\Contracts\Services\BorrowServiceInterface', 'App\Services\BorrowService');
     }
 
     /**

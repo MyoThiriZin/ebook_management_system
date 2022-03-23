@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Borrow;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Contracts\Services\BorrowServiceInterface;
 
 class BorrowController extends Controller
 {
@@ -12,9 +14,17 @@ class BorrowController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $borrowService;
+    public function __construct(BorrowServiceInterface $borrowService)
+    {
+        $this->borrowService = $borrowService;
+    }
+
     public function index()
     {
-        //
+        $borrows = $this->borrowService->index();
+
+        return view('borrow.index',['items' => $borrows]);
     }
 
     /**
@@ -44,9 +54,9 @@ class BorrowController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Borrow $borrow)
     {
-        //
+        return view('borrow.show',['item' => $borrow]);
     }
 
     /**
@@ -78,8 +88,10 @@ class BorrowController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Borrow $borrow)
     {
-        //
+        $this->borrowService->delete($borrow);
+
+        return redirect()->route('borrows.index')->with("success_msg", deletedMessage("Borrow"));
     }
 }

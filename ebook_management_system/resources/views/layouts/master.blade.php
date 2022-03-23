@@ -18,9 +18,9 @@
   <div id="wrapper">
     <section class="sec-header">
         <div class="cmn-container clearfix">
-          <a href=""><h1>EBOOK MANAGEMENT 
+          <a href=""><h1>EBOOK MANAGEMENT
             SYSTEM</h1></a>
-          
+
           <div class="dropdown ft-right">
             <div class="dropbtn">
             <i class="fa-solid fa-circle-user"></i>
@@ -66,8 +66,8 @@
               <li class="{{ request()->is('users') ? 'active' : null }}">
                 <i class="fa-fw fas fa-users"></i><a href="{{ route('users.index') }}">User Lists</a>
               </li>
-              <li>
-                <i class="fas fa-list"></i></i><a href="#">Borrow Lists</a>
+              <li class="{{ request()->is('borrows') || request()->is('borrows/create') || request()->is('borrows/*') ? 'active' : null }}">
+                <i class="fas fa-list"></i></i><a href="{{route('borrows.index')}}">Borrow Lists</a>
               </li>
               <li class="{{ request()->is('contact') ? 'active' : null }}">
                 <i class="fas fa-address-book"></i></i><a href="{{route('contact.index')}}">ContactUs Lists</a>

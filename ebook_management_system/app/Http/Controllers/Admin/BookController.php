@@ -78,11 +78,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        $authors = $this->bookService->getAuthor();
-
-        $categories = $this->bookService->getCategory();
-
-        return view('books.show')->with(['item' => $book, 'authors' => $authors, 'categories' => $categories]);
+        return view('books.show')->with(['item' => $book]);
     }
 
     /**
