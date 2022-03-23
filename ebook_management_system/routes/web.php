@@ -51,9 +51,9 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('category/importFile', 'Admin\CategoryController@importFile');
     Route::post('category/import', 'Admin\CategoryController@import');
 
-    Route::get('/adminprofile','adminprofileController@show')->name('adminprofile');
-    Route::resource('/users','userlistController');
-    Route::resource('/contact','ContactUsController');
+    Route::get('/adminprofile','Admin\AdminController@show')->name('adminprofile');
+    Route::resource('/users','Admin\UserController');
+    Route::resource('/contact','Admin\ContactUsController');
 
 });
 

@@ -229,8 +229,10 @@ option {
 
 .search-form .search-input {
   margin-right: 8px;
-  padding: 5px;
+  padding: 7px;
   outline: none;
+  border-radius: 10px;
+  border: 1px solid #333645;
 }
 
 .search-btn {
@@ -702,8 +704,10 @@ tr:nth-child(2n) {
 
   .search-form .search-input {
     margin-right: 0.625vw;
-    padding: 0.391vw;
+    padding: 0.547vw;
     font-size: 1.4vw;
+    border-radius: 0.781vw;
+    border: 0.078vw solid #333645;
   }
 
   /*Seemore*/
@@ -982,8 +986,10 @@ tr:nth-child(2n) {
 
   .search-form .search-input {
     margin-right: 1.043vw;
-    padding: 0.652vw;
+    padding: 0.913vw;
     font-size: 2.5vw;
+    border-radius: 1.304vw;
+    border: 0.130vw solid #333645;
   }
 
   .fas {
