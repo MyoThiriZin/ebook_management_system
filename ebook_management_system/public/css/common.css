@@ -253,10 +253,10 @@ option {
   border-radius: 10px;
 }
 
-.csv-btn-link{
+.csv-btn-link {
   padding: 10px 13px;
   border: transparent;
-  background-color:#333645; 
+  background-color: #333645;
   color: #ffffff;
   font-size: 17px;
   border-radius: 10px;
@@ -634,15 +634,15 @@ tr:nth-child(2n) {
     margin: 0.781vw 0;
   }
 
-  .add-btn-link ,
-  .csv-btn-link ,
+  .add-btn-link,
+  .csv-btn-link,
   .search-btn {
     padding: 0.781vw 1.016vw;
     font-size: 1.328vw;
     border-radius: 0.781vw;
   }
 
-  .csv-btn-link{
+  .csv-btn-link {
     margin-right: 0.781vw;
   }
 
@@ -908,7 +908,7 @@ tr:nth-child(2n) {
   }
 
   .csv-search {
-    width:100%;
+    width: 100%;
     margin: 2.608vw 0 1.304vw 0;
   }
 
@@ -921,15 +921,15 @@ tr:nth-child(2n) {
     margin: 1.304vw 0;
   }
 
-  .add-btn-link ,
-  .csv-btn-link ,
+  .add-btn-link,
+  .csv-btn-link,
   .search-btn {
     padding: 1.304vw 1.695vw;
     font-size: 2.216vw;
     border-radius: 1.304vw;
   }
 
-  .csv-btn-link{
+  .csv-btn-link {
     margin-right: 1.304vw;
   }
 
@@ -1158,7 +1158,7 @@ tr:nth-child(2n) {
   .description-sec {
     width: 78.227vw;
   }
-  
+
 
 
 
