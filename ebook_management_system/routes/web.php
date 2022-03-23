@@ -70,4 +70,9 @@ Route::get('reset-password/{token}', 'Admin\Auth\ForgotPasswordController@showRe
 Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPasswordForm')->name('submit.reset.password');
 
 
+//User ContactUs
+Route::get('contact/create','User\ContactUsController@create')->name('user#contact_create');
+Route::post('contact/store','User\ContactUsController@store')->name('user#contact_store');
+
+
 

@@ -26,7 +26,7 @@ class ContactUsController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.contacts.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class ContactUsController extends Controller
     public function store(storeContactUsRequest $request)
     {
         Contact::create($request->validated());
-        
+
         return redirect()->back()->with("success_msg", createdMessage("Message"));
     }
 
