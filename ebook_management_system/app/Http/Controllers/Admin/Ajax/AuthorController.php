@@ -104,8 +104,6 @@ class AuthorController extends Controller
             'description' => 'required|max:255',
         ]);
 
-        $authors = $this->authorServiceInterface->updateInfo($request, $id);
-
         if ($validator->fails()) {
             return response()->json([
                 'status'=>400,
@@ -114,6 +112,7 @@ class AuthorController extends Controller
         } else {
             \Session::flash('success_msg', ('Author has been updated.'));
             \Session::reflash();
+            $authors = $this->authorServiceInterface->updateInfo($request, $id);
             return response()->json($authors);
         }
     }
