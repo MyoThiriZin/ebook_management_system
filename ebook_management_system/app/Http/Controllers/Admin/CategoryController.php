@@ -44,7 +44,7 @@ class CategoryController extends Controller
     public function store(storeCategoryRequest $request)
     {
         category::create($request->validated());
-        return redirect()->route('categories')->with("success_msg", "Category Created");
+        return redirect()->back()->with("success_msg",createdMessage("Category"));
     }
 
     /**
@@ -73,7 +73,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->save();
 
-        return redirect()->route('categories')->with("success_msg", "Category Updated");
+        return redirect()->back()->with("success_msg", updatedMessage("Category"));
     }
 
     /**
@@ -84,7 +84,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         category::find($id)->delete();
-        return redirect()->route('categories')->with("success_msg", "Category Deleted");
+        return redirect()->route('categories')->with("success_msg", deletedMessage("Category"));
     }
 
     public function search(Request $request)
@@ -104,6 +104,8 @@ class CategoryController extends Controller
 
     public function importFile()
     {
+        Category::truncate();
+
         return view('category.import');
     }
 
