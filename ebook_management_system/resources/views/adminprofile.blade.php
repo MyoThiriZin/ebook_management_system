@@ -1,20 +1,20 @@
 @extends('layouts.master')
-
 @section('content')
-
-<h2 class="form-title">Admin Profile</h2>
-
-<div class="form-sec">
-  <form action="{route{'adminprofile'}}" method="POST" class="form-control">
-<div class="container-profile-suan">
-<label for="">Name:{{ $admininfo()->name }} </label><br>
-<label for="">Email:{{ $admininfo()->email }} </label><br>
-<label for="">Address:{{ $admininfo()->address }} </label><br>
-<label for="">Type of user: {{ $admininfo()->type }} </label><br>
-<label for="">Password: {{ $admininfo()->password }}</label><br>
-<label for="">Account Created Date:{{ $admininfo()->created_by }} </label><br>
+<div class="seemore">
+    <div class="seemore-container">
+        <h2 class="seemore-ttl">Admin Profile</h2>
+        <div class="seemore-item">
+            <label for="" class="">Name :</label><span>{{ $users->name }}</span>
+        </div>
+        <div class="seemore-item">
+            <label for="">Email :</label><span>{{ $users->email }}</span>
+        </div>
+        <div class="seemore-item">
+            <label for="">Phone :</label><span>{{ $users->phone_no }}</span>
+        </div>
+        <div class="seemore-item">
+            <label for="">Address :</label><span>{{ $users->address }}</span>
+        </div>
+    </div>
 </div>
-  </form>
-</div>
-
 @endsection

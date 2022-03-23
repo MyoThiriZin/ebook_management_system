@@ -250,15 +250,17 @@ option {
   font-size: 17px;
   border-radius: 10px;
 }
+
 .csv-btn-link{
-    padding: 10px 13px;
+  padding: 10px 13px;
   border: transparent;
-  background-color: #048a56;
+  background-color:#333645; 
   color: #ffffff;
   font-size: 17px;
   border-radius: 10px;
   margin-right: 10px;
 }
+
 .add-btn-link i {
   color: #333645;
   font-size: 17px;
@@ -575,6 +577,10 @@ tr:nth-child(2n) {
     font-size: 1.250vw;
   }
 
+  .search-form {
+    margin: 0.156vw 1.172vw 0 0;
+  }
+
   .second-column label,
   .second-column span {
     margin-bottom: 0.859vw;
@@ -622,10 +628,16 @@ tr:nth-child(2n) {
     margin: 0.781vw 0;
   }
 
-  .add-btn-link {
+  .add-btn-link ,
+  .csv-btn-link ,
+  .search-btn {
+    padding: 0.781vw 1.016vw;
     font-size: 1.328vw;
-    padding: 1.172vw;
     border-radius: 0.781vw;
+  }
+
+  .csv-btn-link{
+    margin-right: 0.781vw;
   }
 
   .add-btn-link i {
@@ -675,12 +687,6 @@ tr:nth-child(2n) {
     padding: 0.391vw;
   }
 
-  .search-btn {
-    padding: 1vw 1.094vw;
-    border-radius: 0.781vw;
-    font-size: 1.5vw;
-  }
-
   .back-btn {
     margin-bottom: 1.250vw;
     padding: 0.781vw 1.563vw;
@@ -691,7 +697,7 @@ tr:nth-child(2n) {
   .search-form .search-input {
     margin-right: 0.625vw;
     padding: 0.391vw;
-    font-size: 1.7vw;
+    font-size: 1.4vw;
   }
 
   /*Seemore*/
@@ -887,15 +893,29 @@ tr:nth-child(2n) {
     font-size: 2.086vw;
   }
 
+  .search-form {
+    margin: 2.608vw 0 1.304vw 0;
+  }
+
+  .book-form .search-form {
+    margin: 0.608vw 2vw 1.304vw 0;
+  }
+
   /* Add Button */
   .add-btn {
     margin: 1.304vw 0;
   }
 
-  .add-btn-link {
+  .add-btn-link ,
+  .csv-btn-link ,
+  .search-btn {
+    padding: 1.304vw 1.695vw;
     font-size: 2.216vw;
-    padding: 1.956vw;
     border-radius: 1.304vw;
+  }
+
+  .csv-btn-link{
+    margin-right: 1.304vw;
   }
 
   .add-btn-link i {
@@ -943,12 +963,6 @@ tr:nth-child(2n) {
 
   .delete-btn {
     padding: 0.652vw;
-  }
-
-  .search-btn {
-    padding: 1.7vw 1.825vw;
-    border-radius: 1.304vw;
-    font-size: 2.216vw;
   }
 
   .search-form .search-input {

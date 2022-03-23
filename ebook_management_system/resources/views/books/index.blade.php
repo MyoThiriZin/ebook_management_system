@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="add-btn clearfix">
+<div class="add-btn clearfix book-form">
   <a href="{{route('books.create')}}" class="ft-right"><button class="add-btn-link"><i class="fa-fw fas fa-plus"></i> Add Book</button></a>
   <div class="ft-right search-form">
     <form action="{{ route('books.index') }}" method="GET" enctype="multipart/form-data">

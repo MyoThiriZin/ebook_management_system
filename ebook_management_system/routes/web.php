@@ -48,6 +48,10 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('category/importFile', 'Admin\CategoryController@importFile');
     Route::post('category/import', 'Admin\CategoryController@import');
 
+    Route::get('/adminprofile','adminprofileController@show')->name('adminprofile');
+    Route::resource('/users','userlistController');
+    Route::resource('/contact','ContactUsController');
+
 });
 
 Route::get('/register', 'Admin\Auth\AuthController@showRegistrationView')->name('register');
@@ -62,8 +66,5 @@ Route::post('forget-password', 'Admin\Auth\ForgotPasswordController@submitForget
 Route::get('reset-password/{token}', 'Admin\Auth\ForgotPasswordController@showResetPasswordForm')->name('reset.password');
 Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPasswordForm')->name('submit.reset.password');
 
-Route::get('/adminprofile','adminprofileController@show')->name("userlist");
-Route::post('/userlist','userlistController@index')->name("userlist");
-Route::post('/contactlist','contactlistController@index')->name("contactlist");
-Route::post('/borrowlist','borrowlistController@index')->name("borrowlist");
+
 

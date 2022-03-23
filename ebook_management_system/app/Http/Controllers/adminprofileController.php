@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use ebook_management_system;
+use App\User;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 class adminprofileController extends Controller
 {
-    public function show($id, Request $request){
-        $admininfo = users::findOrFail($id);
-        return view('adminprofile')->with('users', $admininfo);
+    public function show() 
+    {
+        $id=Auth::user()->id;
+        $admininfo = User::findOrFail($id);
+        return view('adminprofile')->with(['users' => $admininfo]);
     }
 }

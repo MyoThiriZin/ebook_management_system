@@ -26,7 +26,7 @@ class ContactlistSeeder extends Seeder
             ]
         ];
         foreach ($users as $user) {
-            contacts::create($user);
+            Contact::create($user);
         }
     }
 }
