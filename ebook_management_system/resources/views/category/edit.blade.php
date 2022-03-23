@@ -4,7 +4,7 @@
     <h2 class="form-title">Edit Category</h2>
     <form action="{{ route('category.update', $category->id) }}" method="POST" enctype="multipart/form-data" class="form">
       @csrf
-      @method("PUT")
+      @method("POST")
       <div class="clearfix">
         <div class="col">
           <label for="" class="form-label">Category Name</label>
