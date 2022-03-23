@@ -16,7 +16,7 @@ class AuthorDao implements AuthorDaoInterface {
         return Author::with('user')->paginate(10);
       }
     }
-    
+
     public function store(Request $request){
       return  Author::create($request->all());
     }
@@ -41,11 +41,11 @@ class AuthorDao implements AuthorDaoInterface {
   }
 
   public function detailAuthor($id){
-    return Author::with('user')->find($id); 
+    return Author::with('user')->find($id);
   }
 
   public function authorsSearch($search){
-    
+
     return Author::with('user')
     ->where('name', 'like', '%'.$search.'%')
     ->orWhere('description', 'like', '%'.$search.'%')

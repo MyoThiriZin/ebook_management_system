@@ -82,11 +82,13 @@
                 </tr>
             @endforelse
 
-  </tbody>
-</table>
+        </tbody>
+    </table>
 
-{{ $authors->links() }}
+    <div class="paginate">
+        {{ $authors->links() }}
+    </div>
 
-<script src="/js//library/jquery-3.6.0.min.js"></script>
-<script src="/js/authors.js"></script>
+    <script src="/js//library/jquery-3.6.0.min.js"></script>
+    <script src="/js/authors.js"></script>
 @endsection

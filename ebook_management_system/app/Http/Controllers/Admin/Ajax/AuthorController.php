@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Ajax;
 
-
+use App\Author;
 use Illuminate\Http\Request;
 use App\Export\AuthorsExport;
 use App\Import\AuthorsImport;
@@ -17,7 +17,7 @@ class AuthorController extends Controller
 
     public function __construct(AuthorServiceInterface $authorServiceInterface)
     {
-      $this->authorServiceInterface = $authorServiceInterface;
+        $this->authorServiceInterface = $authorServiceInterface;
     }
     /**
      * Display a listing of the resource.
@@ -57,8 +57,8 @@ class AuthorController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'status'=>400,
-                'error'=>$validator->messages(),
+                'status' => 400,
+                'error' => $validator->messages(),
             ]);
         } else {
             \Session::flash('success_msg', ('Author has been created.'));
@@ -110,8 +110,8 @@ class AuthorController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'status'=>400,
-                'error'=>$validator->messages(),
+                'status' => 400,
+                'error' => $validator->messages(),
             ]);
         } else {
             \Session::flash('success_msg', ('Author has been updated.'));
@@ -145,7 +145,7 @@ class AuthorController extends Controller
     {
         $search = $request->get('search');
 
-        $authors =  $this->authorServiceInterface->authorsSearch($search);
+        $authors = $this->authorServiceInterface->authorsSearch($search);
 
         return view('authors.index', compact('authors'));
     }
@@ -161,23 +161,23 @@ class AuthorController extends Controller
     {
         Author::withTrashed()->find($id)->restore();
 
-        return back()->with('success_msg','Author has been restored');
+        return back()->with('success', 'Author Restore Successfully');
     }
     public function export()
-        {
-           return Excel::download(new AuthorsExport, 'author_data.csv');
+    {
+        return Excel::download(new AuthorsExport, 'author_data.csv');
 
-        }
+    }
 
-        public function importFile()
-        {
-           return view('authors.import');
-        }
+    public function importFile()
+    {
+        return view('authors.import');
+    }
 
-        public function import()
-        {
-             Excel::import(new AuthorsImport, request()->file('file'));
+    public function import()
+    {
+        Excel::import(new AuthorsImport, request()->file('file'));
 
-             return redirect()->route('authors.index')->with("success_msg", importMessage("CSV"));
-        }
+        return redirect()->route('authors.index')->with("success_msg", importMessage("CSV"));
+    }
 }
