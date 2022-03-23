@@ -72,6 +72,7 @@ a {
   border-bottom: 2px solid #000000;
   position: fixed;
   width: 100%;
+  left: 0;
 }
 
 .sidenav {
@@ -83,6 +84,7 @@ a {
   background-color: #333645;
   overflow-x: hidden;
   top: 78px;
+  left: 0;
 }
 
 .main-content {
@@ -331,6 +333,10 @@ tr:nth-child(2n) {
 .paginate {
   margin-top: 15px;
   margin-left: 20px;
+}
+
+.csv-search {
+  width: 83.5%;
 }
 
 /* See More */
@@ -781,7 +787,7 @@ tr:nth-child(2n) {
 /*----------sp----------*/
 @media screen and (max-width: 767.9px) {
   .sp {
-    display: block;
+    display: inline-block;
   }
 
   .pc {
@@ -848,7 +854,7 @@ tr:nth-child(2n) {
 
   .col {
     width: 100%;
-    padding-right: 0;
+    padding-right: calc(var(--bs-gutter-x) * .5);
   }
 
   .form-label {
@@ -894,11 +900,20 @@ tr:nth-child(2n) {
   }
 
   .search-form {
+    margin: 0.1vw 0 1.304vw 0;
+  }
+
+  .csv-search .search-form {
+    margin: 0;
+  }
+
+  .csv-search {
+    width:100%;
     margin: 2.608vw 0 1.304vw 0;
   }
 
   .book-form .search-form {
-    margin: 0.608vw 2vw 1.304vw 0;
+    margin: 0.2vw 2vw 1.304vw 0;
   }
 
   /* Add Button */

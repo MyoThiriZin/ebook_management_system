@@ -26,8 +26,8 @@
           <th><span>ID</span></th>
           <th><span>User Name</span></th>
           <th><span>Book Name</span></th>
-          <th><span>Start Date</span></th>
-          <th><span>End Date</span></th>
+          <th class="pc"><span>Start Date</span></th>
+          <th class="pc"><span>End Date</span></th>
           <th><span>Action</span></th>
       </tr>
     </thead>
@@ -38,10 +38,10 @@
         <td>{{$item->id}}</td>
         <td>{{$item->user->name}}</td>
         <td>{{$item->book->name}}</td>
-        <td>{{$item->start_date}}</td>
-        <td>{{$item->end_date}}</td>
+        <td class="pc">{{$item->start_date}}</td>
+        <td class="pc">{{$item->end_date}}</td>
         <td class="action">
-            <a href="{{route('borrows.show', $item->id)}}"><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
+            <a href="{{route('borrows.show', $item->id)}}" class="sp"><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
             <button class="delete-btn" data-bs-toggle="modal"
             data-bs-target="#modal{{ $item->id }}"><i class="fa-solid fa-trash-can"></i></button>
         </td>
