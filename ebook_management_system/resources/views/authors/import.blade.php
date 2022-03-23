@@ -6,7 +6,7 @@
       @csrf
         <div class="clearfix">
             <label for="" class="form-label">Choose csv file</label>
-            <input type="file" name="file" class="name" accept=".csv">
+            <input type="file" name="file" class="name" accept=".csv" required>
             @if ($errors->has('file'))
             <small class="text-danger">*{{ $errors->first('file') }}</small>
             @endif
