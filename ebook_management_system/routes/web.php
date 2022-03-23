@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
-
+//use App\Http\Controllers\authorlistController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::group(['middleware' => ['admin']], function () {
     //Books
     Route::resource('books', 'Admin\BookController');
-    
+
     //Borrow
     Route::resource('borrows', 'Admin\BorrowController');
 
@@ -51,6 +51,10 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('category/importFile', 'Admin\CategoryController@importFile');
     Route::post('category/import', 'Admin\CategoryController@import');
 
+    Route::get('/adminprofile','Admin\AdminController@show')->name('adminprofile');
+    Route::resource('/users','Admin\UserController');
+    Route::resource('/contact','Admin\ContactUsController');
+
 });
 
 Route::get('/register', 'Admin\Auth\AuthController@showRegistrationView')->name('register');
@@ -64,3 +68,6 @@ Route::get('forget-password', 'Admin\Auth\ForgotPasswordController@showForgetPas
 Route::post('forget-password', 'Admin\Auth\ForgotPasswordController@submitForgetPasswordForm')->name('submit.forget.password');
 Route::get('reset-password/{token}', 'Admin\Auth\ForgotPasswordController@showResetPasswordForm')->name('reset.password');
 Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPasswordForm')->name('submit.reset.password');
+
+
+

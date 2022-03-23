@@ -11,20 +11,16 @@ class DashboardDao implements DashboardDaoInterface {
 
     public function getchart() 
     {
-      $data = DB::table('borrows')->get('book_id')->groupBy('book_id');
-
-      $bookCount=[];
-      foreach($data as $book => $values){
-          $bookCount[]=count($values);
-      }
-
       $books = DB::table('borrows')
       ->join('books', 'books.id', '=', 'borrows.book_id')
-      ->pluck('borrows.book_id','name');
+      ->select(\DB::raw("count(borrows.book_id) as count, books.name "))
+      ->groupBy('borrows.book_id')
+      ->orderBy('count', 'desc')
+      ->pluck('count', 'name')->take(10);
 
       $chart = new BookChart;
       $chart->labels($books->keys());
-      $chart->dataset('Book Names', 'bar', $bookCount)
+      $chart->dataset('User Counts', 'bar', $books->values())
             ->backgroundColor('#2d6cdf');
       
       return $chart;

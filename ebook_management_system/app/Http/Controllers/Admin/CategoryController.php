@@ -41,7 +41,7 @@ class CategoryController extends Controller
      * @param  \App\Http\Requests\StorecategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorecategoryRequest $request)
+    public function store(storeCategoryRequest $request)
     {
         category::create($request->validated());
         return redirect()->route('categories');
@@ -67,7 +67,7 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatecategoryRequest $request, $id)
+    public function update(updateCategoryRequest $request, $id)
     {
         $category = category::find($id);
         $category->name = $request->name;

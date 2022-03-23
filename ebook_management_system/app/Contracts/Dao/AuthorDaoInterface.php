@@ -5,7 +5,7 @@ namespace App\Contracts\Dao;
 use Illuminate\Http\Request;
 
 interface AuthorDaoInterface {
-  public function getauthors();
+  public function getauthors(Request $request);
 
   public function store(Request $request);
 

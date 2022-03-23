@@ -9,16 +9,22 @@ use Illuminate\Http\Request;
 
 class AuthorDao implements AuthorDaoInterface {
 
-    public function getauthors(){
-        return Author::with('user')->get();
+    public function getauthors(Request $request){
+      if($request->has('view_deleted')) {
+        return Author::onlyTrashed()->paginate(10);
+      } else {
+        return Author::with('user')->paginate(10);
+      }
     }
-    
+
     public function store(Request $request){
       return  Author::create($request->all());
     }
 
     public function deleteById($id){
-      return  Author::findOrFail($id)->delete();
+      $author = Author::findOrFail($id);
+      $author->books()->delete();
+      return $author->delete();
     }
 
     public function editAuthor($id){
@@ -35,11 +41,11 @@ class AuthorDao implements AuthorDaoInterface {
   }
 
   public function detailAuthor($id){
-    return Author::with('user')->find($id); 
+    return Author::with('user')->find($id);
   }
 
   public function authorsSearch($search){
-    
+
     return Author::with('user')
     ->where('name', 'like', '%'.$search.'%')
     ->orWhere('description', 'like', '%'.$search.'%')

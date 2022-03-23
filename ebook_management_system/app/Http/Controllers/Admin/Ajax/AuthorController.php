@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Ajax;
 
-
+use App\Author;
 use Illuminate\Http\Request;
 use App\Export\AuthorsExport;
 use App\Import\AuthorsImport;
@@ -17,16 +17,18 @@ class AuthorController extends Controller
 
     public function __construct(AuthorServiceInterface $authorServiceInterface)
     {
-      $this->authorServiceInterface = $authorServiceInterface;
+        $this->authorServiceInterface = $authorServiceInterface;
     }
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $authors = $this->authorServiceInterface->getauthors();
+        $authors = $this->authorServiceInterface->getauthors($request);
+
         return view('authors.index', compact('authors'));
     }
 
@@ -55,8 +57,8 @@ class AuthorController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'status'=>400,
-                'error'=>$validator->messages(),
+                'status' => 400,
+                'error' => $validator->messages(),
             ]);
         } else {
             $authors = $this->authorServiceInterface->store($request);
@@ -91,7 +93,7 @@ class AuthorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request, int  $id
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -106,8 +108,8 @@ class AuthorController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'status'=>400,
-                'error'=>$validator->messages(),
+                'status' => 400,
+                'error' => $validator->messages(),
             ]);
         } else {
             return response()->json($authors);
@@ -137,26 +139,39 @@ class AuthorController extends Controller
     {
         $search = $request->get('search');
 
-        $authors =  $this->authorServiceInterface->authorsSearch($search);
+        $authors = $this->authorServiceInterface->authorsSearch($search);
 
         return view('authors.index', compact('authors'));
     }
 
+    /**
+     * Restore the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function restore($id)
+    {
+        Author::withTrashed()->find($id)->restore();
+
+        return back()->with('success', 'Author Restore Successfully');
+    }
     public function export()
-        {
-           return Excel::download(new AuthorsExport, 'author_data.csv');
+    {
+        return Excel::download(new AuthorsExport, 'author_data.csv');
 
-        }
+    }
 
-        public function importFile()
-        {
-           return view('authors.import');
-        }
+    public function importFile()
+    {
+        return view('authors.import');
+    }
 
-        public function import()
-        {
-             Excel::import(new AuthorsImport, request()->file('file'));
+    public function import()
+    {
+        Excel::import(new AuthorsImport, request()->file('file'));
 
-             return redirect()->route('authors.index')->with("success_msg", importMessage("CSV"));
-        }
+        return redirect()->route('authors.index')->with("success_msg", importMessage("CSV"));
+    }
 }

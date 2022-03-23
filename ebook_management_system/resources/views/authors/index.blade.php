@@ -32,7 +32,7 @@
             <tr>
                 <th><span>ID</span></th>
                 <th><span>Name</span></th>
-                <th><span>Description</span></th>
+                <th class="description-sec"><span>Description</span></th>
                 <th><span>Action</span></th>
 
             </tr>
@@ -81,6 +81,11 @@
 
         </tbody>
     </table>
+
+    <div class="paginate">
+        {{ $authors->links() }}
+    </div>
+
     <script src="/js//library/jquery-3.6.0.min.js"></script>
     <script src="/js/authors.js"></script>
 @endsection
