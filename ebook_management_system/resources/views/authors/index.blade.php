@@ -33,7 +33,7 @@
     <table cellspacing="0" cellpadding="0">
         <thead class="heading">
             <tr>
-                <th><span>ID</span></th>
+                <th><span>No</span></th>
                 <th><span>Name</span></th>
                 <th class="description-sec pc"><span>Description</span></th>
                 <th><span>Action</span></th>
@@ -43,7 +43,7 @@
         <tbody>
             @forelse ($authors as $author)
                 <tr>
-                    <td>{{ $author->id }}</td>
+                    <td>{{ ($authors->currentPage()-1) * $authors->perPage() + $loop->index + 1 }}</td>
                     <td>{{ $author->name }}</td>
                     <td class="pc">{{ $author->description }}</td>
                     <td class="action">

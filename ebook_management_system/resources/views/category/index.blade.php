@@ -31,7 +31,7 @@
 <table cellspacing="0" cellpadding="0">
      <thead class="heading">
        <tr>
-         <th><span>ID</span></th>
+         <th><span>No</span></th>
          <th><span>Category Name</span></th>
          <th><span>Action</span></th>
        </tr>
@@ -39,11 +39,10 @@
      <tbody>
      @forelse ($categories as $category)
         <tr>
-            <td>{{ $category->id }}</td>
+            <td>{{ ($categories->currentPage()-1) * $categories->perPage() + $loop->index + 1 }}</td>
             <td>{{ $category->name }}</td>
             <td class="action">
             <a href="{{ route('category.edit', $category) }}"><button class="edit-btn"><i class="fas fa-edit"></i></button></a>
-            <a href=""><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
             <button class="delete-btn" data-bs-toggle="modal" data-bs-target="#modal{{ $category->id }}"><i class="fa-solid fa-trash-can"></i></button>
                 @csrf
             </td>

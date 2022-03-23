@@ -23,7 +23,7 @@
 <table cellspacing="0" cellpadding="0">
     <thead class="heading">
       <tr>
-          <th><span>ID</span></th>
+          <th><span>No</span></th>
           <th><span>User Name</span></th>
           <th><span>Book Name</span></th>
           <th class="pc"><span>Start Date</span></th>
@@ -35,7 +35,7 @@
 
     @forelse ($items as $item)
         <tr>
-        <td>{{$item->id}}</td>
+        <td>{{ ($items->currentPage()-1) * $items->perPage() + $loop->index + 1 }}</td>
         <td>{{$item->user->name}}</td>
         <td>{{$item->book->name}}</td>
         <td class="pc">{{$item->start_date}}</td>

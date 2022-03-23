@@ -23,19 +23,19 @@
   <table cellspacing="0" cellpadding="0">
     <thead class="heading">
       <tr>
-        <td>No.</td>
-        <td>Name</td>
-        <td>Email</td>
-        <td class="pc">Address</td>
-        <td class="pc">Phone</td>
-        <td class="pc">Role</td>
-        <td>Action</td>
+        <th>No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th class="pc">Address</th>
+        <th class="pc">Phone</th>
+        <th class="pc">Role</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
       @foreach ($users as $userinfo)
       <tr>
-        <td>{{ $userinfo->id }}</td>
+        <td>{{ ($users->currentPage()-1) * $users->perPage() + $loop->index + 1 }}</td>
         <td>{{ $userinfo->name }}</td>
         <td>{{ $userinfo->email }}</td>
         <td class="pc">{{ $userinfo->address }}</td>

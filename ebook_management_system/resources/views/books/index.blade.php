@@ -24,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
     <thead class="heading">
       <tr>
-          <th><span>ID</span></th>
+          <th><span>No</span></th>
           {{--<th><span>Image</span></th>--}}
           <th><span>Name</span></th>
           <th><span>Author Name</span></th>
@@ -37,7 +37,7 @@
 
     @forelse ($items as $item)
         <tr>
-        <td>{{$item->id}}</td>
+        <td>{{ ($items->currentPage()-1) * $items->perPage() + $loop->index + 1 }}</td>
         {{--<td><img src="/uploads/{{ $item->image }}" width="100px" height="50px"></td>--}}
         <td>{{$item->name}}</td>
         <td>{{$item->author->name}}</td>
