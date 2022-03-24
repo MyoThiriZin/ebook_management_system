@@ -39,7 +39,7 @@ class ContactUsController extends Controller
     {
         Contact::create($request->validated());
 
-        return redirect()->back()->with("success_msg", createdMessage("Message"));
+        return redirect()->back()->with("success_msg", sendMessage("Message"));
     }
 
     /**
