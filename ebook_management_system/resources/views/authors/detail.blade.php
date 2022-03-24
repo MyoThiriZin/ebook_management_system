@@ -11,6 +11,7 @@
   <div class="info-sec">
     <span>ID : {{ $authors->id }}</span><br>
     <span>Author Name : {{ $authors->name }}</span><br>
+    <span>Author Email : {{ $authors->email }}</span><br>
     <span>Description : {{ $authors->description }}</span>
   </div>
 </div>

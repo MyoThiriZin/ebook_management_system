@@ -420,7 +420,7 @@ tr:nth-child(2n) {
 }
 
 .description-sec {
-  width: 600px;
+  width: 300px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
@@ -627,6 +627,10 @@ tr:nth-child(2n) {
 
   .dropdown-content a {
     padding: 0.938vw 1.250vw;
+  }
+
+  .description-sec {
+    width: 23.438vw;
   }
 }
 
@@ -835,6 +839,8 @@ tr:nth-child(2n) {
   .dropdown-content a {
     padding: 1.565vw 2.086vw;
   }
-  
 
+  .description-sec {
+    width: 39.113vw;
+  }
 }

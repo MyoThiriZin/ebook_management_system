@@ -26,16 +26,18 @@
 </div>
 
 @if (session('success_msg'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-  {{ session('success_msg') }}
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+  <div class="alert alert-success fade show col-md-4 mx-auto" role="alert">
+    {{ session('success_msg') }}
+    <a href="{{route('authors.index')}}" class="ft-right pb-2"><button class="btn-primary btn-sm">OK</button></a>
+  </div>
 @endif
+
 <table cellspacing="0" cellpadding="0">
     <thead class="heading">
       <tr>
           <th><span>ID</span></th>
           <th><span>Name</span></th>
+          <th><span>Email</span></th>
           <th class="description-sec"><span>Description</span></th>
           <th><span>Action</span></th>
 
@@ -46,6 +48,7 @@
         <tr>
         <td>{{$author->id}}</td>
         <td>{{$author->name}}</td>
+        <td>{{$author->email}}</td>
         <td>{{$author->description}}</td>
         <td class="action">
           @if(request()->has('view_deleted'))
@@ -61,7 +64,7 @@
 
           @endif
         </td>
-        <div class="modal fade" id="modal{{ $author->id }}" tabindex="-1"
+        <div class="modal fade" id="modal{{ $author->id }}" class="confirm-delete-modal" tabindex="-1"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content ">

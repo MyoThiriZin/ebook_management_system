@@ -50,6 +50,7 @@ class AuthorController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
+            'email' => 'required|max:255|string|email|unique:authors',
             'description' => 'required|max:255',
         ]);
 
@@ -101,6 +102,7 @@ class AuthorController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
+            'email' => 'required|max:255|string|email|unique:authors,email,'.$id,
             'description' => 'required|max:255',
         ]);
 

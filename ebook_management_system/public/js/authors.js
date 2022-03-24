@@ -3,6 +3,7 @@ $("#create-btn").on("click", function (e) {
 
   var data = {
     'name': $("#name").val(),
+    'email': $("#email").val(),
     'description': $("#description").val(),
     'created_by': $("#created_by").val(),
     'updated_by': $("#updated_by").val()
@@ -27,7 +28,7 @@ $("#create-btn").on("click", function (e) {
           $('small.'+prefix+'_err').text(val[0]);
         })
       } else {
-        window.location.href = "/authors";
+        window.location.href = "/authors/create";
       }
       
    },
@@ -41,6 +42,7 @@ $("#update-btn").on("click", function (e) {
   var authorID = $("#id").val();
   var data = {
     'name': $("#name").val(),
+    'email': $("#email").val(),
     'description': $("#description").val(),
     'created_by': $("#created_by").val(),
     'updated_by': $("#updated_by").val()
@@ -65,7 +67,7 @@ $("#update-btn").on("click", function (e) {
           $('small.'+prefix+'_err').text(val[0]);
         })
       } else {
-        window.location.href = "/authors";
+        window.location.href = "/authors/"+authorID+"/edit";
       }    
    },
     dataType: "json"
@@ -81,8 +83,9 @@ function deleteAuthor(id) {
 
   $.ajax({
       type: "DELETE",
-      url: "/authors/" + id,
+      url: "/authors/"+id,
       success: location.reload(),
       dataType: "json"
-  });
+  })
 };
+
