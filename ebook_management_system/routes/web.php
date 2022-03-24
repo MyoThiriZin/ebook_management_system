@@ -74,5 +74,7 @@ Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPa
 Route::get('contact/create','User\ContactUsController@create')->name('user#contact_create');
 Route::post('contact/store','User\ContactUsController@store')->name('user#contact_store');
 
-
+Route::get('user', function () {
+    return view('users.layouts.master');
+});
 
