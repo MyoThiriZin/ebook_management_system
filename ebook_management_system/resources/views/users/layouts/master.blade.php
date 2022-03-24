@@ -129,7 +129,7 @@
           </ul>
         </div>
       </div>
-    </section>
+      </section><!-- /.sec-footer -->
 
     <section class="sec-copyright">
       <div class="container">
@@ -137,7 +137,7 @@
             <span>Copyright @ Seattle Consulting Myanmar Co.,Ltd. All right preserved.</span>
           </div>
       </div>
-    </section>
+    </section><!-- /.sec-copyright -->
 
   </div>
   
