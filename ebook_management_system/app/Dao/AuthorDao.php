@@ -35,6 +35,7 @@ class AuthorDao implements AuthorDaoInterface {
     return Author::whereId($id)->update(
       [
         'name' => $request->name,
+        'email' => $request->email,
         'description' => $request->description
     ]
     );
@@ -48,6 +49,7 @@ class AuthorDao implements AuthorDaoInterface {
 
     return Author::with('user')
     ->where('name', 'like', '%'.$search.'%')
+    ->orWhere('email', 'like', '%'.$search.'%')
     ->orWhere('description', 'like', '%'.$search.'%')
     ->get();
   }

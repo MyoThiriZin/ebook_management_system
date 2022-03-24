@@ -14,6 +14,9 @@
         <div class="seemore-item">
             <label for="" class="">Author Name :</label><span>{{ $authors->name }}</span>
         </div>
+        <div class="seemore-item">
+            <label for="" class="">Author Email :</label><span>{{ $authors->email }}</span>
+        </div>
         <div class="seemore-item clearfix">
             <label for="" class="ft-left">Description :</label><span class="ft-left">{{ $authors->description }}</span>
         </div>
