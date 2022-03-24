@@ -75,6 +75,6 @@ Route::get('contact/create','User\ContactUsController@create')->name('user#conta
 Route::post('contact/store','User\ContactUsController@store')->name('user#contact_store');
 
 Route::get('user', function () {
-    return view('users.layouts.master');
+    return view('users.borrows.detail');
 });
 
