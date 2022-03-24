@@ -512,7 +512,7 @@ tr:nth-child(2n) {
 }
 
 .description-sec {
-  width: 600px;
+  width: 300px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
@@ -783,7 +783,7 @@ tr:nth-child(2n) {
   }
 
   .description-sec {
-    width: 46.875vw;
+    width: 23.438vw;
   }
 }
 
@@ -1167,4 +1167,7 @@ tr:nth-child(2n) {
 
 
 
+  .description-sec {
+    width: 39.113vw;
+  }
 }

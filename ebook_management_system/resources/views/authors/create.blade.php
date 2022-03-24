@@ -1,7 +1,14 @@
 @extends('layouts.master')
 
 @section('content')
+
   <div class="form-sec">
+  @if (session('success_msg'))
+  <div class="alert alert-success fade show col-md-4 mx-auto" role="alert">
+    {{ session('success_msg') }}
+    <a href="{{route('authors.index')}}" class="ft-right pb-2"><button class="btn-primary btn-sm">OK</button></a>
+  </div>
+@endif
     <h2 class="form-title">Create Author</h2>
     <form class="clearfix form">
       @csrf
@@ -9,6 +16,10 @@
           <label for="name" class="form-label">Name</label>
           <input type="text" name="name" class="name" id="name" placeholder="Name">
           <small class="text-danger error-text name_err"></small><br><br>
+
+          <label for="email" class="form-label">Email</label>
+          <input type="text" name="email" class="email" id="email" placeholder="Email">
+          <small class="text-danger error-text email_err"></small><br><br>
 
           <label for="description" class="form-label">Description</label>
           <textarea name="description" class="description" id="description" placeholder="Description" cols="30" rows="6"></textarea>
