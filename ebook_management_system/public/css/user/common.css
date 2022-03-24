@@ -10,6 +10,9 @@
 
 * {
   box-sizing: border-box;
+}
+
+body {
   font-size: 20px;
   font-family: RobotoRegular;
   line-height: 1.5;
@@ -116,7 +119,6 @@ nav li a {
 
 .sec-footer a {
   color: #ffffff;
-  font-size: 20px;
 }
 
 .sec-footer .footer-frt-txt ,
@@ -225,8 +227,8 @@ nav li a {
 
 /*----------tablet----------*/
 @media screen and (min-width: 768px) and (max-width: 1280px) {
-  * {
-    font-size: 1.563vw !important;
+  body {
+    font-size: 1.563vw;
   }
 
   .container {
@@ -240,6 +242,7 @@ nav li a {
 
   .sec-header .logo a{
     margin-left: -5.938vw;
+    font-size: 1.719vw;
   }
 
   .sec-header .user {
@@ -327,8 +330,8 @@ nav li a {
 
 /*----------sp----------*/
 @media screen and (max-width: 767.9px) {
-  * {
-    font-size: 2.608vw;
+  body {
+    font-size: 3.125vw;
   }
   
   .container {
@@ -336,16 +339,15 @@ nav li a {
   }
   
   /* Header */
-  
   .sec-header{
     position: fixed;
     width: 100%;
-    border-bottom: 2px solid #333645;
+    border-bottom: 0.313vw solid #333645;
     background-color: #ffffff;
   } 
 
   .sec-header .logo {
-    width: 60%;
+    width: 58%;
     text-align: right;
   }
 
@@ -354,8 +356,8 @@ nav li a {
   } 
   
   .sec-header .logo a{
-    margin-left: -10.875vw;
-    font-size: 2.868vw;
+    margin-left: -11.6vw;
+    font-size: 3.438vw;
   }
   
   .sec-header .user {
@@ -370,30 +372,29 @@ nav li a {
     margin: 0.913vw 1.304vw;
   }
 
+  .sec-header li a {
+    font-size: 2.656vw;
+  }
+
   .sec-header .user {
     cursor: pointer;
     position: relative;
   }
-  
-  /*.dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  */
+
   .dropdown-content {
     display: none;
     position: absolute;
     background-color: #c4bdbd;
-    min-width: 106px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    min-width: 16.563vw;
+    box-shadow: 0 1.250vw 2.500vw 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
-    top: 34px;
+    top: 5.313vw;
     right: 0;
   }
   
   .dropdown-content a {
     color: #000000;
-    padding: 0px 16px;
+    padding: 0 2.500vw;
     text-decoration: none;
     display: block;
   }
@@ -438,12 +439,12 @@ nav li a {
 
   .btn-gnavi {
     position: fixed;
-    top: 40px;
-    left: 35px;
+    top: 4.688vw;
+    left: 5.469vw;
     float: left;
     z-index: 3;
-    width: 30px;
-    height: 25px;
+    width: 4.688vw;
+    height: 3.906vw;
     cursor: pointer;
     transition: all 400ms;
     -webkit-transition: all 400ms;
@@ -451,8 +452,8 @@ nav li a {
 
   .btn-gnavi span {
     position: absolute;
-    width: 28px;
-    height: 3px;
+    width: 4.375vw;
+    height: 0.469vw;
     background: #333645;
     -webkit-transition: all 400ms;
     transition: all 400ms;
@@ -463,11 +464,11 @@ nav li a {
   }
 
   .btn-gnavi span:nth-child(2) {
-    top: 7px;
+    top: 1.094vw;
   }
 
   .btn-gnavi span:nth-child(3) {
-    top: 14px;
+    top: 2.188vw;
   }
 
   .btn-gnavi.hb-open {
@@ -498,7 +499,7 @@ nav li a {
 
   /*sec-body */
   .sec-body {
-    padding-top: 95px;
+    padding-top: 14.844vw;
   }
   
   /* Footer */
@@ -507,14 +508,14 @@ nav li a {
   }
 
   .sec-footer a {
-    font-size: 2.608vw;
+    font-size: 2.656vw;
   }
   
   .sec-footer .footer-frt-txt ,
   .sec-footer .footer-address{
     width: 100%;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 3.125vw;
+    margin-bottom: 3.125vw;
     background-color: #9E725260;
   }
   
@@ -527,11 +528,7 @@ nav li a {
   }
   
   .sec-footer .footer-frt-txt h4 a {
-    font-size: 3.911vw;
-  }
-
-  .sec-footer .footer-frt-txt p {
-    font-size: 2.608vw;
+    font-size: 4.688vw;
   }
   
   .sec-footer .footer-snd-nav {
@@ -548,7 +545,7 @@ nav li a {
   }
   
   .sec-footer .footer-ttl {
-    font-size: 2.608vw;
+    font-size: 3.125vw;
     margin-bottom: 2.608vw;
   }
   
@@ -583,9 +580,9 @@ nav li a {
   }
   
   .sec-copyright .copyright {
-    padding: 2.608vw 0;
-    border-top: 0.130vw solid #ffffff90;
-    font-size: 17px;
+    padding: 3.125vw 0;
+    border-top: 0.156vw solid #ffffff90;
+    font-size: 1.9vw;
   }
 
 }
