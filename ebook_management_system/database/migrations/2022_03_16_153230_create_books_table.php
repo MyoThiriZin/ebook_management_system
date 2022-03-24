@@ -19,11 +19,12 @@ class CreateBooksTable extends Migration
             $table->string('image');
             $table->string('file');
             $table->integer('duration');
-            $table->string('description');
+            $table->longText('description');
             $table->unsignedInteger('author_id');
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('created_by');
             $table->unsignedInteger('updated_by');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

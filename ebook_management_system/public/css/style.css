@@ -7,13 +7,13 @@
 }
 
 @font-face {
-  font-family: RalewayRegular;
-  src: url('../font/Raleway-Regular.ttf');
+  font-family: RobotoRegular;
+  src: url('../font/Roboto-Regular.ttf');
 }
 
 * {
   box-sizing: border-box;
-  font-family: RalewayRegular;
+  font-family: RobotoRegular;
 }
 
 

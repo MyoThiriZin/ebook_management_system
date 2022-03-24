@@ -2,18 +2,25 @@
 
 @section('content')
 
-<div class="back-btn-sec"><a href="/authors" class="back-btn">Back</a></div>
-
-<div class="detail-sec"> 
-  <div class="title-sec">
-    <h3>More Information</h3>
-  </div>
-  <div class="info-sec">
-    <span>ID : {{ $authors->id }}</span><br>
-    <span>Author Name : {{ $authors->name }}</span><br>
-    <span>Author Email : {{ $authors->email }}</span><br>
-    <span>Description : {{ $authors->description }}</span>
-  </div>
+<div class="seemore">
+<div class=" clearfix">
+    <a href="/authors"><button class="back-btn ft-left"><i class="fa-fw fas fa-backward"></i>Back</button></a>
+</div>
+    <div class="seemore-container">
+        <h2 class="seemore-ttl">Author Information</h2>
+        <div class="seemore-item">
+            <label for="">ID :</label><span>{{ $authors->id }}</span>
+        </div>
+        <div class="seemore-item">
+            <label for="" class="">Author Name :</label><span>{{ $authors->name }}</span>
+        </div>
+        <div class="seemore-item">
+            <label for="" class="">Author Email :</label><span>{{ $authors->email }}</span>
+        </div>
+        <div class="seemore-item clearfix">
+            <label for="" class="ft-left">Description :</label><span class="ft-left">{{ $authors->description }}</span>
+        </div>
+    </div>
 </div>
 
 <script src="/js//library/jquery-3.6.0.min.js"></script>

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin\Ajax;
 
 use App\Author;
-use App\User;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Export\AuthorsExport;
+use App\Import\AuthorsImport;
+use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 use App\Contracts\Services\AuthorServiceInterface;
 
@@ -15,7 +17,7 @@ class AuthorController extends Controller
 
     public function __construct(AuthorServiceInterface $authorServiceInterface)
     {
-      $this->authorServiceInterface = $authorServiceInterface;
+        $this->authorServiceInterface = $authorServiceInterface;
     }
     /**
      * Display a listing of the resource.
@@ -56,8 +58,8 @@ class AuthorController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'status'=>400,
-                'error'=>$validator->messages(),
+                'status' => 400,
+                'error' => $validator->messages(),
             ]);
         } else {
             \Session::flash('success_msg', ('Author has been created.'));
@@ -108,8 +110,8 @@ class AuthorController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'status'=>400,
-                'error'=>$validator->messages(),
+                'status' => 400,
+                'error' => $validator->messages(),
             ]);
         } else {
             \Session::flash('success_msg', ('Author has been updated.'));
@@ -143,8 +145,8 @@ class AuthorController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        
-        $authors =  $this->authorServiceInterface->authorsSearch($search);
+
+        $authors = $this->authorServiceInterface->authorsSearch($search);
 
         return view('authors.index', compact('authors'));
     }
@@ -160,6 +162,25 @@ class AuthorController extends Controller
     {
         Author::withTrashed()->find($id)->restore();
 
-        return back()->with('success_msg','Author has been restored');
+        return back()->with('success', 'Author Restore Successfully');
+    }
+    public function export()
+    {
+        return Excel::download(new AuthorsExport, 'author_data.csv');
+
+    }
+
+    public function importFile()
+    {
+        Author::truncate();
+        
+        return view('authors.import');
+    }
+
+    public function import()
+    {
+        Excel::import(new AuthorsImport, request()->file('file'));
+
+        return redirect()->route('authors.index')->with("success_msg", importMessage("CSV"));
     }
 }
