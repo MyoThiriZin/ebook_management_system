@@ -1,13 +1,14 @@
 @extends('users.layouts.master')
 @section('content')
-  <div class="contact-container">
-    @if (session('success_msg'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-  {{ session('success_msg') }}
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-@endif
+
+<div class="contact-container">
     <form action="{{route('user#contact_store')}}" method="POST">
+        @if (session('success_msg'))
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">X</span> 
+            <span>{{session('success_msg')}}</span>
+          </div>
+        @endif
         @csrf
       <div class="contact-input-group">
         <label for="">Name</label>
@@ -32,7 +33,7 @@
       </div>
       <div class="contact-textarea-group">
         <span>Message</span>
-        <textarea name="message" id="" cols="30" rows="5" class="input-textarea" placeholder="Enter Your Message">{{old('message')}}</textarea>
+        <textarea name="message" id="" cols="30" rows="4" class="input-textarea" placeholder="Enter Your Message">{{old('message')}}</textarea>
         @if ($errors->has('message'))
           <small class="text-danger">*{{ $errors->first('message') }}</small>
           @endif
