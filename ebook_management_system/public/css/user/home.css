@@ -51,6 +51,10 @@
   display: block;
 }
 
+.book-seemore {
+  color: #13e2af;
+}
+
 .top-authors-sec ul li,
 .popular-category-sec ul li {
   background-color: #fffbcd;

@@ -8,8 +8,6 @@
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/common.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/style.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/user/home.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/user/book.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
 
   <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
@@ -21,7 +19,7 @@
       <div class="container clearfix">
         <h1 class="logo ft-left">
           <a href="{{ route('user') }}"><img src="{{ asset('img/logo.png') }}" alt="E-Book"></a>
-          <a href="">eBook</a>
+          <a href="{{ route('user') }}" class="logo-txt">eBook</a>
         </h1>
         <div class="user ft-right clearfix">
           <i class="fa-solid fa-circle-user ft-right"></i>
@@ -155,11 +153,5 @@
     </section><!-- /.sec-copyright -->
 
   </div>
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 27493a49ec66bf4f4087c3a99e8677b0b149d2be
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="login-container auth-container">
-  <div class="card-header">{{ __('E-Book Management System') }}</div>
+  <div class="card-header">{{ __('Login') }}</div>
   @if(session()->has('error'))
       <div class="auth-row auth-error">
           {{ session()->get('error') }}
