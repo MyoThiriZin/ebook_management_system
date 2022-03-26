@@ -7,9 +7,14 @@
   <title>E-Book Management System</title>
 
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css') }}">
   <link href="{{ asset('css/user/common.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/user/home.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
   <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
+  <script type="text/javascript" src="{{ asset('js/library/slick.js')}}"></script>
+  <script src="{{ asset('js/user/home.js')}}"></script>
   <script src="{{ asset('js/user/common.js')}}"></script>
 </head>
 <body>
@@ -17,7 +22,7 @@
     <section class="sec-header">
       <div class="container clearfix">
         <h1 class="logo ft-left">
-          <img src="{{ asset('img/logo.png') }}" alt="E-Book">
+          <a href="{{ route('user') }}"><img src="{{ asset('img/logo.png') }}" alt="E-Book"></a>
           <a href="">eBook</a>
         </h1>
         <div class="user ft-right clearfix">
@@ -45,7 +50,7 @@
         <nav class="sidenav">
           <ul class="clearfix">
             <li class="active">
-              <a href="">Home</a>
+              <a href="{{ route('user') }}">Home</a>
             </li>
             <li>
               <a href="">Books</a>
