@@ -15,7 +15,7 @@ class HomeDao implements HomeDaoInterface {
       return DB::table('borrows')
       ->join('books', 'books.id', '=', 'borrows.book_id')
       ->join('authors', 'authors.id', '=', 'books.author_id')
-      ->select(\DB::raw("count(borrows.book_id) as count, books.image, books.name"))
+      ->select(\DB::raw("count(borrows.book_id) as count, books.id, books.image, books.name"))
       ->groupBy('borrows.book_id')
       ->orderBy('count', 'desc')
       ->get()->take(6);
