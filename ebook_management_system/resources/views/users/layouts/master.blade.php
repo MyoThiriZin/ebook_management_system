@@ -8,9 +8,9 @@
 
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/common.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/user/style.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
-  <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
-  <script src="{{ asset('js/user/common.js')}}"></script>
+  
 </head>
 <body>
   <div class="wrapper">
@@ -22,13 +22,26 @@
         </h1>
         <div class="user ft-right clearfix">
           <i class="fa-solid fa-circle-user ft-right"></i>
-          <ul class="dropdown-content ft-left">
-            <li>
-              <a href="#">Sign in</a>
-            </li>
-            <li>
-              <a href="#">Sign up</a>
-            </li>
+          @auth
+          <div class="login-user">
+            <span> {{ Auth::user()->name }} </span>
+          </div>
+          
+            <ul class="dropdown-content ft-left">
+              <li>
+                <a href="{{ route('user#logout') }}">Logout</a>
+              </li>
+            </ul>
+            @else
+            <ul class="dropdown-content ft-left">
+              <li>
+                <a href="{{ route('user#login') }}">Sign in</a>
+              </li>
+              <li>
+                <a href="{{ route('user#register') }}">Sign up</a>
+              </li>
+            </ul>
+            @endauth
           </ul>
         </div>
         
@@ -140,6 +153,9 @@
     </section><!-- /.sec-copyright -->
 
   </div>
+
+  <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
+  <script src="{{ asset('js/user/common.js')}}"></script>
   
 </body>
 </html>

@@ -10,7 +10,7 @@ interface ForgotPasswordDaoInterface
      * To create PasswordReset
      * @param Request $request request including inputs
      */
-    public function savePasswordReset(Request $request);
+    public function savePasswordReset(Request $request,$token);
 
     /**
      * To update Password

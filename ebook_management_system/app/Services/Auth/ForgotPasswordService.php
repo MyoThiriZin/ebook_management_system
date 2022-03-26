@@ -32,9 +32,9 @@ class ForgotPasswordService implements ForgotPasswordServiceInterface
      * @param Request $request request including inputs
      * @return Object create resetpassword object
      */
-    public function savePasswordReset(Request $request)
+    public function savePasswordReset(Request $request,$token)
     {
-        $forgotpassword = $this->forgotPasswordDao->savePasswordReset($request);
+        $forgotpassword = $this->forgotPasswordDao->savePasswordReset($request,$token);
         return $forgotpassword;
     }
 

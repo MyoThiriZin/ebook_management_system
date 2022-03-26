@@ -70,11 +70,25 @@ Route::get('reset-password/{token}', 'Admin\Auth\ForgotPasswordController@showRe
 Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPasswordForm')->name('submit.reset.password');
 
 
+/* For user panel */
+Route::get('/user/register', 'User\Auth\AuthController@showRegistrationView')->name('user#register');
+Route::post('/user/register', 'User\Auth\AuthController@storeUser')->name('user#register_create');
+
+Route::get('/user/login', 'User\Auth\AuthController@showLoginView')->name('user#login_view');
+Route::post('/user/login', 'User\Auth\AuthController@login')->name('user#login');
+Route::get('user/logout', 'User\Auth\AuthController@logout')->name('user#logout');
+
+Route::get('user/forget-password', 'User\Auth\ForgotPasswordController@showForgetPasswordForm')->name('user#forget.password');
+Route::post('user/forget-password', 'User\Auth\ForgotPasswordController@submitForgetPasswordForm')->name('user#submit.forget.password');
+Route::get('user/reset-password/{token}', 'User\Auth\ForgotPasswordController@showResetPasswordForm')->name('user#reset.password');
+Route::post('user/reset-password', 'User\Auth\ForgotPasswordController@submitResetPasswordForm')->name('user#submit.reset.password');
+
 //User ContactUs
-Route::get('contact/create','User\ContactUsController@create')->name('user#contact_create');
+Route::get('contact/create','User\ContactUsController@create')->name('user#contact_create')->middleware('user');;
 Route::post('contact/store','User\ContactUsController@store')->name('user#contact_store');
 
-Route::get('user', function () {
-    return view('users.borrows.detail');
-});
+//Book Detail
+Route::get('book/detail/{id}','User\BookController@getBookByID')->name('user#book_detail');
+Route::get('borrow/store/{id}','User\BookController@storeBorrowBook')->name('user#store_book_borrow');
+
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Auth;
+namespace App\Http\Controllers\User\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ForgotPasswordRequest;
@@ -35,7 +35,7 @@ class ForgotPasswordController extends Controller
     */
     public function showForgetPasswordForm()
     {
-        return view('auth.forgetPassword');
+        return view('users.auth.forgetPassword');
     }
 
     /**
@@ -49,8 +49,8 @@ class ForgotPasswordController extends Controller
         $request->validated();
         $token = Str::random(64);
         $passwordReset = $this->forgotPasswordInterface->savePasswordReset($request,$token);
-        
-        Mail::send('auth.emailForgetPassword', ['token' => $token], function($message) use($request){
+
+        Mail::send('users.auth.emailForgetPassword', ['token' => $token], function($message) use($request){
             $message->to($request->email);
             $message->subject('Reset Password');
         });
@@ -63,7 +63,7 @@ class ForgotPasswordController extends Controller
      * @return View resetpassword
      */
     public function showResetPasswordForm($token) {
-        return view('auth.forgetPasswordLink', ['token' => $token]);
+        return view('users.auth.forgetPasswordLink', ['token' => $token]);
     }
 
     /**
@@ -75,6 +75,6 @@ class ForgotPasswordController extends Controller
     {
         $request->validated();
         $passwordReset = $this->forgotPasswordInterface->updatePassword($request);
-        return redirect('/login')->with('message', 'Your password has been changed!');
+        return redirect('/user/login')->with('message', 'Your password has been changed!');
     }
 }
