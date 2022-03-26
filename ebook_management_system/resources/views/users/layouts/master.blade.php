@@ -5,9 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Book Management System</title>
-
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/common.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/user/book.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
   <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
   <script src="{{ asset('js/user/common.js')}}"></script>
@@ -31,7 +31,6 @@
             </li>
           </ul>
         </div>
-        
       </div>
     </section> <!-- /.sec-header -->
 
@@ -48,7 +47,7 @@
               <a href="">Home</a>
             </li>
             <li>
-              <a href="">Books</a>
+              <a href="{{route('user#books.index')}}">Books</a>
             </li>
             <li>
               <a href="">Borrows</a>
@@ -130,7 +129,6 @@
         </div>
       </div>
     </section>
-
     <section class="sec-copyright">
       <div class="container">
           <div class="copyright">
@@ -140,6 +138,5 @@
     </section>
 
   </div>
-  
 </body>
 </html>
