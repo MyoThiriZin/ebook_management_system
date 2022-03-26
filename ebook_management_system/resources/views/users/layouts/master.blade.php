@@ -9,7 +9,6 @@
   <link href="{{ asset('css/user/common.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/style.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
-
   <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
   <script src="{{ asset('js/user/common.js')}}"></script>
 </head>
@@ -63,8 +62,9 @@
             <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') ? 'active' : null }}">
               <a href="{{route('user#books.index')}}">Books</a>
             </li>
+
             <li>
-              <a href="">Borrows</a>
+              <a href="{{ Auth::check() ? url('borrow/list/' . Auth::user()->id ) : url('/user/login') }}">Borrows</a>
             </li>
             <li class="{{ request()->is('contact/create') ? 'active' : null }}">
               <a href="{{route('user#contact_create')}}">Contact us</a>

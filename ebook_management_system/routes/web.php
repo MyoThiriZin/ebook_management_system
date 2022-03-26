@@ -99,6 +99,9 @@ Route::get('/userbooks', 'User\BookController@index')->name('user#books.index');
 //Search
 Route::post('book/search', 'User\BookController@search')->name('user#booksearch');
 
+//Borrow List
+Route::get('borrow/list/{id}','User\BorrowController@list')->name('user#borrow_list');
+
 
 
 
