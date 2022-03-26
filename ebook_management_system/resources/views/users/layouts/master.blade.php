@@ -6,18 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Book Management System</title>
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css') }}">
   <link href="{{ asset('css/user/common.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/style.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/contact.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/user/home.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
  
   <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
   <script src="{{ asset('js/user/common.js')}}"></script>
-  <script type="text/javascript" src="{{ asset('js/library/slick.js')}}"></script>
-  <script src="{{ asset('js/user/home.js')}}"></script>
 </head>
 <body>
   <div class="wrapper">

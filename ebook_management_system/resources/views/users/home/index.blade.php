@@ -52,5 +52,9 @@
     </ul>
   </div>
 </div>
-
+<link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css') }}">
+<link href="{{ asset('css/user/home.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ asset('js/library/slick.js')}}"></script>
+<script src="{{ asset('js/user/home.js')}}"></script>
 @endsection
