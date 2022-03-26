@@ -19,6 +19,7 @@ use Faker\Generator as Faker;
 $factory->define(Author::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'email'=>$faker->email,
         'description' => $faker->sentence(5),
         'created_by' => 1,
         'updated_by'=>1

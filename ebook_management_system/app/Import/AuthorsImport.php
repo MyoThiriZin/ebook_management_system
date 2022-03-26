@@ -12,6 +12,7 @@ class AuthorsImport implements ToModel,WithHeadingRow
     {
         return new Author([
             'name' => $row['name'],
+            'email' => $row['email'],
             'description' => $row['description'],
             'created_by' => auth()->user()->id,
             'updated_by' => auth()->user()->id,

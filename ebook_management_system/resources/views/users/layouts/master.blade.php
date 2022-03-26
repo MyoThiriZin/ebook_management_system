@@ -10,10 +10,9 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css') }}">
   <link href="{{ asset('css/user/common.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/style.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/user/contact.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/home.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
- 
+
   <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
   <script src="{{ asset('js/user/common.js')}}"></script>
   <script type="text/javascript" src="{{ asset('js/library/slick.js')}}"></script>
@@ -33,7 +32,7 @@
           <div class="login-user">
             <span> {{ Auth::user()->name }} </span>
           </div>
-          
+
             <ul class="dropdown-content ft-left">
               <li>
                 <a href="{{ route('user#logout') }}">Logout</a>
@@ -161,7 +160,7 @@
 
   </div>
 
-  
-  
+
+
 </body>
 </html>

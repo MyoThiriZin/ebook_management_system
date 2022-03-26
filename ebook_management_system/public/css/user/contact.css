@@ -1,6 +1,17 @@
 * {
     box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'RobotoRegular';
 }
+@font-face {
+    font-family: PoppinsBold;
+    src: url('../../font/poppins-bold.ttf');
+  }
+
+  @font-face {
+    font-family: RobotoRegular;
+    src: url('../../font/Roboto-Regular.ttf');
+  }
 
 .contact-container {
     width: 1100px;
@@ -8,8 +19,10 @@
 }
 
 .contact-container form {
-    width: 700px;
-    margin: 50px auto;
+    width: 600px;
+    margin: 50px;
+    margin-left: 50px;
+    font-size: 16px;
     padding: 15px;
     border: 1px solid #181818;
     background-color: #ebe4e4;
@@ -34,7 +47,6 @@
 
 .contact-container small {
     color: #ff0000;
-    font-family: 'RobotoRegular';
     font-size: 14px;
 }
 
@@ -45,13 +57,13 @@
     width: 100%;
     margin: 10px auto;
     padding: 10px 0px;
+    font-size: 16px;
     border: none;
     background: none;
     color: #333645;
     font-family: 'RobotoRegular';
-    font-size: 20px;
     outline: none;
-    border-bottom: 1px solid #33364590;
+    border-bottom: 1px solid #11132090;
 }
 
 .contact-container form textarea {
@@ -60,15 +72,15 @@
     border: none;
     background: none;
     color: #333645;
+    font-size: 16px;
     font-family: 'RobotoRegular';
-    font-size: 20px;
     outline: none;
     border-bottom: 1px solid #33364590;
     resize: none;
 }
 
 ::placeholder {
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .contact-container form label,
@@ -76,15 +88,15 @@
     display: block;
     margin-bottom: 0px;
     padding: 0px 0px;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .contact-send-btn {
     padding: 10px 25px;
     border: transparent;
-    background-color: #0f0f0f;
+    background-color: #333645;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 10px;
 }
@@ -99,7 +111,7 @@
     padding: 13px;
     background-color: #08e28f;
     color: #000000;
-    font-size: 20px;
+    font-size: 16px;
     border-radius: 10px;
 }
 
@@ -115,7 +127,7 @@
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
     * {
-        font-size: 1.563vw !important;
+        font-size: 1.25vw;
     }
 
     .contact-container {
@@ -124,8 +136,10 @@
     }
 
     .contact-container form {
-        width: 54.688vw;
-        margin: 2.344vw auto;
+        width: 46.875vw;
+        margin-left: 7.813vw;
+        margin: 3.906vw auto;
+        font-size: 1.25vw;
         padding: 1.172vw;
         border: 0.078vw solid #181818;
         background-color: #ebe4e4;
@@ -133,7 +147,7 @@
     }
     .contact-background{
         position: relative;
-        width: 31.25vw;
+        width: 39.063vw;
     }
     .contact-background img{
         position: absolute;
@@ -156,6 +170,7 @@
         margin: 0.781vw auto;
         padding: 0.781vw 0vw;
         border: none;
+        font-size: 1.25vw;
         background: none;
         color: #333645;
         /*font-size: 1.094vw;*/
@@ -169,6 +184,7 @@
         border: none;
         background: none;
         color: #333645;
+        font-size: 1.25vw;
         /*font-size: 1.094vw;*/
         outline: none;
         border-bottom: 0.078vw solid #33364590;
@@ -176,7 +192,7 @@
     }
 
     ::placeholder {
-        font-size: 1.563vw;
+        font-size: 1.25vw;
     }
 
     .contact-container form label,
@@ -184,14 +200,16 @@
         display: block;
         margin-bottom: 0vw;
         padding: 0vw 0vw;
+        font-size: 1.25vw;
         /*font-size: 1.094vw;*/
     }
 
     .contact-send-btn {
         padding: 0.781vw 1.953vw;
         border: transparent;
-        background-color: #0f0f0f;
+        background-color: #333645;
         color: #ffffff;
+        font-size: 1.25vw;
         /*font-size: 1.094vw;*/
         border-radius: 0.781vw;
     }
@@ -206,7 +224,7 @@
         padding: 1.016vw;
         background-color: #08e28f;
         color: #000000;
-        font-size: 1.563vw;
+        font-size: 1.25vw;
         border-radius: 0.781vw;
     }
 
@@ -230,7 +248,7 @@
 
 @media screen and (max-width: 767.9px) {
     * {
-        font-size: 2.608vw;
+        font-size: 2.5vw;
     }
     .contact-container {
         width: 90vw;
@@ -238,16 +256,15 @@
 
     .contact-container form {
         width: 90vw;
-        margin: 4.688vw auto;
+        margin-left: 15.625vw;
+        margin: 7.813vw auto;
         padding: 2.344vw;
+        font-size: 2.5vw;
         border: 0.156vw solid #181818;
         background-color: #ebe4e4;
         border-radius: 2.344vw;
     }
 
-    .contact-background{
-        position: relative;
-    }
     .contact-background img{
         display: none;
     }
@@ -267,7 +284,7 @@
         border: none;
         background: none;
         color: #333645;
-        font-size: 2.188vw;
+        font-size: 2.5vw;
         outline: none;
         border-bottom: 0.156vw solid #33364590;
     }
@@ -278,14 +295,14 @@
         border: none;
         background: none;
         color: #333645;
-        font-size: 2.188vw;
+        font-size: 2.5vw;
         outline: none;
         border-bottom: 0.156vw solid #33364590;
         resize: none;
     }
 
     ::placeholder {
-        font-size: 2.188vw;
+        font-size: 2.500vw;
     }
 
     .contact-container form label,
@@ -293,7 +310,7 @@
         display: block;
         margin-bottom: 0vw;
         padding: 0vw 0vw;
-        font-size: 2.188vw;
+        font-size: 2.5vw;
     }
 
     .contact-send-btn {
@@ -301,7 +318,7 @@
         border: transparent;
         background-color: #0f0f0f;
         color: #ffffff;
-        font-size: 2.188vw;
+        font-size: 2.5vw;
         border-radius: 1.563vw;
     }
 
@@ -315,7 +332,7 @@
         padding: 2.032vw;
         background-color: #08e28f;
         color: #000000;
-        font-size: 3.126vw;
+        font-size: 2.5vw;
         border-radius: 1.562vw;
     }
 
