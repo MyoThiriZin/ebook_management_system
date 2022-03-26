@@ -1,5 +1,6 @@
 @extends('users.layouts.master')
 @section('content')
+<link href="{{ asset('css/user/contact.css') }}" rel="stylesheet">
 <div class="contact-main-con">
 <div class="contact-container clearfix">
     <form action="{{route('user#contact_store')}}" method="POST" class="ft-left">
@@ -47,4 +48,5 @@
     </div>
   </div>
 </div>
+
 @endsection

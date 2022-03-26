@@ -13,12 +13,12 @@ class AuthorsExport implements FromCollection, WithHeadings
      */
     public function headings(): array
     {
-        return ["ID", "Name", "Description"];
+        return ["ID", "Name", "Email", "Description"];
     }
 
     public function collection()
     {
-        return Author::select('id', 'name', 'description')->get();
+        return Author::select('id', 'name', 'email', 'description')->get();
     }
 
 }

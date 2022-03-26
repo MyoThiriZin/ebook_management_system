@@ -1,35 +1,163 @@
-
+.book-ttl{
+    width: 74%;
+}
+.book-latest{
+    float: left;
+    margin-top: 10px;
+    font-size: 16px;
+}
+.book-total{
+    margin-top: 10px;
+    float: right;
+    font-size: 16px;
+}
   .userbook{
+    float: left;
     margin-top: 15px;
     width: 80%;
   }
   .bookpost {
     float: left;
-    width: 20%;
-    margin-right: 2%;
+    width: 21%;
+    margin-right: 3%;
+    margin-bottom: 3%;
   }
   .bookpost h5{
-    font-size: 12px;
+    font-size: 16px;
   }
-  
+
   .bookpost img {
-    width: 100px;
-    height: 150px;
+    width: 100%;
+    height: 250px;
     padding-bottom: 10px;
   }
   .bookpost:nth-child(4n) {
     margin-right: 0px;
   }
   .bookpost p{
-    font-size: 12px;
+    font-size: 16px;
   }
   .bookpost a {
-    font-size: 12px;
+    font-size: 16px;
   }
-  
+
   .bookpost div {
     margin-bottom: 15px;
   }
   .userbook-right{
     float: right;
+    width: 20%;
+  }
+  .book-search{
+      width:100%;
+  }
+  .book-search form input[type=text],
+  .book-search form select {
+      width: 100%;
+      margin: 10px auto;
+      padding: 5px 5px;
+      background-color: #fdad62;
+      color: #ffffff;
+      font-size: 16px;
+      outline: none;
+      border-radius: 10px;
+  }
+
+  .book-search-ttl{
+      font-size: 18px;
+  }
+  .search-button-link{
+    float: right;
+    padding: 6px 10px;
+    border: transparent;
+    background-color: #333645;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+
+
+
+  @media screen and (min-width: 768px) and (max-width: 1280px){
+    .book-ttl{
+        width: 75%;
+    }
+    .book-latest{
+        float: left;
+        margin-top: 0.781vw;
+        font-size: 1.25vw;
+    }
+    .book-total{
+        margin-top: 0.781vw;
+        float: right;
+        font-size: 1.25vw;
+    }
+
+      .userbook{
+        margin-top: 1.172vw;
+        width: 80%;
+      }
+      .bookpost {
+        float: left;
+        width: 21%;
+        margin-right: 3%;
+        margin-bottom: 3%;
+      }
+      .bookpost h5{
+        font-size: 1.25vw;
+      }
+
+      .bookpost img {
+        width: 100%;
+        height: 18.531vw;
+        padding-bottom: 0.781vw;
+      }
+      .bookpost:nth-child(4n) {
+        margin-right: 0vw;
+      }
+      .bookpost p{
+        font-size: 1.25vw;
+      }
+      .bookpost a {
+        font-size: 1.25vw;
+      }
+
+      .bookpost div {
+        margin-bottom: 1.172vw;
+      }
+
+      .userbook-right{
+        float: right;
+        width: 20%;
+      }
+      .book-search{
+          width:100%;
+      }
+      .book-search form input[type=text],
+      .book-search form select {
+          width: 100%;
+          margin: 0.781vw auto;
+          padding: 0.391vw 0.391vw;
+          background-color: #fdad62;
+          color: #ffffff;
+          font-size: 1.25vw;
+          outline: none;
+          border-radius: 0.781vw;
+      }
+
+      .book-search-ttl{
+          font-size: 1.406vw;
+      }
+      .search-button-link{
+        float: right;
+        padding: 0.469vw 0.781vw;
+        border: transparent;
+        background-color: #333645;
+        color: #ffffff;
+        font-size: 1.25vw;
+        cursor: pointer;
+        border-radius: 0.781vw;
+      }
   }

@@ -96,6 +96,9 @@ Route::get('user','User\HomeController@index')->name('user');
 
 //User Book
 Route::get('/userbooks', 'User\BookController@index')->name('user#books.index');
+//Search
+Route::post('book/search', 'User\BookController@search')->name('user#booksearch');
+
 
 
 
