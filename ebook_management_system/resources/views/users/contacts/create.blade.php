@@ -1,11 +1,11 @@
 @extends('users.layouts.master')
 @section('content')
-
-<div class="contact-container">
-    <form action="{{route('user#contact_store')}}" method="POST">
+<div class="contact-main-con">
+<div class="contact-container clearfix">
+    <form action="{{route('user#contact_store')}}" method="POST" class="ft-left">
         @if (session('success_msg'))
         <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">X</span> 
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">X</span>
             <span>{{session('success_msg')}}</span>
           </div>
         @endif
@@ -42,5 +42,9 @@
       <input type="submit" value="Send" class="contact-send-btn">
      </div>
     </form>
+    <div class="contact-background ft-right">
+        <img src="/img/bg.jpg" alt="contact-bg">
+    </div>
   </div>
+</div>
 @endsection

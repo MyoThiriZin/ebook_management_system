@@ -9,11 +9,21 @@
 
 .contact-container form {
     width: 700px;
-    margin: 30px auto;
+    margin: 50px auto;
     padding: 15px;
     border: 1px solid #181818;
     background-color: #ebe4e4;
     border-radius: 15px;
+}
+.contact-background{
+    position: relative;
+    width: 400px;
+}
+.contact-background img{
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    left: -100px;
 }
 
 .contact-input-group,
@@ -121,6 +131,16 @@
         background-color: #ebe4e4;
         border-radius: 1.172vw;
     }
+    .contact-background{
+        position: relative;
+        width: 31.25vw;
+    }
+    .contact-background img{
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+        left: -7.813vw;
+    }
 
     .contact-input-group,
     .contact-textarea-group {
@@ -212,7 +232,6 @@
     * {
         font-size: 2.608vw;
     }
-
     .contact-container {
         width: 90vw;
     }
@@ -226,6 +245,12 @@
         border-radius: 2.344vw;
     }
 
+    .contact-background{
+        position: relative;
+    }
+    .contact-background img{
+        display: none;
+    }
     .contact-input-group,
     .contact-textarea-group {
         width: 90%;
