@@ -25,11 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function () {
-            info('call every minute');
-        })->hourlyAt(38);
-        //$schedule->command('bookrentalexpire:email')->daily();
-        //$schedule->command('bookrentalexpire:email')->everyMinute();
+        $schedule->command('bookrentalexpire:email')->everyMinute();
     }
 
     /**

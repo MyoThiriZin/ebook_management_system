@@ -83,7 +83,7 @@ Route::get('user/reset-password/{token}', 'User\Auth\ForgotPasswordController@sh
 Route::post('user/reset-password', 'User\Auth\ForgotPasswordController@submitResetPasswordForm')->name('user#submit.reset.password');
 
 //User ContactUs
-Route::get('contact/create','User\ContactUsController@create')->name('user#contact_create')->middleware('user');;
+Route::get('contact/create','User\ContactUsController@create')->name('user#contact_create');
 Route::post('contact/store','User\ContactUsController@store')->name('user#contact_store');
 
 //Book Detail

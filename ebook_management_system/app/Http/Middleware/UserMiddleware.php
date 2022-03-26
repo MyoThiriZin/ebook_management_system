@@ -20,6 +20,6 @@ class UserMiddleware
             return $next($request);
         }
 
-        return redirect('/user/login')->with('error','You have not user access');
+        return redirect('/user/login');
     }
 }
