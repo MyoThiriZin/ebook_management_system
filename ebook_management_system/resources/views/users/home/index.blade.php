@@ -22,7 +22,7 @@
       <div>
         <img src="/uploads/{{ $book->image }}" alt="tag">
         <span class="book-name">{{ $book->name }}</span>
-        <a href="#" class="book-seemore">See More >></a>
+        <a href="{{ url('book/detail/'. $book->id) }}" class="book-seemore">See More >></a>
       </div>
     @endforeach
     </section>
@@ -52,5 +52,9 @@
     </ul>
   </div>
 </div>
-
+<link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css') }}">
+<link href="{{ asset('css/user/home.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{{ asset('js/library/slick.js')}}"></script>
+<script src="{{ asset('js/user/home.js')}}"></script>
 @endsection

@@ -6,17 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Book Management System</title>
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/slick-theme.css') }}">
   <link href="{{ asset('css/user/common.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/style.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/home.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/user/book.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
 
   <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
   <script src="{{ asset('js/user/common.js')}}"></script>
-  <script type="text/javascript" src="{{ asset('js/library/slick.js')}}"></script>
-  <script src="{{ asset('js/user/home.js')}}"></script>
 </head>
 <body>
   <div class="wrapper">
@@ -50,7 +47,6 @@
             @endauth
           </ul>
         </div>
-
       </div>
     </section> <!-- /.sec-header -->
 
@@ -63,16 +59,16 @@
         </p>
         <nav class="sidenav">
           <ul class="clearfix">
-            <li class="active">
+            <li class="{{ request()->is('user') ? 'active' : null }}">
               <a href="{{ route('user') }}">Home</a>
             </li>
-            <li>
-              <a href="">Books</a>
+            <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') ? 'active' : null }}">
+              <a href="{{route('user#books.index')}}">Books</a>
             </li>
             <li>
               <a href="">Borrows</a>
             </li>
-            <li>
+            <li class="{{ request()->is('contact/create') ? 'active' : null }}">
               <a href="{{route('user#contact_create')}}">Contact us</a>
             </li>
           </ul>
@@ -159,8 +155,11 @@
     </section><!-- /.sec-copyright -->
 
   </div>
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 27493a49ec66bf4f4087c3a99e8677b0b149d2be
 </body>
 </html>

@@ -91,7 +91,7 @@ li {
 }
 
 nav li {
-  padding: 30px 20px 30px 0;
+  padding: 30px 20px;
   margin-right: 20px;
 }
 
@@ -101,8 +101,12 @@ nav li {
   color: #333645;
 }
 
+nav li.active {
+  background-color:#13e2af;
+}
+
 nav li.active a {
-  color:#13e2af;
+  color:#333645;
 }
 
 nav li a {
@@ -291,7 +295,7 @@ nav li a {
   /* Navigation */
 
   nav li {
-    padding: 2.344vw 1.563vw 2.344vw 0;
+    padding: 2.344vw 1.563vw;
     margin-right: 1.563vw;
   }
 
