@@ -5,10 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Book Management System</title>
-
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/common.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/user/contact.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
   
 </head>
@@ -44,7 +44,7 @@
             @endauth
           </ul>
         </div>
-        
+
       </div>
     </section> <!-- /.sec-header -->
 
@@ -67,7 +67,7 @@
               <a href="">Borrows</a>
             </li>
             <li>
-              <a href="">Contact us</a>
+              <a href="{{route('user#contact_create')}}">Contact us</a>
             </li>
           </ul>
         </nav>
@@ -142,7 +142,7 @@
           </ul>
         </div>
       </div>
-      </section><!-- /.sec-footer -->
+    </section><!-- /.sec-footer -->
 
     <section class="sec-copyright">
       <div class="container">

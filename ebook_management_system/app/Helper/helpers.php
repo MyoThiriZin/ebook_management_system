@@ -19,3 +19,7 @@ function importMessage($title){
 function exportMessage($title){
     return "{$title} has been exported.";
 }
+
+function sendMessage($title){
+    return "{$title} has been sent successfully.";
+}
