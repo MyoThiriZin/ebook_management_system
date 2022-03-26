@@ -69,6 +69,10 @@ Route::post('forget-password', 'Admin\Auth\ForgotPasswordController@submitForget
 Route::get('reset-password/{token}', 'Admin\Auth\ForgotPasswordController@showResetPasswordForm')->name('reset.password');
 Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPasswordForm')->name('submit.reset.password');
 
+//User Book
+Route::get('/userbooks', 'User\BookController@index')->name('user#books.index');
+
+
 
 /* For user panel */
 Route::get('/user/register', 'User\Auth\AuthController@showRegistrationView')->name('user#register');

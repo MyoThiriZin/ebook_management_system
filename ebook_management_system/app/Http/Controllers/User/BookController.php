@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\storeBookRequest;
 use Illuminate\Http\Request;
 use App\Contracts\Services\User\BookServiceInterface;
 use App\Book;
 use App\Borrow;
+use App\Category;
+
 
 class BookController extends Controller
 {
@@ -36,6 +39,41 @@ class BookController extends Controller
         
         $book = $this->bookInterface->getBook($id);
         return view('users.books.detail')->with(['book' => $book]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $books=Book::all();
+        // latest book
+        $book = $books->last();
+        return view('users.books.index',compact('books', 'book'));
+
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(storeBookRequest $request)
+    {
+        //
     }
 
     /**

@@ -9,6 +9,7 @@
   <link href="{{ asset('css/user/common.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/style.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/contact.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/user/book.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
  
   <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
@@ -46,7 +47,6 @@
             @endauth
           </ul>
         </div>
-
       </div>
     </section> <!-- /.sec-header -->
 
@@ -63,7 +63,7 @@
               <a href="{{ route('user') }}">Home</a>
             </li>
             <li>
-              <a href="">Books</a>
+              <a href="{{route('user#books.index')}}">Books</a>
             </li>
             <li>
               <a href="">Borrows</a>
@@ -155,8 +155,5 @@
     </section><!-- /.sec-copyright -->
 
   </div>
-
-  
-  
 </body>
 </html>
