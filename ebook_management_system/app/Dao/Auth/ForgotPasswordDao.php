@@ -22,20 +22,13 @@ class ForgotPasswordDao implements ForgotPasswordDaoInterface
      * @param Request $request request including inputs
      * @return Object created passwordreset object
      */
-    public function savePasswordReset(Request $request)
+    public function savePasswordReset(Request $request,$token)
     {
-        $token = Str::random(64);
-        
         DB::table('password_resets')->insert([
             'email' => $request->email, 
             'token' => $token, 
             'created_at' => Carbon::now()
         ]);
-
-        Mail::send('auth.emailForgetPassword', ['token' => $token], function($message) use($request){
-            $message->to($request->email);
-            $message->subject('Reset Password');
-        });
     }
 
     /**

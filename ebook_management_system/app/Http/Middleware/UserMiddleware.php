@@ -4,9 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Auth;
-use Facade\FlareClient\Http\Response;
 
-class AdminMiddleware
+class UserMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,10 +16,10 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() &&  Auth::user()->type == 0) {
+        if (Auth::user() &&  (Auth::user()->type == 1 || Auth::user()->type == 0 )) {
             return $next($request);
         }
 
-        return redirect('login')->with('error','You have not admin access');
+        return redirect('/user/login')->with('error','You have not user access');
     }
 }

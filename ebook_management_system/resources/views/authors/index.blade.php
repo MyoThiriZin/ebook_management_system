@@ -35,6 +35,7 @@
             <tr>
                 <th><span>No</span></th>
                 <th><span>Name</span></th>
+                <th><span>Email</span></th>
                 <th class="description-sec pc"><span>Description</span></th>
                 <th><span>Action</span></th>
 
@@ -45,6 +46,7 @@
                 <tr>
                     <td>{{ ($authors->currentPage()-1) * $authors->perPage() + $loop->index + 1 }}</td>
                     <td>{{ $author->name }}</td>
+                    <td>{{$author->email}}</td>
                     <td class="pc">{{ $author->description }}</td>
                     <td class="action">
                         <a href="/authors/{{ $author->id }}/edit"><button class="edit-btn"><i

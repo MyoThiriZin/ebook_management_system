@@ -52,7 +52,8 @@ class AuthorController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'description' => 'required|max:255',
+            'email' => 'required|max:255|string|email|unique:authors',
+            'description' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -103,7 +104,8 @@ class AuthorController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'description' => 'required|max:255',
+            'email' => 'required|max:255|string|email|unique:authors,email,'.$id,
+            'description' => 'required',
         ]);
 
         if ($validator->fails()) {

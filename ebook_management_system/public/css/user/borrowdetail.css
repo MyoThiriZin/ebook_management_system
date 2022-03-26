@@ -1,0 +1,146 @@
+.book-detail {
+  margin: 50px 0;
+  background-color: #9E725230;
+}
+
+.book-detail .borrow-book-img {
+  width: 250px;
+  height: 400px;
+}
+
+.book-detail .book-left {
+  width: 50%;
+  text-align: right;
+  padding-top: 50px;
+}
+
+.book-detail .book-right {
+  padding: 95px 30px;
+  width: 50%;
+}
+
+.book-detail .book-right .borrow-book-ttl {
+  margin-bottom: 30px;
+  font-size: 25px;
+}
+
+.book-detail .book-detail-row {
+  width:100%;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.book-detail .book-detail-col {
+  width: 40%;
+  float: left;
+}
+
+.book-detail .book-detail-row p {
+  padding:30px 50px;
+}
+
+.book-detail .read-btn {
+  padding: 5px 30px;
+  border: 1px solid #333645;
+  display: inline-block;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #333645;
+  width: 131px;
+  margin: 20px auto;
+}
+
+.book-detail .read-btn i {
+  margin-right: 7px;
+}
+
+/*---------- tablet ------------*/
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .book-detail {
+    margin: 3.906vw 0;
+  }
+  
+  .book-detail .borrow-book-img {
+    width: 19.531vw;
+    height: 31.250vw;
+  }
+  
+  .book-detail .book-left {
+    padding-top: 3.906vw;
+  }
+  
+  .book-detail .book-right {
+    padding: 7.422vw 2.344vw;
+  }
+  
+  .book-detail .book-right .borrow-book-ttl {
+    margin-bottom: 2.344vw;
+    font-size: 1.953vw;
+  }
+  
+  .book-detail .book-detail-row {
+    margin-bottom: 0.391vw;
+  }
+  
+  .book-detail .book-detail-row p {
+    padding:2.344vw 3.906vw;
+  }
+  
+  .book-detail .read-btn {
+    padding: 0.391vw 2.344vw;
+    border: 0.078vw solid #333645;
+    border-radius: 0.781vw;
+    width: 10.234vw;
+    margin: 1.563vw auto;
+  }
+  
+  .book-detail .read-btn i {
+    margin-right: 0.547vw;
+  }
+}
+
+/*---------- sp ------------*/
+@media screen and (max-width: 767.9px) {
+  .book-detail {
+    margin: 7.813vw 0;
+  }
+  
+  .book-detail .borrow-book-img {
+    width: 39.063vw;
+    height: 62.500vw;
+  }
+  
+  .book-detail .book-left {
+    padding-top: 7.813vw;
+  }
+  
+  .book-detail .book-right {
+    padding: 14.844vw 4.688vw;
+  }
+  
+  .book-detail .book-right .borrow-book-ttl {
+    margin-bottom: 4.688vw;
+    font-size: 3.906vw;
+  }
+  
+  .book-detail .book-detail-row {
+    margin-bottom: 0.781vw;
+  }
+  
+  .book-detail .book-detail-row p {
+    padding:4.688vw 7.813vw;
+  }
+  
+  .book-detail .read-btn {
+    padding: 0.781vw 4.688vw;
+    border: 0.156vw solid #333645;
+    border-radius: 1.563vw;
+    width: 20.469vw;
+    margin: 3.125vw auto;
+  }
+  
+  .book-detail .read-btn i {
+    margin-right: 1.094vw;
+  }
+
+}

@@ -1,0 +1,279 @@
+/**
+* Authentication
+*/
+@font-face {
+  font-family: PoppinsBold;
+  src: url('../../font/poppins-bold.ttf');
+}
+
+@font-face {
+  font-family: RobotoRegular;
+  src: url('../../font/Roboto-Regular.ttf');
+}
+
+* {
+  box-sizing: border-box;
+  font-family: RobotoRegular;
+}
+
+
+.auth-success {
+  color: #1a8b1a;
+}
+
+.auth-error {
+  color: #ce2424;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.auth-container {
+  width: 500px;
+  background-color: #33364559;
+  border-radius: 15px;
+  padding: 20px;
+  color: #333645;
+}
+
+.login-container {
+  margin: 50px auto;
+}
+
+.register-container {
+  margin: 56px auto;
+}
+
+.card-header {
+  text-align: center;
+  font-size: 25px;
+  color: #333645;
+  font-family: PoppinsBold;
+}
+
+.card-body {
+  margin-top: 21px;
+}
+
+.auth-row {
+  margin: 20px;
+  position: relative;
+}
+
+.auth-row i {
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  color: #333645;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 10px 35px;
+  border: none;
+  border-bottom: 1px solid #FFFFFF90;
+  outline: none;
+  background-color: transparent !important;
+  color: #333645;
+}
+
+.auth-btnrow {
+  margin: 20px;
+  text-align: center;
+}
+
+.reset-pass {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-auth,
+.btn-forgotpass {
+  padding: 13px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  color: #333645;
+  background-color: #FFFFFF90;
+}
+
+.btn-auth {
+  width: 40%;
+}
+
+.btn-auth:hover {
+  background-color: #33364590;
+  transition: 1s;
+  color: #FFFFFF;
+}
+
+.btn-forgotpass {
+  width: 60%;
+}
+
+.rt-content-link {
+  color: #FFFFFF90;
+}
+
+.rt-content-link:hover {
+  color: #333645;
+  transition: 1s;
+}
+
+.forgetpass-container {
+  margin: 100px auto;
+}
+
+.resetpass-container {
+  margin: 100px auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  * {
+    font-size: 1.172vw;
+  }
+
+  .auth {
+    padding: 0.781vw;
+  }
+
+  .auth-container {
+    width: 39.063vw;
+    border-radius: 1.172vw;
+    padding: 1.563vw;
+  }
+
+  .login-container {
+    margin: 11.719vw auto;
+  }
+
+  .register-container {
+    margin: 4.375vw auto;
+  }
+
+  .card-header {
+    font-size: 1.953vw;
+  }
+
+  .card-body {
+    margin-top: 1.641vw;
+  }
+
+  .auth-row {
+    margin: 1.563vw;
+  }
+
+  .auth-row i {
+    left: 0.469vw;
+    top: 0.781vw;
+    font-size: 1.406vw;
+  }
+
+  .auth-input {
+    padding: 0.781vw 2.734vw;
+    border-bottom: 0.078vw solid #FFFFFF90;
+  }
+
+  .auth-checkbox {
+    width: 1.172vw;
+    height: 1.172vw;
+  }
+
+  .auth-txt {
+    font-size: 1.250vw;
+  }
+
+  .auth-btnrow {
+    margin: 1.563vw;
+  }
+
+  .btn-auth,
+  .btn-forgotpass {
+    padding: 1.016vw;
+    border-radius: 1.563vw;
+  }
+
+  .forgetpass-container {
+    margin: 7.813vw auto;
+  }
+
+  .resetpass-container {
+    margin: 7.813vw auto;
+  }
+}
+
+@media screen and (max-width: 767.9px) {
+  * {
+    font-size: 1.956vw;
+  }
+
+  .auth {
+    padding: 1.304vw;
+  }
+
+  .auth-container {
+    width: 65.189vw;
+    border-radius: 1.956vw;
+    padding: 2.608vw;
+  }
+
+  .login-container {
+    margin: 7.813vw auto;
+  }
+
+  .register-container {
+    margin: 7.301vw auto;
+  }
+
+  .card-header {
+    font-size: 3.259vw;
+  }
+
+  .card-body {
+    margin-top: 2.738vw;
+  }
+
+  .auth-row {
+    margin: 2.608vw;
+  }
+
+  .auth-row i {
+    left: 0.782vw;
+    top: 1.304vw;
+    font-size: 2.347vw;
+  }
+
+  .auth-input {
+    padding: 1.304vw 4.563vw;
+    border-bottom: 0.130vw solid #FFFFFF90;
+  }
+
+  .auth-checkbox {
+    width: 1.956vw;
+    height: 1.956vw;
+  }
+
+  .auth-txt {
+    font-size: 2.086vw;
+  }
+
+  .auth-btnrow {
+    margin: 2.608vw;
+  }
+
+  .btn-auth,
+  .btn-forgotpass {
+    padding: 1.695vw;
+    border-radius: 2.608vw;
+  }
+
+  .forgetpass-container {
+    margin: 15.625vw auto;
+  }
+
+  .resetpass-container {
+    margin: 15.625vw auto;
+  }
+}
