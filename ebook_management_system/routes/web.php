@@ -92,3 +92,5 @@ Route::get('book/detail/{id}','User\BookController@getBookByID')->name('user#boo
 Route::get('borrow/store/{id}','User\BookController@storeBorrowBook')->name('user#store_book_borrow');
 
 
+//User Home
+Route::get('user','User\HomeController@index')->name('user');

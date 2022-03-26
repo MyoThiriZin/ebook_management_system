@@ -388,6 +388,7 @@ nav li a {
     width: 100%;
     border-bottom: 0.313vw solid #333645;
     background-color: #ffffff;
+    z-index: 2;
   } 
 
   .sec-header .logo {
