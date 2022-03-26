@@ -59,16 +59,16 @@
         </p>
         <nav class="sidenav">
           <ul class="clearfix">
-            <li class="active">
+            <li class="{{ request()->is('user') ? 'active' : null }}">
               <a href="{{ route('user') }}">Home</a>
             </li>
-            <li>
+            <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') ? 'active' : null }}">
               <a href="{{route('user#books.index')}}">Books</a>
             </li>
             <li>
               <a href="">Borrows</a>
             </li>
-            <li>
+            <li class="{{ request()->is('contact/create') ? 'active' : null }}">
               <a href="{{route('user#contact_create')}}">Contact us</a>
             </li>
           </ul>
