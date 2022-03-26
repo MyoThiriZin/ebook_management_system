@@ -1,0 +1,35 @@
+
+  .userbook{
+    margin-top: 15px;
+    width: 80%;
+  }
+  .bookpost {
+    float: left;
+    width: 20%;
+    margin-right: 2%;
+  }
+  .bookpost h5{
+    font-size: 12px;
+  }
+  
+  .bookpost img {
+    width: 100px;
+    height: 150px;
+    padding-bottom: 10px;
+  }
+  .bookpost:nth-child(4n) {
+    margin-right: 0px;
+  }
+  .bookpost p{
+    font-size: 12px;
+  }
+  .bookpost a {
+    font-size: 12px;
+  }
+  
+  .bookpost div {
+    margin-bottom: 15px;
+  }
+  .userbook-right{
+    float: right;
+  }

@@ -69,7 +69,6 @@ Route::post('forget-password', 'Admin\Auth\ForgotPasswordController@submitForget
 Route::get('reset-password/{token}', 'Admin\Auth\ForgotPasswordController@showResetPasswordForm')->name('reset.password');
 Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPasswordForm')->name('submit.reset.password');
 
-
 /* For user panel */
 Route::get('/user/register', 'User\Auth\AuthController@showRegistrationView')->name('user#register');
 Route::post('/user/register', 'User\Auth\AuthController@storeUser')->name('user#register_create');
@@ -94,3 +93,9 @@ Route::get('borrow/store/{id}','User\BookController@storeBorrowBook')->name('use
 
 //User Home
 Route::get('user','User\HomeController@index')->name('user');
+
+//User Book
+Route::get('/userbooks', 'User\BookController@index')->name('user#books.index');
+
+
+
