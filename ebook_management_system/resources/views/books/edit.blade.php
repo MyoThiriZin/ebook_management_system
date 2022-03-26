@@ -38,14 +38,14 @@
       <div class="clearfix">
         <div class="col">
           <label for="" class="form-label">Book Image</label>
-          <input type="file" name="image" class="myfile" placeholder="Book Image"
+          <input type="file" accept="image/gif, image/jpeg, image/png" name="image" class="myfile" placeholder="Book Image"
               value="{{ $item->image }}">
         </div>
 
         <div class="col">
           <label for="" class="form-label">PDF file</label>
 
-          <input type="file" name="file" class="myfile" value="{{ $item->file }}">
+          <input type="file" accept="application/pdf" name="file" class="myfile" value="{{ $item->file }}">
         </div>
       </div>
 
