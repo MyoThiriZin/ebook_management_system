@@ -5,7 +5,7 @@
 
 .book-detail .borrow-book-img {
   width: 250px;
-  height: 400px;
+  height: 350px;
 }
 
 .book-detail .book-left {
@@ -25,7 +25,7 @@
 }
 
 .book-detail .book-detail-row {
-  width:100%;
+  width: 100%;
   display: block;
   margin-bottom: 5px;
 }
@@ -36,7 +36,7 @@
 }
 
 .book-detail .book-detail-row p {
-  padding:30px 50px;
+  padding: 30px 50px;
 }
 
 .book-detail .read-btn {
@@ -62,7 +62,7 @@
 
   .book-detail .borrow-book-img {
     width: 19.531vw;
-    height: 31.250vw;
+    height: 27.344vw;
   }
 
   .book-detail .book-left {
@@ -83,7 +83,7 @@
   }
 
   .book-detail .book-detail-row p {
-    padding:2.344vw 3.906vw;
+    padding: 2.344vw 3.906vw;
   }
 
   .book-detail .read-btn {
@@ -107,7 +107,7 @@
 
   .book-detail .borrow-book-img {
     width: 39.063vw;
-    height: 62.500vw;
+    height: 54.688vw;
   }
 
   .book-detail .book-left {
@@ -128,7 +128,7 @@
   }
 
   .book-detail .book-detail-row p {
-    padding:4.688vw 7.813vw;
+    padding: 4.688vw 7.813vw;
   }
 
   .book-detail .read-btn {

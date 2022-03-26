@@ -63,7 +63,7 @@ li {
   width: 80px;
 } 
 
-.sec-header .logo a{
+.sec-header .logo .logo-txt{
   margin-left: -77px;
   color: #333645;
   font-size: 22px;
@@ -279,7 +279,7 @@ nav li a {
     width: 6.250vw;
   } 
 
-  .sec-header .logo a{
+  .sec-header .logo .logo-txt{
     margin-left: -6.016vw;
     font-size: 1.719vw;
   }
@@ -404,7 +404,7 @@ nav li a {
     width: 10.430vw;
   } 
   
-  .sec-header .logo a{
+  .sec-header .logo .logo-txt{
     margin-left: -11.6vw;
     font-size: 3.438vw;
   }

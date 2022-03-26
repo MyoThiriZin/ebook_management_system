@@ -1,3 +1,4 @@
+<link href="{{ asset('css/user/book.css') }}" rel="stylesheet">
 @extends('users.layouts.master')
 @section('content')
     <div class="container">
@@ -5,7 +6,7 @@
             <h4 class="book-latest">Latest Book</h4>
             <h4 class="book-total">Total: {{ $items->count() }} books</h4>
         </div>
-        <div class="clearfix">
+        <div class="clearfix show-book">
             <ul class="userbook">
                 @forelse ($items as $item)
                     <li class="bookpost clearfix">
@@ -15,7 +16,7 @@
                             {{ $item->author->name }}
                         </p>
                         <div>
-                            <a href="#">See more>></a>
+                            <a href="{{ url('book/detail/' . $item->id) }}">See more>></a>
                         </div>
                     </li>
                 @empty
