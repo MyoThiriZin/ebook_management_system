@@ -193,3 +193,94 @@
     border-radius: 0.781vw;
   }
 }
+
+@media screen and (max-width: 767.9px){
+  .book-ttl {
+    width: 71%;
+    margin-top: 3.125vw;
+  }
+  
+  .show-book {
+    margin-bottom: 3.906vw;
+  } 
+
+  .book-latest {
+    margin-top: 0.781vw;
+    font-size: 2.813vw;
+  }
+
+  .book-total {
+    margin-top: 0.781vw;
+    font-size: 2.813vw;
+  }
+
+  .userbook {
+    margin-top: 1.172vw;
+    width: 75%;
+  }
+
+  .bookpost {
+    float: left;
+    width: 45%;
+    margin-right: 5%;
+    margin-bottom: 10%;
+  }
+
+  .bookpost h5 {
+    font-size: 2.500vw;
+  }
+
+  .bookpost img {
+    width: 100%;
+    height: 46.875vw;
+    padding-bottom: 0.781vw;
+  }
+
+  .bookpost:nth-child(2n) {
+    margin-right: 0vw;
+  }
+
+  .bookpost p {
+    font-size: 2.500vw;
+  }
+
+  .bookpost a {
+    font-size: 2.500vw;
+  }
+
+  .bookpost div {
+    margin-bottom: 1.172vw;
+  }
+
+  .userbook-right {
+    float: right;
+    width: 25%;
+  }
+
+  .book-search form input[type=text],
+  .book-search form select {
+    width: 100%;
+    margin: 0.781vw auto;
+    padding: 0.391vw 0.391vw;
+    background-color: #fdad62;
+    color: #ffffff;
+    font-size: 2.344vw;
+    outline: none;
+    border-radius: 0.781vw;
+  }
+
+  .book-search-ttl {
+    font-size: 2.813vw18px;
+  }
+
+  .search-button-link {
+    float: right;
+    padding: 0.469vw 0.781vw;
+    border: transparent;
+    background-color: #333645;
+    color: #ffffff;
+    font-size: 2.344vw;
+    cursor: pointer;
+    border-radius: 0.781vw;
+  }
+}
