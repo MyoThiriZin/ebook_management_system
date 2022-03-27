@@ -18,7 +18,7 @@
                                         <label>Category : &nbsp;&nbsp;&nbsp;{{$item->book->category->name}}</label><br>
                                         <label>Duration : &nbsp;&nbsp;&nbsp;{{$item->book->duration}}</label><br>
                                     </div>
-                                    <a href="{{ Auth::check() ? url('borrow/store/' . $item->book->id ) : url('/user/login') }}"><button class="btn-read-suan"><i class="fa-solid fa-book-open"></i>&nbsp;Read</button></a>
+                                    <a href="{{ Auth::check() ? url('borrow/store/' . $item->book->id ) : url('/user/login') }}" target="_blank"><button class="btn-read-suan"><i class="fa-solid fa-book-open"></i>&nbsp;Read</button></a>
                                 </li>
                             @empty
                                 <p>There is no borrow book</p>

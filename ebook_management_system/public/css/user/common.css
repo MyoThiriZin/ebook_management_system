@@ -169,6 +169,10 @@ nav li a {
   width: 10%;
 }
 
+.sec-footer .footer-snd-nav li.active a{
+  color: #13e2af;
+}
+
 .sec-footer .footer-frt-txt h4 {
   margin-bottom: 5px;
 }

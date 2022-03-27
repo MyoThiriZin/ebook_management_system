@@ -46,6 +46,7 @@ class BookDao implements BookDaoInterface
             if( $borrow->end_date < Carbon::now()) {
                 $borrow->start_date = Carbon::now();
                 $borrow->end_date = Carbon::now()->addDays($book->duration);
+                $borrow->mail_status = 'pending';
                 $borrow->save();
             }
         } else {
@@ -54,11 +55,11 @@ class BookDao implements BookDaoInterface
             $borrow->book_id = $book->id;
             $borrow->start_date = Carbon::now();
             $borrow->end_date = Carbon::now()->addDays($book->duration);
+            $borrow->mail_status = 'pending';
             $borrow->created_by = $userid;
             $borrow->updated_by = $userid;
             $borrow->save();
         }
-        
         return $book;
     }
 
