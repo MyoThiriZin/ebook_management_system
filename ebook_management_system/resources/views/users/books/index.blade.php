@@ -15,6 +15,9 @@
                         <p>
                             {{ $item->author->name }}
                         </p>
+                        <p>
+                            {{ $item->category->name }}
+                        </p>
                         <div>
                             <a href="{{ url('book/detail/' . $item->id) }}">See more>></a>
                         </div>

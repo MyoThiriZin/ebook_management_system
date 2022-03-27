@@ -99,6 +99,12 @@ Route::get('/userbooks', 'User\BookController@index')->name('user#books.index');
 //Search
 Route::post('book/search', 'User\BookController@search')->name('user#booksearch');
 
+//Book Rental Expire Mail
+Route::get('bookrentalexpire', function () {
+    Artisan::call('bookrentalexpire:email');
+    return redirect()->back()->with("success_msg", ("Email send successfull"));
+})->name('bookrentalexpire');
+
 //Borrow List
 Route::get('borrow/list/{id}','User\BorrowController@list')->name('user#borrow_list');
 
