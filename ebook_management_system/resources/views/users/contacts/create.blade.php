@@ -13,7 +13,7 @@
         @csrf
       <div class="contact-input-group">
         <label for="">Name</label>
-        <input type="text" name="name" placeholder="Enter Your Name" value="{{old('name')}}">
+        <input type="text" name="name" id="name" placeholder="Enter Your Name" value="{{old('name')}}">
         @if ($errors->has('name'))
           <small class="text-danger">*{{ $errors->first('name') }}</small>
           @endif
@@ -49,4 +49,13 @@
   </div>
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('#name').keydown(function (e) {
+          if(e.keyCode == 188){
+              e.preventDefault();
+          }
+      })
+    });
+</script>
 @endsection
