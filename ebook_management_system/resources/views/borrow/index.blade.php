@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="clearfix">
+<div class="add-btn clearfix">
     <a href="{{route('bookrentalexpire')}}" class="ft-right"><button class="csv-btn-link">Send Mail</button></a>
     <div class="ft-right search-form">
     <form action="{{ route('borrows.index') }}" method="GET" enctype="multipart/form-data">
