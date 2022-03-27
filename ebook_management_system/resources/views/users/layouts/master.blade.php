@@ -63,7 +63,7 @@
               <a href="{{route('user#books.index')}}">Books</a>
             </li>
 
-            <li>
+            <li class="{{ request()->is('borrow/list/*') ? 'active' : null }}">
               <a href="{{ Auth::check() ? url('borrow/list/' . Auth::user()->id ) : url('/user/login') }}">Borrows</a>
             </li>
             <li class="{{ request()->is('contact/create') ? 'active' : null }}">
@@ -92,17 +92,18 @@
         <div class="ft-left footer-snd-nav">
         <h5 class="footer-ttl">Links</h5>
           <ul class="clearfix">
-            <li>
-              <a href="">Home</a>
+            <li class="{{ request()->is('user') ? 'active' : null }}">
+              <a href="{{ route('user') }}">Home</a>
             </li>
-            <li>
-              <a href="">Books</a>
+            <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') ? 'active' : null }}">
+              <a href="{{route('user#books.index')}}">Books</a>
             </li>
-            <li>
-              <a href="">Borrows</a>
+
+            <li class="{{ request()->is('borrow/list/*') ? 'active' : null }}">
+              <a href="{{ Auth::check() ? url('borrow/list/' . Auth::user()->id ) : url('/user/login') }}">Borrows</a>
             </li>
-            <li>
-              <a href="">Contact us</a>
+            <li class="{{ request()->is('contact/create') ? 'active' : null }}">
+              <a href="{{route('user#contact_create')}}">Contact us</a>
             </li>
           </ul>
         </div>

@@ -41,10 +41,13 @@ class BookRentalExpireEmail extends Command
      */
     public function handle()
     {
-        $details = Borrow::with('user','book')->where('end_date', '<', Carbon::now())->get();
+        $details = Borrow::with('user','book')->where('end_date', '<', Carbon::now())
+        ->where('mail_status', '=', 'pending')->get();
         if (count($details) > 0) {
             foreach($details as $detail) {
                 $this->email($detail);
+                $detail->mail_status = 'completed';
+                $detail->save();
             }
         }
     }
