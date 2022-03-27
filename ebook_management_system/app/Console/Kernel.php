@@ -2,7 +2,7 @@
 
 namespace App\Console;
 
-//use App\Console\Commands\BookRentalExpireEmail;
+use App\Console\Commands\BookRentalExpireEmail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,24 +13,20 @@ class Kernel extends ConsoleKernel
      *
      * @var array
      */
-//    protected $commands = [
-//        BookRentalExpireEmail::class,
-//    ];
-//
-//    /**
-//     * Define the application's command schedule.
-//     *
-//     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-//     * @return void
-//     */
-//    protected function schedule(Schedule $schedule)
-//    {
-//        $schedule->call(function () {
-//            info('call every minute');
-//        })->hourlyAt(38);
-//        //$schedule->command('bookrentalexpire:email')->daily();
-//        //$schedule->command('bookrentalexpire:email')->everyMinute();
-//    }
+    protected $commands = [
+        BookRentalExpireEmail::class,
+    ];
+
+    /**
+     * Define the application's command schedule.
+     *
+     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @return void
+     */
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->command('bookrentalexpire:email')->everyMinute();
+    }
 
     /**
      * Register the commands for the application.

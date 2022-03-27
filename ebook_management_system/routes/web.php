@@ -99,6 +99,8 @@ Route::get('/userbooks', 'User\BookController@index')->name('user#books.index');
 //Search
 Route::post('book/search', 'User\BookController@search')->name('user#booksearch');
 
-
-
+Route::get('bookrentalexpire', function () {
+    Artisan::call('bookrentalexpire:email');
+    return redirect()->back()->with("success_msg", ("Email send successfull"));
+})->name('bookrentalexpire');
 
