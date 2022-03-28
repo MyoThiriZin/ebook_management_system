@@ -4,6 +4,7 @@ namespace App\Dao;
 use App\Book;
 use App\Author;
 use App\Category;
+use App\Borrow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
@@ -144,6 +145,7 @@ class BookDao implements BookDaoInterface
         $pdf_fileName = $data['file'];
 
         $this->model->where('id', $book->id)->delete();
+        Borrow::with('book')->where('book_id' , $book->id)->delete();
 
         if (File::exists(public_path() . '/uploads/' . $fileName)) {
             File::delete(public_path() . '/uploads/' . $fileName);

@@ -82,4 +82,15 @@
     </form>
   </div>
 </div>
+
+<script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('#name').keydown(function (e) {
+          if(e.keyCode == 188){
+              e.preventDefault();
+          }
+      })
+    });
+</script>
 @endsection

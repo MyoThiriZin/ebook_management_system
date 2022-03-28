@@ -23,7 +23,10 @@ class AuthorDao implements AuthorDaoInterface {
 
     public function deleteById($id){
       $author = Author::findOrFail($id);
-      $author->books()->delete();
+      foreach($author->books as $book){
+        $book->borrow()->delete(); 
+        $book->delete(); 
+      }
       return $author->delete();
     }
 
