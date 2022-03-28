@@ -5,9 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Book Management System</title>
-
   <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
   <link href="{{ asset('css/user/common.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/user/style.css') }}" rel="stylesheet">
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
   <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
   <script src="{{ asset('js/user/common.js')}}"></script>
@@ -18,20 +18,32 @@
       <div class="container clearfix">
         <h1 class="logo ft-left">
           <a href="{{ route('user') }}"><img src="{{ asset('img/logo.png') }}" alt="E-Book"></a>
-          <a href="">eBook</a>
+          <a href="{{ route('user') }}" class="logo-txt">eBook</a>
         </h1>
         <div class="user ft-right clearfix">
           <i class="fa-solid fa-circle-user ft-right"></i>
-          <ul class="dropdown-content ft-left">
-            <li>
-              <a href="#">Sign in</a>
-            </li>
-            <li>
-              <a href="#">Sign up</a>
-            </li>
+          @auth
+          <div class="login-user">
+            <span> {{ Auth::user()->name }} </span>
+          </div>
+
+            <ul class="dropdown-content ft-left">
+              <li>
+                <a href="{{ route('user#logout') }}">Logout</a>
+              </li>
+            </ul>
+            @else
+            <ul class="dropdown-content ft-left">
+              <li>
+                <a href="{{ route('user#login') }}">Sign in</a>
+              </li>
+              <li>
+                <a href="{{ route('user#register') }}">Sign up</a>
+              </li>
+            </ul>
+            @endauth
           </ul>
         </div>
-        
       </div>
     </section> <!-- /.sec-header -->
 
@@ -44,17 +56,18 @@
         </p>
         <nav class="sidenav">
           <ul class="clearfix">
-            <li class="active">
+            <li class="{{ request()->is('user') ? 'active' : null }}">
               <a href="{{ route('user') }}">Home</a>
             </li>
-            <li>
-              <a href="">Books</a>
+            <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') ? 'active' : null }}">
+              <a href="{{route('user#books.index')}}">Books</a>
             </li>
-            <li>
-              <a href="">Borrows</a>
+
+            <li class="{{ request()->is('borrow/list/*') ? 'active' : null }}">
+              <a href="{{ Auth::check() ? url('borrow/list/' . Auth::user()->id ) : url('/user/login') }}">Borrows</a>
             </li>
-            <li>
-              <a href="">Contact us</a>
+            <li class="{{ request()->is('contact/create') ? 'active' : null }}">
+              <a href="{{route('user#contact_create')}}">Contact us</a>
             </li>
           </ul>
         </nav>
@@ -79,17 +92,18 @@
         <div class="ft-left footer-snd-nav">
         <h5 class="footer-ttl">Links</h5>
           <ul class="clearfix">
-            <li>
-              <a href="">Home</a>
+            <li class="{{ request()->is('user') ? 'active' : null }}">
+              <a href="{{ route('user') }}">Home</a>
             </li>
-            <li>
-              <a href="">Books</a>
+            <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') ? 'active' : null }}">
+              <a href="{{route('user#books.index')}}">Books</a>
             </li>
-            <li>
-              <a href="">Borrows</a>
+
+            <li class="{{ request()->is('borrow/list/*') ? 'active' : null }}">
+              <a href="{{ Auth::check() ? url('borrow/list/' . Auth::user()->id ) : url('/user/login') }}">Borrows</a>
             </li>
-            <li>
-              <a href="">Contact us</a>
+            <li class="{{ request()->is('contact/create') ? 'active' : null }}">
+              <a href="{{route('user#contact_create')}}">Contact us</a>
             </li>
           </ul>
         </div>
@@ -129,7 +143,7 @@
           </ul>
         </div>
       </div>
-    </section>
+    </section><!-- /.sec-footer -->
 
     <section class="sec-copyright">
       <div class="container">
@@ -137,9 +151,8 @@
             <span>Copyright @ Seattle Consulting Myanmar Co.,Ltd. All right preserved.</span>
           </div>
       </div>
-    </section>
+    </section><!-- /.sec-copyright -->
 
   </div>
-  
 </body>
 </html>

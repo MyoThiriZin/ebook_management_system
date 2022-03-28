@@ -22,7 +22,7 @@
       <div>
         <img src="/uploads/{{ $book->image }}" alt="tag">
         <span class="book-name">{{ $book->name }}</span>
-        <a href="#" class="book-seemore">See More >></a>
+        <a href="{{ url('book/detail/' . $book->id) }}" class="book-seemore">See More >></a>
       </div>
     @endforeach
     </section>

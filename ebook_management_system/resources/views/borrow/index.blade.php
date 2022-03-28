@@ -2,8 +2,9 @@
 
 @section('content')
 
-<div class="clearfix">
-  <div class="ft-right search-form">
+<div class="add-btn clearfix">
+    <a href="{{route('bookrentalexpire')}}" class="ft-right"><button class="csv-btn-link">Send Mail</button></a>
+    <div class="ft-right search-form">
     <form action="{{ route('borrows.index') }}" method="GET" enctype="multipart/form-data">
         @csrf
         <input type="text" name="searchData" placeholder="Search" class="search-input"
@@ -28,6 +29,7 @@
           <th><span>Book Name</span></th>
           <th class="pc"><span>Start Date</span></th>
           <th class="pc"><span>End Date</span></th>
+          <th><span>Mail Status</span></th>
           <th><span>Action</span></th>
       </tr>
     </thead>
@@ -40,6 +42,7 @@
         <td>{{$item->book->name}}</td>
         <td class="pc">{{$item->start_date}}</td>
         <td class="pc">{{$item->end_date}}</td>
+        <td>{{$item->mail_status}}</td>
         <td class="action">
             <a href="{{route('borrows.show', $item->id)}}" class="sp"><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
             <button class="delete-btn" data-bs-toggle="modal"

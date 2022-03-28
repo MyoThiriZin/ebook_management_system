@@ -69,14 +69,45 @@ Route::post('forget-password', 'Admin\Auth\ForgotPasswordController@submitForget
 Route::get('reset-password/{token}', 'Admin\Auth\ForgotPasswordController@showResetPasswordForm')->name('reset.password');
 Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPasswordForm')->name('submit.reset.password');
 
+/* For user panel */
+Route::get('/user/register', 'User\Auth\AuthController@showRegistrationView')->name('user#register');
+Route::post('/user/register', 'User\Auth\AuthController@storeUser')->name('user#register_create');
+
+Route::get('/user/login', 'User\Auth\AuthController@showLoginView')->name('user#login_view');
+Route::post('/user/login', 'User\Auth\AuthController@login')->name('user#login');
+Route::get('user/logout', 'User\Auth\AuthController@logout')->name('user#logout');
+
+Route::get('user/forget-password', 'User\Auth\ForgotPasswordController@showForgetPasswordForm')->name('user#forget.password');
+Route::post('user/forget-password', 'User\Auth\ForgotPasswordController@submitForgetPasswordForm')->name('user#submit.forget.password');
+Route::get('user/reset-password/{token}', 'User\Auth\ForgotPasswordController@showResetPasswordForm')->name('user#reset.password');
+Route::post('user/reset-password', 'User\Auth\ForgotPasswordController@submitResetPasswordForm')->name('user#submit.reset.password');
 
 //User ContactUs
 Route::get('contact/create','User\ContactUsController@create')->name('user#contact_create');
 Route::post('contact/store','User\ContactUsController@store')->name('user#contact_store');
 
-//Route::get('user', function () {
-//    return view('users.layouts.master');
-//});
+//Book Detail
+Route::get('book/detail/{id}','User\BookController@getBookByID')->name('user#book_detail');
+Route::get('borrow/store/{id}','User\BookController@storeBorrowBook')->name('user#store_book_borrow');
+
 
 //User Home
 Route::get('user','User\HomeController@index')->name('user');
+
+//User Book
+Route::get('/userbooks', 'User\BookController@index')->name('user#books.index');
+//Search
+Route::post('book/search', 'User\BookController@search')->name('user#booksearch');
+
+//Book Rental Expire Mail
+Route::get('bookrentalexpire', function () {
+    Artisan::call('bookrentalexpire:email');
+    return redirect()->back()->with("success_msg", ("Email send successfull"));
+})->name('bookrentalexpire');
+
+//Borrow List
+Route::get('borrow/list/{id}','User\BorrowController@list')->name('user#borrow_list');
+
+
+
+

@@ -7,6 +7,8 @@ use App\Http\Requests\ForgotPasswordRequest;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Contracts\Services\Auth\ForgotPasswordServiceInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Mail;
 use App\User; 
 
 class ForgotPasswordController extends Controller
@@ -45,7 +47,13 @@ class ForgotPasswordController extends Controller
     public function submitForgetPasswordForm(ForgotPasswordRequest $request)
     {
         $request->validated();
-        $passwordReset = $this->forgotPasswordInterface->savePasswordReset($request);
+        $token = Str::random(64);
+        $passwordReset = $this->forgotPasswordInterface->savePasswordReset($request,$token);
+        
+        Mail::send('auth.emailForgetPassword', ['token' => $token], function($message) use($request){
+            $message->to($request->email);
+            $message->subject('Reset Password');
+        });
         return back()->with('message', 'We have e-mailed your password reset link!');
     }
 

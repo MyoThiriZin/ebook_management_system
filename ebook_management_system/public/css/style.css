@@ -19,10 +19,13 @@
 
 .auth-success {
   color: #1a8b1a;
+  font-size: 14px;
 }
 
 .auth-error {
   color: #ce2424;
+  margin: 35px;
+  font-size: 12px;
 }
 
 input::-webkit-outer-spin-button,

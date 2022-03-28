@@ -1,0 +1,215 @@
+/* user borrow list pc */
+.container-borrowlist-suan{
+  max-width: 1920px;
+  height: 100%;
+  width: 1100px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.btn-read-suan{
+  margin-top: 10px;
+  background:#333645;
+  padding: 10px 28px;
+  border-radius: 10px;
+  color: #ffffff;
+  transition: 0.3s;
+  text-align: center;
+  margin: 12px 115px;
+}
+.btn-read-suan:hover{
+
+  background:#ffffff;
+  color: #333645;
+}
+
+.ul-borrowbook-suan {
+  margin:50px 0px;
+}
+
+.li-booklist-suan {
+  float: left;
+  width: 346px;
+  margin-top: 20px;
+  margin-right: 20px;
+  background-color: #e1d3c9;
+  margin-bottom: 40px;
+color: #4c547d;
+border:2px solid;
+border-color: #4c547d;
+border-radius: 20px;
+}
+
+.li-booklist-suan:hover {
+  background-color: #dea47b;
+  color: #ffffff;
+  transition: 0.2s;
+  border-color: #ffffff;
+  box-shadow: 20px #000000;
+}
+
+.img-borrowli-suan {
+  margin-right: 52px;
+  margin-left: 52px;
+  padding-top: 20px;
+  padding-bottom: 18px;
+  width: 230px;
+  height: 300px;
+}
+
+.head-borrowli-suan {
+  font-size: 20pt;
+  text-align: center;
+}
+
+.lbl-borrowgp-suan {
+  padding-right: 35px;
+  padding-left: 35px;
+  font-size: 12pt;
+}
+/*----------tablet for borrow list start----------*/
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .container-borrowlist-suan{
+    max-width: 166.667vw;
+    height: 100%;
+    width: 85.938vw;
+    margin: 0 auto;
+    background-color: #ffffff;
+  }
+  
+  .btn-read-suan{
+    margin-top: 0.781vw;
+    background:#333645;
+    padding: 0.781vw 2.188vw;
+    border-radius: 0.781vw;
+    color: #ffffff;
+    transition: 0.3s;
+    text-align: center;
+    margin: 0.938vw 8.984vw;
+  }
+  .btn-read-suan:hover{
+
+    background:#ffffff;
+    color: #333645;
+  }
+  
+  .ul-borrowbook-suan {
+    margin:3.906vw 0vw;
+  }
+  
+  .li-booklist-suan {
+    float: left;
+    width: 27.031vw;
+    margin-top: 1.563vw;
+    margin-right: 1.563vw;
+    background-color: #e1d3c9;
+    margin-bottom: 3.125vw;
+  color: #4c547d;
+  border:0.156vw solid;
+  border-color: #4c547d;
+  border-radius: 1.563vw;
+  }
+  
+  .li-booklist-suan:hover {
+    background-color: #dea47b;
+    color: #ffffff;
+    transition: 0.2s;
+    border-color: #ffffff;
+    box-shadow: 1.563vw #000000;
+  }
+  
+  .img-borrowli-suan {
+    margin-right: 4.063vw;
+    margin-left: 4.063vw;
+    padding-top: 1.563vw;
+    padding-bottom: 1.406vw;
+    width: 17.969vw;
+    height: 23.438vw;
+  }
+  
+  .head-borrowli-suan {
+    font-size: 1.563vw;
+    text-align: center;
+  }
+  
+  .lbl-borrowgp-suan {
+    padding-right: 2.734vw;
+    padding-left: 2.734vw;
+    font-size: 0.938vw;
+  }
+  }
+  /*----------tablet for borrow list end----------*/
+
+  /*----------sp for borrow list start----------*/
+@media screen and (max-width: 767.9px) {
+  .clearfix:after{
+    visibility: hidden;
+  }
+  .container-borrowlist-suan{
+    max-width: 100vw;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+  }
+  
+  .btn-read-suan{
+    margin-top: 1.302vw;
+    background:#333645;
+    padding: 1.302vw 3.907vw;
+    border-radius: 1.302vw;
+    color: #ffffff;
+    transition: 0.3s;
+    text-align: center;
+    margin: 2.214vw 28.4vw;
+  }
+  .btn-read-suan:hover{
+  
+    background:#ffffff;
+    color: #333645;
+  }
+  
+  .ul-borrowbook-suan {
+    margin:6.511vw 12.502vw;
+  }
+  
+  .li-booklist-suan {
+
+    width: 74.880vw;
+    margin-top: 2.605vw;
+    margin-right: 2.605vw;
+    background-color: #e1d3c9;
+    margin-bottom: 1.302vw;
+  color: #4c547d;
+  border:0.260vw solid;
+  border-color: #4c547d;
+  border-radius: 2.605vw;
+  }
+  
+  .li-booklist-suan:hover {
+    background-color: #dea47b;
+    color: #ffffff;
+    transition: 0.2s;
+    border-color: #ffffff;
+    box-shadow: 2.605vw #000000;
+  }
+  
+  .img-borrowli-suan {
+    margin-right: 7.162vw;
+    margin-left: 23.050vw;
+    padding-top: 2.605vw;
+    padding-bottom: 2.344vw;
+    width: 29.952vw;
+    height: 39.068vw;
+  }
+  
+  .head-borrowli-suan {
+    font-size: 2.605vw;
+    text-align: center;
+  }
+  
+  .lbl-borrowgp-suan {
+    padding-right: 2.865vw;
+    padding-left: 13.543vw;
+    font-size: 2.605vw;
+  }
+  }
