@@ -51,7 +51,7 @@ class AuthorController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|alpha',
+            'name' => 'required',
             'email' => 'required|max:255|string|email|unique:authors',
             'description' => 'required',
         ]);
@@ -103,7 +103,7 @@ class AuthorController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|alpha',
+            'name' => 'required',
             'email' => 'required|max:255|string|email|unique:authors,email,'.$id,
             'description' => 'required',
         ]);

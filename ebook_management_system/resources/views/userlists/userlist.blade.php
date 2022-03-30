@@ -47,7 +47,11 @@
         @endif
         <td>
           <a href="{{ route('users.show', $userinfo->id) }}" class="sp"><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
-          <button class="delete-btn" data-bs-toggle="modal" data-bs-target="#modal{{ $userinfo->id }}"><i class="fa-solid fa-trash-can"></i></button>
+          @if($userinfo->id == Auth::user()->id)
+            <button class="delete-btn" data-bs-toggle="modal" data-bs-target="#modal{{ $userinfo->id }}" style="display:none;"><i class="fa-solid fa-trash-can"></i></button>
+          @else
+            <button class="delete-btn" data-bs-toggle="modal" data-bs-target="#modal{{ $userinfo->id }}"><i class="fa-solid fa-trash-can"></i></button>
+          @endif
           @csrf
         </td>
         <div class="modal fade" id="modal{{ $userinfo->id }}" tabindex="-1"

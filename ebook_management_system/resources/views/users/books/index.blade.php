@@ -55,4 +55,7 @@
                 </div>
             </div>
         </div>
+
+    <script src="{{ asset('js/user/jquery.heightLine.js') }}"></script>
+    <script src="{{ asset('js/user/common.js') }}"></script>
     @endsection

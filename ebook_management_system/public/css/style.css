@@ -43,16 +43,16 @@ html {
   width: 500px;
   background-color: #33364559;
   border-radius: 15px;
-  padding: 20px;
+  padding: 40px 20px 20px 20px;
   color: #333645;
 }
 
 .login-container {
-  margin: 150px auto;
+  margin: 140px auto;
 }
 
 .register-container {
-  margin: 56px auto;
+  margin: 45px auto;
 }
 
 .card-header {
@@ -132,11 +132,11 @@ html {
 }
 
 .forgetpass-container {
-  margin: 198px auto;
+  margin: 188px auto;
 }
 
 .resetpass-container {
-  margin: 159px auto;
+  margin: 149px auto;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1280px) {
@@ -151,15 +151,15 @@ html {
   .auth-container {
     width: 39.063vw;
     border-radius: 1.172vw;
-    padding: 1.563vw;
+    padding:3.125vw 1.563vw 1.563vw 1.563vw;
   }
 
   .login-container {
-    margin: 11.719vw auto;
+    margin: 10.938vw auto;
   }
 
   .register-container {
-    margin: 4.375vw auto;
+    margin: 3.516vw auto;
   }
 
   .card-header {
@@ -205,11 +205,11 @@ html {
   }
 
   .forgetpass-container {
-    margin: 15.469vw auto;
+    margin: 14.688vw auto;
   }
 
   .resetpass-container {
-    margin: 12.422vw auto;
+    margin: 11.641vw auto;
   }
 }
 
@@ -225,15 +225,15 @@ html {
   .auth-container {
     width: 65.189vw;
     border-radius: 1.956vw;
-    padding: 2.608vw;
+    padding: 6.250vw 3.125vw 3.125vw 3.125vw;
   }
 
   .login-container {
-    margin: 19.557vw auto;
+    margin: 21.875vw auto;
   }
 
   .register-container {
-    margin: 7.301vw auto;
+    margin: 7.031vw auto;
   }
 
   .card-header {
@@ -279,10 +279,10 @@ html {
   }
 
   .forgetpass-container {
-    margin: 25.815vw auto;
+    margin: 29.375vw auto;
   }
 
   .resetpass-container {
-    margin: 20.730vw auto;
+    margin: 23.281vw auto;
   }
 }
