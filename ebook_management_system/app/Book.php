@@ -9,7 +9,7 @@ class Book extends Model
 {
     use SoftDeletes;
 
-    protected $fillable =[
+    protected $fillable = [
         'name',
         'image',
         'file',
@@ -20,18 +20,18 @@ class Book extends Model
         'created_by',
         'updated_by',
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 
     protected $dates = ['deleted_at'];
 
-    public function author(){
-
+    public function author()
+    {
         return $this->belongsTo('App\Author');
     }
 
-    public function category(){
-
+    public function category()
+    {
         return $this->belongsTo('App\Category');
     }
 

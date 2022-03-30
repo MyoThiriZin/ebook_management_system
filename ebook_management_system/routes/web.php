@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
+
 //use App\Http\Controllers\authorlistController;
 /*
 |--------------------------------------------------------------------------
@@ -51,9 +52,9 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('category/importFile', 'Admin\CategoryController@importFile');
     Route::post('category/import', 'Admin\CategoryController@import');
 
-    Route::get('/adminprofile','Admin\AdminController@show')->name('adminprofile');
-    Route::resource('/users','Admin\UserController');
-    Route::resource('/contact','Admin\ContactUsController');
+    Route::get('/adminprofile', 'Admin\AdminController@show')->name('adminprofile');
+    Route::resource('/users', 'Admin\UserController');
+    Route::resource('/contact', 'Admin\ContactUsController');
 
 });
 
@@ -83,16 +84,15 @@ Route::get('user/reset-password/{token}', 'User\Auth\ForgotPasswordController@sh
 Route::post('user/reset-password', 'User\Auth\ForgotPasswordController@submitResetPasswordForm')->name('user#submit.reset.password');
 
 //User ContactUs
-Route::get('contact/create','User\ContactUsController@create')->name('user#contact_create');
-Route::post('contact/store','User\ContactUsController@store')->name('user#contact_store');
+Route::get('contact/create', 'User\ContactUsController@create')->name('user#contact_create');
+Route::post('contact/store', 'User\ContactUsController@store')->name('user#contact_store');
 
 //Book Detail
-Route::get('book/detail/{id}','User\BookController@getBookByID')->name('user#book_detail');
-Route::get('borrow/store/{id}','User\BookController@storeBorrowBook')->name('user#store_book_borrow');
-
+Route::get('book/detail/{id}', 'User\BookController@getBookByID')->name('user#book_detail');
+Route::get('borrow/store/{id}', 'User\BookController@storeBorrowBook')->name('user#store_book_borrow');
 
 //User Home
-Route::get('user','User\HomeController@index')->name('user');
+Route::get('user', 'User\HomeController@index')->name('user');
 
 //User Book
 Route::get('/userbooks', 'User\BookController@index')->name('user#books.index');
@@ -106,8 +106,4 @@ Route::get('bookrentalexpire', function () {
 })->name('bookrentalexpire');
 
 //Borrow List
-Route::get('borrow/list/{id}','User\BorrowController@list')->name('user#borrow_list');
-
-
-
-
+Route::get('borrow/list/{id}', 'User\BorrowController@list')->name('user#borrow_list');

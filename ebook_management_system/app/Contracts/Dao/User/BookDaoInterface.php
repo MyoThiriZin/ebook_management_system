@@ -1,13 +1,11 @@
 <?php
 namespace App\Contracts\Dao\User;
 
-use Illuminate\Http\Request;
-
 interface BookDaoInterface
 {
     /**
      * To get book by id
-     * 
+     *
      * @param $id book id
      * @return Object $book book object
      */
@@ -15,10 +13,16 @@ interface BookDaoInterface
 
     /**
      * To save borrow book
-     * 
+     *
      * @param array $book
      */
     public function storeBook($book);
 
+    public function search($request);
 
+    public function index();
+
+    public function getAuthor();
+
+    public function getCategory();
 }

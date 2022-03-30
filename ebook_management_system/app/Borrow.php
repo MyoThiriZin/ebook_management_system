@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Borrow extends Model
 {
     use SoftDeletes;
-    protected $fillable =[
+    
+    protected $fillable = [
         'user_id',
         'book_id',
         'start_date',
@@ -16,16 +17,16 @@ class Borrow extends Model
         'created_by',
         'updated_by',
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 
-    public function user(){
-
+    public function user()
+    {
         return $this->belongsTo('App\User');
     }
 
-    public function book(){
-
+    public function book()
+    {
         return $this->belongsTo('App\Book');
     }
 }
