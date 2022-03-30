@@ -7,7 +7,7 @@ interface BookServiceInterface
 {
     /**
      * To get book by id.
-     * 
+     *
      * @param $id book id
      * @return Object $book book object
      */
@@ -15,9 +15,16 @@ interface BookServiceInterface
 
     /**
      * To save borrow book.
-     * 
+     *
      * @param $id book id
      */
     public function storeBook($id);
 
+    public function search($request);
+
+    public function index();
+
+    public function getAuthor();
+
+    public function getCategory();
 }

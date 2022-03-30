@@ -28,7 +28,7 @@ class BorrowDao implements BorrowDaoInterface
                         $qry->where('name', 'LIKE', '%' . $search . '%');
                     });
                 });
-        })->latest()->paginate(5);
+        })->latest()->paginate(10);
 
     }
 

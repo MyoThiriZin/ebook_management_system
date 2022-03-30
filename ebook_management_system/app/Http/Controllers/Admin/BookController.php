@@ -16,6 +16,7 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
     private $bookService;
+    
     public function __construct(BookServiceInterface $bookService)
     {
         $this->bookService = $bookService;
