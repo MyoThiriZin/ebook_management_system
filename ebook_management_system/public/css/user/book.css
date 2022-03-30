@@ -48,7 +48,8 @@
 }
 
 .bookpost p {
-  font-size: 16px;
+  margin: 10px 0;
+  font-size: 13px;
 }
 
 .bookpost a {
@@ -73,12 +74,14 @@
 .book-search form select {
   width: 100%;
   margin: 10px auto;
-  padding: 5px 5px;
+  padding: 6px;
   background-color: #fdad62;
-  color: #ffffff;
+  color: #fff;
   font-size: 16px;
   outline: none;
   border-radius: 10px;
+  font-family: BASKVILL;
+  border: 1px solid #333645;
 }
 
 .book-search-ttl {

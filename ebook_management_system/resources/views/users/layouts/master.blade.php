@@ -66,7 +66,8 @@
             <li class="{{ request()->is('user') ? 'active' : null }}">
               <a href="{{ route('user') }}">Home</a>
             </li>
-            <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') ? 'active' : null }}">
+            <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') 
+              || request()->is('book/search') ? 'active' : null }}">
               <a href="{{route('user#books.index')}}">Books</a>
             </li>
 
@@ -81,9 +82,9 @@
       </div>
     </section> <!-- /.sec-nav -->
 
-    <div class="sec-body">
+    <section class="sec-body">
       @yield('content')
-    </div>
+    </section>
 
     <section class="sec-footer">
       <div class="container clearfix">
@@ -102,7 +103,8 @@
             <li class="{{ request()->is('user') ? 'active' : null }}">
               <a href="{{ route('user') }}">Home</a>
             </li>
-            <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') ? 'active' : null }}">
+            <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') 
+              || request()->is('book/search') ? 'active' : null }}">
               <a href="{{route('user#books.index')}}">Books</a>
             </li>
 

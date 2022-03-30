@@ -8,8 +8,7 @@
 }
 
 .btn-read-suan {
-  margin: 12px 115px;
-  margin-top: 10px;
+  margin: 20px 115px;
   padding: 10px 28px;
   background: #333645;
   color: #ffffff;
@@ -53,14 +52,14 @@
 .img-borrowli-suan {
   width: 230px;
   height: 300px;
-  margin-right: 52px;
-  margin-left: 52px;
+  margin-right: 56px;
+  margin-left: 56px;
   padding-top: 20px;
   padding-bottom: 18px;
 }
 
 .head-borrowli-suan {
-  font-size: 20pt;
+  font-size: 16pt;
   text-align: center;
 }
 
@@ -81,8 +80,7 @@
   }
 
   .btn-read-suan {
-    margin: 0.938vw 8.984vw;
-    margin-top: 0.781vw;
+    margin: 1.563vw 8.984vw;
     padding: 0.781vw 2.188vw;
     background: #333645;
     color: #ffffff;
@@ -125,8 +123,8 @@
   .img-borrowli-suan {
     width: 17.969vw;
     height: 23.438vw;
-    margin-right: 4.063vw;
-    margin-left: 4.063vw;
+    margin-right: 4.375vw;
+    margin-left: 4.375vw;
     padding-top: 1.563vw;
     padding-bottom: 1.406vw;
   }
@@ -159,8 +157,7 @@
   }
 
   .btn-read-suan {
-    margin: 2.214vw 28.4vw;
-    margin-top: 1.302vw;
+    margin: 3.125vw 28.4vw;
     padding: 1.302vw 3.907vw;
     background: #333645;
     color: #ffffff;

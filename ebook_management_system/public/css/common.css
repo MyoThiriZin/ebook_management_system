@@ -515,6 +515,15 @@ tr:nth-child(2n) {
   width: 300px;
 }
 
+.page-item.active .page-link {
+  background-color: #08e28f;
+  border-color: #08e28f;
+}
+
+.page-link {
+  color: #333645;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1280px) {
 
   .cmn-container {
