@@ -29,7 +29,6 @@
         <th class="pc">Address</th>
         <th class="pc">Phone</th>
         <th class="pc">Role</th>
-        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -47,36 +46,7 @@
         @endif
         <td>
           <a href="{{ route('users.show', $userinfo->id) }}" class="sp"><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
-          @if($userinfo->id == Auth::user()->id)
-            <button class="delete-btn" data-bs-toggle="modal" data-bs-target="#modal{{ $userinfo->id }}" style="display:none;"><i class="fa-solid fa-trash-can"></i></button>
-          @else
-            <button class="delete-btn" data-bs-toggle="modal" data-bs-target="#modal{{ $userinfo->id }}"><i class="fa-solid fa-trash-can"></i></button>
-          @endif
-          @csrf
         </td>
-        <div class="modal fade" id="modal{{ $userinfo->id }}" tabindex="-1"
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header text-center">
-                        <h3 class="modal-title " id="exampleModalLabel">Confirm Delete</h3>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h4>Are you sure to delete this record?</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-sm me-3" data-bs-dismiss="modal">No</button>
-                        <form action="{{ route('users.destroy', $userinfo->id ) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Yes</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
       </tr>
       @endforeach
     </tbody>
