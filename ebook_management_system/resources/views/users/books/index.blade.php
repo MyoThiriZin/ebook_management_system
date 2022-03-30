@@ -33,7 +33,7 @@
           <div class="book-search-ttl">
               Search
           </div>
-          <form action="{{ route('user#booksearch') }}" method="POST">
+          <form action="{{ route('user#booksearch') }}" method="get">
             @csrf
             <select name="author_id" id="">
               <option value="">Choose Author</option>
