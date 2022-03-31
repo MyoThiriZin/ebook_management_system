@@ -58,4 +58,14 @@ class BookService implements BookServiceInterface
         return $this->bookDao->getCategory();
     }
 
+    public function get()
+    {
+        return $this->bookDao->get();
+    }
+
+    public function searchTotal($request)
+    {
+        return $this->bookDao->searchTotal($request);
+    }
+
 }

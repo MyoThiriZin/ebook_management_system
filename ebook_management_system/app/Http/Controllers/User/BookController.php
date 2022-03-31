@@ -45,11 +45,11 @@ class BookController extends Controller
     public function index()
     {
         $books = $this->bookInterface->index();
-
+        $datas = $this->bookInterface->get();
         $authors = $this->bookInterface->getAuthor();
         $categories = $this->bookInterface->getCategory();
 
-        return view('users.books.index', ['items' => $books, 'categories' => $categories, 'authors' => $authors]);
+        return view('users.books.index', ['items' => $books, 'categories' => $categories, 'authors' => $authors, 'data' => $datas]);
     }
 
     /**
@@ -80,8 +80,9 @@ class BookController extends Controller
         $authors = $this->bookInterface->getAuthor();
         $categories = $this->bookInterface->getCategory();
         $books = $this->bookInterface->search($request);
+        $datas = $this->bookInterface->searchTotal($request);
 
-        return view('users.books.index')->with(['items' => $books, 'categories' => $categories, 'authors' => $authors]);
+        return view('users.books.index')->with(['items' => $books, 'categories' => $categories, 'authors' => $authors, 'data' => $datas]);
 
     }
 

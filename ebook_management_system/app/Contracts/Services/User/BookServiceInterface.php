@@ -1,8 +1,6 @@
 <?php
 namespace App\Contracts\Services\User;
 
-use Illuminate\Http\Request;
-
 interface BookServiceInterface
 {
     /**
@@ -23,6 +21,10 @@ interface BookServiceInterface
     public function search($request);
 
     public function index();
+
+    public function get();
+
+    public function searchTotal($request);
 
     public function getAuthor();
 

@@ -22,6 +22,10 @@ interface BookDaoInterface
 
     public function index();
 
+    public function get();
+
+    public function searchTotal($request);
+
     public function getAuthor();
 
     public function getCategory();
