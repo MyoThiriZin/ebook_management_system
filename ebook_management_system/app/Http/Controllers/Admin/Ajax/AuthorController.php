@@ -172,8 +172,8 @@ class AuthorController extends Controller
 
     public function importFile()
     {
-        Author::truncate();
-
+        Author::getQuery()->delete();
+        
         return view('authors.import');
     }
 

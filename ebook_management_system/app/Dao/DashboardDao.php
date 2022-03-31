@@ -4,6 +4,10 @@ namespace App\Dao;
 
 use App\Contracts\Dao\DashboardDaoInterface;
 use App\Charts\BookChart;
+use App\Borrow;
+use App\Book;
+use App\Author;
+use App\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -11,12 +15,12 @@ class DashboardDao implements DashboardDaoInterface {
 
     public function getchart() 
     {
-      $books = DB::table('borrows')
-      ->join('books', 'books.id', '=', 'borrows.book_id')
-      ->select(\DB::raw("count(borrows.book_id) as count, books.name "))
-      ->groupBy('borrows.book_id')
-      ->orderBy('count', 'desc')
-      ->pluck('count', 'name')->take(10);
+      $books = Borrow::join('books', 'borrows.book_id', '=', 'books.id')
+      ->groupBy('book_id')
+      ->selectRaw('count(book_id) as count, books.name')
+      ->pluck('count', 'name')
+      ->sortDesc()
+      ->take(10);
 
       $chart = new BookChart;
       $chart->labels($books->keys());
@@ -28,22 +32,16 @@ class DashboardDao implements DashboardDaoInterface {
 
     public function getbooks() 
     {
-      $books = DB::table('books')->get();
-      
-      return $books;
+      return Book::get();
     }
 
     public function getauthors() 
     {
-      $authors = DB::table('authors')->get();
-      
-      return $authors;
+      return Author::get();
     }
 
     public function getcategories() 
     {
-      $categories = DB::table('categories')->get();
-      
-      return $categories;
+      return Category::get();
     }
 }
