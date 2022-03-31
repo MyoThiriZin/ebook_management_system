@@ -11,6 +11,13 @@
   <link href="{{ asset('font/fontawesome-free-6.0.0-beta3-web/css/all.min.css') }}" rel="stylesheet">
   <script src="{{ asset('js/library/jquery-3.6.0.min.js')}}"></script>
   <script src="{{ asset('js/user/common.js')}}"></script>
+
+  <script src="{{ asset('js/library/jquery-3.6.0.min.js') }}"></script>
+  <script>
+    function preventBack(){window.history.forward();}
+    setTimeout("preventBack()",0);
+    window.onunload = function(){null;}
+  </script>
 </head>
 <body>
   <div class="wrapper">
@@ -59,7 +66,8 @@
             <li class="{{ request()->is('user') ? 'active' : null }}">
               <a href="{{ route('user') }}">Home</a>
             </li>
-            <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') ? 'active' : null }}">
+            <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') 
+              || request()->is('book/search') ? 'active' : null }}">
               <a href="{{route('user#books.index')}}">Books</a>
             </li>
 
@@ -74,9 +82,9 @@
       </div>
     </section> <!-- /.sec-nav -->
 
-    <div class="sec-body">
+    <section class="sec-body">
       @yield('content')
-    </div>
+    </section>
 
     <section class="sec-footer">
       <div class="container clearfix">
@@ -95,7 +103,8 @@
             <li class="{{ request()->is('user') ? 'active' : null }}">
               <a href="{{ route('user') }}">Home</a>
             </li>
-            <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') ? 'active' : null }}">
+            <li class="{{ request()->is('userbooks') || request()->is('book/detail/*') 
+              || request()->is('book/search') ? 'active' : null }}">
               <a href="{{route('user#books.index')}}">Books</a>
             </li>
 

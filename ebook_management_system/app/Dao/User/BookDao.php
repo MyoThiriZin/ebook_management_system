@@ -97,7 +97,7 @@ class BookDao implements BookDaoInterface
 
     public function index()
     {
-        $books = Book::with('author', 'category')->latest()->get();
+        $books = Book::with('author', 'category')->latest()->paginate(12);
 
         return $books;
     }

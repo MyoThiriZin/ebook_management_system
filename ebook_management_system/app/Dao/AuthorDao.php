@@ -54,7 +54,7 @@ class AuthorDao implements AuthorDaoInterface {
     ->where('name', 'like', '%'.$search.'%')
     ->orWhere('email', 'like', '%'.$search.'%')
     ->orWhere('description', 'like', '%'.$search.'%')
-    ->get();
+    ->paginate(10);
   }
 
 }

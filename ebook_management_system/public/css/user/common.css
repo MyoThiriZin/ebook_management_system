@@ -27,6 +27,7 @@ body {
 .container {
   width: 1100px;
   margin: 0 auto;
+  padding: 0;
 }
 
 .clearfix::after {
@@ -90,7 +91,7 @@ li {
   background-color: #333645;
 }
 
-nav li {
+.sidenav li {
   padding: 30px 20px;
   margin-right: 20px;
 }
@@ -101,15 +102,15 @@ nav li {
   color: #333645;
 }
 
-nav li.active {
+.sidenav li.active {
   background-color:#13e2af;
 }
 
-nav li.active a {
+.sidenav li.active a {
   color:#333645;
 }
 
-nav li a {
+.sidenav li a {
   color: #ffffff;
   font-size: 18px;
 }
@@ -268,6 +269,19 @@ nav li a {
   color: #ffffff;
 }
 
+.page-item.active .page-link {
+  background-color: #13e2af;
+  border-color: #13e2af;
+}
+
+.page-link {
+  color: #333645;
+}
+
+.cus-paginate {
+  width: 80%;
+}
+
 /*----------tablet----------*/
 @media screen and (min-width: 768px) and (max-width: 1280px) {
   body {
@@ -298,12 +312,12 @@ nav li a {
 
   /* Navigation */
 
-  nav li {
+  .sidenav li {
     padding: 2.344vw 1.563vw;
     margin-right: 1.563vw;
   }
 
-  nav li a {
+  .sidenav li a {
     font-size: 1.406vw;
   }
 
@@ -457,7 +471,7 @@ nav li a {
   }
 
   /* humberger menu */
-  nav li {
+  .sidenav li {
     padding: 2.608vw 2.608vw 2.608vw 0;
     margin-right: 2.608vw;
     text-align: center;
