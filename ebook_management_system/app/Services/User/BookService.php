@@ -1,10 +1,9 @@
 <?php
 namespace App\Services\User;
 
-use Illuminate\Http\Request;
+use App\Book;
 use App\Contracts\Dao\User\BookDaoInterface;
 use App\Contracts\Services\User\BookServiceInterface;
-use App\Book;
 
 class BookService implements BookServiceInterface
 {
@@ -18,23 +17,55 @@ class BookService implements BookServiceInterface
 
     /**
      * To get book by id.
-     * 
+     *
      * @param $id
      * @return Object $book book Object
      */
-    public function getBook($id){
+    public function getBook($id)
+    {
         return $this->bookDao->getBook($id);
     }
 
     /**
      * To get book by id.
-     * 
+     *
      * @param $id
      * @return Object $book book Object
      */
-    public function storeBook($id){
+    public function storeBook($id)
+    {
         $book = Book::find($id);
         return $this->bookDao->storeBook($book);
+    }
+
+    public function search($request)
+    {
+        return $this->bookDao->search($request);
+    }
+
+    public function index()
+    {
+        return $this->bookDao->index();
+    }
+
+    public function getAuthor()
+    {
+        return $this->bookDao->getAuthor();
+    }
+
+    public function getCategory()
+    {
+        return $this->bookDao->getCategory();
+    }
+
+    public function get()
+    {
+        return $this->bookDao->get();
+    }
+
+    public function searchTotal($request)
+    {
+        return $this->bookDao->searchTotal($request);
     }
 
 }

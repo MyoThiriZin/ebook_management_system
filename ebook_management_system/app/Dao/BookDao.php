@@ -34,7 +34,7 @@ class BookDao implements BookDaoInterface
                             $qry->where('name', 'LIKE', '%' . $search . '%');
                         });
                     });
-                    })->latest()->paginate(5);
+                    })->latest()->paginate(10);
     }
 
     public function getAuthor(){
@@ -63,6 +63,7 @@ class BookDao implements BookDaoInterface
             'updated_at' => Carbon::now(),
         ];
     }
+
     public function store(Request $request){
 
         $file = $request->file('image');
@@ -82,7 +83,7 @@ class BookDao implements BookDaoInterface
 
     public function update(Request $request, $book){
         $updateData = $this->requestUpdate($request);
-        //dd($updateData['file']);
+
         if (isset($updateData['image'])) {
             $data = $this->model->select('image')->where('id', $book->id)->first();
             $fileName = $data['image'];
@@ -132,9 +133,11 @@ class BookDao implements BookDaoInterface
         if (isset($request->image)) {
             $arr['image'] = $request->image;
         }
+
         if(isset($request->file)){
             $arr['file'] = $request->file;
         }
+
         return $arr;
     }
 
@@ -145,6 +148,7 @@ class BookDao implements BookDaoInterface
         $pdf_fileName = $data['file'];
 
         $this->model->where('id', $book->id)->delete();
+        
         Borrow::with('book')->where('book_id' , $book->id)->delete();
 
         if (File::exists(public_path() . '/uploads/' . $fileName)) {
@@ -154,7 +158,7 @@ class BookDao implements BookDaoInterface
         if (File::exists(public_path() . '/pdf_files/' . $pdf_fileName)) {
             File::delete(public_path() . '/pdf_files/' . $pdf_fileName);
         }
-        
+
         return true;
     }
 

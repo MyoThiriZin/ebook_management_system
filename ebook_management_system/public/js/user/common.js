@@ -12,4 +12,8 @@ $(document).ready(function () {
           left: leftVal
       }, 200);
     });
+
+    $(".bookpost").heightLine({
+        fontSizeCheck:true
+    });
 });

@@ -37,7 +37,7 @@ input::-webkit-inner-spin-button {
   width: 500px;
   background-color: #33364559;
   border-radius: 15px;
-  padding: 20px;
+  padding: 40px 20px 20px 20px;
   color: #333645;
 }
 
@@ -145,7 +145,7 @@ input::-webkit-inner-spin-button {
   .auth-container {
     width: 39.063vw;
     border-radius: 1.172vw;
-    padding: 1.563vw;
+    padding:3.125vw 1.563vw 1.563vw 1.563vw;
   }
 
   .login-container {
@@ -219,7 +219,7 @@ input::-webkit-inner-spin-button {
   .auth-container {
     width: 65.189vw;
     border-radius: 1.956vw;
-    padding: 2.608vw;
+    padding: 6.250vw 3.125vw 3.125vw 3.125vw;
   }
 
   .login-container {

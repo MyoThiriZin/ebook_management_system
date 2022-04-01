@@ -26,7 +26,6 @@ $factory->define(Author::class, function (Faker $faker) {
     ];
 });
 
-//
 //php artisan tinker
 //factory(App\Author::class, 10)->create();
 

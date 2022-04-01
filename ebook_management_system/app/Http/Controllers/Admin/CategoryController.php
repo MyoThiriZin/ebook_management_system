@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Contracts\Services\CategoryServiceInterface;
 use App\Export\CategoriesExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\storeCategoryRequest;
@@ -13,6 +14,13 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class CategoryController extends Controller
 {
+    private $categoryService;
+
+    public function __construct(CategoryServiceInterface $categoryService)
+    {
+        $this->categoryService = $categoryService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +28,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $categories = $this->categoryService->index();
+
         return view('category.index', [
-            'categories' => category::latest()->orderBy('created_at', 'desc')->paginate(10),
+            'categories' => $categories,
         ]);
     }
 
@@ -43,8 +53,9 @@ class CategoryController extends Controller
      */
     public function store(storeCategoryRequest $request)
     {
-        category::create($request->validated());
-        return redirect()->back()->with("success_msg",createdMessage("Category"));
+        $this->categoryService->store($request->validated());
+
+        return redirect()->back()->with("success_msg", createdMessage("Category"));
     }
 
     /**
@@ -69,9 +80,7 @@ class CategoryController extends Controller
      */
     public function update(updateCategoryRequest $request, $id)
     {
-        $category = category::find($id);
-        $category->name = $request->name;
-        $category->save();
+        $this->categoryService->update($request, $id);
 
         return redirect()->back()->with("success_msg", updatedMessage("Category"));
     }
@@ -83,22 +92,15 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = category::find($id);
-        foreach($category->books as $book){
-            $book->borrow()->delete(); 
-            $book->delete(); 
-        }
-        $category->delete();
+        $this->categoryService->destory($id);
+
         return redirect()->route('categories')->with("success_msg", deletedMessage("Category"));
     }
 
     public function search(Request $request)
     {
-        $search = $request->input('search');
-        $categories = category::query()
-            ->Where('id', 'LIKE', "%{$search}%")
-            ->orWhere('name', 'LIKE', "%{$search}%")
-            ->latest()->paginate(10);
+        $categories = $this->categoryService->search($request);
+
         return view('category.index', compact('categories'));
     }
 
