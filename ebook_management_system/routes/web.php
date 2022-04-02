@@ -25,6 +25,7 @@ Route::group(['middleware' => ['admin']], function () {
 
     //Borrow
     Route::resource('borrows', 'Admin\BorrowController');
+    Route::get('bookrentalexpire', 'Admin\BorrowController@sendBookRentalExpireMail')->name('bookrentalexpire');
 
     //Authors
     Route::resource('authors', 'Admin\Ajax\AuthorController');
@@ -98,12 +99,6 @@ Route::get('user', 'User\HomeController@index')->name('user');
 Route::get('/userbooks', 'User\BookController@index')->name('user#books.index');
 //Search
 Route::get('book/search', 'User\BookController@search')->name('user#booksearch');
-
-//Book Rental Expire Mail
-Route::get('bookrentalexpire', function () {
-    Artisan::call('bookrentalexpire:email');
-    return redirect()->back()->with("success_msg", ("Email send successfull"));
-})->name('bookrentalexpire');
 
 //Borrow List
 Route::get('borrow/list/{id}', 'User\BorrowController@list')->name('user#borrow_list');
