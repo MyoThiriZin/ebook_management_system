@@ -60,7 +60,7 @@ class CategoryDao implements CategoryDaoInterface
 
     /**
      * To delete category by id
-     * @param integer $id user id
+     * @param integer $id category id
      * @return Object deleted category object
      */
     public function destory($id)
