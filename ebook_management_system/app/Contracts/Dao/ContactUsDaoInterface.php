@@ -3,20 +3,21 @@ namespace App\Contracts\Dao;
 
 use Illuminate\Http\Request;
 
+/**
+ * Interface of Data Access Object for contact us
+ */
 interface ContactUsDaoInterface
 {
     /**
-     * To get feedback lists
-     * 
-     * @return Object $feedback feecback lists
+     * To get contactus list
+     * @return array list of contactus
      */
     public function index();
 
     /**
-     * To delete feedback by id
-     * 
-     * @param $id feedback id
-     * @return Object $feedback delete Feedback
+     * To delete contactus
+     * @param integer $id contactus id
+     * @return true
      */
     public function delete($id);
 

@@ -5,19 +5,29 @@ use App\Contact;
 use Illuminate\Http\Request;
 use App\Contracts\Dao\ContactUsDaoInterface;
 
+/**
+ * Data Access Object for Contactus
+ */
 class ContactUsDao implements ContactUsDaoInterface
 {
+    /**
+     * model
+     */
     private $model;
 
+    /**
+     * Class Constructor
+     * @param Contact
+     * @return
+     */
     public function __construct(Contact $model)
     {
         $this->model = $model;
     }
 
     /**
-     * To search feedback
-     * 
-     * @return Object feedback 
+     * To get contactus list
+     * @return array list of contactus
      */
     public function index()
     {
@@ -30,14 +40,12 @@ class ContactUsDao implements ContactUsDaoInterface
     }
 
     /**
-     * To delete feedback by id
-     * 
-     * @param string $id feedback id
+     * To delete contactus
+     * @param integer $id contactus id
      * @return true
      */
     public function delete($id)
     {
-
         $this->model->where('id', $id)->delete();
         
         return true;

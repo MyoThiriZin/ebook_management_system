@@ -10,19 +10,29 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
 use App\Contracts\Dao\BookDaoInterface;
 
+/**
+ * Data Access Object for Book
+ */
 class BookDao implements BookDaoInterface
 {
+    /**
+     * model
+     */
     private $model;
 
+    /**
+     * Class Constructor
+     * @param Book
+     * @return
+     */
     public function __construct(Book $model)
     {
         $this->model = $model;
     }
 
     /**
-     * To show book lists and search book data
-     * 
-     * @return Object book object 
+     * To get book list
+     * @return array list of books
      */
     public function index()
     {
@@ -43,30 +53,26 @@ class BookDao implements BookDaoInterface
     }
 
     /**
-     * To get author
-     * 
-     * @return Object get author object
+     * To get author list
+     * @return array list of authors
      */
     public function getAuthor()
     {
-
         return Author::orderBy("name")->get()->pluck("name", "id");
     }
 
     /**
-     * To get category
-     * 
-     * @return Object get category object
+     * To get category list
+     * @return array list of categories
      */
     public function getCategory()
     {
-
         return Category::orderBy("name")->get()->pluck("name", "id");
     }
 
     /**
-     * @param $request,$fileName,$pdf_fileName request including inputs
-     * @return Object book object
+     * To request book data
+     * @return array list of book data
      */
     private function requestBook($request, $fileName ,$pdf_fileName)
     {
@@ -86,14 +92,12 @@ class BookDao implements BookDaoInterface
     }
 
     /**
-     * To Save Book with values from request
-     * 
+     * To store book
      * @param Request $request request including inputs
      * @return Object created book object
      */
     public function store(Request $request)
     {
-
         $file = $request->file('image');
         $fileName = $file->getClientOriginalName();
         $file->move(public_path() . '/uploads/', $fileName);
@@ -106,13 +110,13 @@ class BookDao implements BookDaoInterface
         $data = $this->requestBook($request, $fileName, $pdf_fileName);
 
         return $this->model->create($data);
-
     }
 
     /**
-     * To update book by id
-     * @param Request $request request with inputs
-     * @param string $id book id
+     * To update book with values from request
+     * @param Request $request request including inputs
+     * @param string $book book
+     * @return Object updated book object
      */
     public function update(Request $request, $book)
     {
@@ -151,9 +155,9 @@ class BookDao implements BookDaoInterface
     }
 
     /**
-     * To request book
-     * @param Request $request request with inputs
-     * @return Object $arr book object
+     * To request to update book with values from request
+     * @param Request $request request including inputs
+     * @return array list of updated book
      */
     private function requestUpdate($request)
     {
@@ -181,13 +185,12 @@ class BookDao implements BookDaoInterface
     }
 
     /**
-     * To delete book by id
-     * @param string $book book id
+     * To delete book
+     * @param integer $book book id
      * @return true
      */
     public function delete($book)
     {
-
         $data = $this->model->select('image','file')->where('id', $book->id)->first();
         $fileName = $data['image'];
         $pdf_fileName = $data['file'];

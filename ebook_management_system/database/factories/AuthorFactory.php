@@ -25,7 +25,3 @@ $factory->define(Author::class, function (Faker $faker) {
         'updated_by'=>1
     ];
 });
-
-//php artisan tinker
-//factory(App\Author::class, 10)->create();
-

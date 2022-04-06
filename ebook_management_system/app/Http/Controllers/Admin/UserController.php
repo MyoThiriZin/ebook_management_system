@@ -6,24 +6,31 @@ use App\Http\Controllers\Controller;
 use App\Contracts\Services\UserServiceInterface;
 use App\User;
 
+/**
+ * This is User Controller.
+ * This will handle user CRUD processing.
+ */
 class UserController extends Controller
 {
-
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * user service
      */
     private $userService;
+
+    /**
+     * Create a new controller instance.
+     * @param UserServiceInterface $userService
+     * @return void
+     */
     public function __construct(UserServiceInterface $userService)
     {
         $this->userService = $userService;
     }
 
     /**
-     * To show user lists
-     * 
-     * @return View user list
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index(){
         $user = $this->userService->index();
@@ -42,10 +49,10 @@ class UserController extends Controller
     }
 
     /**
-     * To delete user by id
-     * 
-     * @param $id user id
-     * @return View user list
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {

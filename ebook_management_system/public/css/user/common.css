@@ -390,7 +390,6 @@ li {
     padding: 1.563vw 0;
     border-top: 0.078vw solid #ffffff90;
   }
-
 }
 
 
@@ -578,7 +577,7 @@ li {
     margin-bottom: 3.125vw;
     background-color: #9E725260;
   }
-
+  
   .sec-footer .footer-snd-nav {
     width: 10%;
   }
@@ -644,5 +643,4 @@ li {
     border-top: 0.156vw solid #ffffff90;
     font-size: 1.9vw;
   }
-
 }

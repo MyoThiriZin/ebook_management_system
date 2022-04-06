@@ -1,24 +1,32 @@
 <?php
 namespace App\Services;
 
-use Illuminate\Http\Request;
 use App\Contracts\Dao\UserDaoInterface;
 use App\Contracts\Services\UserServiceInterface;
 
+/**
+ * User Service class
+ */
 class UserService implements UserServiceInterface
 {
-
+    /**
+     * user Dao
+     */
     private $userDao;
 
+    /**
+     * Class Constructor
+     * @param UserDaoInterface
+     * @return
+     */
     public function __construct(UserDaoInterface $userDao)
     {
         $this->userDao = $userDao;
     }
 
     /**
-     * To search user
-     * 
-     * @return Object user 
+     * To get user list
+     * @return array list of users
      */
     public function index()
     {
@@ -26,14 +34,12 @@ class UserService implements UserServiceInterface
     }
 
     /**
-     * To delete user by id
-     * 
-     * @param string $id user id
-     * @return true
+     * To delete user
+     * @param integer $user user id
+     * @return Object deleted user object
      */
     public function delete($user)
     {
-
         return $this->userDao->delete($user);
     }
 }

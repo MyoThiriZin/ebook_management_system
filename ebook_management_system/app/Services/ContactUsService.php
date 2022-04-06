@@ -5,20 +5,29 @@ use Illuminate\Http\Request;
 use App\Contracts\Dao\ContactUsDaoInterface;
 use App\Contracts\Services\ContactUsServiceInterface;
 
+/**
+ * ContactUs Service class
+ */
 class ContactUsService implements ContactUsServiceInterface
 {
-
+    /**
+     * contactus Dao
+     */
     private $contactusDao;
 
+    /**
+     * Class Constructor
+     * @param ContactUsDaoInterface
+     * @return
+     */
     public function __construct(ContactUsDaoInterface $contactusDao)
     {
         $this->contactusDao = $contactusDao;
     }
 
     /**
-     * To search feedback
-     * 
-     * @return Object feedback 
+     * To get contactus list
+     * @return array list of contactus
      */
     public function index()
     {
@@ -26,14 +35,12 @@ class ContactUsService implements ContactUsServiceInterface
     }
 
     /**
-     * To delete feedback by id
-     * 
-     * @param string $id feedback id
-     * @return true
+     * To delete contactus
+     * @param integer $id contactus id
+     * @return Object deleted contactus object
      */
     public function delete($id)
     {
-
         return $this->contactusDao->delete($id);
     }
 }

@@ -12,10 +12,22 @@ use App\Import\CategoriesImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
+/**
+ * This is Category Controller.
+ * This will handle category CRUD processing.
+ */
 class CategoryController extends Controller
 {
+    /**
+     * category service
+     */
     private $categoryService;
 
+    /**
+     * Create a new controller instance.
+     * @param CategoryServiceInterface $categoryService
+     * @return void
+     */
     public function __construct(CategoryServiceInterface $categoryService)
     {
         $this->categoryService = $categoryService;
@@ -88,6 +100,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -98,10 +111,10 @@ class CategoryController extends Controller
     }
 
     /**
-     * To search category
-     * 
-     * @param $request request with inputs
-     * @return View category list 
+     * Search the specified resource from storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function search(Request $request)
     {
@@ -109,11 +122,11 @@ class CategoryController extends Controller
 
         return view('category.index', compact('categories'));
     }
-    
+
     /**
-     * To export category lists
-     * 
-     * @return File Download Excel file
+     * Export the csv file from storage.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function export()
     {
@@ -121,9 +134,9 @@ class CategoryController extends Controller
     }
 
     /**
-     * To show category import view
-     * 
-     * @return View category import
+     * Delete all data from storage.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function importFile()
     {
@@ -131,9 +144,9 @@ class CategoryController extends Controller
     }
 
     /**
-     * To import category with excel file
-     * 
-     * @return View category list
+     * Import all data from the csv to storage.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function import()
     {

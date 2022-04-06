@@ -5,19 +5,29 @@ use App\Contracts\Dao\BookDaoInterface;
 use App\Contracts\Services\BookServiceInterface;
 use Illuminate\Http\Request;
 
+/**
+ * Book Service class
+ */
 class BookService implements BookServiceInterface
 {
+    /**
+     * book Dao
+     */
     private $bookDao;
 
+    /**
+     * Class Constructor
+     * @param BookDaoInterface
+     * @return
+     */
     public function __construct(BookDaoInterface $bookDao)
     {
         $this->bookDao = $bookDao;
     }
 
     /**
-     * To show book lists and search book data
-     * 
-     * @return Object book object 
+     * To get book list
+     * @return array list of books
      */
     public function index()
     {
@@ -25,9 +35,8 @@ class BookService implements BookServiceInterface
     }
 
     /**
-     * To get author
-     * 
-     * @return Object get author object
+     * To get author list
+     * @return array list of authors
      */
     public function getAuthor()
     {
@@ -35,9 +44,8 @@ class BookService implements BookServiceInterface
     }
 
     /**
-     * To get category
-     * 
-     * @return Object get category object
+     * To get category list
+     * @return array list of categories
      */
     public function getCategory()
     {
@@ -45,8 +53,7 @@ class BookService implements BookServiceInterface
     }
 
     /**
-     * To Save Book with values from request
-     * 
+     * To store book
      * @param Request $request request including inputs
      * @return Object created book object
      */
@@ -56,10 +63,10 @@ class BookService implements BookServiceInterface
     }
 
     /**
-     * To update book by id
-     * @param Request $request request with inputs
-     * @param string $id book id
-     * @return Object $book update Book
+     * To update book with values from request
+     * @param Request $request request including inputs
+     * @param string $book book
+     * @return Object updated book object
      */
     public function update(Request $request, $book)
     {
@@ -67,9 +74,9 @@ class BookService implements BookServiceInterface
     }
 
     /**
-     * To delete book by id
-     * @param string $book book id
-     * @return Object $book delete book
+     * To delete book
+     * @param integer $book book id
+     * @return Object deleted book object
      */
     public function delete($book)
     {

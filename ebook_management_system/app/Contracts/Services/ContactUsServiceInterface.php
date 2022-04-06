@@ -1,22 +1,21 @@
 <?php
 namespace App\Contracts\Services;
 
-use Illuminate\Http\Request;
-
+/**
+ * Interface for category service.
+ */
 interface ContactUsServiceInterface
 {
     /**
-     * To get feedback lists
-     * 
-     * @return Object $feedback feecback lists
+     * To get contactus list
+     * @return array list of contactus
      */
     public function index();
 
     /**
-     * To delete feedback by id
-     * 
-     * @param $id feedback id
-     * @return Object $feedback delete Feedback
+     * To delete contactus
+     * @param integer $id contactus id
+     * @return true
      */
     public function delete($id);
 

@@ -11,14 +11,27 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 use App\Contracts\Services\AuthorServiceInterface;
 
+/**
+ * This is Author Controller.
+ * This will handle author CRUD processing.
+ */
 class AuthorController extends Controller
 {
+    /**
+     * author service interface
+     */
     private $authorServiceInterface;
 
+    /**
+     * Create a new controller instance.
+     * @param AuthorServiceInterface $authorServiceInterface
+     * @return void
+     */
     public function __construct(AuthorServiceInterface $authorServiceInterface)
     {
         $this->authorServiceInterface = $authorServiceInterface;
     }
+    
     /**
      * Display a listing of the resource.
      *
@@ -104,7 +117,7 @@ class AuthorController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|max:255|string|email|unique:authors,email,'.$id,
+            'email' => 'required|max:255|string|email|unique:authors,email,' . $id,
             'description' => 'required',
         ]);
 
@@ -141,7 +154,6 @@ class AuthorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
     public function search(Request $request)
     {
         $search = $request->get('search');
@@ -157,19 +169,28 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function restore($id)
     {
         Author::withTrashed()->find($id)->restore();
 
         return back()->with('success', 'Author Restore Successfully');
     }
+
+    /**
+     * Export the csv file from storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function export()
     {
         return Excel::download(new AuthorsExport, 'author_data.csv');
-
     }
 
+    /**
+     * Delete all data from storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function importFile()
     {
         Author::truncate();
@@ -177,6 +198,11 @@ class AuthorController extends Controller
         return view('authors.import');
     }
 
+    /**
+     * Import all data from the csv to storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function import()
     {
         Excel::import(new AuthorsImport, request()->file('file'));

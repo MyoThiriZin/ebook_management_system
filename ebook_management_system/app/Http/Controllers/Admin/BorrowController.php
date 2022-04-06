@@ -7,21 +7,29 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\Services\BorrowServiceInterface;
 
+/**
+ * This is Borrow Controller.
+ * This will handle borrow processing.
+ */
 class BorrowController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * borrow service
      */
     private $borrowService;
+
+    /**
+     * Create a new controller instance.
+     * @param BorrowServiceInterface $borrowService
+     * @return void
+     */
     public function __construct(BorrowServiceInterface $borrowService)
     {
         $this->borrowService = $borrowService;
     }
 
     /**
-     * To show borrow lists
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */

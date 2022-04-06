@@ -8,24 +8,31 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * This is Book Controller.
+ * This will handle book CRUD processing.
+ */
 class BookController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * book service
      */
     private $bookService;
     
+    /**
+     * Create a new controller instance.
+     * @param BookServiceInterface $bookService
+     * @return void
+     */
     public function __construct(BookServiceInterface $bookService)
     {
         $this->bookService = $bookService;
     }
 
     /**
-     * To show book lists
-     * 
-     * @return View book list
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {

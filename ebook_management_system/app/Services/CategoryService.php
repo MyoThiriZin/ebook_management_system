@@ -4,19 +4,29 @@ namespace App\Services;
 use App\Contracts\Dao\CategoryDaoInterface;
 use App\Contracts\Services\CategoryServiceInterface;
 
+/**
+ * Category Service class
+ */
 class CategoryService implements CategoryServiceInterface
 {
+    /**
+     * category Dao
+     */
     private $categoryDao;
 
+    /**
+     * Class Constructor
+     * @param CategoryDaoInterface
+     * @return
+     */
     public function __construct(CategoryDaoInterface $categoryDao)
     {
         $this->categoryDao = $categoryDao;
     }
 
     /**
-     * To get category
-     * 
-     * @return Object $category category object
+     * To get category list
+     * @return array list of categories
      */
     public function index()
     {
@@ -24,9 +34,8 @@ class CategoryService implements CategoryServiceInterface
     }
 
     /**
-     * To save category values with input
-     * 
-     * @param array $data request with inputs
+     * To store category
+     * @param array $data data of category
      * @return Object created category object
      */
     public function store(Array $data)
@@ -35,11 +44,10 @@ class CategoryService implements CategoryServiceInterface
     }
 
     /**
-     * To update category by id
-     * 
-     * @param $request request with inputs
-     * @param string $id category id
-     * @return Object $category Category object
+     * To update category with values from request
+     * @param Request $request request including inputs
+     * @param integer $id category id
+     * @return Object updated category object
      */
     public function update($request, $id)
     {
@@ -47,10 +55,9 @@ class CategoryService implements CategoryServiceInterface
     }
 
     /**
-     * To delete category by id
-     * 
-     * @param $id category id
-     * @return Object $category Category object
+     * To destory category
+     * @param integer $id category id
+     * @return Object deleted category object
      */
     public function destory($id)
     {
@@ -58,10 +65,9 @@ class CategoryService implements CategoryServiceInterface
     }
 
     /**
-     * To search category
-     * 
-     * @param $request request with input
-     * @return Object $categories Category object
+     * To search category data
+     * @param Request $request request including inputs
+     * @return Object searched category object
      */
     public function search($request)
     {

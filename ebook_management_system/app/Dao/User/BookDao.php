@@ -9,10 +9,21 @@ use App\Contracts\Dao\User\BookDaoInterface;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Data Access Object for Book
+ */
 class BookDao implements BookDaoInterface
 {
+    /**
+     * model
+     */
     private $model;
 
+    /**
+     * Class Constructor
+     * @param Book
+     * @return
+     */
     public function __construct(Book $model)
     {
         $this->model = $model;
@@ -64,10 +75,10 @@ class BookDao implements BookDaoInterface
     }
 
     /**
-     * To search book with author, category and value with inputs
-     * 
-     * @param $request request with inputs
-     * @return Object $books book object
+     * To search borrow book, author, category
+     *
+     * @param Request $request request including inputs
+     * @return array $books
      */
     public function search($request)
     {
@@ -103,9 +114,8 @@ class BookDao implements BookDaoInterface
     }
 
     /**
-     * To get book 
-     * 
-     * @return Object $books Book object
+     * To get book list
+     * @return array list of books
      */
     public function index()
     {
@@ -115,9 +125,8 @@ class BookDao implements BookDaoInterface
     }
 
     /**
-     * To get author
-     * 
-     * @return Object $author Author object
+     * To get author list
+     * @return array list of authors
      */
     public function getAuthor()
     {
@@ -125,9 +134,8 @@ class BookDao implements BookDaoInterface
     }
 
     /**
-     * To get category
-     * 
-     * @return Object $category Category object
+     * To get category list
+     * @return array list of categories
      */
     public function getCategory()
     {
@@ -135,9 +143,8 @@ class BookDao implements BookDaoInterface
     }
 
     /**
-     * To get book
-     * 
-     * @return Object $book Book object
+     * To get list
+     * @return array list of categories
      */
     public function get()
     {
@@ -145,10 +152,10 @@ class BookDao implements BookDaoInterface
     }
 
     /**
-     * To search book
-     * 
-     * @param $request request with inputs
-     * @return Object $books Book object
+     * To search borrow book, author, category
+     *
+     * @param Request $request request including inputs
+     * @return array $books
      */
     public function searchTotal($request)
     {

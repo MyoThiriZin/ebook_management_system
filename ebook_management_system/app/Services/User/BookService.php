@@ -5,11 +5,21 @@ use App\Book;
 use App\Contracts\Dao\User\BookDaoInterface;
 use App\Contracts\Services\User\BookServiceInterface;
 
+/**
+ * Service class for book.
+ */
 class BookService implements BookServiceInterface
 {
-
+    /**
+     * book Dao
+     */
     private $bookDao;
 
+    /**
+     * Class Constructor
+     * @param BookDaoInterface
+     * @return
+     */
     public function __construct(BookDaoInterface $bookDao)
     {
         $this->bookDao = $bookDao;
@@ -29,8 +39,8 @@ class BookService implements BookServiceInterface
     /**
      * To save borrow book
      *
-     * @param array $book 
-     * @return Object $book book object
+     * @param $id
+     * @return Object $book book Object
      */
     public function storeBook($id)
     {
@@ -39,10 +49,9 @@ class BookService implements BookServiceInterface
     }
 
     /**
-     * To search book with author, category and value with inputs
-     * 
-     * @param $request request with inputs
-     * @return Object $books book object
+     * To search book data
+     * @param Request $request request including inputs
+     * @return Object searched book object
      */
     public function search($request)
     {
@@ -50,9 +59,8 @@ class BookService implements BookServiceInterface
     }
 
     /**
-     * To get book 
-     * 
-     * @return Object $books Book object
+     * To get book list
+     * @return array list of books
      */
     public function index()
     {
@@ -60,9 +68,8 @@ class BookService implements BookServiceInterface
     }
 
     /**
-     * To get author
-     * 
-     * @return Object $author Author object
+     * To get author list
+     * @return array list of authors
      */
     public function getAuthor()
     {
@@ -70,9 +77,8 @@ class BookService implements BookServiceInterface
     }
 
     /**
-     * To get category
-     * 
-     * @return Object $category Category object
+     * To get category list
+     * @return array list of categories
      */
     public function getCategory()
     {
@@ -80,9 +86,8 @@ class BookService implements BookServiceInterface
     }
 
     /**
-     * To get book
-     * 
-     * @return Object $book Book object
+     * To get book list
+     * @return array list of book
      */
     public function get()
     {
@@ -90,10 +95,9 @@ class BookService implements BookServiceInterface
     }
 
     /**
-     * To search book
-     * 
-     * @param $request request with inputs
-     * @return Object $books Book object
+     * To search book, category and author data
+     * @param Request $request request including inputs
+     * @return Object searched book object
      */
     public function searchTotal($request)
     {

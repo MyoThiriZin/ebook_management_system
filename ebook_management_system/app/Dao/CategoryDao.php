@@ -4,19 +4,29 @@ namespace App\Dao;
 use App\Category;
 use App\Contracts\Dao\CategoryDaoInterface;
 
+/**
+ * Data Access Object for Category
+ */
 class CategoryDao implements CategoryDaoInterface
 {
+    /**
+     * model
+     */
     private $model;
 
+    /**
+     * Class Constructor
+     * @param Category
+     * @return
+     */
     public function __construct(Category $model)
     {
         $this->model = $model;
     }
 
     /**
-     * To get category
-     * 
-     * @return Object $category category object
+     * To get category list
+     * @return array list of categories order by descending of created_at with pagination 10
      */
     public function index()
     {
@@ -24,9 +34,8 @@ class CategoryDao implements CategoryDaoInterface
     }
 
     /**
-     * To save category values with input
-     * 
-     * @param array $data request with inputs
+     * To store category data
+     * @param array data form request
      * @return Object created category object
      */
     public function store(array $data)
@@ -35,11 +44,10 @@ class CategoryDao implements CategoryDaoInterface
     }
 
     /**
-     * To update category by id
-     * 
-     * @param $request request with inputs
-     * @param string $id category id
-     * @return Object $category Category object
+     * To update category data
+     * @param Request $request request including inputs
+     * @param integer $id category id
+     * @return Object updated category object
      */
     public function update($request, $id)
     {
@@ -52,9 +60,8 @@ class CategoryDao implements CategoryDaoInterface
 
     /**
      * To delete category by id
-     * 
-     * @param $id category id
-     * @return Object $category Category object
+     * @param integer $id user id
+     * @return Object deleted category object
      */
     public function destory($id)
     {
@@ -68,10 +75,9 @@ class CategoryDao implements CategoryDaoInterface
     }
 
     /**
-     * To search category
-     * 
-     * @param $request request with input
-     * @return Object $categories Category object
+     * To search category data
+     * @param Request $request request including inputs
+     * @return Object searched category object
      */
     public function search($request)
     {

@@ -5,23 +5,33 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Contracts\Dao\UserDaoInterface;
 
+/**
+ * Data Access Object for User
+ */
 class UserDao implements UserDaoInterface
 {
+    /**
+     * model
+     */
     private $model;
 
+    /**
+     * Class Constructor
+     * @param User
+     * @return
+     */
     public function __construct(User $model)
     {
         $this->model = $model;
     }
 
     /**
-     * To search user
-     * 
-     * @return Object user 
+     * To get user list
+     * @return array list of users
      */
     public function index()
     {
-        return $this->model->when($search = request('searchData'), function ($query) use ($search) {
+      return $this->model->when($search = request('searchData'), function ($query) use ($search) {
                         $query->where('name', 'LIKE', '%' . $search . '%')
                         ->orWhere('id', 'LIKE', '%' . $search . '%')
                         ->orWhere('email', 'LIKE', '%' . $search . '%')
@@ -32,9 +42,8 @@ class UserDao implements UserDaoInterface
     }
 
     /**
-     * To delete user by id
-     * 
-     * @param string $id user id
+     * To delete user
+     * @param integer $user user id
      * @return true
      */
     public function delete($id)

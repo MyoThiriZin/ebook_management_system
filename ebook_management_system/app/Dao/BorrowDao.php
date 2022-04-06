@@ -7,19 +7,29 @@ use App\Borrow;
 use App\Contracts\Dao\BorrowDaoInterface;
 use App\Mail\BookRentalMail;
 
+/**
+ * Data Access Object for Borrow
+ */
 class BorrowDao implements BorrowDaoInterface
 {
+    /**
+     * model
+     */
     private $model;
 
+    /**
+     * Class Constructor
+     * @param Borrow
+     * @return
+     */
     public function __construct(Borrow $model)
     {
         $this->model = $model;
     }
 
     /**
-     * To show borrow books and serch borrow book info
-     * 
-     * @return Object borrow books object
+     * To get borrow list
+     * @return array list of borrowed books
      */
     public function index()
     {
@@ -41,9 +51,9 @@ class BorrowDao implements BorrowDaoInterface
     }
 
     /**
-     * To delete borrow book by id
-     * @param string $borrow borrow id
-     * @return Object $borrow borrow object
+     * To delete borrow
+     * @param integer $borrow borrow id
+     * @return Object deleted borrow object
      */
     public function delete($borrow)
     {
@@ -51,9 +61,8 @@ class BorrowDao implements BorrowDaoInterface
     }
 
     /**
-     * To send book rental expire mail
-     * 
-     * @return string $message message success or not
+     * To send expire mail
+     * @return message for success or no book rental expire mail to send
      */
     public function getRentalExpireMail()
     {

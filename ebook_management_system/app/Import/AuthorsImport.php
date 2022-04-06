@@ -6,8 +6,16 @@ use App\Author;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class AuthorsImport implements ToModel,WithHeadingRow
+/**
+ * Authors Import class
+ */
+class AuthorsImport implements ToModel, WithHeadingRow 
 {
+    /**
+     * To insert author data to storage
+     * @param array $row
+     * @return array list of authors
+     */
     public function model(array $row)
     {
         return new Author([

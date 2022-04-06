@@ -1,22 +1,21 @@
 <?php
 namespace App\Contracts\Services;
 
-use Illuminate\Http\Request;
-
+/**
+ * Interface for category service.
+ */
 interface UserServiceInterface
 {
     /**
-     * To get user lists
-     * 
-     * @return Object $user User lists
+     * To get user list
+     * @return array list of users
      */
     public function index();
 
     /**
-     * To delete user by id
-     * 
-     * @param $id user id
-     * @return Object $user delete user
+     * To delete user
+     * @param integer $user user id
+     * @return true
      */
     public function delete($user);
 

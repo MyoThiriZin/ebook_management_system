@@ -1,65 +1,63 @@
 <?php
 namespace App\Contracts\Services\User;
 
+/**
+ * Interface for book service.
+ */
 interface BookServiceInterface
 {
     /**
-     * To get book by id.
+     * Get book by id
      *
-     * @param $id book id
-     * @return Object $book book object
+     * @param $id
+     * @return $book
      */
     public function getBook($id);
 
     /**
-     * To save borrow book.
+     * To save borrow book
      *
-     * @param $id book id
-     * @return Object $book save book
+     * @param array $book
      */
     public function storeBook($id);
 
     /**
-     * To search book with author, category and value with inputs
-     * 
-     * @param $request request with inputs
-     * @return Object $books book object
+     * To search borrow book, author, category
+     *
+     * @param Request $request request including inputs
+     * @return array $books
      */
     public function search($request);
 
     /**
-     * To get book 
-     * 
-     * @return Object $books Book object
+     * To get book list
+     * @return array list of books
      */
     public function index();
-    
+
     /**
-     * To get book
-     * 
-     * @return Object $book Book object
+     * To get list
+     * @return array list of categories
      */
     public function get();
 
     /**
-     * To search book
-     * 
-     * @param $request request with inputs
-     * @return Object $books Book object
+     * To search borrow book, author, category
+     *
+     * @param Request $request request including inputs
+     * @return array $books
      */
     public function searchTotal($request);
 
     /**
-     * To get author
-     * 
-     * @return Object $author Author object
+     * To get author list
+     * @return array list of authors
      */
     public function getAuthor();
 
     /**
-     * To get category
-     * 
-     * @return Object $category Category object
+     * To get category list
+     * @return array list of categories
      */
     public function getCategory();
 }

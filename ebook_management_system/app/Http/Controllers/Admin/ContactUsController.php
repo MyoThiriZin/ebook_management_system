@@ -7,14 +7,22 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\Services\ContactUsServiceInterface;
 
+/**
+ * This is ContactUs Controller.
+ * This will handle contact us processing.
+ */
 class ContactUsController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * contact us service
      */
     private $contactusService;
+
+    /**
+     * Create a new controller instance.
+     * @param ContactUsServiceInterface $contactusService
+     * @return void
+     */
     public function __construct(ContactUsServiceInterface $contactusService)
     {
         $this->contactusService = $contactusService;
@@ -31,7 +39,6 @@ class ContactUsController extends Controller
 
         return view('contactus.contactlist', ['contactinfo' => $contacts]);
     }
-
 
     /**
      * Display the specified resource.

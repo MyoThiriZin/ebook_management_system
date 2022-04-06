@@ -8,6 +8,10 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
+/**
+ * This is Admin Controller.
+ * This will handle the showing of admin list processing.
+ */
 class AdminController extends Controller
 {
     /**
