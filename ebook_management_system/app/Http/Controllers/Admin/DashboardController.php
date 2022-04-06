@@ -11,9 +11,9 @@ use App\Contracts\Services\DashboardServiceInterface;
  */
 class DashboardController extends Controller
 {
-      /**
-       * dashboard service interface
-       */
+    /**
+     * dashboard service interface
+     */
     private $dashboardServiceInterface;
 
     /**
@@ -23,7 +23,7 @@ class DashboardController extends Controller
      */
     public function __construct(DashboardServiceInterface $dashboardServiceInterface)
     {
-      $this->dashboardServiceInterface = $dashboardServiceInterface;
+        $this->dashboardServiceInterface = $dashboardServiceInterface;
     }
     
     /**
