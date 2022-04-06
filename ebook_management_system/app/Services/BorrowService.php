@@ -22,4 +22,9 @@ class BorrowService implements BorrowServiceInterface
     {
         return $this->borrowDao->delete($borrow);
     }
+
+    public function getRentalExpireMail()
+    {
+        return $this->borrowDao->getRentalExpireMail();
+    }
 }

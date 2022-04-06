@@ -1,8 +1,11 @@
 <?php
 namespace App\Dao;
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use App\Borrow;
 use App\Contracts\Dao\BorrowDaoInterface;
+use App\Mail\BookRentalMail;
 
 class BorrowDao implements BorrowDaoInterface
 {
@@ -35,6 +38,23 @@ class BorrowDao implements BorrowDaoInterface
     public function delete($borrow)
     {
         return $borrow->delete($borrow);
+    }
+
+    public function getRentalExpireMail()
+    {
+        $details = Borrow::with('user','book')->where('end_date', '<', Carbon::now())
+        ->where('mail_status', '=', 'pending')->get();
+        if (count($details) > 0) {
+            foreach($details as $detail) {
+                $useremail = $detail->user->email;
+                Mail::to($useremail)->send(new BookRentalMail($detail));
+                $detail->mail_status = 'completed';
+                $detail->save();
+            }
+            return 'Email send successfull';
+        } else {
+            return 'There is no book rental expire mail to send!';
+        }
     }
 
 }

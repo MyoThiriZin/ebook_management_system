@@ -94,4 +94,15 @@ class BorrowController extends Controller
 
         return redirect()->route('borrows.index')->with("success_msg", deletedMessage("Borrow"));
     }
+
+    /**
+     * To send book rental expire email
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sendBookRentalExpireMail()
+    {
+        $msg = $this->borrowService->getRentalExpireMail();
+        return redirect()->back()->with("success_msg", $msg);
+    }
 }

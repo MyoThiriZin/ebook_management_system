@@ -8,4 +8,6 @@ interface BorrowDaoInterface
     public function index();
 
     public function delete($borrow);
+
+    public function getRentalExpireMail();
 }
