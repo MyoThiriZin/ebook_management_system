@@ -32,23 +32,27 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($users as $userinfo)
-      <tr>
-        <td>{{ ($users->currentPage()-1) * $users->perPage() + $loop->index + 1 }}</td>
-        <td>{{ $userinfo->name }}</td>
-        <td>{{ $userinfo->email }}</td>
-        <td class="pc">{{ $userinfo->address }}</td>
-        <td class="pc">{{ $userinfo->phone_no }}</td>
-        @if($userinfo->type == 0)
-          <td class="pc">Admin</td>
-          @else
-          <td class="pc">User</td>
-        @endif
-        <td>
-          <a href="{{ route('users.show', $userinfo->id) }}" class="sp"><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
-        </td>
-      </tr>
-      @endforeach
+      @forelse ($users as $userinfo)
+        <tr>
+          <td>{{ ($users->currentPage()-1) * $users->perPage() + $loop->index + 1 }}</td>
+          <td>{{ $userinfo->name }}</td>
+          <td>{{ $userinfo->email }}</td>
+          <td class="pc">{{ $userinfo->address }}</td>
+          <td class="pc">{{ $userinfo->phone_no }}</td>
+          @if($userinfo->type == 0)
+            <td class="pc">Admin</td>
+            @else
+            <td class="pc">User</td>
+          @endif
+          <td>
+            <a href="{{ route('users.show', $userinfo->id) }}" class="sp"><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
+          </td>
+        </tr>
+      @empty
+        <tr>
+          <td colspan="6" style="text-align: center">There is no user data.</td>
+        </tr>
+      @endforelse
     </tbody>
   </table>
 <div class="paginate">

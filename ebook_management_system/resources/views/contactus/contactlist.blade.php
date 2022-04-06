@@ -32,7 +32,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($contactinfo as $contactshow)
+          @forelse ($contactinfo as $contactshow)
             <tr>
               <td>{{ ($contactinfo->currentPage()-1) * $contactinfo->perPage() + $loop->index + 1 }}</td>
               <td>{{ $contactshow->name }}</td>
@@ -70,7 +70,11 @@
                   </div>
               </div>
             </tr>
-          @endforeach
+          @empty
+            <tr>
+              <td colspan="6" style="text-align: center">There is no feedback data.</td>
+            </tr>
+          @endforelse
       </table>
 
 @endsection
