@@ -196,6 +196,10 @@ small {
   resize: none;
 }
 
+.form-sec .book-des {
+  width: 98%;
+}
+
 option {
   color: #494848;
   font-size: 16px;

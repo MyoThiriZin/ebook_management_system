@@ -20,19 +20,19 @@ class DashboardDao implements DashboardDaoInterface
      */
     public function getchart() 
     {
-      $books = Borrow::join('books', 'borrows.book_id', '=', 'books.id')
-      ->groupBy('book_id')
-      ->selectRaw('count(book_id) as count, books.name')
-      ->pluck('count', 'name')
-      ->sortDesc()
-      ->take(10);
+        $books = Borrow::join('books', 'borrows.book_id', '=', 'books.id')
+            ->groupBy('book_id')
+            ->selectRaw('count(book_id) as count, books.name')
+            ->pluck('count', 'name')
+            ->sortDesc()
+            ->take(10);
 
-      $chart = new BookChart;
-      $chart->labels($books->keys());
-      $chart->dataset('User Counts', 'bar', $books->values())
-            ->backgroundColor('#2d6cdf');
-      
-      return $chart;
+        $chart = new BookChart;
+        $chart->labels($books->keys());
+        $chart->dataset('User Counts', 'bar', $books->values())
+                ->backgroundColor('#2d6cdf');
+        
+        return $chart;
     }
 
     /**
@@ -41,7 +41,7 @@ class DashboardDao implements DashboardDaoInterface
      */
     public function getbooks() 
     {
-      return Book::get();
+        return Book::get();
     }
 
     /**
@@ -50,7 +50,7 @@ class DashboardDao implements DashboardDaoInterface
      */
     public function getauthors() 
     {
-      return Author::get();
+        return Author::get();
     }
 
     /**
@@ -59,6 +59,6 @@ class DashboardDao implements DashboardDaoInterface
      */
     public function getcategories() 
     {
-      return Category::get();
+        return Category::get();
     }
 }

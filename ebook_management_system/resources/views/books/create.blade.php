@@ -8,6 +8,7 @@
                 class="btn-primary btn-sm">OK</button></a>
       </div>
     @endif
+  </div>
 
     <div class="form-sec">
       <h2 class="form-title">Create Book</h2>
@@ -85,7 +86,7 @@
         <div class="clearfix">
             <div class="description">
                 <label class="form-label">Book Description</label>
-                <textarea name="description" class="description book-des" placeholder="Description" cols="30"
+                <textarea name="description" class="book-des" placeholder="Description" cols="30"
                     rows="5">{{ old('description') }}</textarea>
                 @if ($errors->has('description'))
                     <small class="text-danger">*{{ $errors->first('description') }}</small>

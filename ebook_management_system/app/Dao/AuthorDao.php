@@ -17,11 +17,11 @@ class AuthorDao implements AuthorDaoInterface {
      */
     public function getauthors(Request $request)
     {
-      if ($request->has('view_deleted')) {
-        return Author::onlyTrashed()->paginate(10);
-      } else {
-        return Author::with('user')->paginate(10);
-      }
+        if ($request->has('view_deleted')) {
+            return Author::onlyTrashed()->paginate(10);
+        } else {
+            return Author::with('user')->paginate(10);
+        }
     }
 
     /**
@@ -31,7 +31,7 @@ class AuthorDao implements AuthorDaoInterface {
      */
     public function store(Request $request)
     {
-      return  Author::create($request->all());
+        return  Author::create($request->all());
     }
 
     /**
@@ -41,13 +41,13 @@ class AuthorDao implements AuthorDaoInterface {
      */
     public function deleteById($id)
     {
-      $author = Author::findOrFail($id);
-      foreach($author->books as $book)
-      {
-        $book->borrow()->delete(); 
-        $book->delete(); 
-      }
-      return $author->delete();
+        $author = Author::findOrFail($id);
+        foreach($author->books as $book)
+        {
+            $book->borrow()->delete(); 
+            $book->delete(); 
+        }
+        return $author->delete();
     }
 
     /**
@@ -57,7 +57,7 @@ class AuthorDao implements AuthorDaoInterface {
      */
     public function editAuthor($id)
     {
-      return  Author::findOrFail($id);
+        return  Author::findOrFail($id);
     }
 
     /**
@@ -68,13 +68,13 @@ class AuthorDao implements AuthorDaoInterface {
      */
     public function updateInfo(Request $request, $id)
     {
-      return Author::whereId($id)->update(
-        [
-          'name' => $request->name,
-          'email' => $request->email,
-          'description' => $request->description
-      ]
-      );
+        return Author::whereId($id)->update(
+            [
+            'name' => $request->name,
+            'email' => $request->email,
+            'description' => $request->description
+            ]
+        );
     }
 
     /**
@@ -94,11 +94,11 @@ class AuthorDao implements AuthorDaoInterface {
      */
     public function authorsSearch($search)
     {
-      return Author::with('user')
-      ->where('name', 'like', '%' . $search . '%')
-      ->orWhere('email', 'like', '%' . $search . '%')
-      ->orWhere('description', 'like', '%' . $search . '%')
-      ->paginate(10);
+        return Author::with('user')
+        ->where('name', 'like', '%' . $search . '%')
+        ->orWhere('email', 'like', '%' . $search . '%')
+        ->orWhere('description', 'like', '%' . $search . '%')
+        ->paginate(10);
     }
 
 }

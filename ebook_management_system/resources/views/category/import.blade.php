@@ -11,8 +11,8 @@
       <small class="text-danger">*{{ $errors->first('file') }}</small>
       @endif
     </div>
-    <input type="submit" value="Import CSV" class="create-btn">
-    <input type="button" value="Cancel" class="back-btn" onclick="window.location='{{ URL::to('categories') }}'"/>
+    <input type="submit" value="Import CSV" class="create-btn ft-right me-3">
+    <input type="button" value="Cancel" class="back-btn ft-right me-3" onclick="window.location='{{ URL::to('categories') }}'"/>
   </form>
 </div>
 @endsection
