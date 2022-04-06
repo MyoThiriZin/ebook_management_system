@@ -20,32 +20,16 @@ class BorrowController extends Controller
         $this->borrowService = $borrowService;
     }
 
+    /**
+     * To show borrow lists
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $borrows = $this->borrowService->index();
 
         return view('borrow.index',['items' => $borrows]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -57,29 +41,6 @@ class BorrowController extends Controller
     public function show(Borrow $borrow)
     {
         return view('borrow.show',['item' => $borrow]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     /**

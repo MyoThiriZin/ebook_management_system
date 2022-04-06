@@ -15,6 +15,12 @@ class BorrowController extends Controller
         $this->borrowService = $borrowService;
     }
 
+    /**
+     * To get borrow book list by user id
+     * 
+     * @param $id user id
+     * @return View user borrow list
+     */
     public function list($id){
 
        $borrows = $this->borrowService->list($id);

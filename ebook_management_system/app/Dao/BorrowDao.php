@@ -16,6 +16,11 @@ class BorrowDao implements BorrowDaoInterface
         $this->model = $model;
     }
 
+    /**
+     * To show borrow books and serch borrow book info
+     * 
+     * @return Object borrow books object
+     */
     public function index()
     {
         return $this->model->when($search = request('searchData'), function ($query) use ($search) {
@@ -35,11 +40,21 @@ class BorrowDao implements BorrowDaoInterface
 
     }
 
+    /**
+     * To delete borrow book by id
+     * @param string $borrow borrow id
+     * @return Object $borrow borrow object
+     */
     public function delete($borrow)
     {
         return $borrow->delete($borrow);
     }
 
+    /**
+     * To send book rental expire mail
+     * 
+     * @return string $message message success or not
+     */
     public function getRentalExpireMail()
     {
         $details = Borrow::with('user','book')->where('end_date', '<', Carbon::now())

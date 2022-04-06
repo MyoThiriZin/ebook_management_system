@@ -19,10 +19,10 @@ class BookDao implements BookDaoInterface
     }
 
     /**
-     * Get book by id
+     * To get book by id
      *
-     * @param $id
-     * @return $book
+     * @param $id book id
+     * @return Object $book book object
      */
     public function getBook($id)
     {
@@ -33,7 +33,8 @@ class BookDao implements BookDaoInterface
     /**
      * To save borrow book
      *
-     * @param array $book
+     * @param array $book 
+     * @return Object $book book object
      */
     public function storeBook($book)
     {
@@ -62,6 +63,12 @@ class BookDao implements BookDaoInterface
         return $book;
     }
 
+    /**
+     * To search book with author, category and value with inputs
+     * 
+     * @param $request request with inputs
+     * @return Object $books book object
+     */
     public function search($request)
     {
         $author = $request->author_id;
@@ -95,6 +102,11 @@ class BookDao implements BookDaoInterface
         return $books;
     }
 
+    /**
+     * To get book 
+     * 
+     * @return Object $books Book object
+     */
     public function index()
     {
         $books = Book::with('author', 'category')->latest()->paginate(8);
@@ -102,21 +114,42 @@ class BookDao implements BookDaoInterface
         return $books;
     }
 
+    /**
+     * To get author
+     * 
+     * @return Object $author Author object
+     */
     public function getAuthor()
     {
         return Author::orderBy("name")->get()->pluck("name", "id");
     }
 
+    /**
+     * To get category
+     * 
+     * @return Object $category Category object
+     */
     public function getCategory()
     {
         return Category::orderBy("name")->get()->pluck("name", "id");
     }
 
+    /**
+     * To get book
+     * 
+     * @return Object $book Book object
+     */
     public function get()
     {
         return $this->model->get();
     }
 
+    /**
+     * To search book
+     * 
+     * @param $request request with inputs
+     * @return Object $books Book object
+     */
     public function searchTotal($request)
     {
         $author = $request->author_id;

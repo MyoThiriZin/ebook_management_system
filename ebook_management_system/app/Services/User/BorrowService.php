@@ -14,6 +14,12 @@ class BorrowService implements BorrowServiceInterface
         $this->borrowDao = $borrowDao;
     }
 
+    /**
+     * To get borrow by id
+     * 
+     * @param string $id borrow id
+     * @return Object $borrow Borrow object
+     */
     public function list($id)
     {
         return $this->borrowDao->list($id);

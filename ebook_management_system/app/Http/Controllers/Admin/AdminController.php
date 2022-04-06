@@ -10,6 +10,11 @@ use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
+    /**
+     * To show adminprofile
+     * 
+     * @return View adminprofile
+     */
     public function show()
     {
         $id=Auth::user()->id;

@@ -3,7 +3,6 @@ namespace App\Dao;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use App\Contracts\Dao\UserDaoInterface;
 
 class UserDao implements UserDaoInterface
@@ -15,8 +14,14 @@ class UserDao implements UserDaoInterface
         $this->model = $model;
     }
 
-    public function index(){
-      return $this->model->when($search = request('searchData'), function ($query) use ($search) {
+    /**
+     * To search user
+     * 
+     * @return Object user 
+     */
+    public function index()
+    {
+        return $this->model->when($search = request('searchData'), function ($query) use ($search) {
                         $query->where('name', 'LIKE', '%' . $search . '%')
                         ->orWhere('id', 'LIKE', '%' . $search . '%')
                         ->orWhere('email', 'LIKE', '%' . $search . '%')
@@ -26,7 +31,14 @@ class UserDao implements UserDaoInterface
                         })->latest()->paginate(10);
     }
 
-    public function delete($id){
+    /**
+     * To delete user by id
+     * 
+     * @param string $id user id
+     * @return true
+     */
+    public function delete($id)
+    {
         $this->model->where('id', $id)->delete();
         return true;
     }

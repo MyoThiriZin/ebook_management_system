@@ -15,11 +15,24 @@ class UserService implements UserServiceInterface
         $this->userDao = $userDao;
     }
 
-    public function index(){
+    /**
+     * To search user
+     * 
+     * @return Object user 
+     */
+    public function index()
+    {
         return $this->userDao->index();
     }
 
-    public function delete($user){
+    /**
+     * To delete user by id
+     * 
+     * @param string $id user id
+     * @return true
+     */
+    public function delete($user)
+    {
 
         return $this->userDao->delete($user);
     }

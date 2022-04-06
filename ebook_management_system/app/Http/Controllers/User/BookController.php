@@ -75,6 +75,12 @@ class BookController extends Controller
         return view('users.books.pdf')->with(['book' => $book]);
     }
 
+    /**
+     * To search book 
+     * 
+     * @param $request request with inputs
+     * @return View book list
+     */
     public function search(Request $request)
     {
         $authors = $this->bookInterface->getAuthor();

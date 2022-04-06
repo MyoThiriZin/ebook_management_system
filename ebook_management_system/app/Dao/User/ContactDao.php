@@ -13,6 +13,12 @@ class ContactDao implements ContactDaoInterface
         $this->model = $model;
     }
 
+    /**
+     * To save feedback
+     * 
+     * @param array $data request with inputs
+     * @return Object $feedback Feedback object
+     */
     public function store(Array $data)
     {
         return $this->model->create($data);

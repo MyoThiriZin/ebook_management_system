@@ -20,6 +20,11 @@ class UserController extends Controller
         $this->userService = $userService;
     }
 
+    /**
+     * To show user lists
+     * 
+     * @return View user list
+     */
     public function index(){
         $user = $this->userService->index();
         return view('userlists.userlist', ['users' => $user]);
@@ -28,7 +33,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  User $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -36,6 +41,12 @@ class UserController extends Controller
         return view('userlists.show')->with(['user' => $user]);
     }
 
+    /**
+     * To delete user by id
+     * 
+     * @param $id user id
+     * @return View user list
+     */
     public function destroy($id)
     {
         $this->userService->delete($id);

@@ -15,11 +15,24 @@ class ContactUsService implements ContactUsServiceInterface
         $this->contactusDao = $contactusDao;
     }
 
-    public function index(){
+    /**
+     * To search feedback
+     * 
+     * @return Object feedback 
+     */
+    public function index()
+    {
         return $this->contactusDao->index();
     }
 
-    public function delete($id){
+    /**
+     * To delete feedback by id
+     * 
+     * @param string $id feedback id
+     * @return true
+     */
+    public function delete($id)
+    {
 
         return $this->contactusDao->delete($id);
     }

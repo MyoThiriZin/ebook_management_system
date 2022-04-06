@@ -17,7 +17,7 @@
 
       <div class="ft-right search-form">
         <form action="/author/search" method="get">
-          <input type="search" name="search" placeholder="Search" class="search-input">
+          <input type="search" name="search" placeholder="Search" class="search-input" value="{{ old('search', request()->query('search')) }}">
           <button type="submit" class="search-btn">Search</button>
         </form>
       </div>

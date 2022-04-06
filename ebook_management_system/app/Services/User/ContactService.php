@@ -14,6 +14,12 @@ class ContactService implements ContactServiceInterface
         $this->contactDao = $contactDao;
     }
 
+    /**
+     * To save feedback
+     * 
+     * @param array $data request with inputs
+     * @return Object $feedback Feedback object
+     */
     public function store(Array $data)
     {
         return $this->contactDao->store($data);

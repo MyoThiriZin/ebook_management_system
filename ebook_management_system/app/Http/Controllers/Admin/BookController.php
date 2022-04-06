@@ -22,6 +22,11 @@ class BookController extends Controller
         $this->bookService = $bookService;
     }
 
+    /**
+     * To show book lists
+     * 
+     * @return View book list
+     */
     public function index()
     {
         $books = $this->bookService->index();

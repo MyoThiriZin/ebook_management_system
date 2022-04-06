@@ -97,27 +97,47 @@ class CategoryController extends Controller
         return redirect()->route('categories')->with("success_msg", deletedMessage("Category"));
     }
 
+    /**
+     * To search category
+     * 
+     * @param $request request with inputs
+     * @return View category list 
+     */
     public function search(Request $request)
     {
         $categories = $this->categoryService->search($request);
 
         return view('category.index', compact('categories'));
     }
-
+    
+    /**
+     * To export category lists
+     * 
+     * @return File Download Excel file
+     */
     public function export()
     {
         return Excel::download(new CategoriesExport, 'category_data.csv');
     }
 
+    /**
+     * To show category import view
+     * 
+     * @return View category import
+     */
     public function importFile()
     {
-        Category::truncate();
-
         return view('category.import');
     }
 
+    /**
+     * To import category with excel file
+     * 
+     * @return View category list
+     */
     public function import()
     {
+        Category::truncate();
         Excel::import(new CategoriesImport, request()->file('file'));
 
         return redirect()->route('categories')->with("success_msg", importMessage("CSV"));

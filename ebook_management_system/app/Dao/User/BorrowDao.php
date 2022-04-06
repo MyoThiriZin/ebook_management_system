@@ -13,6 +13,12 @@ class BorrowDao implements BorrowDaoInterface
         $this->model = $model;
     }
 
+    /**
+     * To get borrow by id
+     * 
+     * @param string $id borrow id
+     * @return Object $borrow Borrow object
+     */
     public function list($id)
     {
         return $this->model->with('user', 'book')->where('user_id', $id)->get();

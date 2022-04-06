@@ -14,7 +14,7 @@
     <div class="ft-right search-form">
       <form action="{{ route('category.search') }}" method="GET" enctype="multipart/form-data">
         @csrf
-        <input type="text" name="search" placeholder="Search" class="search-input" required/>
+        <input type="text" name="search" placeholder="Search" class="search-input" value="{{ old('search', request()->query('search')) }}" required/>
         <button type="submit" class="search-btn">Search</button>
       </form>
     </div>

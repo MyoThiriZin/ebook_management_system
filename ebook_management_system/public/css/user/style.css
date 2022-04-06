@@ -145,7 +145,7 @@ input::-webkit-inner-spin-button {
   .auth-container {
     width: 39.063vw;
     border-radius: 1.172vw;
-    padding:3.125vw 1.563vw 1.563vw 1.563vw;
+    padding: 3.125vw 1.563vw 1.563vw 1.563vw;
   }
 
   .login-container {
