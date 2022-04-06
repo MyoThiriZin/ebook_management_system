@@ -398,6 +398,18 @@ tr:nth-child(2n) {
   text-align: right;
 }
 
+.seemore-container .profile-name {
+  width: 230px;
+  margin-right: 20px;
+  font-size: 17px;
+  text-align: right;
+}
+
+.profile-content {
+  width: 250px;
+  margin-left: 0px;
+}
+
 .seemore-container span {
   width: 300px;
   margin-left: 0px;
@@ -765,6 +777,18 @@ tr:nth-child(2n) {
     font-size: 1.328vw;
   }
 
+  .seemore-container .profile-name {
+    width: 17.969vw;
+    margin-right: 1.563vw;
+    font-size: 1.328vw;
+    text-align: right;
+  }
+
+  .profile-content {
+    width: 19.531vw;
+    margin-left: 0vw;
+  }
+
   .img-container {
     width: 9.766vw;
     margin: 1.563vw auto;
@@ -1100,6 +1124,18 @@ tr:nth-child(2n) {
     width: 37%;
     margin-right: 0vw;
     font-size: 2.656vw;
+  }
+
+  .seemore-container .profile-name {
+    width: 43.938vw;
+    margin-right: 3.125vw;
+    font-size: 2.656vw;
+    text-align: right;
+  }
+
+  .profile-content {
+    width: 39.063vw;
+    margin-left: 0vw;
   }
 
   .seemore-container span {
