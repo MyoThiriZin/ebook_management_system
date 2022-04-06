@@ -83,7 +83,7 @@
         </div>
 
         <div class="clearfix">
-            <div class="col">
+            <div class="">
                 <label class="form-label">Book Description</label>
                 <textarea name="description" class="description" placeholder="Description" cols="30"
                     rows="5">{{ old('description') }}</textarea>
@@ -93,8 +93,8 @@
             </div>
         </div>
 
-        <input type="submit" value="Create" class="create-btn">
-        <input type="button" value="Cancel" class="back-btn"
+        <input type="submit" value="Create" class="create-btn ft-right me-3">
+        <input type="button" value="Cancel" class="back-btn ft-right me-3"
             onclick="window.location='{{ URL::to('books') }}'" />
       </form>
     </div>
