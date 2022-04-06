@@ -41,12 +41,9 @@
           <td>{{ $item->category->name }}</td>
           <td>{{ $item->duration }} days</td>
           <td class="action">
-            <a href="{{ url('/books/' . $item->id . '/edit') }}"><button class="edit-btn"><i
-                        class="fas fa-edit"></i></button></a>
-            <a href="{{ route('books.show', $item->id) }}"><button class="seemore-btn"><i
-                        class="fa-solid fa-eye"></i></button></a>
-            <button class="delete-btn" data-bs-toggle="modal" data-bs-target="#modal{{ $item->id }}"><i
-                    class="fa-solid fa-trash-can"></i></button>
+            <a href="{{ url('/books/' . $item->id . '/edit') }}"><button class="edit-btn"><i class="fas fa-edit"></i></button></a>
+            <a href="{{ route('books.show', $item->id) }}"><button class="seemore-btn"><i class="fa-solid fa-eye"></i></button></a>
+            <button class="delete-btn" data-bs-toggle="modal" data-bs-target="#modal{{ $item->id }}"><i class="fa-solid fa-trash-can"></i></button>
           </td>
 
           {{-- Delete Modal --}}

@@ -2,9 +2,8 @@
 
 namespace App\Contracts\Dao;
 
-use Illuminate\Http\Request;
-
-interface DashboardDaoInterface {
+interface DashboardDaoInterface 
+{
   public function getchart();
 
   public function getbooks();

@@ -9,10 +9,21 @@ use App\Contracts\Dao\User\BookDaoInterface;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Data Access Object for Book
+ */
 class BookDao implements BookDaoInterface
 {
+    /**
+     * model
+     */
     private $model;
 
+    /**
+     * Class Constructor
+     * @param Book
+     * @return
+     */
     public function __construct(Book $model)
     {
         $this->model = $model;
@@ -62,6 +73,12 @@ class BookDao implements BookDaoInterface
         return $book;
     }
 
+    /**
+     * To search borrow book, author, category
+     *
+     * @param Request $request request including inputs
+     * @return array $books
+     */
     public function search($request)
     {
         $author = $request->author_id;
@@ -95,6 +112,10 @@ class BookDao implements BookDaoInterface
         return $books;
     }
 
+    /**
+     * To get book list
+     * @return array list of books
+     */
     public function index()
     {
         $books = Book::with('author', 'category')->latest()->paginate(8);
@@ -102,21 +123,39 @@ class BookDao implements BookDaoInterface
         return $books;
     }
 
+    /**
+     * To get author list
+     * @return array list of authors
+     */
     public function getAuthor()
     {
         return Author::orderBy("name")->get()->pluck("name", "id");
     }
 
+    /**
+     * To get category list
+     * @return array list of categories
+     */
     public function getCategory()
     {
         return Category::orderBy("name")->get()->pluck("name", "id");
     }
 
+    /**
+     * To get list
+     * @return array list of categories
+     */
     public function get()
     {
         return $this->model->get();
     }
 
+    /**
+     * To search borrow book, author, category
+     *
+     * @param Request $request request including inputs
+     * @return array $books
+     */
     public function searchTotal($request)
     {
         $author = $request->author_id;

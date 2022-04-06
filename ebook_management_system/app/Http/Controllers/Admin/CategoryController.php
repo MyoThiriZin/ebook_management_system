@@ -12,10 +12,22 @@ use App\Import\CategoriesImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
+/**
+ * This is Category Controller.
+ * This will handle category CRUD processing.
+ */
 class CategoryController extends Controller
 {
+    /**
+     * category service
+     */
     private $categoryService;
 
+    /**
+     * Create a new controller instance.
+     * @param CategoryServiceInterface $categoryService
+     * @return void
+     */
     public function __construct(CategoryServiceInterface $categoryService)
     {
         $this->categoryService = $categoryService;
@@ -88,6 +100,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -97,6 +110,12 @@ class CategoryController extends Controller
         return redirect()->route('categories')->with("success_msg", deletedMessage("Category"));
     }
 
+    /**
+     * Search the specified resource from storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function search(Request $request)
     {
         $categories = $this->categoryService->search($request);
@@ -104,11 +123,21 @@ class CategoryController extends Controller
         return view('category.index', compact('categories'));
     }
 
+    /**
+     * Export the csv file from storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function export()
     {
         return Excel::download(new CategoriesExport, 'category_data.csv');
     }
 
+    /**
+     * Delete all data from storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function importFile()
     {
         Category::truncate();
@@ -116,6 +145,11 @@ class CategoryController extends Controller
         return view('category.import');
     }
 
+    /**
+     * Import all data from the csv to storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function import()
     {
         Excel::import(new CategoriesImport, request()->file('file'));

@@ -2,21 +2,30 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Book;
-use App\Borrow;
-use App\Charts\BookChart;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Contracts\Services\DashboardServiceInterface;
 
+/**
+ * This is Dashboard Controller.
+ * This will handle dashboard chart and count show processing.
+ */
 class DashboardController extends Controller
 {
+    /**
+     * dashboard service interface
+     */
     private $dashboardServiceInterface;
 
+    /**
+     * Create a new controller instance.
+     * @param DashboardServiceInterface $dashboardServiceInterface
+     * @return void
+     */
     public function __construct(DashboardServiceInterface $dashboardServiceInterface)
     {
       $this->dashboardServiceInterface = $dashboardServiceInterface;
     }
+    
     /**
      * Display a listing of the resource.
      *

@@ -34,10 +34,9 @@
 <h2 class="dashboard-title">Book Popularity</h2>
 
 <div class="chart-sec">
-{!! $chart->container() !!}
-
-{!! $chart->script() !!}
+  {!! $chart->container() !!}
+  
+  {!! $chart->script() !!}
 </div>
- 
     
 @endsection

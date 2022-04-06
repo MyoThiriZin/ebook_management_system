@@ -1,12 +1,22 @@
 <?php
 namespace App\Contracts\Dao;
 
-use Illuminate\Http\Request;
-
+/**
+ * Interface of Data Access Object for user
+ */
 interface UserDaoInterface
 {
+    /**
+     * To get user list
+     * @return array list of users
+     */
     public function index();
     
+    /**
+     * To delete user
+     * @param integer $user user id
+     * @return true
+     */
     public function delete($user);
 
 }

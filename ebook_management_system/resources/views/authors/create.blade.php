@@ -30,7 +30,7 @@
       </div>
 
       <input type="submit" value="Create" class="create-btn" id="create-btn">
-      <input type="button" value="Cancel" class="back-btn" onclick="window.location='{{ URL::to('authors') }}'"/>
+      <input type="button" value="Cancel" class="back-btn" onclick="window.location='{{ URL::to('authors') }}'" />
     </form>
   </div>
 <script src="/js//library/jquery-3.6.0.min.js"></script>
@@ -38,9 +38,9 @@
 <script type="text/javascript">
     $(document).ready(function() {
       $('#name').keydown(function (e) {
-          if(e.keyCode == 188){
-              e.preventDefault();
-          }
+        if(e.keyCode == 188) {
+          e.preventDefault();
+        }
       })
     });
 </script>

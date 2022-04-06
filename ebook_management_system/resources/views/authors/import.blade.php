@@ -12,7 +12,7 @@
         @endif
       </div>
       <input type="submit" value="Import CSV" class="create-btn">
-      <input type="button" value="Cancel" class="back-btn" onclick="window.location='{{ URL::to('authors') }}'"/>
+      <input type="button" value="Cancel" class="back-btn" onclick="window.location='{{ URL::to('authors') }}'" />
   </form>
 </div>
 @endsection

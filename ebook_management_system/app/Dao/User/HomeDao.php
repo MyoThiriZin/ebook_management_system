@@ -9,9 +9,18 @@ use App\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class HomeDao implements HomeDaoInterface {
-
-    public function getbooks(){
+/**
+ * Data Access Object for Home
+ */
+class HomeDao implements HomeDaoInterface 
+{
+    /**
+     * To get book list
+     * 
+     * @return array list of books
+     */
+    public function getbooks()
+    {
       return DB::table('borrows')
       ->join('books', 'books.id', '=', 'borrows.book_id')
       ->join('authors', 'authors.id', '=', 'books.author_id')
@@ -21,7 +30,13 @@ class HomeDao implements HomeDaoInterface {
       ->get()->take(6);
     }
 
-    public function getauthors(){
+    /**
+     * To get author list
+     * 
+     * @return array list of authors
+     */
+    public function getauthors()
+    {
       $authors = DB::table('borrows')
       ->join('books', 'books.id', '=', 'borrows.book_id')
       ->join('authors', 'authors.id', '=', 'books.author_id')
@@ -35,7 +50,13 @@ class HomeDao implements HomeDaoInterface {
       return $authornames;
     }
 
-    public function getcategories(){
+    /**
+     * To get category list
+     * 
+     * @return array list of categories
+     */
+    public function getcategories()
+    {
       $categories = DB::table('borrows')
       ->join('books', 'books.id', '=', 'borrows.book_id')
       ->join('categories', 'categories.id', '=', 'books.category_id')

@@ -11,6 +11,10 @@ use Illuminate\Support\Str;
 use Mail;
 use App\User; 
 
+/**
+ * This is ForgotPassword Controller.
+ * This will handle ForgotPassword processing.
+ */
 class ForgotPasswordController extends Controller
 {
     /**

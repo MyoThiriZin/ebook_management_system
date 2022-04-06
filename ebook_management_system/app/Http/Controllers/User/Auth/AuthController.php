@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 
+/**
+ * This is Authentication Controller.
+ * This will handle authentication processing.
+ */
 class AuthController extends Controller
 {
     /**

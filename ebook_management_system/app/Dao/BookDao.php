@@ -10,43 +10,70 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
 use App\Contracts\Dao\BookDaoInterface;
 
+/**
+ * Data Access Object for Book
+ */
 class BookDao implements BookDaoInterface
 {
+    /**
+     * model
+     */
     private $model;
 
+    /**
+     * Class Constructor
+     * @param Book
+     * @return
+     */
     public function __construct(Book $model)
     {
         $this->model = $model;
     }
 
-    public function index(){
-
-    return $this->model->when($search = request('searchData'), function ($query) use ($search) {
-                    $query->where('name', 'LIKE', '%' . $search . '%')
-                    ->orWhere('duration', 'LIKE', '%' . $search . '%')
-                    ->orWhere(function ($query) use ($search) {
-                        $query->whereHas('author', function ($qry) use ($search) {
-                            $qry->where('name', 'LIKE', '%' . $search . '%');
+    /**
+     * To get book list
+     * @return array list of books
+     */
+    public function index()
+    {
+        return $this->model->when($search = request('searchData'), function ($query) use ($search) {
+                        $query->where('name', 'LIKE', '%' . $search . '%')
+                        ->orWhere('duration', 'LIKE', '%' . $search . '%')
+                        ->orWhere(function ($query) use ($search) {
+                            $query->whereHas('author', function ($qry) use ($search) {
+                                $qry->where('name', 'LIKE', '%' . $search . '%');
+                            });
+                        })
+                        ->orWhere(function ($query) use ($search) {
+                            $query->whereHas('category', function ($qry) use ($search) {
+                                $qry->where('name', 'LIKE', '%' . $search . '%');
+                            });
                         });
-                    })
-                    ->orWhere(function ($query) use ($search) {
-                        $query->whereHas('category', function ($qry) use ($search) {
-                            $qry->where('name', 'LIKE', '%' . $search . '%');
-                        });
-                    });
-                    })->latest()->paginate(10);
+                        })->latest()->paginate(10);
     }
 
-    public function getAuthor(){
-
+    /**
+     * To get author list
+     * @return array list of authors
+     */
+    public function getAuthor()
+    {
         return Author::orderBy("name")->get()->pluck("name", "id");
     }
 
-    public function getCategory(){
-
+    /**
+     * To get category list
+     * @return array list of categories
+     */
+    public function getCategory()
+    {
         return Category::orderBy("name")->get()->pluck("name", "id");
     }
 
+    /**
+     * To request book data
+     * @return array list of book data
+     */
     private function requestBook($request, $fileName ,$pdf_fileName)
     {
         return [
@@ -64,8 +91,13 @@ class BookDao implements BookDaoInterface
         ];
     }
 
-    public function store(Request $request){
-
+    /**
+     * To store book
+     * @param Request $request request including inputs
+     * @return Object created book object
+     */
+    public function store(Request $request)
+    {
         $file = $request->file('image');
         $fileName = $file->getClientOriginalName();
         $file->move(public_path() . '/uploads/', $fileName);
@@ -78,10 +110,16 @@ class BookDao implements BookDaoInterface
         $data = $this->requestBook($request, $fileName, $pdf_fileName);
 
         return $this->model->create($data);
-
     }
 
-    public function update(Request $request, $book){
+    /**
+     * To update book with values from request
+     * @param Request $request request including inputs
+     * @param string $book book
+     * @return Object updated book object
+     */
+    public function update(Request $request, $book)
+    {
         $updateData = $this->requestUpdate($request);
 
         if (isset($updateData['image'])) {
@@ -116,6 +154,11 @@ class BookDao implements BookDaoInterface
         $book->update($updateData);
     }
 
+    /**
+     * To request to update book with values from request
+     * @param Request $request request including inputs
+     * @return array list of updated book
+     */
     private function requestUpdate($request)
     {
         $arr = [
@@ -141,8 +184,13 @@ class BookDao implements BookDaoInterface
         return $arr;
     }
 
-    public function delete($book){
-
+    /**
+     * To delete book
+     * @param integer $book book id
+     * @return true
+     */
+    public function delete($book)
+    {
         $data = $this->model->select('image','file')->where('id', $book->id)->first();
         $fileName = $data['image'];
         $pdf_fileName = $data['file'];

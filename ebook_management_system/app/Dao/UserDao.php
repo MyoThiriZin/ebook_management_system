@@ -6,16 +6,32 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Contracts\Dao\UserDaoInterface;
 
+/**
+ * Data Access Object for User
+ */
 class UserDao implements UserDaoInterface
 {
+    /**
+     * model
+     */
     private $model;
 
+    /**
+     * Class Constructor
+     * @param User
+     * @return
+     */
     public function __construct(User $model)
     {
         $this->model = $model;
     }
 
-    public function index(){
+    /**
+     * To get user list
+     * @return array list of users
+     */
+    public function index()
+    {
       return $this->model->when($search = request('searchData'), function ($query) use ($search) {
                         $query->where('name', 'LIKE', '%' . $search . '%')
                         ->orWhere('id', 'LIKE', '%' . $search . '%')
@@ -26,7 +42,13 @@ class UserDao implements UserDaoInterface
                         })->latest()->paginate(10);
     }
 
-    public function delete($id){
+    /**
+     * To delete user
+     * @param integer $user user id
+     * @return true
+     */
+    public function delete($id)
+    {
         $this->model->where('id', $id)->delete();
         return true;
     }

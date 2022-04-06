@@ -7,6 +7,10 @@ use App\Contracts\Services\User\BookServiceInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+/**
+ * This is Book Controller.
+ * This will handle book CRUD processing.
+ */
 class BookController extends Controller
 {
     /**
@@ -53,16 +57,6 @@ class BookController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -75,6 +69,12 @@ class BookController extends Controller
         return view('users.books.pdf')->with(['book' => $book]);
     }
 
+    /**
+     * Search the specified resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function search(Request $request)
     {
         $authors = $this->bookInterface->getAuthor();

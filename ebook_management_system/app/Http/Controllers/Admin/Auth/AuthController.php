@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Redirect;
 use App\User;
 use Session;
 
+/**
+ * This is Authentication Controller.
+ * This will handle authentication processing.
+ */
 class AuthController extends Controller
 {
     /**
