@@ -397,9 +397,19 @@ tr:nth-child(2n) {
     font-size: 17px;
     text-align: right;
 }
+.seemore-container .profile-name{
+    width: 230px;
+    margin-right: 20px;
+    font-size: 17px;
+    text-align: right;
+}
 
 .seemore-container span {
     width: 300px;
+    margin-left: 0px;
+}
+.profile-content {
+    width: 250px;
     margin-left: 0px;
 }
 
