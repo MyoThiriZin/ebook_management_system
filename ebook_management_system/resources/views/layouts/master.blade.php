@@ -32,7 +32,7 @@
 
           </div>
           <div class="dropdown-content">
-            <a href="{{ route('logout') }}">Logout</a>
+            <a href="{{ route('logout', 'admin') }}">Logout</a>
           </div>
         </div>
       </div>

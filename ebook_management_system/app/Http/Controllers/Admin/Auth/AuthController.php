@@ -7,7 +7,6 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UserRegisterRequest;
 use App\Contracts\Services\Auth\AuthServiceInterface;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\User;
@@ -35,9 +34,9 @@ class AuthController extends Controller
      *
      * @return View registration form
      */
-    public function showRegistrationView()
+    public function showRegistrationView($auth)
     {
-        return view('auth.register');
+        return view('auth.register')->with([ 'auth' => $auth ]);
     }
 
     /**
@@ -48,11 +47,11 @@ class AuthController extends Controller
      * @param  UserRegisterRequest $request Request from register
      * @return View registration confirm
      */
-    public function storeUser(UserRegisterRequest $request)
+    public function storeUser(UserRegisterRequest $request, $auth)
     {
         $request->validated();
         $user = $this->authInterface->saveUser($request);
-        return redirect('login')->with('message', 'Your account has been successfully created!');
+        return redirect('login/'. $auth)->with(['auth' => $auth , 'message' => 'Your account has been successfully created!']);
     }
 
     /**
@@ -60,9 +59,9 @@ class AuthController extends Controller
      *
      * @return View login form
      */
-    public function showLoginView()
+    public function showLoginView($auth)
     {
-      return view('auth.login');
+        return view('auth.login')->with([ 'auth' => $auth ]);
     }
 
     /**
@@ -73,15 +72,19 @@ class AuthController extends Controller
      * @param  LoginRequest $request Request from register
      * @return View dashboard confirm
      */  
-    public function login(LoginRequest $request)
+    public function login(LoginRequest $request , $auth)
     {
         $validated = $request->only('email', 'password');
 
         if (Auth::attempt($validated)) {
-            return redirect()->intended('/dashboard');
+            if ($auth == 'admin') {
+                return redirect()->intended('/dashboard');
+            } else {
+                return redirect()->intended('user');
+            }
         }
 
-        return redirect('login')->with('error', 'Email or password is incorrect.');
+        return redirect('login/'.$auth)->with('error', 'Email or password is incorrect.');
     }
 
     /**
@@ -89,10 +92,10 @@ class AuthController extends Controller
      *
      * @return View login view
      */
-    public function logout() {
+    public function logout($auth) {
       Auth::logout();
       Session::flush();
       Redirect::back();
-      return redirect('login');
+      return redirect('login/' . $auth)->with(['auth' => $auth]);
     }
 }

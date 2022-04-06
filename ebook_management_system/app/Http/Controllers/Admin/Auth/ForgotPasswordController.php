@@ -33,9 +33,9 @@ class ForgotPasswordController extends Controller
        *
        * @return View ForgetPassword view
     */
-    public function showForgetPasswordForm()
+    public function showForgetPasswordForm($auth)
     {
-        return view('auth.forgetPassword');
+        return view('auth.forgetPassword')->with(['auth' => $auth]);
     }
 
     /**
@@ -44,17 +44,17 @@ class ForgotPasswordController extends Controller
      * @param  ForgotPasswordRequest $request Request from ForgetPassword
      * @return View ForgotPassword
      */
-    public function submitForgetPasswordForm(ForgotPasswordRequest $request)
+    public function submitForgetPasswordForm(ForgotPasswordRequest $request,$auth)
     {
         $request->validated();
         $token = Str::random(64);
         $passwordReset = $this->forgotPasswordInterface->savePasswordReset($request,$token);
         
-        Mail::send('auth.emailForgetPassword', ['token' => $token], function($message) use($request){
+        Mail::send('auth.emailForgetPassword', ['token' => $token , 'auth' => $auth] , function($message) use($request){
             $message->to($request->email);
             $message->subject('Reset Password');
         });
-        return back()->with('message', 'We have e-mailed your password reset link!');
+        return back()->with(['auth' => $auth ,'message' => 'We have e-mailed your password reset link!']);
     }
 
     /**
@@ -62,8 +62,8 @@ class ForgotPasswordController extends Controller
      * @param  token
      * @return View resetpassword
      */
-    public function showResetPasswordForm($token) {
-        return view('auth.forgetPasswordLink', ['token' => $token]);
+    public function showResetPasswordForm($token, $auth) {
+        return view('auth.forgetPasswordLink', ['token' => $token , 'auth' => $auth]);
     }
 
     /**
@@ -71,10 +71,10 @@ class ForgotPasswordController extends Controller
      * @param  ResetPasswordRequest $request Request from ResetPassword
      * @return View login view
      */
-    public function submitResetPasswordForm(ResetPasswordRequest $request)
+    public function submitResetPasswordForm(ResetPasswordRequest $request, $auth)
     {
         $request->validated();
         $passwordReset = $this->forgotPasswordInterface->updatePassword($request);
-        return redirect('/login')->with('message', 'Your password has been changed!');
+        return redirect('login/'.$auth)->with('message', 'Your password has been changed!');
     }
 }

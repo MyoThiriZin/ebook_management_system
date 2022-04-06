@@ -1,10 +1,10 @@
-@extends('layouts.auth')
+@extends( $auth == 'admin' ? 'layouts.auth' : 'users.layouts.master' )
 
 @section('content')
 <div class="register-container auth-container">  
   <div class="card-header">{{ __('Register') }}</div>
   <div class="card-body">
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register', $auth) }}">
       @csrf
 
       <div class="auth-row">
@@ -75,7 +75,7 @@
 
       <div class="auth-btnrow">
         <span class="auth-txt">Already have an account?</span>
-        <a class="rt-content-link auth-txt" href="{{ route('login') }}">
+        <a class="rt-content-link auth-txt" href="{{ route('login', $auth) }}">
             {{ __('Log in') }}
         </a>
       </div>
