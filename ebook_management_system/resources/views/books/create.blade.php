@@ -8,6 +8,7 @@
                 class="btn-primary btn-sm">OK</button></a>
       </div>
     @endif
+  </div>
 
     <div class="form-sec">
       <h2 class="form-title">Create Book</h2>
@@ -15,7 +16,7 @@
         @csrf
         <div class="clearfix">
           <div class="col">
-            <label for="" class="form-label">Name</label>
+            <label for="name" class="form-label">Name</label>
             <input type="text" name="name" class="name" placeholder="Name"
                 value="{{ old('name') }}">
             @if ($errors->has('name'))
@@ -24,7 +25,7 @@
           </div>
 
           <div class="col">
-            <label for="" class="form-label">Duration</label>
+            <label for="duration" class="form-label">Duration</label>
             <input type="number" name="duration" class="duration" placeholder="Duration"
                 value="{{ old('duration') }}">
             @if ($errors->has('duration'))
@@ -35,7 +36,7 @@
 
         <div class="clearfix">
           <div class="col">
-            <label for="" class="form-label">Book Image</label>
+            <label for="image" class="form-label">Book Image</label>
             <input type="file" accept="image/gif, image/jpeg, image/png" name="image" class="myfile"
                 placeholder="Book Image">
             @if ($errors->has('image'))
@@ -44,7 +45,7 @@
           </div>
 
           <div class="col">
-            <label for="" class="form-label">PDF file</label>
+            <label for="file" class="form-label">PDF file</label>
             <input type="file" name="file" accept="application/pdf" class="myfile">
             @if ($errors->has('file'))
                 <small class="text-danger">*{{ $errors->first('file') }}</small>
@@ -54,7 +55,7 @@
 
         <div class="clearfix">
           <div class="col">
-            <label for="" class="form-label">Author</label>
+            <label for="author" class="form-label">Author</label>
             <select name="author_id" class="author">
                 <option value="">Choose Author</option>
                 @foreach ($authors as $key => $value)
@@ -68,7 +69,7 @@
           </div>
 
           <div class="col">
-            <label for="" class="form-label">Category</label>
+            <label for="category" class="form-label">Category</label>
             <select name="category_id" class="category">
               <option value="">Choose Category</option>
               @foreach ($categories as $key => $value)
@@ -83,9 +84,9 @@
         </div>
 
         <div class="clearfix">
-            <div class="col">
+            <div class="description">
                 <label class="form-label">Book Description</label>
-                <textarea name="description" class="description" placeholder="Description" cols="30"
+                <textarea name="description" class="book-des" placeholder="Description" cols="30"
                     rows="5">{{ old('description') }}</textarea>
                 @if ($errors->has('description'))
                     <small class="text-danger">*{{ $errors->first('description') }}</small>
@@ -93,8 +94,8 @@
             </div>
         </div>
 
-        <input type="submit" value="Create" class="create-btn">
-        <input type="button" value="Cancel" class="back-btn"
+        <input type="submit" value="Create" class="create-btn ft-right me-3">
+        <input type="button" value="Cancel" class="back-btn ft-right me-3"
             onclick="window.location='{{ URL::to('books') }}'" />
       </form>
     </div>

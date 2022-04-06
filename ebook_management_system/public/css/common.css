@@ -196,6 +196,10 @@ small {
   resize: none;
 }
 
+.form-sec .book-des {
+  width: 98%;
+}
+
 option {
   color: #494848;
   font-size: 16px;
@@ -425,17 +429,24 @@ tr:nth-child(2n) {
 }
 
 .dropbtn {
-  margin: 22px 0px;
+  margin: 28px 0px;
   font-size: 16px;
   cursor: pointer;
+  position: relative;
 }
 
 .dropbtn span {
   font-size: 20px;
 }
 
-.dropbtn .fa-circle-user {
+.sec-header .dropbtn::before {
+  content: '\f2bd';
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
   font-size: 32px;
+  position: absolute;
+  left: -39px;
+  top: -5px;
 }
 
 .dropdown {
@@ -770,7 +781,13 @@ tr:nth-child(2n) {
 
   .dropbtn {
     font-size: 1.250vw;
-    margin: 1.719vw 0;
+    margin: 2.188vw 0;
+  }
+
+  .sec-header .dropbtn::before {
+    font-size: 2.500vw;
+    left: -3.047vw;
+    top: -0.391vw;
   }
 
   .dropbtn span {
@@ -1012,7 +1029,13 @@ tr:nth-child(2n) {
 
   .dropbtn {
     font-size: 2.086vw;
-    margin: 2.868vw 0vw;
+    margin: 4.375vw 0vw;
+  }
+
+  .sec-header .dropbtn::before {
+    font-size: 5vw;
+    left: -6.094vw;
+    top: -0.781vw;
   }
 
   .dropbtn span {

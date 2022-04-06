@@ -3,7 +3,6 @@ namespace App\Dao;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use App\Contracts\Dao\UserDaoInterface;
 
 /**

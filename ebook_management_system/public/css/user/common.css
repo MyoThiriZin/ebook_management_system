@@ -62,7 +62,7 @@ li {
 /* Header */
 .sec-header .logo img {
   width: 80px;
-} 
+}
 
 .sec-header .logo .logo-txt {
   margin-left: -77px;
@@ -84,7 +84,7 @@ li {
 
 .sec-header li a {
   color: #333645;
-} 
+}
 
 /* Navigation */
 .sec-nav {
@@ -98,16 +98,16 @@ li {
 
 .login-user {
   display: inline-block;
-  margin: 2px 10px;
+  margin: 6px 10px;
   color: #333645;
 }
 
 .sidenav li.active {
-  background-color:#13e2af;
+  background-color: #13e2af;
 }
 
 .sidenav li.active a {
-  color:#333645;
+  color: #333645;
 }
 
 .sidenav li a {
@@ -137,7 +137,7 @@ li {
   display: block;
 }
 
-.dropdown-content li:hover a { 
+.dropdown-content li:hover a {
   color: #13e2af;
 }
 
@@ -161,7 +161,7 @@ li {
   color: #ffffff;
 }
 
-.sec-footer .footer-frt-txt ,
+.sec-footer .footer-frt-txt,
 .sec-footer .footer-address {
   width: 30%;
 }
@@ -187,7 +187,7 @@ li {
   margin: 0px 165px;
 }
 
-.sec-footer .footer-snd-nav li ,
+.sec-footer .footer-snd-nav li,
 .sec-footer .footer-address li {
   float: none;
   margin-bottom: 10px;
@@ -200,7 +200,7 @@ li {
 
 .sec-footer .footer-snd-nav li a:hover {
   transition: 3s;
-  color:#13e2af;
+  color: #13e2af;
 }
 
 .sec-footer .footer-ttl {
@@ -291,11 +291,11 @@ li {
   .container {
     width: 85.938vw;
   }
-  
+
   /* Header */
   .sec-header .logo img {
     width: 6.250vw;
-  } 
+  }
 
   .sec-header .logo .logo-txt {
     margin-left: -6.016vw;
@@ -328,11 +328,11 @@ li {
     right: 0;
     padding: 0.391vw 0;
   }
-  
+
   .dropdown-content li {
     padding: 0.391vw 2.563vw;
   }
-  
+
 
   /* Footer */
   .sec-footer {
@@ -351,7 +351,7 @@ li {
     margin: 0 12.891vw;
   }
 
-  .sec-footer .footer-snd-nav li ,
+  .sec-footer .footer-snd-nav li,
   .sec-footer .footer-address li {
     margin-bottom: 0.781vw;
   }
@@ -398,11 +398,11 @@ li {
   body {
     font-size: 2.500vw;
   }
-  
+
   .container {
     width: 90vw;
   }
-  
+
   /* Header */
   .sec-header {
     position: fixed;
@@ -410,7 +410,7 @@ li {
     border-bottom: 0.313vw solid #333645;
     background-color: #ffffff;
     z-index: 2;
-  } 
+  }
 
   .sec-header .logo {
     width: 58%;
@@ -419,17 +419,17 @@ li {
 
   .sec-header .logo img {
     width: 10.430vw;
-  } 
-  
+  }
+
   .sec-header .logo .logo-txt {
     margin-left: -11.6vw;
     font-size: 3.438vw;
   }
-  
+
   .sec-header .user {
     margin: 3.651vw 0;
   }
-  
+
   .sec-header .user .fa-circle-user {
     font-size: 4.694vw;
   }
@@ -450,21 +450,21 @@ li {
   .dropdown-content li {
     padding: 0.781vw 5.125vw;
   }
-  
+
   .dropdown-content a {
     color: #000000;
     text-decoration: none;
     display: block;
   }
-  
-  .dropdown-content li:hover a { 
+
+  .dropdown-content li:hover a {
     color: #13e2af;
   }
-  
+
   .sec-header .user:hover .dropdown-content {
     display: block;
   }
-  
+
   .sec-header .user:hover .fa-circle-user {
     color: #00000090;
   }
@@ -560,7 +560,7 @@ li {
   .sec-body {
     padding-top: 14.844vw;
   }
-  
+
   /* Footer */
   .sec-footer {
     padding: 6.519vw 0 1.304vw 0;
@@ -569,8 +569,8 @@ li {
   .sec-footer a {
     font-size: 2.500vw;
   }
-  
-  .sec-footer .footer-frt-txt ,
+
+  .sec-footer .footer-frt-txt,
   .sec-footer .footer-address {
     width: 100%;
     padding: 3.125vw;
@@ -581,33 +581,33 @@ li {
   .sec-footer .footer-snd-nav {
     width: 10%;
   }
-  
+
   .sec-footer .footer-frt-txt h4 {
     margin-bottom: 0.652vw;
   }
-  
+
   .sec-footer .footer-frt-txt h4 a {
     font-size: 4.688vw;
   }
-  
+
   .sec-footer .footer-snd-nav {
     display: none;
   }
-  
-  .sec-footer .footer-snd-nav li ,
+
+  .sec-footer .footer-snd-nav li,
   .sec-footer .footer-address li {
     margin-bottom: 1.304vw;
   }
-  
+
   .sec-footer .footer-address li {
     padding-left: 3.911vw;
   }
-  
+
   .sec-footer .footer-ttl {
     font-size: 3.125vw;
     margin-bottom: 2.608vw;
   }
-  
+
   .sec-footer .footer-address .address::before,
   .sec-footer .footer-address .frt-ph::before,
   .sec-footer .footer-address .snd-ph::before,
@@ -615,29 +615,29 @@ li {
     font-size: 2.347vw;
     top: 0.913vw;
   }
-  
+
   .sec-footer .social {
     width: 100%;
     padding: 1vw 0;
   }
-  
+
   .sec-footer .social ul {
     width: 26%;
   }
-  
+
   .sec-footer .social li {
     margin: 0 1.304vw;
   }
-  
+
   .sec-footer .social li i {
     font-size: 3.259vw;
     -webkit-text-stroke: 0.130vw #13e2af;
   }
-  
+
   .sec-copyright {
     background-color: #333645;
   }
-  
+
   .sec-copyright .copyright {
     padding: 3.125vw 0;
     border-top: 0.156vw solid #ffffff90;

@@ -193,7 +193,6 @@ class AuthorController extends Controller
      */
     public function importFile()
     {
-        Author::truncate();
         
         return view('authors.import');
     }
@@ -205,6 +204,7 @@ class AuthorController extends Controller
      */
     public function import()
     {
+        Author::truncate();
         Excel::import(new AuthorsImport, request()->file('file'));
 
         return redirect()->route('authors.index')->with("success_msg", importMessage("CSV"));

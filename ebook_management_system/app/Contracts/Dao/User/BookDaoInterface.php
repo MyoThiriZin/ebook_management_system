@@ -7,7 +7,7 @@ namespace App\Contracts\Dao\User;
 interface BookDaoInterface
 {
     /**
-     * To get book by id
+     * To get book by id.
      *
      * @param integer $id book id
      * @return Object $book book object

@@ -12,7 +12,7 @@ use App\Contracts\Services\User\HomeServiceInterface;
  */
 class HomeController extends Controller
 {
-  /**
+    /**
      * home Service Interface
      */
     private $homeServiceInterface;
@@ -26,6 +26,7 @@ class HomeController extends Controller
     {
         $this->homeServiceInterface = $homeServiceInterface;
     }
+
     /**
      * Display a listing of the resource.
      *

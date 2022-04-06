@@ -3,15 +3,16 @@
     font-size: 16px;
     font-family: 'RobotoRegular';
 }
+
 @font-face {
     font-family: PoppinsBold;
     src: url('../../font/poppins-bold.ttf');
-  }
+}
 
-  @font-face {
+@font-face {
     font-family: RobotoRegular;
     src: url('../../font/Roboto-Regular.ttf');
-  }
+}
 
 .contact-container {
     width: 1100px;
@@ -28,11 +29,13 @@
     background-color: #ebe4e4;
     border-radius: 15px;
 }
-.contact-background{
+
+.contact-background {
     position: relative;
     width: 400px;
 }
-.contact-background img{
+
+.contact-background img {
     position: absolute;
     width: 100%;
     z-index: -1;
@@ -145,11 +148,13 @@
         background-color: #ebe4e4;
         border-radius: 1.172vw;
     }
-    .contact-background{
+
+    .contact-background {
         position: relative;
         width: 39.063vw;
     }
-    .contact-background img{
+
+    .contact-background img {
         position: absolute;
         width: 100%;
         z-index: -1;
@@ -250,6 +255,7 @@
     * {
         font-size: 2.5vw;
     }
+
     .contact-container {
         width: 90vw;
     }
@@ -265,9 +271,10 @@
         border-radius: 2.344vw;
     }
 
-    .contact-background img{
+    .contact-background img {
         display: none;
     }
+
     .contact-input-group,
     .contact-textarea-group {
         width: 90%;

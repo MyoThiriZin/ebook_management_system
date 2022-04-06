@@ -1,11 +1,11 @@
-@extends('layouts.auth')
+@extends( $auth == 'admin' ? 'layouts.auth' : 'users.layouts.master' )
   
 @section('content')
   <div class="resetpass-container auth-container">
     <div class="card-header">Re-enter your new password</div>
     <div class="card-body">
 
-      <form action="{{ route('submit.reset.password') }}" method="POST">
+      <form action="{{ route('submit.reset.password' , $auth) }}" method="POST">
         @csrf
         <input type="hidden" name="token" value="{{ $token }}">
 

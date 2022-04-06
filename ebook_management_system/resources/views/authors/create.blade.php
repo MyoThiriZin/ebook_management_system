@@ -29,8 +29,8 @@
           <input type="hidden" name="updated_by" class="updated_by" id="updated_by" value="{{ Auth::user()->id }}">
       </div>
 
-      <input type="submit" value="Create" class="create-btn" id="create-btn">
-      <input type="button" value="Cancel" class="back-btn" onclick="window.location='{{ URL::to('authors') }}'" />
+      <input type="submit" value="Create" class="create-btn ft-right me-3" id="create-btn">
+      <input type="button" value="Cancel" class="back-btn ft-right me-3" onclick="window.location='{{ URL::to('authors') }}'" />
     </form>
   </div>
 <script src="/js//library/jquery-3.6.0.min.js"></script>

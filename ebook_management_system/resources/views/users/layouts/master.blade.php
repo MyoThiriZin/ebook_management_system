@@ -36,16 +36,16 @@
 
             <ul class="dropdown-content ft-left">
               <li>
-                <a href="{{ route('user#logout') }}">Logout</a>
+                <a href="{{ route('logout', 'user') }}">Logout</a>
               </li>
             </ul>
             @else
             <ul class="dropdown-content ft-left">
               <li>
-                <a href="{{ route('user#login') }}">Sign in</a>
+                <a href="{{ route('login' , 'user') }}">Sign in</a>
               </li>
               <li>
-                <a href="{{ route('user#register') }}">Sign up</a>
+                <a href="{{ route('register' , 'user') }}">Sign up</a>
               </li>
             </ul>
             @endauth

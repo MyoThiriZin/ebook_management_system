@@ -26,10 +26,10 @@ class BookService implements BookServiceInterface
     }
 
     /**
-     * To get book by id.
+     * To get book by id
      *
-     * @param $id
-     * @return Object $book book Object
+     * @param $id book id
+     * @return Object $book book object
      */
     public function getBook($id)
     {
@@ -37,7 +37,7 @@ class BookService implements BookServiceInterface
     }
 
     /**
-     * To get book by id.
+     * To save borrow book
      *
      * @param $id
      * @return Object $book book Object

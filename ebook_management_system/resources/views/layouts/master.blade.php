@@ -27,12 +27,10 @@
 
         <div class="dropdown ft-right">
           <div class="dropbtn">
-            <i class="fa-solid fa-circle-user"></i>
-            <span> {{ Auth::user()->name }} </span>
-
+            <span>{{ Auth::user()->name }} </span>
           </div>
           <div class="dropdown-content">
-            <a href="{{ route('logout') }}">Logout</a>
+            <a href="{{ route('logout', 'admin') }}">Logout</a>
           </div>
         </div>
       </div>

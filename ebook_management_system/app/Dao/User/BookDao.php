@@ -30,10 +30,10 @@ class BookDao implements BookDaoInterface
     }
 
     /**
-     * Get book by id
+     * To get book by id
      *
-     * @param $id
-     * @return $book
+     * @param $id book id
+     * @return Object $book book object
      */
     public function getBook($id)
     {
@@ -44,7 +44,8 @@ class BookDao implements BookDaoInterface
     /**
      * To save borrow book
      *
-     * @param array $book
+     * @param array $book 
+     * @return Object $book book object
      */
     public function storeBook($book)
     {

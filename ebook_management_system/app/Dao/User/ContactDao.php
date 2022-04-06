@@ -25,9 +25,10 @@ class ContactDao implements ContactDaoInterface
     }
 
     /**
-     * To store contactus
-     * @param array $data data of inputs
-     * @return Object created contact object
+     * To save feedback
+     * 
+     * @param array $data request with inputs
+     * @return Object $feedback Feedback object
      */
     public function store(Array $data)
     {

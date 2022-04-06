@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('content')
-<div class="form-sec">
   <div class="form-sec">
     @if (session('success_msg'))
       <div class="alert alert-success fade show col-md-4 mx-auto" role="alert">
@@ -93,9 +92,9 @@
       </div>
 
       <div class="clearfix">
-        <div class="col">
+        <div class="">
           <label class="form-label">Book Description</label>
-          <textarea name="description" class="description" placeholder="Description" cols="30"
+          <textarea name="description" class="book-des" placeholder="Description" cols="30"
               rows="5">{{ old('description', $item->description) }}</textarea>
           @if ($errors->has('description'))
               <small class="text-danger">*{{ $errors->first('description') }}</small>
@@ -103,9 +102,9 @@
         </div>
       </div>
 
-      <input type="submit" value="Update" class="create-btn">
-      <input type="button" value="Cancel" class="back-btn"
-          onclick="window.location='{{ URL::to('books') }}'" />
+       <input type="submit" value="Update" class="create-btn ft-right me-3">
+        <input type="button" value="Cancel" class="back-btn ft-right me-3"
+            onclick="window.location='{{ URL::to('books') }}'" />
     </form>
   </div>
 @endsection

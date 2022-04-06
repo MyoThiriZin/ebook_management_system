@@ -25,8 +25,10 @@ class BorrowService implements BorrowServiceInterface
     }
 
     /**
-     * To get borrow list
-     * @return array list of borrowed books
+     * To get borrow by id
+     * 
+     * @param string $id borrow id
+     * @return Object $borrow Borrow object
      */
     public function list($id)
     {

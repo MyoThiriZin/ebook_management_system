@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('auth.login')->with(['auth' => 'admin']);
 });
 
 Route::group(['middleware' => ['admin']], function () {
@@ -59,30 +59,19 @@ Route::group(['middleware' => ['admin']], function () {
 
 });
 
-Route::get('/register', 'Admin\Auth\AuthController@showRegistrationView')->name('register');
-Route::post('/register', 'Admin\Auth\AuthController@storeUser');
+Route::get('/register/{auth}', 'Admin\Auth\AuthController@showRegistrationView')->name('register');
+Route::post('/register/{auth}', 'Admin\Auth\AuthController@storeUser');
 
-Route::get('/login', 'Admin\Auth\AuthController@showLoginView')->name('login');
-Route::post('/login', 'Admin\Auth\AuthController@login');
-Route::get('logout', 'Admin\Auth\AuthController@logout')->name('logout');
+Route::get('/login/{auth}', 'Admin\Auth\AuthController@showLoginView')->name('login');
+Route::post('/login/{auth}', 'Admin\Auth\AuthController@login');
+Route::get('logout/{auth}', 'Admin\Auth\AuthController@logout')->name('logout');
 
-Route::get('forget-password', 'Admin\Auth\ForgotPasswordController@showForgetPasswordForm')->name('forget.password');
-Route::post('forget-password', 'Admin\Auth\ForgotPasswordController@submitForgetPasswordForm')->name('submit.forget.password');
-Route::get('reset-password/{token}', 'Admin\Auth\ForgotPasswordController@showResetPasswordForm')->name('reset.password');
-Route::post('reset-password', 'Admin\Auth\ForgotPasswordController@submitResetPasswordForm')->name('submit.reset.password');
+Route::get('forget-password/{auth}', 'Admin\Auth\ForgotPasswordController@showForgetPasswordForm')->name('forget.password');
+Route::post('forget-password/{auth}', 'Admin\Auth\ForgotPasswordController@submitForgetPasswordForm')->name('submit.forget.password');
+Route::get('reset-password/{token}/{auth}', 'Admin\Auth\ForgotPasswordController@showResetPasswordForm')->name('reset.password');
+Route::post('reset-password/{auth}', 'Admin\Auth\ForgotPasswordController@submitResetPasswordForm')->name('submit.reset.password');
 
-/* For user panel */
-Route::get('/user/register', 'User\Auth\AuthController@showRegistrationView')->name('user#register');
-Route::post('/user/register', 'User\Auth\AuthController@storeUser')->name('user#register_create');
-
-Route::get('/user/login', 'User\Auth\AuthController@showLoginView')->name('user#login_view');
-Route::post('/user/login', 'User\Auth\AuthController@login')->name('user#login');
-Route::get('user/logout', 'User\Auth\AuthController@logout')->name('user#logout');
-
-Route::get('user/forget-password', 'User\Auth\ForgotPasswordController@showForgetPasswordForm')->name('user#forget.password');
-Route::post('user/forget-password', 'User\Auth\ForgotPasswordController@submitForgetPasswordForm')->name('user#submit.forget.password');
-Route::get('user/reset-password/{token}', 'User\Auth\ForgotPasswordController@showResetPasswordForm')->name('user#reset.password');
-Route::post('user/reset-password', 'User\Auth\ForgotPasswordController@submitResetPasswordForm')->name('user#submit.reset.password');
+/*--------- For user panel ----------*/
 
 //User ContactUs
 Route::get('contact/create', 'User\ContactUsController@create')->name('user#contact_create');

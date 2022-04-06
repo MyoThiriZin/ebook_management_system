@@ -140,8 +140,6 @@ class CategoryController extends Controller
      */
     public function importFile()
     {
-        Category::truncate();
-
         return view('category.import');
     }
 
@@ -152,6 +150,7 @@ class CategoryController extends Controller
      */
     public function import()
     {
+        Category::truncate();
         Excel::import(new CategoriesImport, request()->file('file'));
 
         return redirect()->route('categories')->with("success_msg", importMessage("CSV"));
