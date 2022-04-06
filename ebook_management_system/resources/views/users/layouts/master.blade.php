@@ -72,7 +72,7 @@
             </li>
 
             <li class="{{ request()->is('borrow/list/*') ? 'active' : null }}">
-              <a href="{{ Auth::check() ? url('borrow/list/' . Auth::user()->id ) : url('/user/login') }}">Borrows</a>
+              <a href="{{ Auth::check() ? url('borrow/list/' . Auth::user()->id ) : url('login/' .'user') }}">Borrows</a>
             </li>
             <li class="{{ request()->is('contact/create') ? 'active' : null }}">
               <a href="{{route('user#contact_create')}}">Contact us</a>

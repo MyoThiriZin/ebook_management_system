@@ -20,7 +20,7 @@
   <div id="wrapper">
     <section class="sec-header">
       <div class="cmn-container clearfix">
-        <a href="">
+        <a href="{{ route('dashboard.index') }}">
           <h1>EBOOK MANAGEMENT
               SYSTEM</h1>
         </a>

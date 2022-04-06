@@ -38,7 +38,7 @@
           </div>
 
           <div class="book-detail-row">
-            <a href="{{ Auth::check() ? url('borrow/store/' . $book->id ) : url('/user/login') }}" class="read-btn" target="_blank"><i class="fa-solid fa-book-open"></i>borrow</a>
+            <a href="{{ Auth::check() ? url('borrow/store/' . $book->id ) : url('login/' . 'user') }}" class="read-btn" target="_blank"><i class="fa-solid fa-book-open"></i>borrow</a>
           </div>
         </div>
       </div>
