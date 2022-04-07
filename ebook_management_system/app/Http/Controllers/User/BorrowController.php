@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Borrow;
 use App\Contracts\Services\User\BorrowServiceInterface;
 use App\Http\Controllers\Controller;
 
@@ -37,6 +36,6 @@ class BorrowController extends Controller
     {
         $borrows = $this->borrowService->list($id);
 
-        return view('users.borrows.userborrowlist',['items' => $borrows]);
+        return view('users.borrows.userborrowlist', ['items' => $borrows]);
     }
 }

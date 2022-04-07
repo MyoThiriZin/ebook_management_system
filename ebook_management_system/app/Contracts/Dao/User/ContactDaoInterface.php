@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Contracts\Dao\User;
 
 /**
@@ -12,5 +13,5 @@ interface ContactDaoInterface
      * @param array $data
      * @return Object created data object
      */
-    function store(Array $data);
+    function store(array $data);
 }

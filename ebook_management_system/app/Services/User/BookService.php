@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services\User;
 
 use App\Book;
@@ -103,5 +104,4 @@ class BookService implements BookServiceInterface
     {
         return $this->bookDao->searchTotal($request);
     }
-
 }

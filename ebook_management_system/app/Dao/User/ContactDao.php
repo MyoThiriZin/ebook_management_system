@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Dao\User;
 
 use App\Contact;
@@ -30,7 +31,7 @@ class ContactDao implements ContactDaoInterface
      * @param array $data request with inputs
      * @return Object $feedback Feedback object
      */
-    public function store(Array $data)
+    public function store(array $data)
     {
         return $this->model->create($data);
     }

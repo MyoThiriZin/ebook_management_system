@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Dao\User;
 
 use App\Borrow;
@@ -34,5 +35,4 @@ class BorrowDao implements BorrowDaoInterface
     {
         return $this->model->with('user', 'book')->where('user_id', $id)->get();
     }
-
 }

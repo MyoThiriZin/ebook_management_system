@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('content')
 <div class="seemore">
-<div class=" clearfix">
-  <a href="{{ route('users.index') }}"><button class="back-btn ft-left"><i class="fa-fw fas fa-backward"></i>Back</button></a>
-</div>
+  <div class=" clearfix">
+    <a href="{{ route('users.index') }}"><button class="back-btn ft-left"><i class="fa-fw fas fa-backward"></i>Back</button></a>
+  </div>
   <div class="seemore-container">
     <h2 class="seemore-ttl">User Information</h2>
     <div class="seemore-item">
@@ -24,9 +24,9 @@
     <div class="seemore-item">
       <label for="">Role :</label>
       @if($user->type==0)
-        <span> Admin </span>
-        @else 
-        <span> User </span>
+      <span> Admin </span>
+      @else
+      <span> User </span>
       @endif
     </div>
   </div>

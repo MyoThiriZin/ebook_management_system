@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services\User;
 
 use App\Contracts\Dao\User\BorrowDaoInterface;
@@ -34,5 +35,4 @@ class BorrowService implements BorrowServiceInterface
     {
         return $this->borrowDao->list($id);
     }
-
 }

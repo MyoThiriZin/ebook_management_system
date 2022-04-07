@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 /**
  * Authors Import class
  */
-class AuthorsImport implements ToModel, WithHeadingRow 
+class AuthorsImport implements ToModel, WithHeadingRow
 {
     /**
      * To insert author data to storage

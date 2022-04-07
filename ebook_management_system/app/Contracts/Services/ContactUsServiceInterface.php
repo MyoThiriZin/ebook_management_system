@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Contracts\Services;
 
 /**
@@ -18,5 +19,4 @@ interface ContactUsServiceInterface
      * @return true
      */
     public function delete($id);
-
 }

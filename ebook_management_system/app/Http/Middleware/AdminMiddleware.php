@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Auth;
-use Facade\FlareClient\Http\Response;
 
 class AdminMiddleware
 {
@@ -21,6 +20,6 @@ class AdminMiddleware
             return $next($request);
         }
 
-        return redirect('login/'.'admin')->with('error','You have not admin access');
+        return redirect('login/' . 'admin')->with('error', 'You have not admin access');
     }
 }

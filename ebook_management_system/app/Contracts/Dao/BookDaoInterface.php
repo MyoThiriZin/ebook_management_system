@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Contracts\Dao;
 
 use Illuminate\Http\Request;
@@ -47,5 +48,4 @@ interface BookDaoInterface
      * @return true
      */
     public function delete($book);
-
 }

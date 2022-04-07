@@ -56,7 +56,6 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('/adminprofile', 'Admin\AdminController@show')->name('adminprofile');
     Route::resource('/users', 'Admin\UserController');
     Route::resource('/contact', 'Admin\ContactUsController');
-
 });
 
 Route::get('/register/{auth}', 'Admin\Auth\AuthController@showRegistrationView')->name('register');

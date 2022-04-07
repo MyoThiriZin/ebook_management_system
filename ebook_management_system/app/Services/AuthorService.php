@@ -96,5 +96,4 @@ class AuthorService implements AuthorServiceInterface
     {
         return $this->authorDaoInterface->authorsSearch($search);
     }
-
 }

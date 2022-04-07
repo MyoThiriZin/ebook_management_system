@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +15,16 @@
 
   <script src="{{ asset('js/library/jquery-3.6.0.min.js') }}"></script>
   <script>
-    function preventBack(){window.history.forward();}
-    setTimeout("preventBack()",0);
-    window.onunload = function(){null;}
+    function preventBack() {
+      window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    window.onunload = function() {
+      null;
+    }
   </script>
 </head>
+
 <body>
   <div class="wrapper">
     <section class="sec-header">
@@ -34,21 +40,21 @@
             <span> {{ Auth::user()->name }} </span>
           </div>
 
-            <ul class="dropdown-content ft-left">
-              <li>
-                <a href="{{ route('logout', 'user') }}">Logout</a>
-              </li>
-            </ul>
-            @else
-            <ul class="dropdown-content ft-left">
-              <li>
-                <a href="{{ route('login' , 'user') }}">Sign in</a>
-              </li>
-              <li>
-                <a href="{{ route('register' , 'user') }}">Sign up</a>
-              </li>
-            </ul>
-            @endauth
+          <ul class="dropdown-content ft-left">
+            <li>
+              <a href="{{ route('logout', 'user') }}">Logout</a>
+            </li>
+          </ul>
+          @else
+          <ul class="dropdown-content ft-left">
+            <li>
+              <a href="{{ route('login' , 'user') }}">Sign in</a>
+            </li>
+            <li>
+              <a href="{{ route('register' , 'user') }}">Sign up</a>
+            </li>
+          </ul>
+          @endauth
           </ul>
         </div>
       </div>
@@ -98,7 +104,7 @@
         </div>
 
         <div class="ft-left footer-snd-nav">
-        <h5 class="footer-ttl">Links</h5>
+          <h5 class="footer-ttl">Links</h5>
           <ul class="clearfix">
             <li class="{{ request()->is('user') ? 'active' : null }}">
               <a href="{{ route('user') }}">Home</a>
@@ -156,12 +162,13 @@
 
     <section class="sec-copyright">
       <div class="container">
-          <div class="copyright">
-            <span>Copyright @ Seattle Consulting Myanmar Co.,Ltd. All right preserved.</span>
-          </div>
+        <div class="copyright">
+          <span>Copyright @ Seattle Consulting Myanmar Co.,Ltd. All right preserved.</span>
+        </div>
       </div>
     </section><!-- /.sec-copyright -->
 
   </div>
 </body>
+
 </html>

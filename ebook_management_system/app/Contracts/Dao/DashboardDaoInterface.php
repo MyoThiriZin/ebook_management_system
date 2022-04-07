@@ -5,7 +5,7 @@ namespace App\Contracts\Dao;
 /**
  * Interface of Data Access Object for dashboard
  */
-interface DashboardDaoInterface 
+interface DashboardDaoInterface
 {
     /**
      * To get chart of user counts
@@ -30,5 +30,4 @@ interface DashboardDaoInterface
      * @return array list of categories
      */
     public function getcategories();
-
 }

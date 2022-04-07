@@ -31,7 +31,7 @@ class AuthorController extends Controller
     {
         $this->authorServiceInterface = $authorServiceInterface;
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -193,7 +193,7 @@ class AuthorController extends Controller
      */
     public function importFile()
     {
-        
+
         return view('authors.import');
     }
 

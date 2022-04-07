@@ -5,7 +5,7 @@ namespace App\Contracts\Dao\User;
 /**
  * Interface of Data Access Object for Home
  */
-interface HomeDaoInterface 
+interface HomeDaoInterface
 {
     /**
      * To get book
@@ -27,5 +27,4 @@ interface HomeDaoInterface
      * @return Object $categories category object
      */
     public function getcategories();
-
 }

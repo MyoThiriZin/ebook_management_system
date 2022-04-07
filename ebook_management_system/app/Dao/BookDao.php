@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Dao;
 
 use App\Book;
@@ -37,19 +38,19 @@ class BookDao implements BookDaoInterface
     public function index()
     {
         return $this->model->when($search = request('searchData'), function ($query) use ($search) {
-                        $query->where('name', 'LIKE', '%' . $search . '%')
-                        ->orWhere('duration', 'LIKE', '%' . $search . '%')
-                        ->orWhere(function ($query) use ($search) {
-                            $query->whereHas('author', function ($qry) use ($search) {
-                                $qry->where('name', 'LIKE', '%' . $search . '%');
-                            });
-                        })
-                        ->orWhere(function ($query) use ($search) {
-                            $query->whereHas('category', function ($qry) use ($search) {
-                                $qry->where('name', 'LIKE', '%' . $search . '%');
-                            });
-                        });
-                        })->latest()->paginate(10);
+            $query->where('name', 'LIKE', '%' . $search . '%')
+                ->orWhere('duration', 'LIKE', '%' . $search . '%')
+                ->orWhere(function ($query) use ($search) {
+                    $query->whereHas('author', function ($qry) use ($search) {
+                        $qry->where('name', 'LIKE', '%' . $search . '%');
+                    });
+                })
+                ->orWhere(function ($query) use ($search) {
+                    $query->whereHas('category', function ($qry) use ($search) {
+                        $qry->where('name', 'LIKE', '%' . $search . '%');
+                    });
+                });
+        })->latest()->paginate(10);
     }
 
     /**
@@ -74,7 +75,7 @@ class BookDao implements BookDaoInterface
      * To request book data
      * @return array list of book data
      */
-    private function requestBook($request, $fileName ,$pdf_fileName)
+    private function requestBook($request, $fileName, $pdf_fileName)
     {
         return [
             'name' => $request->name,
@@ -136,7 +137,7 @@ class BookDao implements BookDaoInterface
             $updateData['image'] = $fileName;
         }
 
-        if(isset($updateData['file'])){
+        if (isset($updateData['file'])) {
             $file_data = $this->model->select('file')->where('id', $book->id)->first();
             $pdf_fileName = $file_data['file'];
 
@@ -177,7 +178,7 @@ class BookDao implements BookDaoInterface
             $arr['image'] = $request->image;
         }
 
-        if(isset($request->file)){
+        if (isset($request->file)) {
             $arr['file'] = $request->file;
         }
 
@@ -191,13 +192,13 @@ class BookDao implements BookDaoInterface
      */
     public function delete($book)
     {
-        $data = $this->model->select('image','file')->where('id', $book->id)->first();
+        $data = $this->model->select('image', 'file')->where('id', $book->id)->first();
         $fileName = $data['image'];
         $pdf_fileName = $data['file'];
 
         $this->model->where('id', $book->id)->delete();
-        
-        Borrow::with('book')->where('book_id' , $book->id)->delete();
+
+        Borrow::with('book')->where('book_id', $book->id)->delete();
 
         if (File::exists(public_path() . '/uploads/' . $fileName)) {
             File::delete(public_path() . '/uploads/' . $fileName);
@@ -209,5 +210,4 @@ class BookDao implements BookDaoInterface
 
         return true;
     }
-
 }

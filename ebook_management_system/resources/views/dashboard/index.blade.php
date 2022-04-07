@@ -35,8 +35,8 @@
 
 <div class="chart-sec">
   {!! $chart->container() !!}
-  
+
   {!! $chart->script() !!}
 </div>
-    
+
 @endsection

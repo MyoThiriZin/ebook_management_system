@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('content')
 <div class="seemore">
-<div class=" clearfix">
-  <a href="{{ route('contact.index') }}"><button class="back-btn ft-left"><i class="fa-fw fas fa-backward"></i>Back</button></a>
-</div>
+  <div class=" clearfix">
+    <a href="{{ route('contact.index') }}"><button class="back-btn ft-left"><i class="fa-fw fas fa-backward"></i>Back</button></a>
+  </div>
   <div class="seemore-container">
     <h2 class="seemore-ttl">Contact Information </h2>
     <div class="seemore-item">

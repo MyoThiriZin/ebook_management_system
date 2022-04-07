@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Contracts\Dao;
 
 /**
@@ -11,12 +12,11 @@ interface UserDaoInterface
      * @return array list of users
      */
     public function index();
-    
+
     /**
      * To delete user
      * @param integer $user user id
      * @return true
      */
     public function delete($user);
-
 }

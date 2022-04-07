@@ -20,5 +20,4 @@ class AuthorsExport implements FromCollection, WithHeadings
     {
         return Author::select('id', 'name', 'email', 'description')->get();
     }
-
 }

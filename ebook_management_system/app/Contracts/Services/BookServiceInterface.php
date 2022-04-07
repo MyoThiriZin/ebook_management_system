@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Contracts\Services;
 
 use Illuminate\Http\Request;
@@ -47,5 +48,4 @@ interface BookServiceInterface
      * @return true
      */
     public function delete($book);
-
 }

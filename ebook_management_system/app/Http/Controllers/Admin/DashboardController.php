@@ -25,7 +25,7 @@ class DashboardController extends Controller
     {
         $this->dashboardServiceInterface = $dashboardServiceInterface;
     }
-    
+
     /**
      * Display a listing of the resource.
      *

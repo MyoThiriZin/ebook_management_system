@@ -18,7 +18,7 @@ class BookController extends Controller
      * book service
      */
     private $bookService;
-    
+
     /**
      * Create a new controller instance.
      * @param BookServiceInterface $bookService
@@ -149,5 +149,4 @@ class BookController extends Controller
 
         return redirect()->back()->with("success_msg", deletedMessage("Book"));
     }
-
 }

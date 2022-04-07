@@ -31,6 +31,6 @@ class BookRentalMail extends Mailable implements ShouldQueue
     public function build()
     {
         return $this->markdown('users.books.bookrentalemail')
-        ->with(['detail' => $this->detail ]);
+            ->with(['detail' => $this->detail]);
     }
 }

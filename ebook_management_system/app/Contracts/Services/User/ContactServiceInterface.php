@@ -12,5 +12,5 @@ interface ContactServiceInterface
      * @param array $data data of inputs
      * @return Object created contact object
      */
-    public function store(Array $data);
+    public function store(array $data);
 }

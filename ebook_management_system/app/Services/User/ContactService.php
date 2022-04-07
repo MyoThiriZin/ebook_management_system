@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services\User;
 
 use App\Contracts\Dao\User\ContactDaoInterface;
@@ -29,9 +30,8 @@ class ContactService implements ContactServiceInterface
      * @param array $data data of contact
      * @return Object created contact object
      */
-    public function store(Array $data)
+    public function store(array $data)
     {
         return $this->contactDao->store($data);
     }
-
 }

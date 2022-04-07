@@ -4,8 +4,6 @@ namespace App\Services\Auth;
 
 use App\Contracts\Dao\Auth\AuthDaoInterface;
 use App\Contracts\Services\Auth\AuthServiceInterface;
-use Carbon\Carbon;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 /**

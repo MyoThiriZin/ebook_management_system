@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use App\Contracts\Dao\CategoryDaoInterface;
@@ -38,7 +39,7 @@ class CategoryService implements CategoryServiceInterface
      * @param array $data data of category
      * @return Object created category object
      */
-    public function store(Array $data)
+    public function store(array $data)
     {
         return $this->categoryDao->store($data);
     }
@@ -73,5 +74,4 @@ class CategoryService implements CategoryServiceInterface
     {
         return $this->categoryDao->search($request);
     }
-
 }

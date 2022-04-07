@@ -6,11 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UserRegisterRequest;
 use App\Contracts\Services\Auth\AuthServiceInterface;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use App\User;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 /**
  * This is Authentication Controller.
@@ -40,7 +38,7 @@ class AuthController extends Controller
      */
     public function showRegistrationView($auth)
     {
-        return view('auth.register')->with([ 'auth' => $auth ]);
+        return view('auth.register')->with(['auth' => $auth]);
     }
 
     /**
@@ -55,7 +53,7 @@ class AuthController extends Controller
     {
         $request->validated();
         $user = $this->authInterface->saveUser($request);
-        return redirect('login/'. $auth)->with(['auth' => $auth , 'message' => 'Your account has been successfully created!']);
+        return redirect('login/' . $auth)->with(['auth' => $auth, 'message' => 'Your account has been successfully created!']);
     }
 
     /**
@@ -65,7 +63,7 @@ class AuthController extends Controller
      */
     public function showLoginView($auth)
     {
-        return view('auth.login')->with([ 'auth' => $auth ]);
+        return view('auth.login')->with(['auth' => $auth]);
     }
 
     /**
@@ -75,8 +73,8 @@ class AuthController extends Controller
      *
      * @param  LoginRequest $request Request from register
      * @return View dashboard confirm
-     */  
-    public function login(LoginRequest $request , $auth)
+     */
+    public function login(LoginRequest $request, $auth)
     {
         $validated = $request->only('email', 'password');
 
@@ -88,7 +86,7 @@ class AuthController extends Controller
             }
         }
 
-        return redirect('login/'.$auth)->with('error', 'Email or password is incorrect.');
+        return redirect('login/' . $auth)->with('error', 'Email or password is incorrect.');
     }
 
     /**
@@ -96,10 +94,11 @@ class AuthController extends Controller
      *
      * @return View login view
      */
-    public function logout($auth) {
-      Auth::logout();
-      Session::flush();
-      Redirect::back();
-      return redirect('login/' . $auth)->with(['auth' => $auth]);
+    public function logout($auth)
+    {
+        Auth::logout();
+        Session::flush();
+        Redirect::back();
+        return redirect('login/' . $auth)->with(['auth' => $auth]);
     }
 }

@@ -20,7 +20,7 @@ interface CategoryServiceInterface
      * @param array data form request
      * @return Object created category object
      */
-    public function store(Array $data);
+    public function store(array $data);
 
     /**
      * To update category data

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Dao;
 
 use Carbon\Carbon;
@@ -47,7 +48,6 @@ class BorrowDao implements BorrowDaoInterface
                     });
                 });
         })->latest()->paginate(10);
-
     }
 
     /**
@@ -66,10 +66,10 @@ class BorrowDao implements BorrowDaoInterface
      */
     public function getRentalExpireMail()
     {
-        $details = Borrow::with('user','book')->where('end_date', '<', Carbon::now())
-        ->where('mail_status', '=', 'pending')->get();
+        $details = Borrow::with('user', 'book')->where('end_date', '<', Carbon::now())
+            ->where('mail_status', '=', 'pending')->get();
         if (count($details) > 0) {
-            foreach($details as $detail) {
+            foreach ($details as $detail) {
                 $useremail = $detail->user->email;
                 Mail::to($useremail)->send(new BookRentalMail($detail));
                 $detail->mail_status = 'completed';
@@ -80,5 +80,4 @@ class BorrowDao implements BorrowDaoInterface
             return 'There is no book rental expire mail to send!';
         }
     }
-
 }

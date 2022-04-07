@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Contact;
 use App\Contracts\Services\User\ContactServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\storeContactUsRequest;

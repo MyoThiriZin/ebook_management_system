@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Dao;
 
 use App\Category;
@@ -86,8 +87,7 @@ class CategoryDao implements CategoryDaoInterface
             ->where('id', 'LIKE', "%{$search}%")
             ->orWhere('name', 'LIKE', "%{$search}%")
             ->latest()->paginate(10);
-            
+
         return $categories;
     }
-
 }

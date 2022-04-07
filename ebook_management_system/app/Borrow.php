@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Borrow extends Model
 {
     use SoftDeletes;
-    
+
     protected $fillable = [
         'user_id',
         'book_id',

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 /**
  * Interface of Data Access Object for author
  */
-interface AuthorDaoInterface 
+interface AuthorDaoInterface
 {
     /**
      * To get author
@@ -61,5 +61,4 @@ interface AuthorDaoInterface
      * @return Object searched author object
      */
     public function authorsSearch($search);
-
 }

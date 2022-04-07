@@ -1,8 +1,8 @@
 <?php
+
 namespace App\Dao;
 
 use App\Contact;
-use Illuminate\Http\Request;
 use App\Contracts\Dao\ContactUsDaoInterface;
 
 /**
@@ -32,11 +32,11 @@ class ContactUsDao implements ContactUsDaoInterface
     public function index()
     {
         return $this->model->when($search = request('searchData'), function ($query) use ($search) {
-                        $query->where('name', 'LIKE', '%' . $search . '%')
-                        ->orWhere('email', 'LIKE', '%' . $search . '%')
-                        ->orWhere('message', 'LIKE', '%' . $search . '%')
-                        ->orWhere('phone_no', 'LIKE', '%' . $search . '%');
-                        })->latest()->paginate(10);
+            $query->where('name', 'LIKE', '%' . $search . '%')
+                ->orWhere('email', 'LIKE', '%' . $search . '%')
+                ->orWhere('message', 'LIKE', '%' . $search . '%')
+                ->orWhere('phone_no', 'LIKE', '%' . $search . '%');
+        })->latest()->paginate(10);
     }
 
     /**
@@ -47,8 +47,7 @@ class ContactUsDao implements ContactUsDaoInterface
     public function delete($id)
     {
         $this->model->where('id', $id)->delete();
-        
+
         return true;
     }
-
 }

@@ -20,5 +20,4 @@ class CategoriesExport implements FromCollection, WithHeadings
     {
         return Category::select('id', 'name')->get();
     }
-
 }

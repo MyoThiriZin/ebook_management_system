@@ -1,8 +1,8 @@
 <?php
+
 namespace App\Dao;
 
 use App\User;
-use Illuminate\Http\Request;
 use App\Contracts\Dao\UserDaoInterface;
 
 /**
@@ -31,14 +31,14 @@ class UserDao implements UserDaoInterface
      */
     public function index()
     {
-      return $this->model->when($search = request('searchData'), function ($query) use ($search) {
-                        $query->where('name', 'LIKE', '%' . $search . '%')
-                        ->orWhere('id', 'LIKE', '%' . $search . '%')
-                        ->orWhere('email', 'LIKE', '%' . $search . '%')
-                        ->orWhere('phone_no', 'LIKE', '%' . $search . '%')
-                        ->orWhere('address', 'LIKE', '%' . $search . '%')
-                        ->orWhere('type', 'LIKE', '%' . $search . '%');
-                        })->latest()->paginate(10);
+        return $this->model->when($search = request('searchData'), function ($query) use ($search) {
+            $query->where('name', 'LIKE', '%' . $search . '%')
+                ->orWhere('id', 'LIKE', '%' . $search . '%')
+                ->orWhere('email', 'LIKE', '%' . $search . '%')
+                ->orWhere('phone_no', 'LIKE', '%' . $search . '%')
+                ->orWhere('address', 'LIKE', '%' . $search . '%')
+                ->orWhere('type', 'LIKE', '%' . $search . '%');
+        })->latest()->paginate(10);
     }
 
     /**
@@ -51,5 +51,4 @@ class UserDao implements UserDaoInterface
         $this->model->where('id', $id)->delete();
         return true;
     }
-
 }

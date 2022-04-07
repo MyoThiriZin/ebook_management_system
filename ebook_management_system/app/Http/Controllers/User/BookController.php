@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Book;
 use App\Contracts\Services\User\BookServiceInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -83,7 +82,5 @@ class BookController extends Controller
         $datas = $this->bookInterface->searchTotal($request);
 
         return view('users.books.index')->with(['items' => $books, 'categories' => $categories, 'authors' => $authors, 'data' => $datas]);
-
     }
-
 }

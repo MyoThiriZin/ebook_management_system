@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Dao\User;
 
 use App\Author;
@@ -99,7 +100,6 @@ class BookDao implements BookDaoInterface
                         $qry->where('name', 'LIKE', '%' . $search . '%');
                     });
                 });
-
         })->when($category, function ($query) use ($category) {
             $query->orwhereHas('category', function ($qry) use ($category) {
                 $qry->where('id', $category);
@@ -176,7 +176,6 @@ class BookDao implements BookDaoInterface
                         $qry->where('name', 'LIKE', '%' . $search . '%');
                     });
                 });
-
         })->when($category, function ($query) use ($category) {
             $query->orwhereHas('category', function ($qry) use ($category) {
                 $qry->where('id', $category);

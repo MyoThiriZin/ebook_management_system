@@ -6,10 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ForgotPasswordRequest;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Contracts\Services\Auth\ForgotPasswordServiceInterface;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Mail;
-use App\User; 
+use Illuminate\Support\Facades\Mail;
 
 /**
  * This is Forgot Password Controller.
@@ -33,10 +31,10 @@ class ForgotPasswordController extends Controller
     }
 
     /**
-       * To show forgetPassword view
-       *
-       * @return View ForgetPassword view
-    */
+     * To show forgetPassword view
+     *
+     * @return View ForgetPassword view
+     */
     public function showForgetPasswordForm($auth)
     {
         return view('auth.forgetPassword')->with(['auth' => $auth]);
@@ -48,17 +46,17 @@ class ForgotPasswordController extends Controller
      * @param  ForgotPasswordRequest $request Request from ForgetPassword
      * @return View ForgotPassword
      */
-    public function submitForgetPasswordForm(ForgotPasswordRequest $request,$auth)
+    public function submitForgetPasswordForm(ForgotPasswordRequest $request, $auth)
     {
         $request->validated();
         $token = Str::random(64);
-        $passwordReset = $this->forgotPasswordInterface->savePasswordReset($request,$token);
-        
-        Mail::send('auth.emailForgetPassword', ['token' => $token , 'auth' => $auth] , function($message) use($request){
+        $passwordReset = $this->forgotPasswordInterface->savePasswordReset($request, $token);
+
+        Mail::send('auth.emailForgetPassword', ['token' => $token, 'auth' => $auth], function ($message) use ($request) {
             $message->to($request->email);
             $message->subject('Reset Password');
         });
-        return back()->with(['auth' => $auth ,'message' => 'We have e-mailed your password reset link!']);
+        return back()->with(['auth' => $auth, 'message' => 'We have e-mailed your password reset link!']);
     }
 
     /**
@@ -66,8 +64,9 @@ class ForgotPasswordController extends Controller
      * @param  token
      * @return View resetpassword
      */
-    public function showResetPasswordForm($token, $auth) {
-        return view('auth.forgetPasswordLink', ['token' => $token , 'auth' => $auth]);
+    public function showResetPasswordForm($token, $auth)
+    {
+        return view('auth.forgetPasswordLink', ['token' => $token, 'auth' => $auth]);
     }
 
     /**
@@ -79,6 +78,6 @@ class ForgotPasswordController extends Controller
     {
         $request->validated();
         $passwordReset = $this->forgotPasswordInterface->updatePassword($request);
-        return redirect('login/'.$auth)->with('message', 'Your password has been changed!');
+        return redirect('login/' . $auth)->with('message', 'Your password has been changed!');
     }
 }

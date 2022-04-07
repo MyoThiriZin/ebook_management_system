@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Borrow;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\Services\BorrowServiceInterface;
 
@@ -37,7 +36,7 @@ class BorrowController extends Controller
     {
         $borrows = $this->borrowService->index();
 
-        return view('borrow.index',['items' => $borrows]);
+        return view('borrow.index', ['items' => $borrows]);
     }
 
     /**
@@ -48,7 +47,7 @@ class BorrowController extends Controller
      */
     public function show(Borrow $borrow)
     {
-        return view('borrow.show',['item' => $borrow]);
+        return view('borrow.show', ['item' => $borrow]);
     }
 
     /**

@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 /**
  * Data Access Object for Author
  */
-class AuthorDao implements AuthorDaoInterface { 
+class AuthorDao implements AuthorDaoInterface
+{
     /**
      * To get author
      * @param Request $request request including inputs
@@ -42,10 +43,9 @@ class AuthorDao implements AuthorDaoInterface {
     public function deleteById($id)
     {
         $author = Author::findOrFail($id);
-        foreach($author->books as $book)
-        {
-            $book->borrow()->delete(); 
-            $book->delete(); 
+        foreach ($author->books as $book) {
+            $book->borrow()->delete();
+            $book->delete();
         }
         return $author->delete();
     }
@@ -70,9 +70,9 @@ class AuthorDao implements AuthorDaoInterface {
     {
         return Author::whereId($id)->update(
             [
-            'name' => $request->name,
-            'email' => $request->email,
-            'description' => $request->description
+                'name' => $request->name,
+                'email' => $request->email,
+                'description' => $request->description
             ]
         );
     }
@@ -84,7 +84,7 @@ class AuthorDao implements AuthorDaoInterface {
      */
     public function detailAuthor($id)
     {
-      return Author::with('user')->find($id);
+        return Author::with('user')->find($id);
     }
 
     /**
@@ -95,10 +95,9 @@ class AuthorDao implements AuthorDaoInterface {
     public function authorsSearch($search)
     {
         return Author::with('user')
-        ->where('name', 'like', '%' . $search . '%')
-        ->orWhere('email', 'like', '%' . $search . '%')
-        ->orWhere('description', 'like', '%' . $search . '%')
-        ->paginate(10);
+            ->where('name', 'like', '%' . $search . '%')
+            ->orWhere('email', 'like', '%' . $search . '%')
+            ->orWhere('description', 'like', '%' . $search . '%')
+            ->paginate(10);
     }
-
 }

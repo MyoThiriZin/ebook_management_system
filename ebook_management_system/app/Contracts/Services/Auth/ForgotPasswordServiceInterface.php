@@ -13,7 +13,7 @@ interface ForgotPasswordServiceInterface
      * To create passwordreset
      * @param Request $request request including inputs
      */
-    public function savePasswordReset(Request $request,$token);
+    public function savePasswordReset(Request $request, $token);
 
     /**
      * To update password

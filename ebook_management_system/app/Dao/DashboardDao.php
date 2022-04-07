@@ -12,13 +12,13 @@ use App\Category;
 /**
  * Data Access Object for Dashboard
  */
-class DashboardDao implements DashboardDaoInterface 
+class DashboardDao implements DashboardDaoInterface
 {
     /**
      * To get chart of user counts
      * @return array list of book labels and user counts
      */
-    public function getchart() 
+    public function getchart()
     {
         $books = Borrow::join('books', 'borrows.book_id', '=', 'books.id')
             ->groupBy('book_id')
@@ -30,8 +30,8 @@ class DashboardDao implements DashboardDaoInterface
         $chart = new BookChart;
         $chart->labels($books->keys());
         $chart->dataset('User Counts', 'bar', $books->values())
-                ->backgroundColor('#2d6cdf');
-        
+            ->backgroundColor('#2d6cdf');
+
         return $chart;
     }
 
@@ -39,7 +39,7 @@ class DashboardDao implements DashboardDaoInterface
      * To get book list
      * @return array list of books
      */
-    public function getbooks() 
+    public function getbooks()
     {
         return Book::get();
     }
@@ -48,7 +48,7 @@ class DashboardDao implements DashboardDaoInterface
      * To get author list
      * @return array list of authors
      */
-    public function getauthors() 
+    public function getauthors()
     {
         return Author::get();
     }
@@ -57,7 +57,7 @@ class DashboardDao implements DashboardDaoInterface
      * To get category list
      * @return array list of categories
      */
-    public function getcategories() 
+    public function getcategories()
     {
         return Category::get();
     }

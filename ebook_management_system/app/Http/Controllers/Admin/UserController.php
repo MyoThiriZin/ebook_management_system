@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 use App\Contracts\Services\UserServiceInterface;
 use App\User;
@@ -32,7 +32,8 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
+    public function index()
+    {
         $user = $this->userService->index();
         return view('userlists.userlist', ['users' => $user]);
     }
